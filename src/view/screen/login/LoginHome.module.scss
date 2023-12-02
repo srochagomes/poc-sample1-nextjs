@@ -1,0 +1,108 @@
+.body {    
+    
+    display: flex;
+    align-items: center;
+    
+    height: 100vh;
+    margin: 0;    
+    flex-direction: column;
+
+    &-feriaz {
+      margin-top: 8vh;
+    }
+    &-welcome {
+      margin-top: 4vh;
+      &-login-caption {
+        margin-top: 0.2vh;
+      }
+    }
+    &-form-login {
+      margin-top: 8vh;
+      &-forgot-password {
+        display: flex;
+        padding-right: 1%;        
+        margin-top: 3vh;
+        justify-content: flex-end;            
+      }
+      &-button{
+        display: flex;        
+        margin-top: 6vh;
+        justify-content: center;            
+      }
+    }
+
+    &-or-login-social-caption {
+      margin-top: 8vh;
+      display: flex;      
+      margin-top: 2rem;                
+      justify-content: center;   
+    }
+    
+    &-button-login-google{
+      margin-top: 8vh;
+      display: flex;      
+      margin-top: 2rem;                
+      justify-content: center;  
+    }
+
+    &-button-login-facebook{      
+      display: flex;      
+      margin-top: 0.8vh;                
+      justify-content: center;  
+    }
+
+    &-invite-signin {
+      margin-top: 8vh;
+      & > * {        
+        margin: 0.5rem; 
+    } 
+    }
+  }
+  
+
+  @media (max-width: 400px) {
+    .body {
+  
+      &-feriaz {
+        margin-top: 4vh;
+      }
+      &-welcome {
+        margin-top: 4vh;
+        &-login-caption {
+          margin-top: 0.2vh;
+        }
+      }
+      &-form-login {
+        margin-top: 4vh;
+        &-forgot-password {
+          margin-top: 5vh;
+        }
+        &-button{
+          margin-top: 4vh;
+        }
+      }
+  
+      &-or-login-social-caption {
+        margin-top: 2vh;
+      }
+      
+      &-button-login-google{
+        margin-top: 4vh;
+      }
+  
+      &-button-login-facebook{      
+        display: flex;      
+        margin-top: 0.8vh;                
+        justify-content: center;  
+      }
+  
+      &-invite-signin {
+        margin-top: 3vh;
+        & > * {        
+          margin: 0.5rem; 
+      } 
+      }
+    }
+    
+    
+  }

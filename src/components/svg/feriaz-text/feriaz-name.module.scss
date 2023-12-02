@@ -1,0 +1,14 @@
+.feriazName {
+    background: url('/images/icons/feriaz-name-2.svg') no-repeat;
+    width: 9vw;
+    height: 9vh;
+
+    @media (max-width: 912px) {
+        width: 22vw;
+        height: 10vh;
+    }
+    @media (max-width: 480px) {
+        width: 30vw;
+        height: 10vh;
+    }
+}

@@ -1,0 +1,48 @@
+.typography {
+    font-size: 1rem; // Tamanho de fonte padrão
+    font-weight: normal;
+    color: black;   // Cor padrão
+  
+    &[data-font-size='H1'] {
+      font-size: 2rem;
+    }
+  
+    &[data-font-size='H2'] {
+      font-size: 1.5rem;
+    }
+  
+    &[data-font-size='H3'] {
+      font-size: 1.25rem;      
+    }
+
+    &[data-font-size='caption1'] {
+      font-size: 0.80rem;      
+    }
+
+    &[data-font-size='caption2'] {
+      font-size: 0.80rem;
+      font-weight: bold;
+    }
+
+    &[data-font-size='subtitle1'] {
+      font-size: 0.80rem;
+    }
+  
+    &[data-color='red'] {
+      color: red;
+    }
+  
+    &[data-color='blue'] {
+      color: blue;
+    }
+    &[data-color='white'] {
+      color: white;
+    }
+
+    &[data-weight='bold'] {
+      font-weight: bold;
+    }
+    &[data-weight='extrabold'] {
+      font-weight: 800;
+    }
+  }

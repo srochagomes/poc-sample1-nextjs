@@ -1,0 +1,9 @@
+{
+    "welcome": "Bem-vindo ao nosso site!",
+    "welcome.traveler": "Olá Viajante!",
+    "login.caption": "Faça seu login.",
+    "login.forgot.caption" : "esqueci minha senha",
+    "login.or-login-social.caption" : "ou entrar com",
+    "user.without.account.caption" : "Não tem conta?",
+    "user.should-create.account.caption" : "Cadastre-se"
+}

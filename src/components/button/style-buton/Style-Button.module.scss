@@ -1,0 +1,28 @@
+.buttonPrimary {
+    padding: 10px;
+    border: none;
+    width: 246px;
+    height: 48px;
+    background-color: #fff; /* Cor de fundo do botão, ajuste conforme necessário */
+    color: 6E6E6D; /* Cor do texto */
+    font-weight: 800; /* Extrabold */
+    border-radius: 10px; /* Cantos arredondados, ajuste conforme necessário */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Efeito de transição de cor de fundo */    
+    display: flex;
+    align-items: center;
+    
+    justify-content: center;  
+
+    &-icon {
+      margin-right: 0.7vh; /* Espaço à direita do ícone */
+    }
+  
+    &-caption {
+      margin-left: 0.7vh; /* Espaço à esquerda do texto */
+    }
+  
+    &:hover {
+      background-color: #d3cbcb; /* Cor de fundo ao passar o mouse, ajuste conforme necessário */
+    }
+  }

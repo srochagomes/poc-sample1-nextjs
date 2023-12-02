@@ -1,0 +1,16 @@
+# Node.js
+node_modules/
+
+# Arquivos de build
+.next/
+out/
+
+# Arquivos de configuração
+.env
+
+# Arquivos de log
+*.log
+
+# Dependências específicas do sistema operacional
+.DS_Store
+Thumbs.db

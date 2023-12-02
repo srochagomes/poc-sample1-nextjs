@@ -1,0 +1,34 @@
+.inputContainer {
+    background-color: white;
+    display: flex;
+
+    &[data-round='top'] {
+        border-radius: 10px 10px 0 0;
+    }
+    &[data-round='button'] {
+        border-radius:  0 0 10px 10px;
+    }
+
+    &-inputText {
+        height: 4vh;        
+        border-width: 0;
+        padding-left: 1vh;
+        flex-grow: 12;
+        @media (max-width: 520px) {
+            flex: 9; 
+        }
+        @media (max-width: 375px) {
+            flex: 7; 
+        }
+    }
+    &-passwordIcon {    
+        background: url('/images/icons/eye.svg') no-repeat; 
+        background-position: right center;               
+        flex: 1;   
+        
+        
+    }
+}
+
+
+
