@@ -1,0 +1,62 @@
+@import '@/styles/global-variables';
+
+.HeaderMenu{
+  
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  nav {
+    width: 100%;
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    
+
+    ul {      
+      display: flex;    
+      list-style: none;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      font-family: Poppins, sans-serif;
+      // Estilo para cada item do menu
+      li {        
+        padding-left: 25px;
+        a {
+          text-decoration: none; // Remover sublinhado padrão
+          color: #ffff; // Cor do texto
+          font-size: 17px; // Tamanho da fonte                
+          
+          &:hover {
+            text-decoration: none; // Adicionar sublinhado ao passar o mouse
+          }
+        }
+      }
+    }  
+  
+  }
+
+  &-buttons { 
+    position: absolute;
+    display: flex;    
+    right: 0; /* Ajuste para a direita */
+  }
+
+  &-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    
+  }  
+  
+    
+}

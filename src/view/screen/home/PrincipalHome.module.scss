@@ -1,0 +1,29 @@
+@import '@/styles/global-variables';
+
+.body {    
+    display: flex;
+    align-items: center;    
+    margin: 0;    
+    flex-direction: column;
+
+    &-top-area {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    &-text-area{
+        font-family: Poppins, sans-serif;
+        color: #ffff;  
+        line-height: 4rem;
+        font-weight: 800;
+        font-size: 3rem;
+        margin-top: 8vh;     
+        text-align: center;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        width: 50rem;
+    }
+  
+}
