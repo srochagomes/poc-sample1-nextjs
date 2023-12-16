@@ -2,6 +2,7 @@ import { useTranslation } from "next-i18next"
 import style from "./PrincipalHome.module.scss"
 import FeriazText, { FeriazSizeEnum } from "@/components/svg/feriaz-text"
 import HeaderMenu from "./header/menu"
+import FeriazFilter from "@/components/feriaz-filter"
  
 
 
@@ -11,11 +12,14 @@ export default function PrincipalHome() {
   return (
     <>      
       <section className={style.body}>
-        <div className={style['body-top-area']}>
+        <div className={style['body-area-top']}>
           <FeriazText sizeType={FeriazSizeEnum.BIG} />          
           <HeaderMenu/>
         </div>
-        <span className={style['body-text-area']}>Férias: planeje sua viagem em minutos com inteligência artificial.</span>
+        <div className={style['body-area-search']}>
+          <FeriazFilter/>
+        </div>
+        <span className={style['body-area-text']}>Férias: planeje sua viagem em minutos com inteligência artificial.</span>
         
       </section>
       
