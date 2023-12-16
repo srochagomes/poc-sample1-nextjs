@@ -1,4 +1,31 @@
 .iconSelectButton{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    
+    &-underlined{
+        border: 0.05rem solid #6E6E6D; 
+        width: 100%;
+        &[data-selected=true] {
+            border: 0.2rem solid #6E6E6D;             
+            border-radius: 10px;
+        }
+
+    }   
+    
+    &:hover {
+
+        .iconSelectButton-underlined {
+            border: 0.2rem solid #6E6E6D; 
+            border-radius: 1rem;
+        }
+    }
+    > span{                
+        
+        font-size: 0.6rem;
+        
+    }
     
 }

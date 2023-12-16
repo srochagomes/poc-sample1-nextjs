@@ -33,6 +33,7 @@ body {
 	line-height: 1;
     background-color: $color-background-principal;
 	font-family: 'Manrope', sans-serif;
+	box-sizing: border-box;
 }
 menu, ol, ul {
 	list-style: none;

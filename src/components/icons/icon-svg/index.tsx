@@ -25,7 +25,6 @@ export default function IconSVG(props:Props){
 
     return (
             <> 
-                <div>
                     <Image        
                         priority
                         src={path}
@@ -33,7 +32,7 @@ export default function IconSVG(props:Props){
                         width={widthSize}
                         alt={alt?alt:""}
                     />
-                </div>
+                
             </>
         )
 } 

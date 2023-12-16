@@ -6,29 +6,34 @@ interface Props{
     normal: React.ReactElement;
     whenSelected : React.ReactElement;
     isSelected: boolean;
-    onClick?: (data:any)=>void;
+    caption?: string;
+    onClick?: ()=>void;
 }
 
 
 
 function IconSelecting(props:Props) {
-    const {onClick, isSelected, normal, whenSelected} = props;
+    const {caption, onClick, isSelected, normal, whenSelected} = props;
     const [selected, setSelected] = React.useState(isSelected);
 
-    let onClickButton = (data:any):void => {
-        setSelected(!selected);    
-    }
-
-    if(onClick){
-        onClickButton =  onClick;
-    }
-
+    React.useEffect(() => {
+        setSelected(isSelected);
+    }, [isSelected]);
     
+    let onClickButton = ():void => {
+        
+        if (onClick){
+            onClick();
+        }
+    }
   
     return (
         <>
-            <div className={style['iconSelectButton']} onClick={onClickButton}>
+            <div  className={style['iconSelectButton']} onClick={onClickButton}>
                 {(selected?whenSelected:normal)}
+                <span>{caption}</span>
+                <div className={style['iconSelectButton-underlined']} 
+                    data-selected={selected}/>
             </div>
         </>
   );
