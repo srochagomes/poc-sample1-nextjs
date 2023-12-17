@@ -20,7 +20,12 @@ function WhereStayHowGo(props:Props) {
                     <Typography fontSize="caption2" color="white">Descubra o transporte e a hospedagem ideais</Typography>
                 </div>
                 <FormGroup applyOnValidForm={handleAccessConfirm}>
-                    <InputField  type={FieldTypeEnum.Text}  roundType={FieldRoundEnum.Left}/>
+                    <InputField  
+                    type={FieldTypeEnum.Text}  
+                    roundType={FieldRoundEnum.Left}
+                    placeholder='Insira cidade de origem'   
+                    caption='SAINDO DE'                 
+                    />
 
                 </FormGroup>
                 

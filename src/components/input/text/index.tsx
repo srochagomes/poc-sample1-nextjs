@@ -1,5 +1,6 @@
 import { useState } from "react";
 import style from "./InputField.module.scss"
+import Typography from "@/components/text/typography";
 
 
 export enum FieldRoundEnum {
@@ -24,10 +25,11 @@ interface Props {
     type : FieldTypeEnum  
     roundType?:String
     placeholder?:string
+    caption?:string
 }
 
 function InputField(props:Props) {
-  const { type, roundType, placeholder } = props;
+  const { caption, type, roundType, placeholder } = props;
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -39,10 +41,15 @@ function InputField(props:Props) {
     setFieldType(showPwd?FieldTypeEnum.Text:FieldTypeEnum.Password)
   };
 
+  const captionComponent = caption ? <span className={style['inputContainer-caption']}>
+                                        <Typography fontSize="input-box" >{caption}</Typography>
+                                     </span> 
+                                     : <></>;
+
   return (
     
     <div className={style['inputContainer']} data-round={roundType}>          
-              
+            {captionComponent}
             <input type={fieldType}
                 placeholder={placeholder}
                 className={style['inputContainer-inputText']}
