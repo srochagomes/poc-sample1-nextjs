@@ -5,10 +5,11 @@ import IconSelecting from "@/components/button/icon-selecting";
 import IconSVG from "@/components/icons/icon-svg";
 
 interface Props{
-
+    selectButton?: (indice:number)=>void
 }
 
 function TripTypeButtons(props:Props) {
+    const {selectButton} = props
     const [btnIndiceSelected, setBtnIndiceSelected] = React.useState(0);
     const [btnFirstSelected, setBtnFirstSelected] = React.useState(true);
     const [btnSecondSelected, setBtnSecondSelected] = React.useState(false);
@@ -25,6 +26,9 @@ function TripTypeButtons(props:Props) {
     React.useEffect(() => {
         clearButtonSelected();
         setButtonSelected(btnIndiceSelected);
+        if (selectButton){
+            selectButton(btnIndiceSelected);
+        }
         console.log("Mudou estado");
         
     }, [btnIndiceSelected]);

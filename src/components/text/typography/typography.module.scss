@@ -15,6 +15,11 @@
       font-size: 1.25rem;      
     }
 
+    &[data-font-size='button-primary'] {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
     &[data-font-size='caption1'] {
       font-size: 0.80rem;      
     }

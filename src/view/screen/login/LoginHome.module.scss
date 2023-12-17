@@ -17,6 +17,8 @@
       }
     }
     &-form-login {
+      width: 80vh; /* Largura de 100% */
+  
       margin-top: 8vh;
       &-forgot-password {
         display: flex;
@@ -74,6 +76,8 @@
       }
       &-form-login {
         margin-top: 4vh;
+        width: 40vh; 
+
         &-forgot-password {
           margin-top: 5vh;
         }

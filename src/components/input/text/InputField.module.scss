@@ -1,6 +1,7 @@
 .inputContainer {
     background-color: white;
-    display: flex;
+    display: flex;    
+    padding: 0.2rem;
 
     &[data-round='top'] {
         border-radius: 10px 10px 0 0;
@@ -8,6 +9,16 @@
     &[data-round='button'] {
         border-radius:  0 0 10px 10px;
     }
+    &[data-round='all'] {
+        border-radius:  10px 10px 10px 10px;
+    }
+    &[data-round='left'] {
+        border-radius:  10px 0 0 10px;
+    }
+    &[data-round='right'] {
+        border-radius:  0 10px 10px 0;
+    }
+
 
     &-inputText {
         height: 4vh;        

@@ -4,7 +4,7 @@ import style from "./LoginHome.module.scss"
 import FeriazText from "@/components/svg/feriaz-text";
 import Typography from "@/components/text/typography";
 import FormGroup from "@/components/form/group";
-import InputField, { FieldTypeEnum } from "@/components/input/text";
+import InputField, { FieldRoundEnum, FieldTypeEnum } from "@/components/input/text";
 import ButtonPrimary from "@/components/button/primary-button";
 import ButtonStyle, { ButtonStyleIconEnum } from "@/components/button/style-buton";
 
@@ -32,8 +32,8 @@ export default function LoginHome() {
 
         <div className={style['body-form-login']}>
           <FormGroup applyOnValidForm={handleAccessConfirm}>
-              <InputField  type={FieldTypeEnum.Email} placeholder={field.t('email.placehold')} roundType='top'/>
-              <InputField  type={FieldTypeEnum.Password} placeholder={field.t('password.placehold')} roundType='button'/>              
+              <InputField  type={FieldTypeEnum.Email} placeholder={field.t('email.placehold')} roundType={FieldRoundEnum.Top}/>
+              <InputField  type={FieldTypeEnum.Password} placeholder={field.t('password.placehold')} roundType={FieldRoundEnum.Button}/>              
           </FormGroup>          
           <div className={style['body-form-login-forgot-password']}>
             <Typography fontSize="caption2" color="white">{common.t('login.forgot.caption')}</Typography>

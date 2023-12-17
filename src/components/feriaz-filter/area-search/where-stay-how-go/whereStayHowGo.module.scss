@@ -1,0 +1,20 @@
+.whereStayHowGo{
+    margin-top: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    &-title {
+        display: flex;
+        justify-content: flex-start; 
+        align-items: center;
+        
+    }
+
+    &-fields {
+        display: flex;
+        justify-content: flex-start; 
+        align-items: center;
+        
+    }
+   
+}

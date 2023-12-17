@@ -2,6 +2,13 @@ import { useState } from "react";
 import style from "./InputField.module.scss"
 
 
+export enum FieldRoundEnum {
+  All = "all",
+  Right = "right",
+  Left = "left",
+  Top = 'top',
+  Button = 'button'  
+}
 
 export enum FieldTypeEnum {
     Text = "text",
@@ -15,7 +22,7 @@ export enum FieldTypeEnum {
 
 interface Props {
     type : FieldTypeEnum  
-    roundType?:string
+    roundType?:String
     placeholder?:string
 }
 
@@ -33,9 +40,8 @@ function InputField(props:Props) {
   };
 
   return (
-    <>
-    <div className={style['inputContainer']} data-round={roundType}>
-              
+    
+    <div className={style['inputContainer']} data-round={roundType}>          
               
             <input type={fieldType}
                 placeholder={placeholder}
@@ -50,7 +56,7 @@ function InputField(props:Props) {
         )}
     </div>
     
-    </>
+    
     
   );
 }

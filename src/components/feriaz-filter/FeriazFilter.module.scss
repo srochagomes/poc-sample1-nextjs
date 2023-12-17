@@ -1,4 +1,5 @@
 .feriazFilterContainer{
+    padding-top: 2rem;
     background-color: #F5F5F5;
     width: 100%;
     height: 20vw;
@@ -7,9 +8,14 @@
     align-items: center;
 
     &-parameters{
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;    
         height: 15vw;
         width: 100%;
         background-color: #D9D9D9;
+        
     }
 
 
