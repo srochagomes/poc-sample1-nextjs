@@ -1,8 +1,9 @@
 .typography {
     font-size: 1rem; // Tamanho de fonte padrão
     font-weight: normal;
-    color: black;   // Cor padrão
+    color: #949494;   // Cor padrão
   
+    
     &[data-font-size='H1'] {
       font-size: 2rem;
     }
@@ -37,6 +38,8 @@
       font-size: 0.65rem;
     }
   
+    
+
     &[data-color='red'] {
       color: red;
     }
@@ -47,6 +50,9 @@
     &[data-color='white'] {
       color: white;
     }
+    
+    
+    
 
     &[data-weight='bold'] {
       font-weight: bold;

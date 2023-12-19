@@ -6,21 +6,6 @@
     
 	box-sizing: border-box;
     padding: 0;
-    /* Estilos para elementos filhos */
-    & > div {
-        align-items: stretch;
-        justify-content: stretch;
-    
-        margin: 5px; 
-        & > input {        
-            margin: 3px; 
-        }
-
-        & > div {        
-            margin: 3px; 
-        }
-      
-    }
 
     @media (max-width: 912px) {        
         width: 60vh; 

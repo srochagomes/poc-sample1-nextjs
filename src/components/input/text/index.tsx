@@ -1,6 +1,7 @@
 import { useState } from "react";
 import style from "./InputField.module.scss"
 import Typography from "@/components/text/typography";
+import IconSVG from "@/components/icons/icon-svg";
 
 
 export enum FieldRoundEnum {
@@ -21,15 +22,29 @@ export enum FieldTypeEnum {
     Checkbox = "checkbox"    
 }
 
+export enum FieldIconEnum {
+  Circle = "circle",
+  Location = "location"
+}
+
+const fieldIconPath = {
+  circle : "/images/icons/icon-circle.svg",
+  location: "/images/icons/location-pin.svg"
+}
+
+
+
 interface Props {
     type : FieldTypeEnum  
     roundType?:String
     placeholder?:string
     caption?:string
+    colorCaprion?:string
+    iconLeft?:FieldIconEnum
 }
 
 function InputField(props:Props) {
-  const { caption, type, roundType, placeholder } = props;
+  const { caption, iconLeft, colorCaprion, type, roundType, placeholder } = props;
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -41,16 +56,25 @@ function InputField(props:Props) {
     setFieldType(showPwd?FieldTypeEnum.Text:FieldTypeEnum.Password)
   };
 
+
+
+  const iconLeftComponent = iconLeft ?
+                  <div className={style['inputContainer-iconleft']}>
+                    <IconSVG path={fieldIconPath[iconLeft]} alt={placeholder} height={15} width={15} />
+                  </div>
+                  : <></>;
+
   const captionComponent = caption ? <span className={style['inputContainer-caption']}>
-                                        <Typography fontSize="input-box" >{caption}</Typography>
+                                        <Typography fontSize="input-box" color={colorCaprion?colorCaprion:'black'}>{caption}</Typography>
                                      </span> 
                                      : <></>;
 
   return (
     
-    <div className={style['inputContainer']} data-round={roundType}>          
+    <div className={style['inputContainer']} data-round={roundType} data-iconleft={iconLeft?'true':'false'}>
+            {iconLeftComponent}
             {captionComponent}
-            <input type={fieldType}
+            <input type={fieldType}                
                 placeholder={placeholder}
                 className={style['inputContainer-inputText']}
                 />

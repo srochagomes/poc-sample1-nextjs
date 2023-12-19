@@ -1,8 +1,7 @@
 .inputContainer {
     background-color: white;
-    display: flex;    
-    padding: 0.2rem;
-    
+    display: flex;  
+        
 
     &[data-round='top'] {
         border-radius: 10px 10px 0 0;
@@ -22,11 +21,15 @@
 
 
     &-inputText {
-        height: 4vh;                
+        margin: 0.4vh; 
+        height: 3.5vh;
         border: none;
+        padding-top: 7%;
+        color: #6E6E6D;        
         padding-left: 1vh;        
         outline: none;
         flex-grow: 12;
+
         
         @media (max-width: 520px) {
             flex: 9; 
@@ -37,9 +40,8 @@
     }
     &-caption {
         padding-left: 1.5vh;
-        margin-top: -0.5vh;
+        margin-top: 0.6vh;
         position: absolute;
-
     }
     &-passwordIcon {    
         background: url('/images/icons/eye.svg') no-repeat; 
@@ -48,6 +50,24 @@
         
         
     }
+    &-iconleft{
+        position: absolute;        
+        color: black;
+        padding-top: 1%;
+        padding-left: 1.5vh;
+    }
+
+    &[data-iconleft='true'] {
+        .inputContainer-inputText {
+            padding-left: 4vh;
+        }
+        .inputContainer-caption {
+            padding-left: 4.4vh;
+        }
+
+        
+    }
+
 }
 
 
