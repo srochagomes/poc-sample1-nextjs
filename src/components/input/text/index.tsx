@@ -24,12 +24,24 @@ export enum FieldTypeEnum {
 
 export enum FieldIconEnum {
   Circle = "circle",
-  Location = "location"
+  Location = "location",
+  Calendar = "calendar",
+  User = "user",
+  ArrowDownward = "arrow_downward",
+  Airplane = "airplane",
+  Plus = "plus"
 }
 
-const fieldIconPath = {
-  circle : "/images/icons/icon-circle.svg",
-  location: "/images/icons/location-pin.svg"
+
+export enum FieldIconPath {
+  circle = "/images/icons/icon-circle.svg",
+  location = "/images/icons/location-pin.svg",
+  calendar = "/images/icons/icon-calendar.svg",
+  user = "/images/icons/icon-user.svg",
+  arrow_downward = "/images/icons/icon-arrow-downward.svg",
+  airplane = "/images/icons/icon-airplane-mode.svg",
+  plus = "/images/icons/icon-plus-circle.svg"
+
 }
 
 
@@ -41,10 +53,11 @@ interface Props {
     caption?:string
     colorCaprion?:string
     iconLeft?:FieldIconEnum
+    width?:string
 }
 
 function InputField(props:Props) {
-  const { caption, iconLeft, colorCaprion, type, roundType, placeholder } = props;
+  const { caption, width, iconLeft, colorCaprion, type, roundType, placeholder } = props;
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -60,7 +73,7 @@ function InputField(props:Props) {
 
   const iconLeftComponent = iconLeft ?
                   <div className={style['inputContainer-iconleft']}>
-                    <IconSVG path={fieldIconPath[iconLeft]} alt={placeholder} height={15} width={15} />
+                    <IconSVG path={FieldIconPath[iconLeft]} alt={placeholder} height={18} width={18} />
                   </div>
                   : <></>;
 
@@ -76,7 +89,8 @@ function InputField(props:Props) {
             {captionComponent}
             <input type={fieldType}                
                 placeholder={placeholder}
-                className={style['inputContainer-inputText']}
+                className={style['inputContainer-inputText']}                
+                style={{ width: `${width}` }}
                 />
             
             {type==FieldTypeEnum.Password && (  

@@ -1,0 +1,25 @@
+.iconClick{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    cursor: pointer;
+    &-caption{
+        position: absolute;
+        
+    }
+    &:hover {
+        width: 20;
+        height: 20;
+        
+    }
+    > span{                
+        color: #6E6E6D;
+        font-size: 0.6rem;
+        font-weight: 800;
+
+        
+    }
+    
+}

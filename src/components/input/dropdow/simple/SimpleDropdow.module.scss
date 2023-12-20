@@ -1,4 +1,4 @@
-.inputContainer {
+.simpleDropdowContainer {
     background-color: white;
     display: flex;  
         
@@ -19,6 +19,10 @@
         border-radius:  0 10px 10px 0;
     }
 
+    &-value{
+        padding-top: 3vh;        
+        padding-left: 1.5vh;       
+    }
 
     &-inputText {
         margin: 0.4vh; 
@@ -26,7 +30,7 @@
         border: none;
         padding-top: 1.8vh;
         color: #6E6E6D;        
-        padding-left: 1vh;        
+        padding-left: 1vh;
         outline: none;
 
         @media (max-width: 520px) {
@@ -41,29 +45,26 @@
         margin-top: 0.6vh;
         position: absolute;
     }
-    &-passwordIcon {    
-        background: url('/images/icons/eye.svg') no-repeat; 
-        background-position: right center;               
-        flex: 1;   
-    }
     &-iconleft{
-        position: absolute;        
-        color: black;
+        position: absolute;                
         padding-top: 2vh;
         padding-left: 1.5vh;
-    }
+    }    
+    &-iconright{
+        position: absolute;                
+        padding-top: 2vh;
+        padding-left: 14vh;
+        
+    }    
 
     &[data-iconleft='true'] {
-        .inputContainer-inputText {
+        .simpleDropdowContainer-value {
             padding-left: 4vh;
         }
-        .inputContainer-caption {
+        .simpleDropdowContainer-caption {
             padding-left: 4.4vh;
-        }
-
-        
+        }        
     }
-
 }
 
 
