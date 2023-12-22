@@ -6,7 +6,7 @@ import InputField, { FieldIconEnum, FieldIconPath, FieldRoundEnum, FieldTypeEnum
 import FormGroup from '@/components/form/group';
 import SimpleDropdow from '@/components/input/dropdow/simple';
 import IconClick from '@/components/button/icon-click';
-import IconSVG from '@/components/icons/icon-svg';
+
 
 interface Props{
 
@@ -27,21 +27,27 @@ function WhereStayHowGo(props:Props) {
                 
                 <FormGroup applyOnValidForm={handleAccessConfirm}>
                     <div className={style['whereStayHowGo-fields']} >
-                        <div className={style['whereStayHowGo-fields-group']} >
-                            <InputField  
-                                type={FieldTypeEnum.Text}  
-                                roundType={FieldRoundEnum.Left}
-                                placeholder='Insira cidade de origem'   
-                                caption='SAINDO DE'  
-                                iconLeft={FieldIconEnum.Circle}
-                            />
-                            <InputField  
-                                type={FieldTypeEnum.Text}  
-                                roundType={FieldRoundEnum.Right}
-                                placeholder='Insira cidade de destino'   
-                                caption='INDO PARA'  
-                                iconLeft={FieldIconEnum.Location}
-                            />
+                        <div className={style['whereStayHowGo-fields-move-data']} >
+                            <IconClick path={FieldIconPath.moveside} 
+                                       widthSize={25}
+                                       heightSize={25}/>
+                            <div className={style['whereStayHowGo-fields-group']} >
+                                <InputField  
+                                    type={FieldTypeEnum.Text}  
+                                    roundType={FieldRoundEnum.Left}
+                                    placeholder='Insira cidade de origem'   
+                                    caption='SAINDO DE'  
+                                    iconLeft={FieldIconEnum.Circle}
+                                />
+                                <InputField  
+                                    type={FieldTypeEnum.Text}  
+                                    roundType={FieldRoundEnum.Right}
+                                    placeholder='Insira cidade de destino'   
+                                    caption='INDO PARA'  
+                                    iconLeft={FieldIconEnum.Location}
+                                />
+                        </div>
+                        
                         </div>
                         <div className={style['whereStayHowGo-fields-group']} >
                             <InputField  
@@ -75,10 +81,10 @@ function WhereStayHowGo(props:Props) {
                         <div className={style['whereStayHowGo-fields-group']} >
                             <SimpleDropdow
                                 roundType={FieldRoundEnum.All}
-                                caption='QUEM VAI'  
+                                caption='COMO CHEGAR'  
                                 iconLeft={FieldIconEnum.Airplane}
                                 iconRight={FieldIconEnum.ArrowDownward}
-                                width="10vw"/>
+                                width="18vh"/>
                         </div>
                         <div className={style['whereStayHowGo-button-plus']} >
                             <IconClick path={FieldIconPath.plus} 

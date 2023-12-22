@@ -21,6 +21,14 @@
             margin-right: 1vh;
         }
     }
+    &-fields-move-data {
+        display: flex;     
+        align-items: center;
+        justify-content: center; 
+        & >div:first-child {            
+            position: absolute;
+        }   
+    }
 
     &-fields-group {
         display: inline-flex;        

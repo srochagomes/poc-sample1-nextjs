@@ -12,23 +12,28 @@ interface FormProps {
 
 
 function FormGroup(props:FormProps) {
-const { styleSheet } = props;
-const {children } = props;
+    const { styleSheet } = props;
+    const {children } = props;
 
-const propsChanged = { ...props}
+    const propsChanged = { ...props}
 
-const modifiedChildren = React.Children.map(children, (child) => {
-    if (React.isValidElement<FormProps>(child)) {
-        return React.cloneElement<FormProps>(child, {...propsChanged,...child.props});
-    }
-    return child;
-});
+    const validForm = () => {  
+      
+      props.applyOnValidForm(null)     
+      
+  };
+    const modifiedChildren = React.Children.map(children, (child) => {
+        if (React.isValidElement<FormProps>(child)) {
+            return React.cloneElement<FormProps>(child, {...propsChanged,...child.props});
+        }
+        return child;
+    });
 
-return (
-  <section className={style.formGroup}>
-    {modifiedChildren}
-  </section>
-);
+    return (
+      <section className={style.formGroup}>
+        {modifiedChildren}
+      </section>
+    );
 }
 
 export default FormGroup;

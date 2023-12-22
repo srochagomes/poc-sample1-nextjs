@@ -29,7 +29,9 @@ export enum FieldIconEnum {
   User = "user",
   ArrowDownward = "arrow_downward",
   Airplane = "airplane",
-  Plus = "plus"
+  Plus = "plus",
+  MoveUpDow = "moveupdown",
+  MoveSide = "moveside"
 }
 
 
@@ -40,7 +42,9 @@ export enum FieldIconPath {
   user = "/images/icons/icon-user.svg",
   arrow_downward = "/images/icons/icon-arrow-downward.svg",
   airplane = "/images/icons/icon-airplane-mode.svg",
-  plus = "/images/icons/icon-plus-circle.svg"
+  plus = "/images/icons/icon-plus-circle.svg",
+  moveupdown = "/images/icons/icon-move-updown.svg",
+  moveside = "/images/icons/icon-move-side.svg"
 
 }
 
