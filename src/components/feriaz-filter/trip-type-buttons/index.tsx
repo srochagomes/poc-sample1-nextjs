@@ -29,7 +29,7 @@ function TripTypeButtons(props:Props) {
         if (selectButton){
             selectButton(btnIndiceSelected);
         }
-        console.log("Mudou estado");
+        
         
     }, [btnIndiceSelected]);
 

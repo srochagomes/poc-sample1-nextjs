@@ -2,7 +2,8 @@ import { useState } from "react";
 import style from "./SimpleDropdow.module.scss"
 import Typography from "@/components/text/typography";
 import IconSVG from "@/components/icons/icon-svg";
-import { FieldIconEnum, FieldIconPath, FieldRoundEnum } from "@/components/input/text";
+import { FieldIconPath } from "@/types/enums/FieldIconPath";
+import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 
 
 

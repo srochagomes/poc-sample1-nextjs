@@ -2,10 +2,15 @@
 import ButtonPrimary from '@/components/button/primary-button';
 import style from './whereStayHowGo.module.scss'
 import Typography from '@/components/text/typography';
-import InputField, { FieldIconEnum, FieldIconPath, FieldRoundEnum, FieldTypeEnum } from '@/components/input/text';
+import InputField from '@/components/input/text';
+import { FieldIconPath } from "@/types/enums/FieldIconPath";
+import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
+import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
+import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
 import FormGroup from '@/components/form/group';
 import SimpleDropdow from '@/components/input/dropdow/simple';
 import IconClick from '@/components/button/icon-click';
+import CalendarField from '@/components/input/calendar';
 
 
 interface Props{
@@ -50,7 +55,7 @@ function WhereStayHowGo(props:Props) {
                         
                         </div>
                         <div className={style['whereStayHowGo-fields-group']} >
-                            <InputField  
+                            <CalendarField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Left}
                                 placeholder='Quando'   

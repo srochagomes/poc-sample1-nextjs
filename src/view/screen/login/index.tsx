@@ -4,7 +4,9 @@ import style from "./LoginHome.module.scss"
 import FeriazText from "@/components/svg/feriaz-text";
 import Typography from "@/components/text/typography";
 import FormGroup from "@/components/form/group";
-import InputField, { FieldRoundEnum, FieldTypeEnum } from "@/components/input/text";
+import InputField from "@/components/input/text";
+import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
+import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
 import ButtonPrimary from "@/components/button/primary-button";
 import ButtonStyle, { ButtonStyleIconEnum } from "@/components/button/style-buton";
 

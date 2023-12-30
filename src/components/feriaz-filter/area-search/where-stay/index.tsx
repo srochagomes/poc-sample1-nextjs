@@ -4,7 +4,11 @@ import style from './whereStay.module.scss'
 import Typography from '@/components/text/typography';
 import FormGroup from '@/components/form/group';
 import IconClick from '@/components/button/icon-click';
-import InputField, { FieldIconEnum, FieldIconPath, FieldRoundEnum, FieldTypeEnum } from '@/components/input/text';
+import InputField from '@/components/input/text';
+import { FieldIconPath } from "@/types/enums/FieldIconPath";
+import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
+import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
+import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
 import SimpleDropdow from '@/components/input/dropdow/simple';
 interface Props{
 
