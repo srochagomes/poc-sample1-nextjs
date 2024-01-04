@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import style from "./DatePicker.module.scss"
+import DateSelection from "./date-selection";
 interface Props {
 
     show:boolean
@@ -10,17 +11,31 @@ function DatePicker(props:Props) {
     const [componentShow,    setComponentShow] = useState(show)
     const divRef = useRef<HTMLDivElement>(null);
   
-  
+    let totalElements = 3; // Substitua pelo número total de elementos que você deseja criar
+
+  const dateSelections = Array.from({ length: totalElements }, (_, index) => {
+      let position;
+
+      if (totalElements === 1){
+        position = 'onlyone';
+      }else if (index === 0) {
+        position = 'first';
+      } else if (index === totalElements - 1) {
+        position = 'last';
+      } else {
+        position = 'middle';
+      }
+
+      return (
+        <DateSelection key={index} position={position} />
+      );
+    });  
 
   
-  console.log('Iniciou variavel =',show)
-  console.log('Iniciou estado =',componentShow)
-
   const pageClickEvent = (e: MouseEvent ) => {
-    console.log('Passou evento 1');
+    
     
     if (divRef.current !== null && !divRef.current.contains(e.target as Node)){
-      console.log('Passou evento 2');
       
       setComponentShow(false);
       window.removeEventListener('click', pageClickEvent);
@@ -38,14 +53,11 @@ function DatePicker(props:Props) {
 
 
     const handleDivClick = (e: React.MouseEvent<HTMLDivElement>) => {
-      // Evite fechar o componente se o clique ocorrer dentro da div
       e.stopPropagation();
     };
 
 
     useEffect(() => {
-      console.log('Passou variavel =',show)
-      console.log('Passou estado =',componentShow)
       window.removeEventListener('click', pageClickEvent);
       const configureEvent = () => {
         if (componentShow) {
@@ -69,6 +81,7 @@ function DatePicker(props:Props) {
                 onClick={handleDivClick}
                 
                 >
+                  {dateSelections}
                 
                 </div>
             

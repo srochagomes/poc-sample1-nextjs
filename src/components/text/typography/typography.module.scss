@@ -31,6 +31,15 @@
       font-weight: bold;
     }
 
+    &[data-font-size='caption3'] {
+      font-size: 0.60rem;
+      font-weight: lighter;
+    }
+
+    &[data-font-size='caption'] {
+      font-size: 0.65rem;
+    }
+
     &[data-font-size='subtitle1'] {
       font-size: 0.80rem;
     }

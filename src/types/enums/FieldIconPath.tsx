@@ -10,6 +10,8 @@ export enum FieldIconPath {
   plus = "/images/icons/icon-plus-circle.svg",
   moveupdown = "/images/icons/icon-move-updown.svg",
   moveside = "/images/icons/icon-move-side.svg",
-  timer = "/images/icons/icon-timer.svg"
+  timer = "/images/icons/icon-timer.svg",
+  fowardto = "/images/icons/icon-fowardto.svg",
+  fowardback = "/images/icons/icon-fowardback.svg"
 
 }

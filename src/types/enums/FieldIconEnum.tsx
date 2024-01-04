@@ -10,5 +10,7 @@ export enum FieldIconEnum {
   Plus = "plus",
   MoveUpDow = "moveupdown",
   MoveSide = "moveside",
-  Timer = "timer"
+  Timer = "timer",
+  FowardTo = "fowardto",
+  FowardBack = "fowardback"
 }
