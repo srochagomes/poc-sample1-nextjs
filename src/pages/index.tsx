@@ -9,7 +9,7 @@ export async function getStaticProps({ locale }:any) {
         props: {
             ...(await serverSideTranslations(
               locale,
-              ['common', 'field', 'button'],
+              ['common', 'field', 'button', 'datedescription'],
               nextI18NextConfig
             )),
           },

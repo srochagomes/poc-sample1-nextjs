@@ -2,30 +2,8 @@
   width: 10rem;
   background-color: #ffff;
   width: 15rem;
-  height: 10rem;
+  height: 15rem;
   border-radius: 10px 10px 10px 10px;  
-  
-  
-  
-  &-onleone{
-    border: 1px solid #D9D9D9;
-  }
-
-  &-left{
-    border: solid #D9D9D9;
-    border-width: .1rem 0 .1rem .1rem;
-  }
-
-  &-right{
-    border: solid #D9D9D9;
-    border-width: .1rem .1rem .1rem 0;
-  }
-
-  &-midle{
-    border: solid #D9D9D9;
-    border-width: .1rem 0 .1rem 0;
-  }
-
 
   &-top{
     display: flex;
@@ -63,6 +41,8 @@
   }
 
   &[data-position='middle'] {
+    border: solid #D9D9D9;
+    border-width: .1rem 0 .1rem 0;
     .dateSelection-top{
       > div:first-child {
         visibility: hidden;
@@ -73,6 +53,8 @@
     }
   }
   &[data-position='last'] {
+    border: solid #D9D9D9;
+    border-width: .1rem .1rem .1rem 0;
     .dateSelection-top{
       > div:first-child {
         visibility: hidden;
@@ -80,6 +62,8 @@
     }
   }
   &[data-position='first'] {
+    border: solid #D9D9D9;
+    border-width: .1rem 0 .1rem .1rem;
     .dateSelection-top{
       > div:last-child {
         visibility: hidden;
@@ -87,7 +71,7 @@
     }
   }
   &[data-position='onlyone'] {
-    background-color:green;
+    border: 0.1rem solid #D9D9D9;
     
   }
 

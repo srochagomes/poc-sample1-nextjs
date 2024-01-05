@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import style from "./DatePicker.module.scss"
-import DateSelection from "./date-selection";
+import DateSelection, { createDateSelection } from "./date-selection";
+import DateOperations, { DateFields } from "@/types/date/DateOperations";
 interface Props {
 
     show:boolean
@@ -11,26 +12,9 @@ function DatePicker(props:Props) {
     const [componentShow,    setComponentShow] = useState(show)
     const divRef = useRef<HTMLDivElement>(null);
   
-    let totalElements = 3; // Substitua pelo número total de elementos que você deseja criar
+    
 
-  const dateSelections = Array.from({ length: totalElements }, (_, index) => {
-      let position;
-
-      if (totalElements === 1){
-        position = 'onlyone';
-      }else if (index === 0) {
-        position = 'first';
-      } else if (index === totalElements - 1) {
-        position = 'last';
-      } else {
-        position = 'middle';
-      }
-
-      return (
-        <DateSelection key={index} position={position} />
-      );
-    });  
-
+  
   
   const pageClickEvent = (e: MouseEvent ) => {
     
@@ -71,6 +55,11 @@ function DatePicker(props:Props) {
         clearTimeout(timeoutId);
       };
     }, [componentShow]);
+
+    const dateField:DateFields = {
+      month: DateOperations.getCurrentMonth(),
+      year: DateOperations.getCurrentYear(),
+    }
     
     return (
         <>
@@ -81,7 +70,7 @@ function DatePicker(props:Props) {
                 onClick={handleDivClick}
                 
                 >
-                  {dateSelections}
+                  {createDateSelection(2, dateField)}
                 
                 </div>
             
