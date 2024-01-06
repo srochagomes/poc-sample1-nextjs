@@ -4,7 +4,8 @@ import { FieldIconPath } from '@/types/enums/FieldIconPath';
 import Typography from '@/components/text/typography';
 import DateElements from './date-elements';
 import DateOperations, { DateFields } from '@/types/date/DateOperations';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "next-i18next"
+import { useEffect } from 'react';
 
 interface Props {
     position:string
@@ -15,9 +16,10 @@ interface Props {
 function DateSelection(props:Props) {
     let {position, dateBase} = props;
     const dateTranslate = useTranslation('datedescription')
-    const monthDescription = dateTranslate.t('month._'+DateOperations.getMonthFromDate(dateBase).toString());
-    const yearValue = DateOperations.getYearFromDate(dateBase).toString()
+    let monthDescription = dateTranslate.t('month._'+DateOperations.getMonthFromDate(dateBase).toString());
+    let yearValue = DateOperations.getYearFromDate(dateBase).toString()
 
+    
     return (
         <div className={style['dateSelection']} data-position={position} >
             <div  className={style['dateSelection-top']}>                

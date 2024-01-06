@@ -10,5 +10,13 @@
     "month._9": "Setembro",
     "month._10": "Outubro",
     "month._11": "Novembro",
-    "month._12": "Dezembro"
+    "month._12": "Dezembro",
+    "weekday.short._1": "DOM",
+    "weekday.short._2": "SEG",
+    "weekday.short._3": "TER",
+    "weekday.short._4": "QUA",
+    "weekday.short._5": "QUI",
+    "weekday.short._6": "SEX",
+    "weekday.short._7": "SAB"
+
 }

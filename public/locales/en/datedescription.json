@@ -10,5 +10,13 @@
     "month._9": "September",
     "month._10": "October",
     "month._11": "November",
-    "month._12": "December"
+    "month._12": "December",
+    "weekday.short._1": "SUN",
+    "weekday.short._2": "MON",
+    "weekday.short._3": "TUS",
+    "weekday.short._4": "WED",
+    "weekday.short._5": "THU",
+    "weekday.short._6": "FRI",
+    "weekday.short._7": "SAT"
+
 }
