@@ -1,9 +1,18 @@
-.dateSelection {
+.dateSelection {  
   width: 10rem;
   background-color: #ffff;
   width: 15rem;
   height: 15rem;
   border-radius: 10px 10px 10px 10px;  
+
+  &-divider{
+    position: absolute;
+    top: 4rem;
+    height: 5rem;
+    border-left: solid #69C6DE;
+    border-left-width: 1.5px;
+    
+  }
 
   &-top{
     display: flex;
@@ -50,7 +59,7 @@
       > div:last-child {
         visibility: hidden;
       }      
-    }
+    }    
   }
   &[data-position='last'] {
     border: solid #D9D9D9;
@@ -68,6 +77,9 @@
       > div:last-child {
         visibility: hidden;
       }      
+    }
+    .dateSelection-divider{
+      visibility: hidden;
     }
   }
   &[data-position='onlyone'] {

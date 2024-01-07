@@ -5,13 +5,15 @@ import { useTranslation } from "next-i18next"
 import { MouseEvent, MouseEventHandler, useEffect, useState } from 'react';
 
 interface Props {
-    dateBase:Date
+    dateBase:Date;
+    isDayBetweenSelected: (keyAttributeValue:number|null) => boolean;    
+    isSelectDay: (keyAttributeValue:number|null)=>boolean;
+    selectDay: (event:React.MouseEvent<HTMLDivElement>, index:number)=> void;    
 }
 
 function DateElements(props:Props) {
-  const {dateBase} = props;
-  const dateTranslate = useTranslation('datedescription');
-  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+  const {dateBase, selectDay, isSelectDay, isDayBetweenSelected} = props;
+  const dateTranslate = useTranslation('datedescription');  
 
   const daysOfWeek = [
     dateTranslate.t('weekday.short._1'), 
@@ -24,10 +26,7 @@ function DateElements(props:Props) {
 
   // Definindo a data inicial para o primeiro dia do mês
   const startDate = dateBase;
-
-  useEffect(() => {
-    setSelectedKeys(selectedKeys);
-  }, [selectedKeys]);
+  
 
   const startIndex = startDate.getDay(); // 0 para DOM, 1 para SEG, ..., 6 para SAB
 
@@ -49,39 +48,13 @@ function DateElements(props:Props) {
     
   }
 
-  const isSelectDay = (index:number|null) : boolean=>{
-    if (!index) return false;
-    if (selectedKeys.includes(index.toString())) {
-      return true;
-    }
-    return false;
-  }
-
-  const selectDay = (event:React.MouseEvent<HTMLDivElement>, index:number): void =>{
-    const keyAttributeValue = index.toString();
-    console.log('Component:', event.currentTarget);
-    console.log('Valor da chave:', keyAttributeValue);
-
-    if (keyAttributeValue) {
-      setSelectedKeys((prevKeys) => {
-        if (prevKeys.includes(keyAttributeValue)) {
-          // Se a chave já estiver no estado, remova-a
-          return prevKeys.filter((key) => key !== keyAttributeValue);
-        } else {
-          // Se a chave não estiver no estado, adicione-a
-          return [...prevKeys, keyAttributeValue];
-        }
-      });
-    }
-    console.log('Lista selecionados:', selectedKeys);
-  }
 
   return (
     <div className={style['dateElements']}>
       <div className={style['dateElements-container']}>
         {daysOfWeek.map((day, index) => (
             <div key={index} className={style['dateElements-dayTitle']}>
-            <Typography fontSize="caption4">{day}</Typography>
+              <Typography fontSize="caption4">{day}</Typography>
             </div>
         ))}
 
@@ -89,7 +62,7 @@ function DateElements(props:Props) {
             
             <div key={day?day.getTime():index} className={
               isSelectDay(day?day.getTime():null)?`${style['dateElements-dayCell']} ${style['dateElements-dayCell-click']}`
-                :`${style['dateElements-dayCell']}`
+                :isDayBetweenSelected(day?day.getTime():null)?`${style['dateElements-dayCell']} ${style['dateElements-dayCell-inperiod']}`:`${style['dateElements-dayCell']}`
                }
               onClick={(event) => selectDay(event, day?day.getTime():0)}>
             {day && (               

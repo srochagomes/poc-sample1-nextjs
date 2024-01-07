@@ -3,15 +3,16 @@ import style from './Primary-Button.module.scss'
 
 interface Props {
     children: React.ReactElement | string;
+    onClick?: (event:React.MouseEvent<HTMLButtonElement>) => void;
   }
 
 
 function ButtonPrimary(props:Props) {
-    const {children} = props;
+    const {children, onClick} = props;
   
     return (
         <>
-            <button className={style.buttonPrimary}>
+            <button className={style.buttonPrimary} onClick={onClick}>
                 {children}
             </button>
         </>

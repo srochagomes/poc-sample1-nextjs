@@ -1,0 +1,30 @@
+.dateCommand {  
+  width: 100%;
+  height: 100%;
+  
+  display: flex;    
+  flex-direction: row;
+  
+
+  &-flexible{
+    display: flex;  
+    width: 50%;
+    justify-content: space-around;
+  }
+
+  &-choose{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    > button {
+      height: 100%;
+      width: 40%;
+      display: flex;    
+      align-items: center;
+      justify-content: center;
+    }  
+  }
+  
+}
