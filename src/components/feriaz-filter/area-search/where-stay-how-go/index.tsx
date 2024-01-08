@@ -11,6 +11,7 @@ import FormGroup from '@/components/form/group';
 import SimpleDropdow from '@/components/input/dropdow/simple';
 import IconClick from '@/components/button/icon-click';
 import CalendarField from '@/components/input/calendar';
+import TripPeopleDetail from '@/components/input/trip/people-detail';
 
 
 interface Props{
@@ -74,7 +75,7 @@ function WhereStayHowGo(props:Props) {
                         </div>
 
                         <div className={style['whereStayHowGo-fields-group']} >
-                            <InputField  
+                            <TripPeopleDetail  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.All}
                                 placeholder='1 adulto, 1 quarto'   

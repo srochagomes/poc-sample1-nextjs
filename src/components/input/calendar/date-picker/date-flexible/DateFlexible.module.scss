@@ -23,26 +23,32 @@
     flex-direction: column;  
       
     margin-top: 1rem;
-    margin-left: 3rem;     
-    
-    height: 100%;
+    margin-left: 3rem;
 
     &-field{
-      
+      display: flex;
+      flex-direction: row;  
+      align-items: center;
       > input {
         margin-top: 0.2rem;
         width: 2rem; /* Defina o valor desejado em pixels */
       }
+      > span {
+        margin-top: 0.1rem;
+        margin-left: 0.5rem;
+      }
     }
   }
 
-  &-checkList{
-    
+  &-radioList{
+    margin-top: 0.1rem;
     > div{
-      margin-left: 3rem;  
+      margin-left: 2.7rem;  
       display: flex;
       flex-direction: column;  
+      margin-top: 0.1rem;
       > label {
+        margin-top: 0.4rem;
         display: flex;
         align-items: center;
       }

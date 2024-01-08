@@ -78,14 +78,16 @@ function DateFlexible(props:Props) {
                 <GroupSelectingButton itens={generatedMonthsList} isMultipleChoise={false}/>
             </div>
             <div className={style['dateFlexible-diasViagem']}>
-                <Typography fontSize="caption2">Insira a quantidade de dias da viagem</Typography>            
+                <Typography fontSize="caption2">Insira a quantidade de dias da viagem</Typography>
                 <div className={style['dateFlexible-diasViagem-field']}>
                   <input type={FieldTypeEnum.Number} maxLength={2} size={2} 
                       onInput={validateInput}/>
+                  <Typography fontSize="caption3-a">dias</Typography>
                 </div>
                 
+                
             </div>
-            <div className={style['dateFlexible-checkList']}>
+            <div className={style['dateFlexible-radioList']}>
               <RadioButtonList options={optionsData} onSelectionChange={handleSelectionChange} />
             </div>
 
