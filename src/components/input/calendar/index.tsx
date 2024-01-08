@@ -6,6 +6,7 @@ import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import DatePicker from "./date-picker";
+import { TypeCalendar } from "./date-picker/date-command";
 
 interface Props {
     type : FieldTypeEnum  
@@ -22,6 +23,7 @@ function CalendarField(props:Props) {
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
   const [fieldType, setFieldType] = useState(type);
   const [showDatePicker, setShowDatePicker] = useState(false);
+  const [typeCalendar, setTypeCalendar] = useState(TypeCalendar.fixed);
 
   let dateBase = new Date();
 
@@ -32,6 +34,7 @@ function CalendarField(props:Props) {
   useEffect(() => {
     setShowDatePicker(showDatePicker);
   }, [showDatePicker]);
+
 
   const isSelectDay = (index:number|null) : boolean=>{
     if (!index) return false;
@@ -59,8 +62,17 @@ function CalendarField(props:Props) {
     setSelectedKeys([]);
   }
 
+  
+  const onClickDateFixed  = (event:React.MouseEvent<HTMLDivElement>): void =>{
+    
+    setTypeCalendar(TypeCalendar.fixed);
+    
+  }
+
   const onClickDateFlexible  = (event:React.MouseEvent<HTMLDivElement>): void =>{
-    console.log('onClickDateFlexible');
+    
+    setTypeCalendar(TypeCalendar.flexible);
+    
   }
   const onClickConfirm = (event:React.MouseEvent<HTMLButtonElement>): void =>{
     console.log('onClickConfirm');
@@ -146,11 +158,13 @@ function CalendarField(props:Props) {
             <DatePicker dateBase={dateBase}
                         show={showDatePicker} 
                         isSelectDay={isSelectDay} 
+                        typeCalendar={typeCalendar}                        
                         isDayBetweenSelected={isDayBetweenSelected}
                         onSelectDay={onSelectDay} 
                         onClickClear={onClickClear} 
                         onClickConfirm={onClickConfirm}
-                        onClickDateFlexible={onClickDateFlexible}/>
+                        onClickDateFlexible={onClickDateFlexible}
+                        onClickDateFixed={onClickDateFixed}/>
     </div>
     
     

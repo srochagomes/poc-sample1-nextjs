@@ -2,24 +2,28 @@ import React, { useEffect, useRef, useState } from "react";
 import style from "./DatePicker.module.scss"
 import DateSelection, { createDateSelection } from "./date-selection";
 import DateOperations, { DateFields } from "@/types/date/DateOperations";
-import DateCommand from "./date-command";
+import DateCommand, { TypeCalendar } from "./date-command";
+import DateFlexible from "./date-flexible";
 interface Props {
 
     show:boolean;
-    dateBase: Date;
+    dateBase: Date;    
     isSelectDay: (index:number|null)=>boolean;
     isDayBetweenSelected: (keyAttributeValue:number|null) => boolean;
     onSelectDay: (event:React.MouseEvent<HTMLDivElement>, index:number)=> void;    
     onClickClear: (event:React.MouseEvent<HTMLDivElement>)=> void;    
     onClickConfirm: (event:React.MouseEvent<HTMLButtonElement>)=> void;    
     onClickDateFlexible: (event:React.MouseEvent<HTMLDivElement>)=> void;    
+    onClickDateFixed: (event:React.MouseEvent<HTMLDivElement>)=> void;  
+    typeCalendar: TypeCalendar;  
 
 }
 
 function DatePicker(props:Props) {
-    let {show, dateBase, onSelectDay, isSelectDay, onClickClear, onClickConfirm, onClickDateFlexible, isDayBetweenSelected} = props;
+    let {show, typeCalendar, dateBase, onSelectDay, isSelectDay, onClickClear, onClickConfirm, onClickDateFlexible, onClickDateFixed, isDayBetweenSelected} = props;
     const [componentShow,    setComponentShow] = useState(show)
     const [dateBaseStart,    setDateBaseStart] = useState(dateBase)
+    
     const divRef = useRef<HTMLDivElement>(null);
 
     const onClickToFoward = () => {
@@ -38,6 +42,8 @@ function DatePicker(props:Props) {
     }
     
   };
+
+  
 
     useEffect(() => {
       if (show && !componentShow){
@@ -86,11 +92,19 @@ function DatePicker(props:Props) {
                         onSelectDay,
                         onClickToBack,
                         onClickToFoward)}
-
+                { typeCalendar === TypeCalendar.flexible && 
+                    <div  className={style['datePickerContainer-periodflexible']}>
+                      <DateFlexible/>
+                
+                    </div>
+                  }
                 <div  className={style['datePickerContainer-footer']}>
                   <DateCommand  onClickClear={onClickClear} 
                                 onClickConfirm={onClickConfirm} 
-                                onClickDateFlexible={onClickDateFlexible}/>
+                                onClickDateFlexible={onClickDateFlexible}
+                                onClickDateFixed={onClickDateFixed}
+                                typeCalendar={typeCalendar}
+                      />
                 </div>
               
             

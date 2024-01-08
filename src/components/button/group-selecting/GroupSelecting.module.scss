@@ -1,0 +1,8 @@
+.groupSelecting {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Cria 6 colunas com largura igual */
+    gap: 10px; /* Espaçamento entre as células */
+    
+  }
+
+  

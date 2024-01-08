@@ -5,21 +5,24 @@ import style from "./GroupForm.module.scss"
 interface FormProps {    
     children?: React.ReactNode;
     styleSheet?: StyleSheet;
-    applyOnValidForm: (data:any)=>void;
+    applyOnValidForm?: (data:any)=>void;
 
   }
 
 
 
 function FormGroup(props:FormProps) {
-    const { styleSheet } = props;
+    const { styleSheet, applyOnValidForm } = props;
     const {children } = props;
 
-    const propsChanged = { ...props}
-
+    let propsChanged = { ...props}
+    delete propsChanged.applyOnValidForm;
+    
     const validForm = () => {  
       
-      props.applyOnValidForm(null)     
+      if(applyOnValidForm){
+        applyOnValidForm(null)     
+      }
       
   };
     const modifiedChildren = React.Children.map(children, (child) => {
@@ -30,7 +33,7 @@ function FormGroup(props:FormProps) {
     });
 
     return (
-      <section className={style.formGroup}>
+      <section className={style.formGroup} {...propsChanged}>
         {modifiedChildren}
       </section>
     );

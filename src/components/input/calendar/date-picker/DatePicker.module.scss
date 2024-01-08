@@ -17,12 +17,25 @@
     pointer-events: auto;    
   }
 
+  &-periodflexible{
+    position: absolute;
+    cursor: auto;
+    top: 0.2rem;
+    bottom: 1.3rem;  /* Ajuste para levar em consideração a altura do footer */
+    width: 100%;
+    height: auto;   /* Use 'auto' para que ele ocupe o espaço entre o topo e o footer */
+    pointer-events: auto;
+    opacity: 1;    
+    
+  }  
+
   &-footer{
     position: absolute;
     cursor: auto;
     bottom: 0.5rem;
     width: 100%;
-    height: 1.5rem;      
+    height: 1.5rem;  
+    
   }
   
 }

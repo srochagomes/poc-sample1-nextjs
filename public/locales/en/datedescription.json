@@ -11,6 +11,18 @@
     "month._10": "October",
     "month._11": "November",
     "month._12": "December",
+    "month.short._1": "Jan",
+    "month.short._2": "Feb",
+    "month.short._3": "Mar",
+    "month.short._4": "Apr",
+    "month.short._5": "May",
+    "month.short._6": "Jun",
+    "month.short._7": "Jul",
+    "month.short._8": "Aug",
+    "month.short._9": "Sep",
+    "month.short._10": "Oct",
+    "month.short._11": "Nov",
+    "month.short._12": "Dec",
     "weekday.short._1": "SUN",
     "weekday.short._2": "MON",
     "weekday.short._3": "TUS",
@@ -18,5 +30,5 @@
     "weekday.short._5": "THU",
     "weekday.short._6": "FRI",
     "weekday.short._7": "SAT"
-
 }
+
