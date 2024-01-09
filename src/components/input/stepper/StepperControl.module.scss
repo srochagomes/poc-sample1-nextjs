@@ -1,0 +1,26 @@
+.stepperControl{
+    display: flex;
+    flex-direction: row;
+    border: 0.1rem solid #D9D9D9;
+    width:4rem;
+    justify-content: space-around;
+    align-items: center;
+    &-button{
+        color: #69C6DE;
+        
+        &-disabled{
+            color: #c0c0c8;
+        }
+    }
+
+    > input{
+        border: none;
+        outline: none;
+        width: 50%;
+        margin-left: 1rem;
+    }
+
+    
+
+
+}

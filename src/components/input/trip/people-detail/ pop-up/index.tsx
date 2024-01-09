@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import style from './TripPeoplePopup.module.scss'
+import StepperControl from "@/components/input/stepper";
 
 interface Props{
     show:boolean;
@@ -63,8 +64,10 @@ function TripPeoplePopup(props : Props){
                 :`${style['tripPeoplePopup']}`}
                 ref={divRef} 
                 onClick={handleDivClick}
-            >
+
                 
+            >
+                <StepperControl editable={true}/>
         </div>
     )
 }
