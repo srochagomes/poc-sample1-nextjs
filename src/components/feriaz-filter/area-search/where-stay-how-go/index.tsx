@@ -13,6 +13,7 @@ import IconClick from '@/components/button/icon-click';
 import CalendarField from '@/components/input/calendar';
 import TripPeopleDetail from '@/components/input/trip/people-detail';
 import { SimpleDrodownItem } from '@/components/input/dropdow/simple/ pop-up';
+import dropdownVeiculosItems from '@/types/date/TripeVehicleSelect';
 
 
 interface Props{
@@ -26,23 +27,7 @@ function WhereStayHowGo(props:Props) {
 
     }
 
-    const dropdownVeiculosItems: SimpleDrodownItem[] = [
-        {
-          key: "item1",
-          icon: FieldIconPath.airplane,
-          caption: "Avião"
-        },
-        {
-          key: "item2",
-          icon: FieldIconPath.bus,
-          caption: "Onibus"
-        },
-        {
-          key: "item3",
-          icon: FieldIconPath.car,
-          caption: "Carro Alugado"
-        }
-      ];
+    
 
 
 
@@ -85,7 +70,7 @@ function WhereStayHowGo(props:Props) {
                                 iconLeft={FieldIconEnum.Calendar}
                                 width="8vh"
                             />
-                            <InputField  
+                            <CalendarField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Right}
                                 placeholder='Quando'   

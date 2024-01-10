@@ -17,19 +17,38 @@ interface Props {
     width?:string
 }
 
+export interface MinorAgeData{
+  index:number;
+  value:number;
+}
+export interface PeopleData{
+  olderQuantity:number;
+  minorQuantity:number;
+  roomQuantity:number;
+  agesMinors?:MinorAgeData[];
+}
+
 function TripPeopleDetail(props:Props) {
   const { caption, width, iconLeft, colorCaprion, type, roundType, placeholder } = props;
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
   const [showPopup, setShowPopup] = useState(false);
   const [fieldType, setFieldType] = useState(type);
+  const [valueText, setValueText] = useState('');
 
   useEffect(() => {
     setShowPopup(showPopup);
   }, [showPopup]);
 
-  const onClickConfirm = (event:React.MouseEvent<HTMLButtonElement>): void =>{
-    console.log('onClickConfirm');
+  const onClickConfirm = (event:React.MouseEvent<HTMLButtonElement>, peopleData:PeopleData): void =>{
+    console.log('onClickConfirm', peopleData);
+    if (peopleData){
+      setValueText(`${peopleData.olderQuantity} adulto(s), ${peopleData.minorQuantity} menor(es) e ${peopleData.roomQuantity} quarto(s).` );
+    }
     setSelectedKeys([]);
+  }
+
+  const onClickComponent = (event:React.MouseEvent<HTMLDivElement>): void =>{
+    setShowPopup(true); 
   }
 
   let onFocus = (event: React.FocusEvent<HTMLInputElement>):void => {
@@ -57,7 +76,10 @@ function TripPeopleDetail(props:Props) {
 
   return (
     
-    <div className={style['tripPeopleDetailField']} data-round={roundType} data-iconleft={iconLeft?'true':'false'}>
+    <div className={style['tripPeopleDetailField']} 
+         data-round={roundType} data-iconleft={iconLeft?'true':'false'}
+         onClick={onClickComponent}
+         >
             {iconLeftComponent}
             {captionComponent}
             <input type={fieldType}                
@@ -66,6 +88,8 @@ function TripPeopleDetail(props:Props) {
                 style={{ width: `${width}` }}
                 onFocus={onFocus}
                 onBlur={onBlur}
+                readOnly={true}
+                value={valueText}
                 
             />
             <TripPeoplePopup show={showPopup} onClickConfirm={onClickConfirm}/>

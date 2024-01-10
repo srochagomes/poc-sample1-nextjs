@@ -5,10 +5,13 @@ import { ItemPositionEnum } from "@/types/enums/ItemPosition";
 import LinkAction from "@/components/link/action";
 import Typography from "@/components/text/typography";
 import ButtonPrimary from "@/components/button/primary-button";
+import { MinorAgeData, PeopleData } from "..";
+
+
 
 interface Props {
   show: boolean;
-  onClickConfirm: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClickConfirm: (event: React.MouseEvent<HTMLButtonElement>, peopleData:PeopleData) => void;
 }
 
 function TripPeoplePopup(props: Props) {
@@ -17,6 +20,21 @@ function TripPeoplePopup(props: Props) {
   const [peopleMinorQuantity, setPeopleMinorQuantity] = useState(0);
   const [peopleOlderQuantity, setPeopleOlderQuantity] = useState(0);
   const [peopleRoomQuantity, setPeopleRoomQuantity] = useState(0);
+  const [minorAges, setMinorAges] = useState<MinorAgeData[]>([]);
+
+  const changeMinorAge = (value: number, index: number) => {
+    setMinorAges(minorAges.filter((item)=> item.index !== index));    
+    setMinorAges((prevItems) => [...prevItems, {index:index, value:value}]);
+  };
+
+  const onClick = (event: React.MouseEvent<HTMLButtonElement>) : void =>{
+      const peopleData:PeopleData = {
+        olderQuantity: peopleOlderQuantity,
+        minorQuantity:peopleMinorQuantity,
+        roomQuantity:peopleRoomQuantity};        
+        peopleData.agesMinors = minorAges;
+        onClickConfirm(event, peopleData);
+  }
 
   const divRef = useRef<HTMLDivElement>(null);
 
@@ -85,7 +103,9 @@ function TripPeoplePopup(props: Props) {
 
       <div className={style['tripPeoplePopup-menores']}>
         {peopleMinorQuantity>0 && Array.from({ length: peopleMinorQuantity }, (_, index) => (
-            <select key={index} placeholder="Idade menore">
+            <select key={index} placeholder="Idade menor"
+              onChange={(e) => changeMinorAge(Number(e.target.value), index)}
+            >
               <option disabled selected value="">Idade menore</option>
               {minorOptions.map((option) => (
                 <option key={option} value={option}>
@@ -97,7 +117,7 @@ function TripPeoplePopup(props: Props) {
       </div>
 
       <div className={style['tripPeoplePopup-confirmar']}>
-        <ButtonPrimary onClick={onClickConfirm} >
+        <ButtonPrimary onClick={onClick} >
           <Typography fontSize="caption3" color="white">Confirmar</Typography>
         </ButtonPrimary>
       </div>

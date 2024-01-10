@@ -11,6 +11,8 @@ import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
 import SimpleDropdow from '@/components/input/dropdow/simple';
 import FormGroup from '@/components/form/group';
 import dropdownVeiculosItems from '@/types/date/TripeVehicleSelect';
+import CalendarField from '@/components/input/calendar';
+import TripPeopleDetail from '@/components/input/trip/people-detail';
 interface Props{
 
 }
@@ -58,7 +60,7 @@ function HowGo(props:Props) {
                                 itens={dropdownVeiculosItems}/>
                         </div>
                         <div className={style['HowGo-fields-group']} >
-                            <InputField  
+                            <CalendarField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Left}
                                 placeholder='Quando'   
@@ -66,7 +68,7 @@ function HowGo(props:Props) {
                                 iconLeft={FieldIconEnum.Calendar}
                                 width="8vh"
                             />
-                            <InputField  
+                            <CalendarField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Right}
                                 placeholder='Quando'   
@@ -77,7 +79,7 @@ function HowGo(props:Props) {
                         </div>
 
                         <div className={style['HowGo-fields-group']} >
-                            <InputField  
+                            <TripPeopleDetail  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.All}
                                 placeholder='1 adulto, 1 quarto'   

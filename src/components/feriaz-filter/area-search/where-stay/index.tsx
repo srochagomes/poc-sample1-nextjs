@@ -10,6 +10,8 @@ import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
 import SimpleDropdow from '@/components/input/dropdow/simple';
+import CalendarField from '@/components/input/calendar';
+import TripPeopleDetail from '@/components/input/trip/people-detail';
 interface Props{
 
 }
@@ -42,7 +44,7 @@ function WhereStay(props:Props) {
                         
                         </div>
                         <div className={style['whereStay-fields-group']} >
-                            <InputField  
+                            <CalendarField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Left}
                                 placeholder='Quando'   
@@ -50,7 +52,7 @@ function WhereStay(props:Props) {
                                 iconLeft={FieldIconEnum.Calendar}
                                 width="8vh"
                             />
-                            <InputField  
+                            <CalendarField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Right}
                                 placeholder='Quando'   
@@ -61,7 +63,7 @@ function WhereStay(props:Props) {
                         </div>
 
                         <div className={style['whereStay-fields-group']} >
-                            <InputField  
+                            <TripPeopleDetail  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.All}
                                 placeholder='1 adulto, 1 quarto'   

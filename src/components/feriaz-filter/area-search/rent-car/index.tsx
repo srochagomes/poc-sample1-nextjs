@@ -11,6 +11,7 @@ import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
 import SimpleDropdow from '@/components/input/dropdow/simple';
 import SwitchLight from '@/components/input/switch';
+import CalendarField from '@/components/input/calendar';
 interface Props{
 
 }
@@ -52,7 +53,7 @@ function RentCar(props:Props) {
                         </div>
                         
                         <div className={style['RentCar-fields-group']} >
-                            <InputField  
+                            <CalendarField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Left}
                                 placeholder='Quando'   
@@ -71,7 +72,7 @@ function RentCar(props:Props) {
                         </div>
 
                         <div className={style['RentCar-fields-group']} >
-                            <InputField  
+                            <CalendarField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Left}
                                 placeholder='Quando'   
