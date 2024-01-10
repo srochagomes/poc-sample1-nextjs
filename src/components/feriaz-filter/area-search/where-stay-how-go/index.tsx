@@ -12,6 +12,7 @@ import SimpleDropdow from '@/components/input/dropdow/simple';
 import IconClick from '@/components/button/icon-click';
 import CalendarField from '@/components/input/calendar';
 import TripPeopleDetail from '@/components/input/trip/people-detail';
+import { SimpleDrodownItem } from '@/components/input/dropdow/simple/ pop-up';
 
 
 interface Props{
@@ -24,6 +25,26 @@ function WhereStayHowGo(props:Props) {
     const handleAccessConfirm = () =>{
 
     }
+
+    const dropdownVeiculosItems: SimpleDrodownItem[] = [
+        {
+          key: "item1",
+          icon: FieldIconPath.airplane,
+          caption: "Avião"
+        },
+        {
+          key: "item2",
+          icon: FieldIconPath.bus,
+          caption: "Onibus"
+        },
+        {
+          key: "item3",
+          icon: FieldIconPath.car,
+          caption: "Carro Alugado"
+        }
+      ];
+
+
 
     return (
             <div className={style['whereStayHowGo']} >
@@ -87,10 +108,9 @@ function WhereStayHowGo(props:Props) {
                         <div className={style['whereStayHowGo-fields-group']} >
                             <SimpleDropdow
                                 roundType={FieldRoundEnum.All}
-                                caption='COMO CHEGAR'  
-                                iconLeft={FieldIconEnum.Airplane}
-                                iconRight={FieldIconEnum.ArrowDownward}
-                                width="18vh"/>
+                                caption='COMO CHEGAR'                                  
+                                width="18vh"
+                                itens={dropdownVeiculosItems}/>
                         </div>
                         <div className={style['whereStayHowGo-button-plus']} >
                             <IconClick path={FieldIconPath.plus} 

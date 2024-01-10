@@ -10,6 +10,7 @@ import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
 import SimpleDropdow from '@/components/input/dropdow/simple';
 import FormGroup from '@/components/form/group';
+import dropdownVeiculosItems from '@/types/date/TripeVehicleSelect';
 interface Props{
 
 }
@@ -52,10 +53,9 @@ function HowGo(props:Props) {
                         <div className={style['HowGo-fields-group']} >
                             <SimpleDropdow
                                 roundType={FieldRoundEnum.All}
-                                caption='COMO CHEGAR'  
-                                iconLeft={FieldIconEnum.Airplane}
-                                iconRight={FieldIconEnum.ArrowDownward}
-                                width="18vh"/>
+                                caption='COMO CHEGAR'                                  
+                                width="18vh"
+                                itens={dropdownVeiculosItems}/>
                         </div>
                         <div className={style['HowGo-fields-group']} >
                             <InputField  

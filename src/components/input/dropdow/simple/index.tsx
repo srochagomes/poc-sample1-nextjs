@@ -1,9 +1,10 @@
-import { useState } from "react";
-import style from "./SimpleDropdow.module.scss"
+import { useEffect, useState } from "react";
+import style from "./SimpleDropdown.module.scss"
 import Typography from "@/components/text/typography";
 import IconSVG from "@/components/icons/icon-svg";
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
+import SimpleDropdownPopup, { SimpleDrodownItem } from "./ pop-up";
 
 
 
@@ -13,47 +14,82 @@ interface Props {
     roundType?:String
     placeholder?:string
     caption?:string
-    colorCaprion?:string
-    iconLeft?:FieldIconEnum
-    iconRight?:FieldIconEnum
+    colorCaprion?:string    
     width?:string
+    itens: SimpleDrodownItem[]
+    
 }
 
 
 
 function SimpleDropdow(props:Props) {
-  const {caption, placeholder, iconLeft, iconRight, roundType, width} = props;
+  const {caption, placeholder, roundType, width, itens = []} = props;
+  const [openOptions, setOpenOptions] = useState(false);
+  const [itensSelectd, setItensSelected] = useState<SimpleDrodownItem[]>([]);
+  const [textValue, setTextValue] = useState<string>("");
 
+
+  const onItensSelected = (itens:SimpleDrodownItem[]): void  => {
+    setItensSelected(itens);
+  }
+
+  const onClosePopup = (value:boolean): void  => {
+    setOpenOptions(value);
+  }
+  const clickOpen = (event:React.MouseEvent<HTMLDivElement>): void =>{
+    setOpenOptions(!openOptions);
+
+  }
+  
+  
+  useEffect(() => {
+    setTextValue(itensSelectd.map((item) => item.caption).join(", "));
+  }, [itensSelectd]);
+
+  const iconLeft=FieldIconEnum.Airplane;
+  
+  const iconRight= openOptions? FieldIconEnum.UpDownward:FieldIconEnum.ArrowDownward;
   
   const iconLeftComponent = iconLeft ?
-                              <div className={style['simpleDropdowContainer-iconleft']}>
-                                <IconSVG path={FieldIconPath[iconLeft]} alt={placeholder} height={18} width={18} />
+                              <div className={style['simpleDropdownContainer-iconleft']}>
+                                {itensSelectd.length>0 && (
+                                <IconSVG path={itensSelectd[0].icon} alt={placeholder} height={18} width={18} />)}
                               </div>
                               : <></>;
 
   const iconRightComponent = iconRight ?
-                              <div className={style['simpleDropdowContainer-iconright']}>
+                              <div className={style['simpleDropdownContainer-iconright']}>
                                 <IconSVG path={FieldIconPath[iconRight]} alt={placeholder} height={18} width={18} />
                               </div>
                               : <></>;
 
 
-  const captionComponent = caption ? <span className={style['simpleDropdowContainer-caption']}>
+  const captionComponent = caption ? <span className={style['simpleDropdownContainer-caption']}>
                                         <Typography fontSize="input-box" >{caption}</Typography>
                                      </span> 
                                      : <></>;
 
   return (
     
-    <div className={style['simpleDropdowContainer']}  
+    <div className={style['simpleDropdownContainer']}  
           data-iconleft={iconLeft?'true':'false'}
           data-iconright={iconRight?'true':'false'}
           data-round={roundType}
-          style={{ width: `${width}` }}>    
-            {captionComponent}
+          style={{ width: `${width}` }}
+          onClick={clickOpen
+          }
+          >    
+            
             {iconLeftComponent}
-            <span className={style['simpleDropdowContainer-value']}>Valor</span>
+            
+            {captionComponent}
+              
+            <input type="text" readOnly={true} value={textValue}/>
             {iconRightComponent}
+            <SimpleDropdownPopup show={openOptions} 
+                itens={itens} 
+                onClose={onClosePopup}
+                onItensSelected={onItensSelected}/>
     </div>
     
     

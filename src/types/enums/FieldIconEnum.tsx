@@ -6,11 +6,15 @@ export enum FieldIconEnum {
   Calendar = "calendar",
   User = "user",
   ArrowDownward = "arrow_downward",
+  UpDownward = "arrow_upward",
   Airplane = "airplane",
   Plus = "plus",
   MoveUpDow = "moveupdown",
   MoveSide = "moveside",
   Timer = "timer",
   FowardTo = "fowardto",
-  FowardBack = "fowardback"
+  FowardBack = "fowardback",
+  Car = "car",
+  Bus = "bus"
+
 }

@@ -66,7 +66,7 @@ function DatePicker(props:Props) {
         } 
       };
   
-      const timeoutId = setTimeout(configureEvent, 1000);
+      const timeoutId = setTimeout(configureEvent, 100);
   
       return () => {
         clearTimeout(timeoutId);
