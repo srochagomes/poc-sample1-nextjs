@@ -5,7 +5,7 @@ interface Props {
     fontSize?: string;
     color?: string;
     weight?: string,
-    children: React.ReactElement | string;
+    children: React.ReactElement | string | string[];
   }
 
 function Typography(props:Props) {

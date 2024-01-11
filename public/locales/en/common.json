@@ -5,5 +5,19 @@
     "login.forgot.caption" : "Forgot my password",
     "login.or-login-social.caption" : "or get in with",
     "user.without.account.caption" : "Do not you have an account?",
-    "user.should-create.account.caption" : "Sign up"
+    "user.should-create.account.caption" : "Sign up",
+    "message.wherestayhoutogo.title" : "Discover the ideal transport and accommodation",
+    "city-origin.placeholder": "Origin City",
+    "city-origin.caption": "LEAVING FROM",
+    "city-destiny.placeholder": "Destiny City",
+    "city-destiny.caption": "GOING TO",
+    "calendar.when.placeholder": "When",
+    "calendar.go.caption": "GOING",
+    "calendar.back.caption": "TURN",
+    "trip-people-detail.component.caption": "WHO GOES",
+    "trip-people-detail.component.placeholder": "0 older, 0 room",
+    "simpledropdow.howtogo.caption": "HOW TO ARRIVE",
+    "button.patchs.caption": "Patchs",
+    "button.next-process.caption": "Next"
+
 }

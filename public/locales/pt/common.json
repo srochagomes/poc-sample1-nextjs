@@ -5,5 +5,19 @@
     "login.forgot.caption" : "esqueci minha senha",
     "login.or-login-social.caption" : "ou entrar com",
     "user.without.account.caption" : "Não tem conta?",
-    "user.should-create.account.caption" : "Cadastre-se"
+    "user.should-create.account.caption" : "Cadastre-se",
+    "message.wherestayhoutogo.title" : "Descubra o transporte e a hospedagem ideais",
+    "city-origin.placeholder": "Insira cidade de origem",
+    "city-origin.caption": "SAINDO DE",
+    "city-destiny.placeholder": "Insira cidade de destino",
+    "city-destiny.caption": "INDO PARA",
+    "calendar.when.placeholder": "Quando",
+    "calendar.go.caption": "IDA",
+    "calendar.back.caption": "VOLTA",
+    "trip-people-detail.component.caption": "QUEM VAI",
+    "trip-people-detail.component.placeholder": "0 adulto(s), 0 quarto(s)",
+    "simpledropdow.howtogo.caption": "COMO CHEGAR",
+    "button.patchs.caption": "Trechos",
+    "button.next-process.caption": "Avançar"
+
 }

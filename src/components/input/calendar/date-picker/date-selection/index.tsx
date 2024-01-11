@@ -21,7 +21,7 @@ interface Props {
 
 function DateSelection(props:Props) {
     let {position, dateBase, isSelectDay, isDayBetweenSelected, onSelectDay, onClickToBack, onClickToFoward} = props;
-    const dateTranslate = useTranslation('datedescription')
+    const dateTranslate = useTranslation('datedescription');
     let monthDescription = dateTranslate.t('month._'+DateOperations.getMonthFromDate(dateBase).toString());
     let yearValue = DateOperations.getYearFromDate(dateBase).toString()
 
