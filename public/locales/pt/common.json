@@ -6,7 +6,11 @@
     "login.or-login-social.caption" : "ou entrar com",
     "user.without.account.caption" : "Não tem conta?",
     "user.should-create.account.caption" : "Cadastre-se",
-    "message.wherestayhoutogo.title" : "Descubra o transporte e a hospedagem ideais",
+    "message.wherestayhowtogo.title" : "Descubra o transporte e a hospedagem ideais",
+    "message.howtogo.title" : "Descubra o transporte e a hospedagem ideais",
+    "message.wherestay.title" : "Descubra o transporte e a hospedagem ideais",
+    "message.rentcar.title" : "Descubra o transporte e a hospedagem ideais",
+    "message.destiny-discovery.title": "Descubra o transporte e a hospedagem ideais",
     "city-origin.placeholder": "Insira cidade de origem",
     "city-origin.caption": "SAINDO DE",
     "city-destiny.placeholder": "Insira cidade de destino",
@@ -17,7 +21,14 @@
     "trip-people-detail.component.caption": "QUEM VAI",
     "trip-people-detail.component.placeholder": "0 adulto(s), 0 quarto(s)",
     "simpledropdow.howtogo.caption": "COMO CHEGAR",
+    "simpledropdow.type-room.caption": "TIPO DE HOSPEDAGEM",
     "button.patchs.caption": "Trechos",
-    "button.next-process.caption": "Avançar"
+    "button.next-process.caption": "Avançar",
+    "input.time-pickup.caption": "Retirada",
+    "input.time-pickup.placeholder": "Que horas",
+    "switch-light.rent-a-car.caption": "Devolver veículo em outro lugar",
+    "budget-preview.placeholder":"Selecione",
+    "budget-preview.caption":"ORÇAMENTO APROXIMADO"
+
 
 }

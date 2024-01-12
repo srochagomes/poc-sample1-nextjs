@@ -6,7 +6,11 @@
     "login.or-login-social.caption" : "or get in with",
     "user.without.account.caption" : "Do not you have an account?",
     "user.should-create.account.caption" : "Sign up",
-    "message.wherestayhoutogo.title" : "Discover the ideal transport and accommodation",
+    "message.wherestayhowtogo.title" : "Discover the ideal transport and accommodation",
+    "message.howtogo.title" : "Discover the ideal transport and accommodation",    
+    "message.wherestay.title" : "Discover the ideal transport and accommodation",
+    "message.rentcar.title" : "Discover the ideal transport and accommodation",
+    "message.destiny-discovery.title": "Discover the ideal transport and accommodation",
     "city-origin.placeholder": "Origin City",
     "city-origin.caption": "LEAVING FROM",
     "city-destiny.placeholder": "Destiny City",
@@ -17,7 +21,13 @@
     "trip-people-detail.component.caption": "WHO GOES",
     "trip-people-detail.component.placeholder": "0 older, 0 room",
     "simpledropdow.howtogo.caption": "HOW TO ARRIVE",
+    "simpledropdow.type-room.caption": "TYPE OF ACCOMMODATION",
     "button.patchs.caption": "Patchs",
-    "button.next-process.caption": "Next"
+    "button.next-process.caption": "Next",
+    "input.time-pickup.caption": "Pick up",
+    "input.time-pickup.placeholder": "What time",
+    "switch-light.rent-a-car.caption": "Return vehicle elsewhere",
+    "budget-preview.placeholder":"Select",
+    "budget-preview.caption":"BUDGET FORECAST"
 
 }

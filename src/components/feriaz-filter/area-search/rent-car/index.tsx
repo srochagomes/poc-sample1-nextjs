@@ -12,11 +12,14 @@ import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
 import SimpleDropdow from '@/components/input/dropdow/simple';
 import SwitchLight from '@/components/input/switch';
 import CalendarField from '@/components/input/calendar';
+import { useTranslation } from 'next-i18next';
+
 interface Props{
 
 }
 
 function RentCar(props:Props) {
+    const common = useTranslation('common');
 
     const handleAccessConfirm = () =>{
 
@@ -25,7 +28,7 @@ function RentCar(props:Props) {
     return (
             <div className={style['RentCar']} >
                 <div className={style['RentCar-title']}>
-                    <Typography fontSize="caption2" color="white">Descubra o transporte e a hospedagem ideais</Typography>
+                    <Typography fontSize="caption2" color="white">{common.t('message.rentcar.title')}</Typography>
                 </div>
                 
                 <FormGroup applyOnValidForm={handleAccessConfirm}>
@@ -38,15 +41,15 @@ function RentCar(props:Props) {
                                 <InputField  
                                     type={FieldTypeEnum.Text}  
                                     roundType={FieldRoundEnum.Left}
-                                    placeholder='Insira cidade de origem'   
-                                    caption='SAINDO DE'  
+                                    placeholder={common.t('city-origin.placeholder')}   
+                                    caption={common.t('city-origin.caption')}   
                                     iconLeft={FieldIconEnum.Circle}
                                 />
                                 <InputField  
                                     type={FieldTypeEnum.Text}  
                                     roundType={FieldRoundEnum.Right}
-                                    placeholder='Insira cidade de destino'   
-                                    caption='INDO PARA'  
+                                    placeholder={common.t('city-destiny.placeholder')}   
+                                    caption={common.t('city-destiny.caption')}   
                                     iconLeft={FieldIconEnum.Location}
                                 />
                             </div>                        
@@ -56,16 +59,16 @@ function RentCar(props:Props) {
                             <CalendarField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Left}
-                                placeholder='Quando'   
-                                caption='IDA'  
+                                placeholder={common.t('calendar.when.placeholder')}   
+                                caption={common.t('calendar.go.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
                                 width="8vh"
                             />
                             <InputField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Right}
-                                placeholder='Que horas'   
-                                caption='RETIRADA'  
+                                placeholder={common.t('input.time-pickup.placeholder')}   
+                                caption={common.t('input.time-pickup.caption')}   
                                 iconLeft={FieldIconEnum.Timer}
                                 width="8vh"
                             />
@@ -75,16 +78,16 @@ function RentCar(props:Props) {
                             <CalendarField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Left}
-                                placeholder='Quando'   
-                                caption='IDA'  
+                                placeholder={common.t('calendar.when.placeholder')}   
+                                caption={common.t('calendar.go.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
                                 width="8vh"
                             />
                             <InputField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Right}
-                                placeholder='Que horas'   
-                                caption='RETIRADA'  
+                                placeholder={common.t('input.time-pickup.placeholder')}   
+                                caption={common.t('input.time-pickup.caption')}   
                                 iconLeft={FieldIconEnum.Timer}
                                 width="8vh"
                             />
@@ -92,13 +95,13 @@ function RentCar(props:Props) {
                         
                     </div>
                     <div className={style['RentCar-fields']} >
-                            <SwitchLight caption="Devolver veículo em outro lugar"/>
+                            <SwitchLight caption={common.t('switch-light.rent-a-car.caption')} />
                         </div>
                 </FormGroup>
                 
                 <div className={style['RentCar-button-next']} >
                     <ButtonPrimary >
-                        <Typography fontSize="button-primary" color="white">Avançar</Typography>
+                        <Typography fontSize="button-primary" color="white">{common.t('button.next-process.caption')} </Typography>
                     </ButtonPrimary>
                 </div>
             </div>

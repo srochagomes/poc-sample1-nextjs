@@ -16,6 +16,7 @@ export enum FieldIconPath {
   fowardback = "/images/icons/icon-fowardback.svg",
   car = "/images/icons/icon-bus.svg",
   bus = "/images/icons/icon-car.svg",
-  train = "/images/icons/icon-train.svg"
+  train = "/images/icons/icon-train.svg",
+  money = "/images/icons/icon-money.svg"
 
 }

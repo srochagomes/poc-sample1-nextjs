@@ -12,12 +12,14 @@ import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
 import SimpleDropdow from '@/components/input/dropdow/simple';
 import CalendarField from '@/components/input/calendar';
 import TripPeopleDetail from '@/components/input/trip/people-detail';
+import { useTranslation } from 'next-i18next';
+
 interface Props{
 
 }
 
 function WhereStay(props:Props) {
-
+    const common = useTranslation('common');
     const handleAccessConfirm = () =>{
 
     }
@@ -25,7 +27,7 @@ function WhereStay(props:Props) {
     return (
             <div className={style['whereStay']} >
                 <div className={style['whereStay-title']}>
-                    <Typography fontSize="caption2" color="white">Descubra o transporte e a hospedagem ideais</Typography>
+                    <Typography fontSize="caption2" color="white">{common.t('message.wherestay.title')}</Typography>
                 </div>
                 
                 <FormGroup applyOnValidForm={handleAccessConfirm}>
@@ -35,8 +37,8 @@ function WhereStay(props:Props) {
                                 <InputField  
                                     type={FieldTypeEnum.Text}  
                                     roundType={FieldRoundEnum.All}
-                                    placeholder='Insira cidade de destino'   
-                                    caption='INDO PARA'  
+                                    placeholder={common.t('city-destiny.placeholder')}   
+                                    caption={common.t('city-destiny.caption')}   
                                     iconLeft={FieldIconEnum.Location}
                                     width='50vh'
                                 />
@@ -47,16 +49,16 @@ function WhereStay(props:Props) {
                             <CalendarField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Left}
-                                placeholder='Quando'   
-                                caption='IDA'  
+                                placeholder={common.t('calendar.when.placeholder')}   
+                                caption={common.t('calendar.go.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
                                 width="8vh"
                             />
                             <CalendarField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Right}
-                                placeholder='Quando'   
-                                caption='VOLTA'  
+                                placeholder={common.t('calendar.when.placeholder')}   
+                                caption={common.t('calendar.back.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
                                 width="8vh"
                             />
@@ -66,8 +68,8 @@ function WhereStay(props:Props) {
                             <TripPeopleDetail  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.All}
-                                placeholder='1 adulto, 1 quarto'   
-                                caption='QUEM VAI'  
+                                placeholder={common.t('trip-people-detail.component.placeholder')}   
+                                caption={common.t('trip-people-detail.component.caption')}     
                                 iconLeft={FieldIconEnum.User}
                                 width="13vh"
                             />
@@ -76,7 +78,7 @@ function WhereStay(props:Props) {
                             <IconClick path={FieldIconPath.plus} 
                                        widthSize={30}
                                        heightSize={30}
-                                       caption='Trechos'
+                                       caption={common.t('button.patchs.caption')}  
                                        captionColor="white"
                             
                             />

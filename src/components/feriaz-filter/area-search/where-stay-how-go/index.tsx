@@ -36,7 +36,7 @@ function WhereStayHowGo(props:Props) {
     return (
             <div className={style['whereStayHowGo']} >
                 <div className={style['whereStayHowGo-title']}>
-                    <Typography fontSize="caption2" color="white">{common.t('message.wherestayhoutogo.title')}</Typography>
+                    <Typography fontSize="caption2" color="white">{common.t('message.wherestayhowtogo.title')}</Typography>
                 </div>
                 
                 <FormGroup applyOnValidForm={handleAccessConfirm}>

@@ -16,5 +16,6 @@ export enum FieldIconEnum {
   FowardBack = "fowardback",
   Car = "car",
   Bus = "bus",
-  Train = "train"
+  Train = "train",
+  Money="money"
 }

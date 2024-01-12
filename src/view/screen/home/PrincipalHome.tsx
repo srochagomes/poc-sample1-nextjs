@@ -19,8 +19,9 @@ export default function PrincipalHome() {
         <div className={style['body-area-search']}>
           <FeriazFilter/>
         </div>
-        <span className={style['body-area-text']}>Férias: planeje sua viagem em minutos com inteligência artificial.</span>
-        
+        <div className={style['body-area-text']}>
+          <span>Férias: planeje sua viagem em minutos com inteligência artificial.</span>
+        </div>
       </section>
       
     </>

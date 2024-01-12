@@ -13,11 +13,14 @@ import FormGroup from '@/components/form/group';
 import dropdownVeiculosItems from '@/types/date/TripeVehicleSelect';
 import CalendarField from '@/components/input/calendar';
 import TripPeopleDetail from '@/components/input/trip/people-detail';
+import { useTranslation } from 'next-i18next';
+
 interface Props{
 
 }
 
 function HowGo(props:Props) {
+    const common = useTranslation('common');
 
     const handleAccessConfirm = () =>{
 
@@ -26,7 +29,7 @@ function HowGo(props:Props) {
     return (
             <div className={style['HowGo']} >
                 <div className={style['HowGo-title']}>
-                    <Typography fontSize="caption2" color="white">Descubra o transporte e a hospedagem ideais</Typography>
+                    <Typography fontSize="caption2" color="white">{common.t('message.howtogo.title')}</Typography>
                 </div>
                 
                 <FormGroup applyOnValidForm={handleAccessConfirm}>
@@ -39,15 +42,15 @@ function HowGo(props:Props) {
                                 <InputField  
                                     type={FieldTypeEnum.Text}  
                                     roundType={FieldRoundEnum.Left}
-                                    placeholder='Insira cidade de origem'   
-                                    caption='SAINDO DE'  
+                                    placeholder={common.t('city-origin.placeholder')}   
+                                    caption={common.t('city-origin.caption')}   
                                     iconLeft={FieldIconEnum.Circle}
                                 />
                                 <InputField  
                                     type={FieldTypeEnum.Text}  
                                     roundType={FieldRoundEnum.Right}
-                                    placeholder='Insira cidade de destino'   
-                                    caption='INDO PARA'  
+                                    placeholder={common.t('city-destiny.placeholder')}   
+                                    caption={common.t('city-destiny.caption')}   
                                     iconLeft={FieldIconEnum.Location}
                                 />
                             </div>                        
@@ -55,7 +58,7 @@ function HowGo(props:Props) {
                         <div className={style['HowGo-fields-group']} >
                             <SimpleDropdow
                                 roundType={FieldRoundEnum.All}
-                                caption='COMO CHEGAR'                                  
+                                caption={common.t('simpledropdow.howtogo.caption')}
                                 width="18vh"
                                 itens={dropdownVeiculosItems}/>
                         </div>
@@ -63,16 +66,16 @@ function HowGo(props:Props) {
                             <CalendarField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Left}
-                                placeholder='Quando'   
-                                caption='IDA'  
+                                placeholder={common.t('calendar.when.placeholder')}   
+                                caption={common.t('calendar.go.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
                                 width="8vh"
                             />
                             <CalendarField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Right}
-                                placeholder='Quando'   
-                                caption='VOLTA'  
+                                placeholder={common.t('calendar.when.placeholder')}   
+                                caption={common.t('calendar.back.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
                                 width="8vh"
                             />
@@ -82,8 +85,8 @@ function HowGo(props:Props) {
                             <TripPeopleDetail  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.All}
-                                placeholder='1 adulto, 1 quarto'   
-                                caption='QUEM VAI'  
+                                placeholder={common.t('trip-people-detail.component.placeholder')}   
+                                caption={common.t('trip-people-detail.component.caption')}     
                                 iconLeft={FieldIconEnum.User}
                                 width="13vh"
                             />
@@ -92,9 +95,8 @@ function HowGo(props:Props) {
                             <IconClick path={FieldIconPath.plus} 
                                        widthSize={30}
                                        heightSize={30}
-                                       caption='Trechos'
-                                       captionColor="white"
-                            
+                                       caption={common.t('button.patchs.caption')}  
+                                       captionColor="white"                            
                             />
                         </div>
                     </div>
@@ -102,7 +104,7 @@ function HowGo(props:Props) {
                 
                 <div className={style['HowGo-button-next']} >
                     <ButtonPrimary >
-                        <Typography fontSize="button-primary" color="white">Avançar</Typography>
+                        <Typography fontSize="button-primary" color="white">{common.t('button.next-process.caption')} </Typography>
                     </ButtonPrimary>
                 </div>
             </div>

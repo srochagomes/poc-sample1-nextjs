@@ -75,7 +75,7 @@ function SimpleDropdow(props:Props) {
           data-iconleft={iconLeft?'true':'false'}
           data-iconright={iconRight?'true':'false'}
           data-round={roundType}
-          style={{ width: `${width}` }}
+          
           onClick={clickOpen
           }
           >    
