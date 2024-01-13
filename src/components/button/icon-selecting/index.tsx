@@ -31,9 +31,13 @@ function IconSelecting(props:Props) {
         <>
             <div  className={style['iconSelectButton']} onClick={onClickButton}>
                 {(selected?whenSelected:normal)}
-                <span>{caption}</span>
-                <div className={style['iconSelectButton-underlined']} 
-                    data-selected={selected}/>
+                {caption && (
+                    <>
+                    <span>{caption}</span>
+                    <div className={style['iconSelectButton-underlined']} 
+                        data-selected={selected}/>
+                    </>
+                )}
             </div>
         </>
   );

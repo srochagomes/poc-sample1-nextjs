@@ -1,48 +1,58 @@
 @import '@/styles/global-variables';
 
-.HeaderMenu{
-  
-  width: 100%;
+.HeaderMenu {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  nav {
-    width: 100%;
-    display: flex;    
-    align-items: center;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    
 
-    ul {      
-      display: flex;    
-      list-style: none;
+  & > nav {    
+    margin-top: 1.5rem;
+    z-index: 1;
+    background-color: $color-background-principal;
+    opacity: 0; /* Opacidade inicial */
+    visibility: hidden; /* Tornar invisível por padrão */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Adicionar transição */
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 1rem;
+    top: 100%; /* Posicionar abaixo do HeaderMenu */
+    left: 0;
+
+    & > ul {
       align-items: center;
       justify-content: center;
       padding: 0;
-      font-family: Poppins, sans-serif;
-      // Estilo para cada item do menu
-      li {        
-        padding-left: 25px;
-        a {
-          text-decoration: none; // Remover sublinhado padrão
-          color: #ffff; // Cor do texto
-          font-size: 17px; // Tamanho da fonte                
-          
+
+      & > li {
+        padding-left: 1rem;
+        margin-bottom: 5rem; 
+
+        & > a {
+          text-decoration: none;
+          color: #ffff;
+          font-size: 1.3rem;
+          font-weight: bold;
+          white-space: nowrap; /* Evitar quebra de linha */
+
           &:hover {
-            text-decoration: none; // Adicionar sublinhado ao passar o mouse
+            text-decoration: none;
           }
         }
       }
-    }  
-  
+    }
   }
 
-  &-buttons { 
-    position: absolute;
-    display: flex;    
+  &-show > nav {
+    opacity: 0.9; /* Exibir quando a classe -show está presente */
+    visibility: visible;
+  }
+
+  &-buttons {
+    display: flex;
     right: 0; /* Ajuste para a direita */
   }
 
@@ -55,8 +65,5 @@
     border-radius: 5px;
     text-decoration: none;
     color: #333;
-    
-  }  
-  
-    
+  }
 }

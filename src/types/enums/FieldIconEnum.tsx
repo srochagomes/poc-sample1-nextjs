@@ -17,5 +17,7 @@ export enum FieldIconEnum {
   Car = "car",
   Bus = "bus",
   Train = "train",
-  Money="money"
+  Money="money",
+  MenuHorizontal="menu_horizontal",
+  MenuVertical="menu_vertical"
 }

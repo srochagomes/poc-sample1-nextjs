@@ -64,9 +64,7 @@ function SimpleDropdow(props:Props) {
                               : <></>;
 
 
-  const captionComponent = caption ? <span className={style['simpleDropdownContainer-caption']}>
-                                        <Typography fontSize="input-box" >{caption}</Typography>
-                                     </span> 
+  const captionComponent = caption ? <Typography fontSize="input-box" >{caption}</Typography>
                                      : <></>;
 
   return (
@@ -80,11 +78,13 @@ function SimpleDropdow(props:Props) {
           }
           >    
             
-            {iconLeftComponent}
             
-            {captionComponent}
-              
-            <input type="text" readOnly={true} value={textValue}/>
+            {iconLeftComponent}
+
+            <div className={style['simpleDropdownContainer-groupField']}  >
+              {captionComponent}
+              <input type="text" readOnly={true} value={textValue}/>
+            </div>
             {iconRightComponent}
             <SimpleDropdownPopup show={openOptions} 
                 itens={itens} 
