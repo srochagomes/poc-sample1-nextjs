@@ -5,8 +5,9 @@ import HeaderMenu from "./header/menu"
 import FeriazFilter from "@/components/feriaz-filter"
 import AreaLogin from "./header/area-login"
 import { FieldVideoPath } from "@/types/enums/FieldVideoPath"
-import VideoPlay from "@/components/video"
-import ReactPlayer from "react-player";
+import dynamic from 'next/dynamic'
+import VideoPlayer from "@/components/video"
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
  
 
 
@@ -29,17 +30,8 @@ export default function PrincipalHome() {
         </div>
 
         <div className={style['body-area-video']}>
-          <ReactPlayer
-              url={FieldVideoPath.Apresentation}
-              width='100%'
-              height='100%'
-              controls={true}
-              loop={true}
-              muted={true}
-              light={false}
-              // picture in picture
-              pip={true}
-            />
+          <VideoPlayer
+              url={FieldVideoPath.Apresentation} />
           
         </div>
         
