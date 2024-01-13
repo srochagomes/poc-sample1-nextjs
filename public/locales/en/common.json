@@ -28,6 +28,7 @@
     "input.time-pickup.placeholder": "What time",
     "switch-light.rent-a-car.caption": "Return vehicle elsewhere",
     "budget-preview.placeholder":"Select",
-    "budget-preview.caption":"BUDGET FORECAST"
+    "budget-preview.caption":"BUDGET FORECAST",                             
+    "message.feriaz.brand": "Fériaz is not spelled “AZ” by chance. From the definition of the destination to the customized itinerary, here you have everything you need to plan your trip."
 
 }

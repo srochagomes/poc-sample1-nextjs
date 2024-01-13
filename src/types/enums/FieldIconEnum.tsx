@@ -19,5 +19,7 @@ export enum FieldIconEnum {
   Train = "train",
   Money="money",
   MenuHorizontal="menu_horizontal",
-  MenuVertical="menu_vertical"
+  MenuVertical="menu_vertical",
+  ProfileCircle="profile_circle"
+
 }

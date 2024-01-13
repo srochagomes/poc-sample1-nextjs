@@ -15,17 +15,16 @@
     }
 
     &-area-text{
-        padding-top: 2rem;
-        font-family: Poppins, sans-serif;
+        padding-top: 2rem;        
         color: #ffff;  
-        line-height: 4rem;
-        font-weight: 800;
-        font-size: 3rem;
-        margin-top: 8vh;     
+        line-height: 2.5rem;
+        font-weight: 900;
+        font-size: 2.2rem;
+        margin-top: 6vh;     
         text-align: center;
         word-wrap: break-word;
         white-space: pre-wrap;
-        width: 50rem;
+        width: 60rem;
     }
 
     &-area-search {
@@ -34,6 +33,14 @@
         flex-direction: column;
         align-items: center;        
         width: 100%;
+        
+    }
+
+    &-area-video{
+        margin-top: 2rem;
+        width: 40rem;
+        width: 40rem;
+        
     }
   
 }

@@ -4,11 +4,14 @@ import FeriazText, { FeriazSizeEnum } from "@/components/svg/feriaz-text"
 import HeaderMenu from "./header/menu"
 import FeriazFilter from "@/components/feriaz-filter"
 import AreaLogin from "./header/area-login"
+import { FieldVideoPath } from "@/types/enums/FieldVideoPath"
+import VideoPlay from "@/components/video"
+import ReactPlayer from "react-player";
  
 
 
 export default function PrincipalHome() {
-  const { t } = useTranslation('common')
+  const common = useTranslation('common')
 
   return (
     <>      
@@ -22,8 +25,24 @@ export default function PrincipalHome() {
           <FeriazFilter/>
         </div>
         <div className={style['body-area-text']}>
-          <span>Férias: planeje sua viagem em minutos com inteligência artificial.</span>
+          <span>{common.t('message.feriaz.brand')}</span>
         </div>
+
+        <div className={style['body-area-video']}>
+          <ReactPlayer
+              url={FieldVideoPath.Apresentation}
+              width='100%'
+              height='100%'
+              controls={true}
+              loop={true}
+              muted={true}
+              light={false}
+              // picture in picture
+              pip={true}
+            />
+          
+        </div>
+        
       </section>
       
     </>

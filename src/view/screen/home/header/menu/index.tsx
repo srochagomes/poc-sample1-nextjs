@@ -1,8 +1,5 @@
 import { useTranslation } from "next-i18next"
 import style from "./HeaderMenu.module.scss"
-import FeriazText, { FeriazSizeEnum } from "@/components/svg/feriaz-text"
-import SignInAltIcon from "@/components/icons/SignInAltIcon"
-import CreateAccountIcon from "@/components/icons/CreateAccountIcon"
 import IconSelecting from "@/components/button/icon-selecting"
 import IconSVG from "@/components/icons/icon-svg"
 import { FieldIconPath } from "@/types/enums/FieldIconPath"
@@ -38,9 +35,9 @@ export default function HeaderMenu() {
 
 const IconesEnum = {
   BUTTON_MENU: { selected: (
-                          <IconSVG path={FieldIconPath.menu_vertical} alt="Como Chegar e onde ficar" height={50} width={90}/>
+                          <IconSVG path={FieldIconPath.menu_vertical} alt="Mostrar Menu" height={40} width={80}/>
                           ),
                    normal: (
-                           <IconSVG path={FieldIconPath.menu_horizontal} alt="Como Chegar e onde ficar" height={50} width={90} />
+                           <IconSVG path={FieldIconPath.menu_horizontal} alt="Esconder Menu" height={40} width={80} />
                   )
 }}
