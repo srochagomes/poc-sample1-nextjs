@@ -6,10 +6,12 @@ interface Props {
     alt? : string
     height? : number;
     width? : number;
+    priority?:boolean;
+    isFill?:boolean;
 }
 
 export default function IconSVG(props:Props){
-    const {path, height, width, alt} = props;
+    const {path, height, width, alt, priority,isFill} = props;
 
     let heightSize : number = 50;
     let widthSize : number = 50;
@@ -24,16 +26,19 @@ export default function IconSVG(props:Props){
 
 
     return (
-            <> 
-                    <Image        
-                        priority
-                        src={path}
-                        height={heightSize}
-                        width={widthSize}
-                        alt={alt?alt:""}
-                    />
-                
-            </>
+
+            <Image        
+                priority={priority}
+                src={path}
+                style={{ objectFit: "cover"}}
+                fill={isFill}
+                loading={!priority?"lazy":"eager"}
+                quality={100}
+                {...(!isFill ? { width: widthSize, height:heightSize} : {})}
+                alt={alt?alt:""}
+            />
+        
+
         )
 } 
 

@@ -53,27 +53,42 @@ function TripTypeButtons(props:Props) {
                     normal={IconesEnum.FERIAZ_ONDE_FICA_COMO_CHEGAR.normal} 
                     whenSelected={IconesEnum.FERIAZ_ONDE_FICA_COMO_CHEGAR.selected}
                     caption="Onde ficar e como chegar"
-                    onClick={()=>feriazIconTypeClick(0)} />
+                    onClick={()=>feriazIconTypeClick(0)} 
+                    width="8rem"
+                    height="3rem"
+                    />
             <IconSelecting isSelected={btnSecondSelected} 
                     normal={IconesEnum.FERIAZ_ONDE_FICA.normal} 
                     whenSelected={IconesEnum.FERIAZ_ONDE_FICA.selected}
                     caption="Onde ficar"
-                    onClick={()=>feriazIconTypeClick(1)} />
+                    onClick={()=>feriazIconTypeClick(1)} 
+                    width="3rem"
+                    height="3rem"
+                    />
             <IconSelecting isSelected={btnThirdSelected} 
                     normal={IconesEnum.FERIAZ_COMO_CHEGAR.normal} 
                     whenSelected={IconesEnum.FERIAZ_COMO_CHEGAR.selected}
                     caption="Como chegar"
-                    onClick={()=>feriazIconTypeClick(2)} />
+                    onClick={()=>feriazIconTypeClick(2)} 
+                    width="3rem"
+                    height="3rem"
+                    />
             <IconSelecting isSelected={btnFourthSelected} 
                     normal={IconesEnum.FERIAZ_ALUGAR_CARRO.normal} 
                     whenSelected={IconesEnum.FERIAZ_ALUGAR_CARRO.selected}
                     caption="Alugar Carro"
-                    onClick={()=>feriazIconTypeClick(3)} />                    
+                    onClick={()=>feriazIconTypeClick(3)} 
+                    width="3rem"
+                    height="3rem"
+                    />                    
             <IconSelecting isSelected={btnFifthSelected} 
                     normal={IconesEnum.FERIAZ_DESCOBRIR_DESTINO.normal} 
                     whenSelected={IconesEnum.FERIAZ_DESCOBRIR_DESTINO.selected}
                     caption="Descobrir Destino"
-                    onClick={()=>feriazIconTypeClick(4)} />                    
+                    onClick={()=>feriazIconTypeClick(4)}
+                    width="3rem"
+                    height="3rem"
+                     />                    
 
         </div>
     
@@ -83,38 +98,38 @@ function TripTypeButtons(props:Props) {
 
 const IconesEnum = {
     FERIAZ_ONDE_FICA_COMO_CHEGAR: { selected: (
-                                                <IconSVG path="/images/icons/onde-fica-como-chega-preenchido.svg" alt="Como Chegar e onde ficar" height={50} width={90}/>
+                                                <IconSVG path="/images/icons/onde-fica-como-chega-preenchido.svg" alt="Como Chegar e onde ficar" width={93} height={50}/>
                                                 ),
                                     normal: (
-                                             <IconSVG path="/images/icons/onde-fica-como-chega.svg" alt="Como Chegar e onde ficar" height={50} width={90} />
+                                             <IconSVG path="/images/icons/onde-fica-como-chega.svg" alt="Como Chegar e onde ficar" width={93} height={50}/>
                                             )
                                   },
     FERIAZ_ONDE_FICA: { selected: (
-                                        <IconSVG path="/images/icons/onde-fica-preenchido.svg" alt="Onde ficar" />
+                                        <IconSVG path="/images/icons/onde-fica-preenchido.svg" alt="Onde ficar" isFill={true}/>
                                                 ),
                                     normal: (
-                                             <IconSVG path="/images/icons/onde-fica.svg" alt="Onde ficar" />
+                                             <IconSVG path="/images/icons/onde-fica.svg" alt="Onde ficar" isFill={true}/>
                                             )
                                   },
     FERIAZ_COMO_CHEGAR: { selected: (
-                                                <IconSVG path="/images/icons/como-chegar-preenchido.svg" alt="Como Chegar" />
+                                                <IconSVG path="/images/icons/como-chegar-preenchido.svg" alt="Como Chegar" isFill={true}/>
                                                 ),
                                     normal: (
-                                             <IconSVG path="/images/icons/como-chegar.svg" alt="Como Chegar" />
+                                             <IconSVG path="/images/icons/como-chegar.svg" alt="Como Chegar" isFill={true}/>
                                             )
                                   },                                   
     FERIAZ_ALUGAR_CARRO: { selected: (
-                                                <IconSVG path="/images/icons/alugar-carro-preenchido.svg" alt="Alugar Carro" />
+                                                <IconSVG path="/images/icons/alugar-carro-preenchido.svg" alt="Alugar Carro" isFill={true}/>
                                                 ),
                                     normal: (
-                                            <IconSVG path="/images/icons/alugar-carro.svg" alt="Alugar Carro" />
+                                            <IconSVG path="/images/icons/alugar-carro.svg" alt="Alugar Carro" isFill={true}/>
                                             )
                                 },                                                                     
     FERIAZ_DESCOBRIR_DESTINO: { selected: (
-                                                <IconSVG path="/images/icons/descobrir-destino-preenchido.svg" alt="Descobrir Destino" />
+                                                <IconSVG path="/images/icons/descobrir-destino-preenchido.svg" alt="Descobrir Destino" isFill={true}/>
                                                 ),
                                     normal: (
-                                            <IconSVG path="/images/icons/descobrir-destino.svg" alt="Descobrir Destino" />
+                                            <IconSVG path="/images/icons/descobrir-destino.svg" alt="Descobrir Destino" isFill={true}/>
                                             )
                                 },                                                                     
 

@@ -7,13 +7,15 @@ interface Props{
     whenSelected : React.ReactElement;
     isSelected: boolean;
     caption?: string;
+    width?: string;
+    height?: string;
     onClick?: ()=>void;
 }
 
 
 
 function IconSelecting(props:Props) {
-    const {caption, onClick, isSelected, normal, whenSelected} = props;
+    const {caption, width, height, onClick, isSelected, normal, whenSelected} = props;
     const [selected, setSelected] = React.useState(isSelected);
 
     React.useEffect(() => {
@@ -26,17 +28,23 @@ function IconSelecting(props:Props) {
             onClick();
         }
     }
+
+    
   
     return (
         <>
             <div  className={style['iconSelectButton']} onClick={onClickButton}>
-                {(selected?whenSelected:normal)}
+                <div  className={style['iconSelectButton-image']} onClick={onClickButton} 
+                style={{ width: width, height: height }}>
+                    {(selected?whenSelected:normal)}
+                </div>                
                 {caption && (
-                    <>
-                    <span>{caption}</span>
-                    <div className={style['iconSelectButton-underlined']} 
-                        data-selected={selected}/>
-                    </>
+                    <div className={style['iconSelectButton-footer']}>
+                        <span>{caption}</span>
+                        <div className={style['iconSelectButton-underlined']} 
+                            data-selected={selected}/>
+
+                    </div> 
                 )}
             </div>
         </>

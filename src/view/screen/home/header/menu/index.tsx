@@ -19,7 +19,10 @@ export default function HeaderMenu() {
         <IconSelecting isSelected={menuSelected} 
                       normal={IconesEnum.BUTTON_MENU.normal} 
                       whenSelected={IconesEnum.BUTTON_MENU.selected}                      
-                      onClick={menuClicked} />
+                      onClick={menuClicked} 
+                      width={"3.5rem"}
+                      height={"3rem"}
+                      />
         <nav>
             <ul>
                 <li><a href="https://www.feriaz.ai/mundo-de-feriaz">MUNDO DE FÉRIAZ</a></li>
@@ -35,9 +38,9 @@ export default function HeaderMenu() {
 
 const IconesEnum = {
   BUTTON_MENU: { selected: (
-                          <IconSVG path={FieldIconPath.menu_vertical} alt="Mostrar Menu" height={40} width={80}/>
+                          <IconSVG path={FieldIconPath.menu_vertical} alt="Mostrar Menu" isFill={true}/>
                           ),
                    normal: (
-                           <IconSVG path={FieldIconPath.menu_horizontal} alt="Esconder Menu" height={40} width={80} />
+                           <IconSVG path={FieldIconPath.menu_horizontal} alt="Esconder Menu" isFill={true} />
                   )
 }}

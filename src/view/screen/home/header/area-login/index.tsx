@@ -22,7 +22,9 @@ export default function AreaLogin() {
             <IconSelecting isSelected={menuSelected} 
                             normal={IconesEnum.BUTTON_MENU.normal} 
                             whenSelected={IconesEnum.BUTTON_MENU.selected}                      
-                            onClick={menuClicked} />
+                            onClick={menuClicked}
+                            width={"3rem"}
+                            height={"3.5rem"}/>
             </div> 
             
         </>
@@ -32,10 +34,10 @@ export default function AreaLogin() {
 
 const IconesEnum = {
     BUTTON_MENU: { selected: (
-                            <IconSVG path={FieldIconPath.profile_circle} alt="Como Chegar e onde ficar" height={40} width={80}/>
+                            <IconSVG path={FieldIconPath.profile_circle} alt="Como Chegar e onde ficar" isFill={true}/>
                             ),
                      normal: (
-                             <IconSVG path={FieldIconPath.profile_circle} alt="Como Chegar e onde ficar" height={40} width={80} />
+                             <IconSVG path={FieldIconPath.profile_circle} alt="Como Chegar e onde ficar" isFill={true} />
                     )
   }}
   

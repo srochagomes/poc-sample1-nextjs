@@ -1,0 +1,93 @@
+.instructionsFeriaz{
+
+    margin-top: 5rem;
+    margin-left: 10rem;
+    padding: 0;
+    width: 50rem; /* Ajuste conforme necessário */
+    height: 40rem; /* Ajuste conforme necessário */
+    position: relative;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+    grid-gap: 0; /* Espaço entre as células do grid */
+
+    &-top-left {
+        background-color: rgb(211, 207, 207);
+        border-radius: 100% 0 0 0;          
+        height: 25%;
+    }
+    
+    &-top-right {
+        background-color: rgb(211, 207, 207);
+        border-radius: 0 100% 0 0;
+        height: 25%;
+    }
+    
+    &-middle-left {
+        position: absolute;
+        background-color: rgb(211, 207, 207);        
+        width: 10%;
+        height: 80%;
+        top: 10%;
+        border-radius: 80% 0 0 80%;
+        margin-left: -4%;
+        
+    }
+
+    &-middle-right {
+        position: absolute;
+        background-color: rgb(211, 207, 207);        
+        width: 10%;
+        height: 80%;
+        top: 10%;
+        left: 90%;
+        border-radius: 0 80% 80% 0;
+        margin-left: 4%;
+     }
+     
+     &-bottom-left {
+        background-color: rgb(211, 207, 207);
+        border-radius: 0 0 0 100%;          
+        
+        height: 25%;
+        margin-top: 60%;
+      }
+
+     &-bottom-right {
+        background-color: rgb(211, 207, 207);        
+        border-radius: 0 0 100% 0;
+        height: 25%;
+        margin-top: 60%;
+     }
+
+     &-area-central {
+        position: absolute;
+        background-color: rgb(211, 207, 207);        
+        width: 95%;
+        height: 80%;
+        top: 10%;
+        left: 1%;
+
+        &-content {
+            position: relative;
+            
+            left: 2rem;
+            width: 90%;
+            height: 90%;
+            
+        }
+
+        
+     }
+  
+     &-tail {
+        width: 40px; /* Ajuste conforme necessário */
+        height: 40px; /* Ajuste conforme necessário */
+        background-color: rgb(211, 207, 207);
+        position: absolute;
+        top: -15px; /* Ajusta para ficar acima do balão */
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+     }
+
+}
