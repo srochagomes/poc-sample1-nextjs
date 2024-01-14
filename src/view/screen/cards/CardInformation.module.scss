@@ -1,0 +1,26 @@
+@import '@/styles/global-variables';
+
+.cardInformation {    
+    display: flex;
+    align-items: center;    
+    margin: 0;    
+    flex-direction: column;
+    &-icon{
+        margin-top: 1rem;            
+    }
+    &-header{
+        margin-top: 1rem;            
+        font-weight: 900; /* Ajuste o valor conforme necessário */
+        font-size: 0.9rem;
+        letter-spacing: 1px; /* Adicione espaçamento entre as letras, se desejado */
+    }
+    &-content{
+        margin-top: 1rem; 
+        font-size: 0.9rem;           
+        line-height: 2rem;
+                 
+    }
+
+    
+ 
+}
