@@ -110,6 +110,15 @@
             white-space: pre-wrap;    
         }
 
+        &-carousel{      
+            background-color: white;
+            padding-top: 2rem;
+            margin-top: 6vh;             
+            display: flex;
+            flex-direction: column;      
+            width: 100%;
+        }
+
 
     }
 

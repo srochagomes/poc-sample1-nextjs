@@ -78,7 +78,10 @@ export default function PrincipalHome() {
             <Typography fontSize="H1" weight="bold" color="white">
               {common.t('message.feriaz.knowing-pattners.caption')}
             </Typography> 
-            <SimpleCarousel images={imagesPatners}/>
+            <div className={style['body-area-knowingPatners-carousel']}>
+              <SimpleCarousel images={imagesPatners} minImagesToShow={4}/>
+            </div>
+            
         </div>
 
         

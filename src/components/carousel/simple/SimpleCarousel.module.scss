@@ -1,18 +1,21 @@
-.carousel {
+.simpleCarousel {
     position: relative;
-    width: 100%;
-    max-width: 600px; /* Ajuste conforme necessário */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     margin: 0 auto;
     overflow: hidden;
   
+    & > div {
+      margin-right: 3rem; // Ajuste conforme necessário
+    }
+  
     > img {
-      width: 10%;
-      height: 10%;
       display: block;
+      width: 100%; // Garante que a imagem não ultrapasse os limites da div
     }
   
     > button {
-      position: absolute;
       top: 50%;
       transform: translateY(-50%);
       background-color: #333;
@@ -20,14 +23,23 @@
       border: none;
       padding: 10px;
       cursor: pointer;
+    }
   
-      &.prev {
-        left: 10px;
-      }
+    &-prev {
+      left: 10px;
+    }
   
-      &.next {
-        right: 10px;
-      }
+    &-next {
+      right: 10px;
+    }
+  
+    &-images-container {
+        overflow: hidden; // Garante que as imagens não ultrapassem os limites da div
+    }
+
+    &-images {
+        display: flex;
+        transition: transform 0.5s ease;
     }
   }
   

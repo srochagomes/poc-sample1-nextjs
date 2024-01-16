@@ -2,6 +2,7 @@ import React from "react";
 import style from "./IconClick.module.scss"
 import Image from 'next/image';
 import Typography from "@/components/text/typography";
+import IconSVG from "@/components/icons/icon-svg";
 
 
 interface Props{    
@@ -33,11 +34,10 @@ function IconClick(props:Props) {
     return (
         <>
             <div  className={style['iconClick']} onClick={onClickButton}>
-                <Image        
+                <IconSVG                    
                         priority
-                        src={path}
-                        height={heightSize?heightSize:50}
-                        width={widthSize?widthSize:50}
+                        path={path}
+                        isFill={true}
                         alt={alt?alt:""}
                     />
                 
