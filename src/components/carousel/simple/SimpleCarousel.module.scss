@@ -5,6 +5,7 @@
     align-items: center;
     margin: 0 auto;
     overflow: hidden;
+    
   
     & > div {
       margin-right: 3rem; // Ajuste conforme necessário
@@ -40,6 +41,10 @@
     &-images {
         display: flex;
         transition: transform 0.5s ease;
+        width: 70rem;
+        border-radius: 20rem 20rem 20rem 20rem;
+        
+        
     }
   }
   

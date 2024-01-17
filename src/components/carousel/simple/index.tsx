@@ -13,27 +13,30 @@ const SimpleCarousel = (props: Props) => {
   const { images, minImagesToShow = 1 } = props;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState<string | null>(null);
+  const [imagesView, setImagesView] = useState<string[]>([...images,...images]);
+
 
   const nextSlide = () => {
     setDirection('next');
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex((prevIndex) => ((prevIndex + 1) % images.length));
+
   };
 
   const prevSlide = () => {
     setDirection('prev');
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrentIndex((prevIndex) => ((prevIndex - 1 + images.length ) % images.length));
   };
 
   const handleTransitionEnd = () => {
-    setDirection(null);
+    setDirection(null);    
   };
 
   return (
     <div className={style['simpleCarousel']}>
       <IconClick path={FieldIconPath.fowardback} onClick={prevSlide} />
       <div className={style['simpleCarousel-images-container']}>
-        <div className={`${style['simpleCarousel-images']} ${style[`simpleCarousel-${direction}`]}`} style={{ transform: `translateX(${currentIndex * 10}%)` }} onTransitionEnd={handleTransitionEnd}>
-          {images.slice(0, minImagesToShow).map((image, index) => (
+        <div className={`${style['simpleCarousel-images']} ${style[`simpleCarousel-${direction}`]}`} style={{ transform: `translateX(-${currentIndex * 30}%)` }} onTransitionEnd={handleTransitionEnd}>
+          {imagesView.map((image, index) => (
             <IconSVG key={index} priority={true} path={image} width={250} height={250} alt={`Slide ${currentIndex + 1}`} />
           ))}
         </div>
