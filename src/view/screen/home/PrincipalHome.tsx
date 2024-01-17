@@ -126,8 +126,53 @@ export default function PrincipalHome() {
             
         </div>
         
-        
-        
+        <div className={style['body-area-links']}>
+            <nav>
+                <ul>
+                    <li><a href="https://www.feriaz.ai/termos-legais">{common.t('link.feriaz.legal terms.caption')}</a></li>
+                    <li><a href="https://www.feriaz.ai/perguntas-feriaz">{common.t('link.feriaz.common-questions.caption')}</a></li>
+                    <li><a href="https://www.feriaz.ai/contato-feriaz">{common.t('link.feriaz.contact.caption')}</a></li>            
+                    <li><a href="https://www.feriaz.ai/mundo-de-feriaz">{common.t('link.feriaz.world.caption')}</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div className={style['body-area-advertising']}>
+                <Typography fontSize="H4" color="white" >
+                  espaço para publicidade
+                </Typography>
+        </div>
+
+        <footer  className={style['body-area-footer']}>
+                <ul>
+                  <li>
+                    <Typography fontSize="H6" >
+                      FERIAZ AGENCIA DE TURISMO LTDA
+                    </Typography>
+                  </li>
+                  <li>
+                    <Typography fontSize="H6" >
+                      -
+                    </Typography>
+                  </li>
+                  <li>
+                    <Typography fontSize="H6" >
+                      CNPJ: 50.540.973/0001-91
+                    </Typography>
+                  </li>
+                  <li>
+                    <Typography fontSize="H6" >
+                      -
+                    </Typography>
+                  </li>
+                  <li>
+                    <Typography fontSize="H6" >
+                      RUA XINGU, 15. SÃO PAULO -SP - 06535-120
+                    </Typography>
+                  </li>
+                </ul>
+                
+        </footer>
       </section>
       
       

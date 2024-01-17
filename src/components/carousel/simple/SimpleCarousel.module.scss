@@ -5,6 +5,8 @@
     align-items: center;
     margin: 0 auto;
     overflow: hidden;
+    width: 95%;
+    
     
   
     & > div {
@@ -35,6 +37,7 @@
     }
   
     &-images-container {
+        width: 100%;
         overflow: hidden; // Garante que as imagens não ultrapassem os limites da div
     }
 

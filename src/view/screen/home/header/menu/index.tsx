@@ -5,8 +5,10 @@ import IconSVG from "@/components/icons/icon-svg"
 import { FieldIconPath } from "@/types/enums/FieldIconPath"
 import { useState } from "react"
 
+
 export default function HeaderMenu() {
-  const { t } = useTranslation('common')
+  const common = useTranslation('common')
+
   const [menuSelected, setMenuSelected] = useState(false);
   
   const menuClicked = () : void => {
@@ -14,6 +16,7 @@ export default function HeaderMenu() {
   }
 
   return (
+
     <>   
       <div className={menuSelected? `${style['HeaderMenu']} ${style['HeaderMenu-show']}`: `${style['HeaderMenu']}`}>
         <IconSelecting isSelected={menuSelected} 
@@ -25,9 +28,9 @@ export default function HeaderMenu() {
                       />
         <nav>
             <ul>
-                <li><a href="https://www.feriaz.ai/mundo-de-feriaz">MUNDO DE FÉRIAZ</a></li>
-                <li><a href="https://www.feriaz.ai/perguntas-feriaz">PERGUNTAS FREQUENTES</a></li>
-                <li><a href="https://www.feriaz.ai/contato-feriaz">CONTATO</a></li>            
+                <li><a href="https://www.feriaz.ai/mundo-de-feriaz">{common.t('link.feriaz.world.caption')}</a></li>
+                <li><a href="https://www.feriaz.ai/perguntas-feriaz">{common.t('link.feriaz.common-questions.caption')}</a></li>
+                <li><a href="https://www.feriaz.ai/contato-feriaz">{common.t('link.feriaz.contact.caption')}</a></li>            
             </ul>
         </nav>
         </div> 

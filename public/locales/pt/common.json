@@ -40,9 +40,15 @@
     "home.cards.fourth.content": "Nossa inteligência artificial simplifica processos complexos para que você tenha uma jornada leve e possa curtir sua viagem desde o começo.",
     "message.feriaz.instruction.caption": "Como sair de fériaz:",
     "message.feriaz.knowing-pattners.caption": "Conheça alguns dos nossos parceiros",
+    "message.feriaz.gui-detail.caption": "O Gui cuida dos detalhes",
+    "message.feriaz.gui-detail.message": "O Gui é seu guia de turismo, ele vai te dizer quais são as melhores atrações do seu destino, as dicas secretas dos viajantes experientes, quanto custa cada passeio e muito mais. Tudo personalizado de acordo com suas preferências e expectativas.",
     "message.feriaz.sol-detail.caption": "Conte com a Sol",
     "message.feriaz.sol-detail.message": "A Sol pode te ajudar a descobrir pra onde ir, como chegar lá e onde ficar. Ela vai conversar contigo e entender qual são as melhores opções para suas próximas Fériaz baseado nas suas expectativas e condições. Ela ainda pesquisa as melhores ofertas nos principais sites de viagem do mundo e organiza tudo para você. ",
-    "message.feriaz.tripplan.caption": "Só faz a mala e deixa o planejamento da viagem conosco."
+    "message.feriaz.tripplan.caption": "Só faz a mala e deixa o planejamento da viagem conosco.",
+    "link.feriaz.legal terms.caption":"TERMOS LEGAIS",
+    "link.feriaz.common-questions.caption":"PERGUNTAS FREQUENTES",
+    "link.feriaz.contact.caption":"CONTATO",
+    "link.feriaz.world.caption":"MUNDO DE FÉRIAZ"
 
 
 }
