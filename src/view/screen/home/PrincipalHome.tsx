@@ -83,9 +83,25 @@ export default function PrincipalHome() {
             </div>
             
         </div>
+        <div className={style['body-area-sol']}>
+            <div className={style['body-area-sol-message']}>
+              <Typography fontSize="H1" weight="bold" color="primary">
+                  {common.t('message.feriaz.sol-detail.caption')}
+                </Typography> 
+                <Typography fontSize="H3" >
+                  {common.t('message.feriaz.sol-detail.message')}
+                </Typography>
+            </div>
+            <div className={style['body-area-sol-image']}>
+              <IconSVG path={FieldImagePath.SolPicture3} isFill={true} />
+            </div>
+            
+            
+        </div>
+
         <div className={style['body-area-guicare']}>
             <div className={style['body-area-guicare-image']}>
-              <IconSVG path={FieldImagePath.FiveSteps} width={400} height={500} />
+              <IconSVG path={FieldImagePath.GuiPicture1} isFill={true} />
             </div>
             <div className={style['body-area-guicare-message']}>
               <Typography fontSize="H1" weight="bold" color="primary">
@@ -105,7 +121,7 @@ export default function PrincipalHome() {
                 </Typography> 
             </div>
             <div className={style['body-area-tripplan-image']}>
-              <IconSVG path={FieldImagePath.FiveSteps} width={400} height={500} />
+              <IconSVG path={FieldImagePath.BannenrHomeTransparencia} isFill={true} />
             </div>
             
         </div>
