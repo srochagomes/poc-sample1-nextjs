@@ -1,3 +1,5 @@
+@import '@/styles/global-variables';
+
 .typography {
     font-size: 1rem; // Tamanho de fonte padrão
     font-weight: normal;
@@ -14,6 +16,10 @@
     }
   
     &[data-font-size='H3'] {
+      font-size: 1.35rem;      
+    }
+
+    &[data-font-size='H4'] {
       font-size: 1.25rem;      
     }
 
@@ -88,6 +94,9 @@
     }
     &[data-color='pink'] {
       color: #E7216A;
+    }
+    &[data-color='primary'] {
+      color: $color-background-principal;
     }
     
     

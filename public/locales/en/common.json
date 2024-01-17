@@ -39,7 +39,10 @@
     "home.cards.fourth.header": "AI Based",
     "home.cards.fourth.content": "Our artificial intelligence simplifies complex processes so you have a smooth journey and can enjoy your trip from the beginning.",
     "message.feriaz.instruction.caption": "How to get Fériaz:",
-    "message.feriaz.knowing-pattners.caption": "Kown some patners"
+    "message.feriaz.knowing-pattners.caption": "Kown some patners",
+    "message.feriaz.gui-detail.caption": "Gui takes care of the details",
+    "message.feriaz.gui-detail.message": "Gui is your tour guide, he will tell you what the best attractions are in your destination, secret tips from experienced travelers, how much each tour costs and much more. Everything personalized according to your preferences and expectations.",
+    "message.feriaz.tripplan.caption": "Just pack your suitcase and leave the trip planning to us."
 
 
 }

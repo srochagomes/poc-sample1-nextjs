@@ -83,7 +83,32 @@ export default function PrincipalHome() {
             </div>
             
         </div>
+        <div className={style['body-area-guicare']}>
+            <div className={style['body-area-guicare-image']}>
+              <IconSVG path={FieldImagePath.FiveSteps} width={400} height={500} />
+            </div>
+            <div className={style['body-area-guicare-message']}>
+              <Typography fontSize="H1" weight="bold" color="primary">
+                  {common.t('message.feriaz.gui-detail.caption')}
+                </Typography> 
+                <Typography fontSize="H3" >
+                  {common.t('message.feriaz.gui-detail.message')}
+                </Typography>
+            </div>
+            
+        </div>
 
+        <div className={style['body-area-tripplan']}>
+            <div className={style['body-area-tripplan-message']}>
+                <Typography fontSize="H1" weight="bold" color="primary">
+                  {common.t('message.feriaz.tripplan.caption')}
+                </Typography> 
+            </div>
+            <div className={style['body-area-tripplan-image']}>
+              <IconSVG path={FieldImagePath.FiveSteps} width={400} height={500} />
+            </div>
+            
+        </div>
         
         
         
