@@ -53,14 +53,17 @@ function SimpleDropdow(props:Props) {
   const iconLeftComponent = iconLeft ?
                               <div className={style['simpleDropdownContainer-iconleft']}>
                                 {itensSelectd.length>0 && (
-                                <IconSVG path={itensSelectd[0].icon} alt={placeholder} height={18} width={18} />)}
+                                  <div className={style['simpleDropdownContainer-iconleft-area']}>
+                                    <IconSVG path={itensSelectd[0].icon} alt={placeholder} isFill={true} />
+                                  </div>)}                                
                               </div>
                               : <></>;
 
   const iconRightComponent = iconRight ?
-                              <div className={style['simpleDropdownContainer-iconright']}>
-                                <IconSVG path={FieldIconPath[iconRight]} alt={placeholder} height={18} width={18} />
-                              </div>
+                              <div className={style['simpleDropdownContainer-iconright']}>                                  
+                                      <IconSVG path={FieldIconPath[iconRight]} alt={placeholder} isFill={true} />
+                                  </div>                                
+                              
                               : <></>;
 
 
@@ -73,14 +76,10 @@ function SimpleDropdow(props:Props) {
           style={{ width: `${width}` }}
           data-iconleft={iconLeft?'true':'false'}
           data-iconright={iconRight?'true':'false'}
-          data-round={roundType}
-          
-          onClick={clickOpen
-          }
-          >    
-            
-            
-            {iconLeftComponent}
+          data-round={roundType}          
+          onClick={clickOpen}
+          >
+             {iconLeftComponent}
 
             <div className={style['simpleDropdownContainer-groupField']} >
               {captionComponent}

@@ -51,7 +51,7 @@ function DestinyDiscovery(props:Props) {
                                         placeholder={common.t('calendar.when.placeholder')}   
                                         caption={common.t('calendar.go.caption')}   
                                         iconLeft={FieldIconEnum.Calendar}
-                                        width="10vw"
+                                        width="15vw"
                                     />
                             
                                 <CalendarField  
@@ -59,7 +59,7 @@ function DestinyDiscovery(props:Props) {
                                     placeholder={common.t('calendar.when.placeholder')}   
                                     caption={common.t('calendar.back.caption')}   
                                     iconLeft={FieldIconEnum.Calendar}
-                                    width="10vw"
+                                    width="15vw"
                                 />
                         </div>
                         <div className={style['destinyDiscovery-fields-group']} >
@@ -80,11 +80,11 @@ function DestinyDiscovery(props:Props) {
                                 />
                                 <SimpleDropdow                                
                                     caption={common.t('simpledropdow.type-room.caption')}                                   
-                                    width="20vw"
+                                    width="15vw"
                                     itens={dropdownVeiculosItems}/>
                                 <SimpleDropdow                                
                                     caption={common.t('simpledropdow.howtogo.caption')}                                   
-                                    width="18vw"
+                                    width="15vw"
                                     itens={dropdownVeiculosItems}/>
                                 </div>                            
                             

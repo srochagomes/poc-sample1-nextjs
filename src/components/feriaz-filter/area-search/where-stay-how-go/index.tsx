@@ -96,7 +96,7 @@ function WhereStayHowGo(props:Props) {
                             <SimpleDropdow
                                 roundType={FieldRoundEnum.All}
                                 caption={common.t('simpledropdow.howtogo.caption')}                                   
-                                width="18vw"
+                                width="15vw"
                                 itens={dropdownVeiculosItems}/>
                         </div>
                         <div className={style['whereStayHowGo-button-plus']} >
