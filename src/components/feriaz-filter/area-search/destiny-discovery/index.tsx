@@ -37,58 +37,65 @@ function DestinyDiscovery(props:Props) {
                         
                             <div className={style['destinyDiscovery-fields-group-place']} >
                             
-                            <div className={style['destinyDiscovery-fields-group']} >
-                                <InputField  
-                                    type={FieldTypeEnum.Text}                                      
-                                    placeholder={common.t('city-origin.placeholder')}   
-                                    caption={common.t('city-origin.caption')}   
-                                    iconLeft={FieldIconEnum.Circle}
-                                    width="30vw"
-                                />
-                        
-                                <CalendarField  
-                                        type={FieldTypeEnum.Text}  
-                                        placeholder={common.t('calendar.when.placeholder')}   
-                                        caption={common.t('calendar.go.caption')}   
-                                        iconLeft={FieldIconEnum.Calendar}
-                                        width="15vw"
+                                <div className={style['destinyDiscovery-fields-group']} >
+                                    <InputField  
+                                        type={FieldTypeEnum.Text}                                      
+                                        placeholder={common.t('city-origin.placeholder')}   
+                                        caption={common.t('city-origin.caption')}   
+                                        iconLeft={FieldIconEnum.Circle}
+                                        width='30vw'
+                                        
+                                    />
+                                </div>
+                                <div className={style['destinyDiscovery-fields-group']} >
+                                    <InputField  
+                                        type={FieldTypeEnum.Text}                                      
+                                        placeholder={common.t('budget-preview.placeholder')}   
+                                        caption={common.t('budget-preview.caption')}   
+                                        iconLeft={FieldIconEnum.Money}
+                                        width='15vw'
                                     />
                             
-                                <CalendarField  
-                                    type={FieldTypeEnum.Text}                                      
-                                    placeholder={common.t('calendar.when.placeholder')}   
-                                    caption={common.t('calendar.back.caption')}   
-                                    iconLeft={FieldIconEnum.Calendar}
-                                    width="15vw"
-                                />
-                        </div>
-                        <div className={style['destinyDiscovery-fields-group']} >
-                                <InputField  
-                                    type={FieldTypeEnum.Text}                                      
-                                    placeholder={common.t('budget-preview.placeholder')}   
-                                    caption={common.t('budget-preview.caption')}   
-                                    iconLeft={FieldIconEnum.Money}
-                                    width="13.55vw"
-                                />
+                                    <TripPeopleDetail  
+                                        type={FieldTypeEnum.Text}                                  
+                                        placeholder={common.t('trip-people-detail.component.placeholder')}   
+                                        caption={common.t('trip-people-detail.component.caption')}     
+                                        iconLeft={FieldIconEnum.User}                                    
+                                        width='15vw'
+                                    />
+                                </div>
+                            </div>
+                            <div className={style['destinyDiscovery-fields-group-place']} >
+                                <div className={style['destinyDiscovery-fields-group']} >
+                                    <CalendarField  
+                                            type={FieldTypeEnum.Text}  
+                                            placeholder={common.t('calendar.when.placeholder')}   
+                                            caption={common.t('calendar.go.caption')}   
+                                            iconLeft={FieldIconEnum.Calendar}
+                                            
+                                        />
+                                
+                                    <CalendarField  
+                                        type={FieldTypeEnum.Text}                                      
+                                        placeholder={common.t('calendar.when.placeholder')}   
+                                        caption={common.t('calendar.back.caption')}   
+                                        iconLeft={FieldIconEnum.Calendar}
+                                        
+                                    />
+                                </div>
                         
-                                <TripPeopleDetail  
-                                    type={FieldTypeEnum.Text}                                  
-                                    placeholder={common.t('trip-people-detail.component.placeholder')}   
-                                    caption={common.t('trip-people-detail.component.caption')}     
-                                    iconLeft={FieldIconEnum.User}                                    
-                                    width="13.55vw"
-                                />
-                                <SimpleDropdow                                
-                                    caption={common.t('simpledropdow.type-room.caption')}                                   
-                                    width="15vw"
-                                    itens={dropdownVeiculosItems}/>
-                                <SimpleDropdow                                
-                                    caption={common.t('simpledropdow.howtogo.caption')}                                   
-                                    width="15vw"
-                                    itens={dropdownVeiculosItems}/>
+                                <div className={style['destinyDiscovery-fields-group']} >
+                                    <SimpleDropdow                                
+                                        caption={common.t('simpledropdow.type-room.caption')}                                   
+                                        
+                                        itens={dropdownVeiculosItems}/>
+                                    <SimpleDropdow                                
+                                        caption={common.t('simpledropdow.howtogo.caption')}                                   
+                                        
+                                        itens={dropdownVeiculosItems}/>
                                 </div>                            
                             
-                        </div>
+                            </div>
                             
                        
                     </div>

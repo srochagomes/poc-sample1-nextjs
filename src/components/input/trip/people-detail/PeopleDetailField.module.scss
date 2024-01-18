@@ -29,6 +29,7 @@
         color: #6E6E6D;        
         padding-left: 1vh;        
         outline: none;
+        overflow: hidden;
 
         @media (max-width: 520px) {
             flex: 9; 

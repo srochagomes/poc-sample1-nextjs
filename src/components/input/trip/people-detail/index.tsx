@@ -77,6 +77,7 @@ function TripPeopleDetail(props:Props) {
   return (
     
     <div className={style['tripPeopleDetailField']} 
+    style={{ width: `${width}` }}
          data-round={roundType} data-iconleft={iconLeft?'true':'false'}
          onClick={onClickComponent}
          >
@@ -85,7 +86,7 @@ function TripPeopleDetail(props:Props) {
             <input type={fieldType}                
                 placeholder={placeholder}
                 className={style['tripPeopleDetailField-inputText']}                
-                style={{ width: `${width}` }}
+                
                 onFocus={onFocus}
                 onBlur={onBlur}
                 readOnly={true}

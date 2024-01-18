@@ -1,4 +1,5 @@
 .destinyDiscovery{
+    position: relative;
     margin-top: 0.4rem;
     display: flex;
     flex-direction: column;
@@ -13,64 +14,31 @@
     }
 
     &-fields {
+        position: relative;
         margin-top: 0.5rem;
-        display: flex;     
-           
-        
-        & > div {        
-            margin-right: 1vh;
-        }
-    }
-    &-fields-move-data {
-        display: flex;     
-        align-items: center;
-        justify-content: center; 
-        & >div:first-child {            
-            position: absolute;
-        }   
+        display: flex;
+        flex-direction: row;
     }
 
     &-fields-group-place {
+        position: relative;
         display: flex;  
-        flex-direction: column;        
-        & > div {            
-            margin-bottom: 0.1rem;
-            
-        }
-        & >div:first-child {            
-            & >div:first-child {            
-                border-radius: .3rem 0 0 0 ;
-                
-            }
-            & > div:nth-child(3) {
-                border-radius: 0 .3rem 0 0;
-              }
-        }      
-        & >div:nth-child(2) {
-            
-            & >div:first-child {            
-                border-radius: .3rem 0 0 0 ;
-                
-                
-            }
-            
-            & >div:first-child {            
-                border-radius: 0 0 0 .3rem ;
-                
-            }               
-            & > div:nth-child(4) {
-                border-radius: 0 0 .3rem 0;
-              }
-        }      
+        flex-direction: column; 
+        height: auto;
 
+        
     }
 
     &-fields-group {
-        display: inline-flex;  
-        flex-wrap: wrap;      
+        position: relative;
+        display: flex;  
+        flex-direction: row;
+        height: auto;
         
         & > div {        
             margin-right: 0.1vw;
+            margin-top: 0.1vw;
+            height: auto;
         }
     }
     &-button-plus{
@@ -82,5 +50,4 @@
     &-button-next{
         margin-top: 2rem;
     }
-   
 }
