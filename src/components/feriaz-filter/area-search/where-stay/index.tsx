@@ -40,7 +40,7 @@ function WhereStay(props:Props) {
                                     placeholder={common.t('city-destiny.placeholder')}   
                                     caption={common.t('city-destiny.caption')}   
                                     iconLeft={FieldIconEnum.Location}
-                                    width='50vh'
+                                    width='30vw'
                                 />
                         
                         
@@ -52,7 +52,7 @@ function WhereStay(props:Props) {
                                 placeholder={common.t('calendar.when.placeholder')}   
                                 caption={common.t('calendar.go.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
-                                width="8vh"
+                                width="8vw"
                             />
                             <CalendarField  
                                 type={FieldTypeEnum.Text}  
@@ -60,7 +60,7 @@ function WhereStay(props:Props) {
                                 placeholder={common.t('calendar.when.placeholder')}   
                                 caption={common.t('calendar.back.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
-                                width="8vh"
+                                width="8vw"
                             />
                         </div>
 
@@ -71,7 +71,7 @@ function WhereStay(props:Props) {
                                 placeholder={common.t('trip-people-detail.component.placeholder')}   
                                 caption={common.t('trip-people-detail.component.caption')}     
                                 iconLeft={FieldIconEnum.User}
-                                width="13vh"
+                                width="13vw"
                             />
                         </div>
                         <div className={style['whereStay-button-plus']} >

@@ -34,7 +34,10 @@ function InputField(props:Props) {
 
   const iconLeftComponent = iconLeft ?
                   <div className={style['inputContainer-iconleft']}>
-                    <IconSVG path={FieldIconPath[iconLeft]} alt={placeholder} height={18} width={18} />
+                    <div className={style['inputContainer-iconleft-area']}>
+                        <IconSVG path={FieldIconPath[iconLeft]} alt={placeholder} isFill={true} />
+                    </div>
+                    
                   </div>
                   : <></>;
 
@@ -45,14 +48,18 @@ function InputField(props:Props) {
 
   return (
     
-    <div className={style['inputContainer']} data-round={roundType} data-iconleft={iconLeft?'true':'false'}>
+    <div className={style['inputContainer']} data-round={roundType} 
+            style={{ width: `${width}` }}
+            data-iconleft={iconLeft?'true':'false'}>
             {iconLeftComponent}
+            <div className={style['inputContainer-inputArea']} >
             {captionComponent}
             <input type={fieldType}                
                 placeholder={placeholder}
-                className={style['inputContainer-inputText']}                
-                style={{ width: `${width}` }}
+                className={style['inputContainer-inputText']}                                
                 />
+            </div>
+            
             
             {type==FieldTypeEnum.Password && (  
             <div className={style['inputContainer-passwordIcon']}

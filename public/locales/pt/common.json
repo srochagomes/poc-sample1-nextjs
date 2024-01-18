@@ -7,10 +7,10 @@
     "user.without.account.caption" : "Não tem conta?",
     "user.should-create.account.caption" : "Cadastre-se",
     "message.wherestayhowtogo.title" : "Descubra o transporte e a hospedagem ideais",
-    "message.howtogo.title" : "Descubra o transporte e a hospedagem ideais",
-    "message.wherestay.title" : "Descubra o transporte e a hospedagem ideais",
-    "message.rentcar.title" : "Descubra o transporte e a hospedagem ideais",
-    "message.destiny-discovery.title": "Descubra o transporte e a hospedagem ideais",
+    "message.howtogo.title" : "Descubra o transporte ideal",
+    "message.wherestay.title" : "Descubra a hospedagem ideal",
+    "message.rentcar.title" : "Alugue seu carro",
+    "message.destiny-discovery.title": "Quer viajar, mas ainda não sabe o destino? Aqui você descobre!",
     "city-origin.placeholder": "Insira cidade de origem",
     "city-origin.caption": "SAINDO DE",
     "city-destiny.placeholder": "Insira cidade de destino",
@@ -45,10 +45,14 @@
     "message.feriaz.sol-detail.caption": "Conte com a Sol",
     "message.feriaz.sol-detail.message": "A Sol pode te ajudar a descobrir pra onde ir, como chegar lá e onde ficar. Ela vai conversar contigo e entender qual são as melhores opções para suas próximas Fériaz baseado nas suas expectativas e condições. Ela ainda pesquisa as melhores ofertas nos principais sites de viagem do mundo e organiza tudo para você. ",
     "message.feriaz.tripplan.caption": "Só faz a mala e deixa o planejamento da viagem conosco.",
+    "message.feriaz.advertising.caption": "espaço para publicidade",
     "link.feriaz.legal terms.caption":"TERMOS LEGAIS",
     "link.feriaz.common-questions.caption":"PERGUNTAS FREQUENTES",
     "link.feriaz.contact.caption":"CONTATO",
-    "link.feriaz.world.caption":"MUNDO DE FÉRIAZ"
+    "link.feriaz.world.caption":"MUNDO DE FÉRIAZ",    
+    "feriaz.company.name.caption":"FERIAZ AGENCIA DE TURISMO LTDA",
+    "feriaz.company.documents.caption":"CNPJ: 50.540.973/0001-91",
+    "feriaz.company.address.caption":"RUA XINGU, 15. SÃO PAULO -SP - 06535-120"
 
 
 }

@@ -28,6 +28,7 @@
         justify-content: center; 
         & >div:first-child {            
             position: absolute;
+            z-index: 1;
         }   
     }
 
@@ -39,11 +40,9 @@
         }
     }
     &-button-plus{
+        margin-left: 0.5rem;
         display: inline-flex;
-        padding-top: 0.5rem;
-        
-        
-
+        align-items: center;
     }
 
     &-button-next{

@@ -43,6 +43,7 @@ function DestinyDiscovery(props:Props) {
                                     placeholder={common.t('city-origin.placeholder')}   
                                     caption={common.t('city-origin.caption')}   
                                     iconLeft={FieldIconEnum.Circle}
+                                    width="30vw"
                                 />
                         
                                 <CalendarField  
@@ -50,7 +51,7 @@ function DestinyDiscovery(props:Props) {
                                         placeholder={common.t('calendar.when.placeholder')}   
                                         caption={common.t('calendar.go.caption')}   
                                         iconLeft={FieldIconEnum.Calendar}
-                                        width="8vh"
+                                        width="10vw"
                                     />
                             
                                 <CalendarField  
@@ -58,7 +59,7 @@ function DestinyDiscovery(props:Props) {
                                     placeholder={common.t('calendar.when.placeholder')}   
                                     caption={common.t('calendar.back.caption')}   
                                     iconLeft={FieldIconEnum.Calendar}
-                                    width="8vh"
+                                    width="10vw"
                                 />
                         </div>
                         <div className={style['destinyDiscovery-fields-group']} >
@@ -67,6 +68,7 @@ function DestinyDiscovery(props:Props) {
                                     placeholder={common.t('budget-preview.placeholder')}   
                                     caption={common.t('budget-preview.caption')}   
                                     iconLeft={FieldIconEnum.Money}
+                                    width="13.55vw"
                                 />
                         
                                 <TripPeopleDetail  
@@ -74,14 +76,15 @@ function DestinyDiscovery(props:Props) {
                                     placeholder={common.t('trip-people-detail.component.placeholder')}   
                                     caption={common.t('trip-people-detail.component.caption')}     
                                     iconLeft={FieldIconEnum.User}                                    
+                                    width="13.55vw"
                                 />
                                 <SimpleDropdow                                
                                     caption={common.t('simpledropdow.type-room.caption')}                                   
-                                    width="20vh"
+                                    width="20vw"
                                     itens={dropdownVeiculosItems}/>
                                 <SimpleDropdow                                
                                     caption={common.t('simpledropdow.howtogo.caption')}                                   
-                                    width="18vh"
+                                    width="18vw"
                                     itens={dropdownVeiculosItems}/>
                                 </div>                            
                             

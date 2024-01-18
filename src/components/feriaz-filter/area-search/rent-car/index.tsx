@@ -62,7 +62,7 @@ function RentCar(props:Props) {
                                 placeholder={common.t('calendar.when.placeholder')}   
                                 caption={common.t('calendar.go.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
-                                width="8vh"
+                                width="10vw"
                             />
                             <InputField  
                                 type={FieldTypeEnum.Text}  
@@ -70,7 +70,7 @@ function RentCar(props:Props) {
                                 placeholder={common.t('input.time-pickup.placeholder')}   
                                 caption={common.t('input.time-pickup.caption')}   
                                 iconLeft={FieldIconEnum.Timer}
-                                width="8vh"
+                                width="10vw"
                             />
                         </div>
 
@@ -81,7 +81,7 @@ function RentCar(props:Props) {
                                 placeholder={common.t('calendar.when.placeholder')}   
                                 caption={common.t('calendar.go.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
-                                width="8vh"
+                                width="10vw"
                             />
                             <InputField  
                                 type={FieldTypeEnum.Text}  
@@ -89,7 +89,7 @@ function RentCar(props:Props) {
                                 placeholder={common.t('input.time-pickup.placeholder')}   
                                 caption={common.t('input.time-pickup.caption')}   
                                 iconLeft={FieldIconEnum.Timer}
-                                width="8vh"
+                                width="10vw"
                             />
                         </div>
                         

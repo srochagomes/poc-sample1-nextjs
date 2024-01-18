@@ -139,7 +139,7 @@ export default function PrincipalHome() {
 
         <div className={style['body-area-advertising']}>
                 <Typography fontSize="H4" color="white" >
-                  espaço para publicidade
+                    {common.t('message.feriaz.advertising.caption')}
                 </Typography>
         </div>
 
@@ -147,7 +147,17 @@ export default function PrincipalHome() {
                 <ul>
                   <li>
                     <Typography fontSize="H6" >
-                      FERIAZ AGENCIA DE TURISMO LTDA
+                      {common.t('feriaz.company.name.caption')}
+                    </Typography>
+                  </li>
+                  <li>                    
+                    <Typography fontSize="H6" >
+                      -
+                    </Typography>
+                  </li>
+                  <li>
+                    <Typography fontSize="H6" >
+                      {common.t('feriaz.company.documents.caption')}                      
                     </Typography>
                   </li>
                   <li>
@@ -157,17 +167,7 @@ export default function PrincipalHome() {
                   </li>
                   <li>
                     <Typography fontSize="H6" >
-                      CNPJ: 50.540.973/0001-91
-                    </Typography>
-                  </li>
-                  <li>
-                    <Typography fontSize="H6" >
-                      -
-                    </Typography>
-                  </li>
-                  <li>
-                    <Typography fontSize="H6" >
-                      RUA XINGU, 15. SÃO PAULO -SP - 06535-120
+                        {common.t('feriaz.company.address.caption')}                      
                     </Typography>
                   </li>
                 </ul>

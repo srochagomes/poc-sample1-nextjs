@@ -133,7 +133,10 @@ function CalendarField(props:Props) {
 
   const iconLeftComponent = iconLeft ?
                   <div className={style['calendarContainer-iconleft']}>
-                    <IconSVG path={FieldIconPath[iconLeft]} alt={placeholder} height={18} width={18} />
+                    <div className={style['calendarContainer-iconleft-area']}>
+                        <IconSVG path={FieldIconPath[iconLeft]} alt={placeholder} isFill={true} />
+                    </div>
+                    
                   </div>
                   : <></>;
 
@@ -146,15 +149,16 @@ function CalendarField(props:Props) {
     
     <div className={style['calendarContainer']} data-round={roundType} data-iconleft={iconLeft?'true':'false'}>
             {iconLeftComponent}
-            {captionComponent}
-            <input type={fieldType}                
-                placeholder={placeholder}
-                className={style['calendarContainer-inputText']}                
-                style={{ width: `${width}` }}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                
-                />
+            <div className={style['calendarContainer-inputArea']} >
+                {captionComponent}
+                <input type={fieldType}                
+                    placeholder={placeholder}
+                    className={style['calendarContainer-inputText']}                
+                    style={{ width: `${width}` }}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                    />
+            </div>
             <DatePicker dateBase={dateBase}
                         show={showDatePicker} 
                         isSelectDay={isSelectDay} 

@@ -59,7 +59,7 @@ function HowGo(props:Props) {
                             <SimpleDropdow
                                 roundType={FieldRoundEnum.All}
                                 caption={common.t('simpledropdow.howtogo.caption')}
-                                width="18vh"
+                                width="18vw"
                                 itens={dropdownVeiculosItems}/>
                         </div>
                         <div className={style['HowGo-fields-group']} >
@@ -69,7 +69,7 @@ function HowGo(props:Props) {
                                 placeholder={common.t('calendar.when.placeholder')}   
                                 caption={common.t('calendar.go.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
-                                width="8vh"
+                                width="8vw"
                             />
                             <CalendarField  
                                 type={FieldTypeEnum.Text}  
@@ -77,7 +77,7 @@ function HowGo(props:Props) {
                                 placeholder={common.t('calendar.when.placeholder')}   
                                 caption={common.t('calendar.back.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
-                                width="8vh"
+                                width="8vw"
                             />
                         </div>
 
@@ -88,7 +88,7 @@ function HowGo(props:Props) {
                                 placeholder={common.t('trip-people-detail.component.placeholder')}   
                                 caption={common.t('trip-people-detail.component.caption')}     
                                 iconLeft={FieldIconEnum.User}
-                                width="13vh"
+                                width="13vw"
                             />
                         </div>
                         <div className={style['HowGo-button-plus']} >

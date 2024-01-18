@@ -69,7 +69,8 @@ function SimpleDropdow(props:Props) {
 
   return (
     
-    <div className={style['simpleDropdownContainer']}  
+    <div className={style['simpleDropdownContainer']}
+          style={{ width: `${width}` }}
           data-iconleft={iconLeft?'true':'false'}
           data-iconright={iconRight?'true':'false'}
           data-round={roundType}
@@ -81,9 +82,9 @@ function SimpleDropdow(props:Props) {
             
             {iconLeftComponent}
 
-            <div className={style['simpleDropdownContainer-groupField']}  >
+            <div className={style['simpleDropdownContainer-groupField']} >
               {captionComponent}
-              <input type="text" readOnly={true} value={textValue}/>
+              <input type="text" readOnly={true} value={textValue} />
             </div>
             {iconRightComponent}
             <SimpleDropdownPopup show={openOptions} 

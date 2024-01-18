@@ -22,27 +22,29 @@
         }
     }
     &-fields-move-data {
+        
         display: flex;     
         align-items: center;
         justify-content: center; 
         & >div:first-child {            
             position: absolute;
+            z-index: 1;
+            width: 1.3rem;            
+            height: 1.5rem;            
         }   
     }
 
     &-fields-group {
-        display: inline-flex;        
+        display: inline-flex;           
         
         & > div {        
             margin-right: 0.11vh;
         }
     }
     &-button-plus{
+        margin-left: 0.5rem;
         display: inline-flex;
-        padding-top: 0.5rem;
-        
-        
-
+        align-items: center;
     }
 
     &-button-next{

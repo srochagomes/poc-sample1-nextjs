@@ -15,33 +15,23 @@
     &-fields {
         margin-top: 0.5rem;
         display: flex;     
-           
-        
         & > div {        
-            margin-right: 1vh;
+            margin-right: 0.5vw;
         }
     }
-    &-fields-move-data {
-        display: flex;     
-        align-items: center;
-        justify-content: center; 
-        & >div:first-child {            
-            position: absolute;
-        }   
-    }
+
 
     &-fields-group {
         display: inline-flex;        
         
         & > div {        
-            margin-right: 0.11vh;
+            margin-right: 0.1vw;
         }
     }
     &-button-plus{
+        margin-left: 0.5rem;
         display: inline-flex;
-        padding-top: 0.5rem;
-        
-        
+        align-items: center;
 
     }
 

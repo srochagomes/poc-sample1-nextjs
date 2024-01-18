@@ -7,10 +7,10 @@
     "user.without.account.caption" : "Do not you have an account?",
     "user.should-create.account.caption" : "Sign up",
     "message.wherestayhowtogo.title" : "Discover the ideal transport and accommodation",
-    "message.howtogo.title" : "Discover the ideal transport and accommodation",    
-    "message.wherestay.title" : "Discover the ideal transport and accommodation",
-    "message.rentcar.title" : "Discover the ideal transport and accommodation",
-    "message.destiny-discovery.title": "Discover the ideal transport and accommodation",
+    "message.howtogo.title" : "Discover the ideal transport",
+    "message.wherestay.title" : "Discover the ideal accommodation",
+    "message.rentcar.title" : "Rent a car",
+    "message.destiny-discovery.title": "Want to trip, but Doesn't know destiny? Here you find out!!",
     "city-origin.placeholder": "Origin City",
     "city-origin.caption": "LEAVING FROM",
     "city-destiny.placeholder": "Destiny City",
@@ -45,10 +45,16 @@
     "message.feriaz.sol-detail.caption": "Ask Sol for help",
     "message.feriaz.sol-detail.message": "Sol can help you figure out where to go, how to get there and where to stay. She will talk to you and understand the best options for your next vacation based on your expectations and conditions. It even searches for the best deals on the world's main travel sites and organizes everything for you.",
     "message.feriaz.tripplan.caption": "Just pack your suitcase and leave the trip planning to us.",
+    "message.feriaz.advertising.caption": "place for advertising",
     "link.feriaz.legal terms.caption":"LEGAL TERMS",
     "link.feriaz.common-questions.caption":"COMMON QUESTIONS",
     "link.feriaz.contact.caption":"CONTACT",
-    "link.feriaz.world.caption":"FÉRIAZ WORLD's"
+    "link.feriaz.world.caption":"FÉRIAZ WORLD's",
+    "feriaz.company.name.caption":"FERIAZ AGENCIA DE TURISMO LTDA",
+    "feriaz.company.documents.caption":"CNPJ: 50.540.973/0001-91",
+    "feriaz.company.address.caption":"RUA XINGU, 15. SÃO PAULO -SP - 06535-120"
+    
+
 
 
 

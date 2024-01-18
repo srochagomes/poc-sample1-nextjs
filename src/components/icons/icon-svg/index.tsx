@@ -30,8 +30,8 @@ export default function IconSVG(props:Props){
             <Image        
                 
                 {...(priority ? { priority: true} : {})}
-                src={path}
-                style={{ objectFit: "cover"}}
+                src={path}                
+                style={{ objectFit: "contain"}}
                 fill={isFill}
                 loading={!priority?"lazy":"eager"}
                 quality={100}
