@@ -70,7 +70,7 @@ function WhereStayHowGo(props:Props) {
                                 placeholder={common.t('calendar.when.placeholder')}   
                                 caption={common.t('calendar.go.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
-                                width="8vw"
+                                width="13vw"
                             />
                             <CalendarField  
                                 type={FieldTypeEnum.Text}  
@@ -78,7 +78,7 @@ function WhereStayHowGo(props:Props) {
                                 placeholder={common.t('calendar.when.placeholder')}   
                                 caption={common.t('calendar.back.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
-                                width="8vw"
+                                width="13vw"
                             />
                         </div>
 

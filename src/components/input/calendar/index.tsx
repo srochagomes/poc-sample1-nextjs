@@ -147,14 +147,15 @@ function CalendarField(props:Props) {
 
   return (
     
-    <div className={style['calendarContainer']} data-round={roundType} data-iconleft={iconLeft?'true':'false'}>
+    <div className={style['calendarContainer']} 
+            style={{ width: `${width}` }}
+            data-round={roundType} data-iconleft={iconLeft?'true':'false'}>
             {iconLeftComponent}
             <div className={style['calendarContainer-inputArea']} >
                 {captionComponent}
                 <input type={fieldType}                
                     placeholder={placeholder}
-                    className={style['calendarContainer-inputText']}                
-                    style={{ width: `${width}` }}
+                    className={style['calendarContainer-inputText']}                                    
                     onFocus={onFocus}
                     onBlur={onBlur}
                     />

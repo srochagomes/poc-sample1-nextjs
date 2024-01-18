@@ -60,9 +60,12 @@ function SimpleDropdow(props:Props) {
                               : <></>;
 
   const iconRightComponent = iconRight ?
-                              <div className={style['simpleDropdownContainer-iconright']}>                                  
-                                      <IconSVG path={FieldIconPath[iconRight]} alt={placeholder} isFill={true} />
-                                  </div>                                
+                              <div className={style['simpleDropdownContainer-iconright']}>        
+                                  <div className={style['simpleDropdownContainer-iconright-area']}>
+                                    <IconSVG path={FieldIconPath[iconRight]} alt={placeholder} isFill={true} />
+                                  </div>
+                                      
+                                </div>                                
                               
                               : <></>;
 

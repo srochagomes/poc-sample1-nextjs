@@ -72,7 +72,7 @@ function DestinyDiscovery(props:Props) {
                                             placeholder={common.t('calendar.when.placeholder')}   
                                             caption={common.t('calendar.go.caption')}   
                                             iconLeft={FieldIconEnum.Calendar}
-                                            
+                                            width='13vw'
                                         />
                                 
                                     <CalendarField  
@@ -80,19 +80,19 @@ function DestinyDiscovery(props:Props) {
                                         placeholder={common.t('calendar.when.placeholder')}   
                                         caption={common.t('calendar.back.caption')}   
                                         iconLeft={FieldIconEnum.Calendar}
-                                        
+                                        width='13vw'
                                     />
                                 </div>
                         
                                 <div className={style['destinyDiscovery-fields-group']} >
                                     <SimpleDropdow                                
-                                        caption={common.t('simpledropdow.type-room.caption')}                                   
-                                        
-                                        itens={dropdownVeiculosItems}/>
+                                        caption={common.t('simpledropdow.type-room.caption')}                                        
+                                        itens={dropdownVeiculosItems}
+                                        width='13vw'/>
                                     <SimpleDropdow                                
-                                        caption={common.t('simpledropdow.howtogo.caption')}                                   
-                                        
-                                        itens={dropdownVeiculosItems}/>
+                                        caption={common.t('simpledropdow.howtogo.caption')}                                        
+                                        itens={dropdownVeiculosItems}
+                                        width='13vw'/>
                                 </div>                            
                             
                             </div>

@@ -18,6 +18,32 @@
         margin-top: 0.5rem;
         display: flex;
         flex-direction: row;
+        > div:first-child {           
+            > div:first-child {
+                > div:first-child {
+                    border-radius: .5rem 0 0 0;
+                }
+            }
+            > div:nth-child(2) {
+                > div:first-child {
+                    border-radius: 0 0 0 .5rem;
+                }
+            }
+        
+        }
+        > div:nth-child(2) {
+            > div:nth-child(1) {
+                > div:nth-child(2) {
+                    border-radius: 0 .5rem 0 0;
+                }
+            }
+            > div:nth-child(2) {
+                > div:nth-child(2) {
+                    border-radius: 0 0 .5rem 0;
+                }
+            }
+        
+        }
     }
 
     &-fields-group-place {
@@ -33,10 +59,10 @@
         position: relative;
         display: flex;  
         flex-direction: row;
-        height: auto;
+        
         
         & > div {        
-            margin-right: 0.1vw;
+            margin-left: 0.1vw;
             margin-top: 0.1vw;
             height: auto;
         }
@@ -50,4 +76,6 @@
     &-button-next{
         margin-top: 2rem;
     }
+
+    
 }

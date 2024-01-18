@@ -62,7 +62,7 @@ function RentCar(props:Props) {
                                 placeholder={common.t('calendar.when.placeholder')}   
                                 caption={common.t('calendar.go.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
-                                width="10vw"
+                                width="13vw"
                             />
                             <InputField  
                                 type={FieldTypeEnum.Text}  
@@ -81,7 +81,7 @@ function RentCar(props:Props) {
                                 placeholder={common.t('calendar.when.placeholder')}   
                                 caption={common.t('calendar.go.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
-                                width="10vw"
+                                width="13vw"
                             />
                             <InputField  
                                 type={FieldTypeEnum.Text}  

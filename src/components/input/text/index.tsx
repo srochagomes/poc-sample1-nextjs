@@ -53,11 +53,11 @@ function InputField(props:Props) {
             data-iconleft={iconLeft?'true':'false'}>
             {iconLeftComponent}
             <div className={style['inputContainer-inputArea']} >
-            {captionComponent}
-            <input type={fieldType}                
-                placeholder={placeholder}
-                className={style['inputContainer-inputText']}                                
-                />
+                {captionComponent}
+                <input type={fieldType}                
+                    placeholder={placeholder}
+                    className={style['inputContainer-inputText']}                                
+                    />
             </div>
             
             

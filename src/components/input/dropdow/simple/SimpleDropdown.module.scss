@@ -5,8 +5,8 @@
     position: relative;    
     justify-content: flex-start;
     justify-items: center;
-    align-items: center;
-    width: 10rem;
+    align-items: center;    
+    
     cursor: pointer;
 
     &-iconleft{
@@ -14,26 +14,31 @@
         display: flex;                
         align-items: center;
         justify-content: flex-end;
-        width: 2.5vw;
+        width: 3vw;
         height: 80%;
         &-area{
             position: relative;
             display: flex;
-            width: 50%;
-            height: 50%;
+            width: 60%;
+            height: 60%;
         }
 
     }
 
     &-iconright{    
-        height: 2vh;
-        width: 2vw;
-        display: flex;  
-        flex-direction: row;
-        position: relative;    
-        justify-content: center;
-        justify-items: center;
+        position: relative;
+        display: flex;                
         align-items: center;
+        justify-content: flex-end;
+        margin-right: 0.2vw;
+        width: 3vw;
+        height: 80%;
+        &-area{
+            position: relative;
+            display: flex;
+            width: 60%;
+            height: 60%;
+        }
         
           
     }  
@@ -42,22 +47,29 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        flex-grow: 1; /* Adicionando flex-grow para ocupar todo o espaço disponível */
-      
+        align-items: flex-start;
+        justify-content: center;;
+        margin: 0.2rem; 
         margin-left: 0.5rem;
+        margin-right: 0.8rem;
+        overflow: hidden;
+        flex-grow: 1;
+        width: auto;
+        height: 5.4vh;
       
         & > span {
-          position: absolute;
-          margin-top: -0.2rem;
+          position: relative;
+          margin-bottom: 0.3rem;
         }
       
         & > input {
-          outline: none;
-          border: none;
-          padding: 0;
-          margin-left: 0;
-          margin-top: 0.5rem;
-          font-size: 0.7rem;
+            
+            color: #6E6E6D;        
+            border: none;        
+            outline: none;   
+            width: 100%; /* Faz com que o input ocupe 100% da largura disponível */
+            box-sizing: border-box;
+            font-size: 0.7rem;
         }
       }
 
