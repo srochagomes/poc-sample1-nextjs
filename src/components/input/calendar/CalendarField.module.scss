@@ -1,6 +1,8 @@
+@import '@/styles/global-variables';
+
 .calendarContainer {
     position: relative;
-    background-color: white;
+    background-color: $color-clear;
     display: flex;  
     flex-direction: row;
     align-items: center;
@@ -36,7 +38,7 @@
 
     &-inputText {        
         height: 3.3vh;                
-        color: #6E6E6D;        
+        color: $color-font-caption;        
         border: none;        
         outline: none;   
         
@@ -57,11 +59,6 @@
     }
 
 
-    &-passwordIcon {    
-        background: url('/images/icons/eye.svg') no-repeat; 
-        background-position: right center;               
-        flex: 1;   
-    }
     &-iconleft{
         position: relative;
         display: flex;

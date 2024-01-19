@@ -64,6 +64,7 @@ export default function SignUp() {
                                   placeholder={field.t('signup.born.placehold')}   
                                 caption={field.t('signup.born.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
+                                
                                 width="19.5vw"
                             />
               </div>

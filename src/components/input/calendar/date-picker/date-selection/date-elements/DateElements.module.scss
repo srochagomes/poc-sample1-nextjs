@@ -1,3 +1,6 @@
+@import '@/styles/global-variables';
+
+
 .dateElements {        
   display: flex;
   flex-direction: column;  
@@ -30,7 +33,7 @@
     &-inperiod {
       display: inline-flex;
       > span {
-        background-color: rgba(105, 198, 222, 0.3);
+        background-color: $color-selection-period;
         &:first-child {
           margin-left: 0rem;          
         }
@@ -46,11 +49,11 @@
       justify-content: center; /* Adicionado para centralizar o texto */
       
       
-      background-color: #69C6DE;      
+      background-color: $color-principal;      
       
       
       > span {      
-        color: white;          
+        color: $color-clear;          
         width: 100%;
       }
     }

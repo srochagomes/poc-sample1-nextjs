@@ -12,7 +12,7 @@
   & > nav {    
     margin-top: 1.5rem;
     z-index: 1;
-    background-color: $color-background-principal;
+    background-color: $color-principal;
     opacity: 0; /* Opacidade inicial */
     visibility: hidden; /* Tornar invisível por padrão */
     transition: opacity 0.3s ease, visibility 0.3s ease; /* Adicionar transição */
@@ -35,7 +35,7 @@
 
         & > a {
           text-decoration: none;
-          color: #ffff;
+          color: $color-clear;
           font-size: 1.3rem;
           font-weight: bold;
           white-space: nowrap; /* Evitar quebra de linha */
@@ -63,9 +63,9 @@
     align-items: center;
     justify-content: center;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid $color-grey-middle;
     border-radius: 5px;
     text-decoration: none;
-    color: #333;
+    color: $color-dark ;
   }
 }

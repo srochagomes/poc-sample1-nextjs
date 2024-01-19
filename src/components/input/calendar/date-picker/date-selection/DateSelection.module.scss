@@ -1,5 +1,7 @@
+@import '@/styles/global-variables';
+
 .dateSelection {    
-  background-color: #ffff;
+  background-color: $color-clear;
   width: 15rem;
   height: 17rem;
   border-radius: 10px 10px 10px 10px;  
@@ -8,7 +10,7 @@
     position: absolute;
     top: 4rem;
     height: 5rem;
-    border-left: solid #69C6DE;
+    border-left: solid $color-principal;
     border-left-width: 1.5px;
     
   }
@@ -51,7 +53,7 @@
   }
 
   &[data-position='middle'] {
-    border: solid #D9D9D9;
+    border: solid $color-grey-light;
     border-width: .1rem 0 .1rem 0;
     .dateSelection-top{
       > div:first-child {
@@ -63,7 +65,7 @@
     }    
   }
   &[data-position='last'] {
-    border: solid #D9D9D9;
+    border: solid $color-grey-light;
     border-width: .1rem .1rem .1rem 0;
     .dateSelection-top{
       > div:first-child {
@@ -72,7 +74,7 @@
     }
   }
   &[data-position='first'] {
-    border: solid #D9D9D9;
+    border: solid $color-grey-light;
     border-width: .1rem 0 .1rem .1rem;
     .dateSelection-top{
       > div:last-child {
@@ -84,7 +86,7 @@
     }
   }
   &[data-position='onlyone'] {
-    border: 0.1rem solid #D9D9D9;
+    border: 0.1rem solid $color-grey-light;
     
   }
 

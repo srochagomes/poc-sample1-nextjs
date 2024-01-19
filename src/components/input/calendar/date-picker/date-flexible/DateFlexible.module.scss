@@ -1,5 +1,7 @@
-.dateFlexible {  
-  background-color: #ffff;
+@import '@/styles/global-variables';
+
+.dateFlexible {    
+  background-color: $color-clear;
   position: absolute;
   display: flex;
   flex-direction: column;  

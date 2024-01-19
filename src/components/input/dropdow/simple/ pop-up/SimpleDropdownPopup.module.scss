@@ -1,3 +1,5 @@
+@import '@/styles/global-variables';
+
 .simpleDropDowPopup {
     display: flex;    
     flex-direction: column;     
@@ -15,7 +17,7 @@
       opacity: 1;
       cursor: pointer;
       pointer-events: auto;  
-      background-color: #FFFFFF;
+      background-color: $color-clear;
       width: 10rem;
       
     }       

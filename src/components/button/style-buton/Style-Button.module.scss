@@ -1,10 +1,12 @@
+@import '@/styles/global-variables';
+
 .buttonPrimary {
     padding: 10px;
     border: none;
     width: 246px;
     height: 48px;
-    background-color: #fff; /* Cor de fundo do botão, ajuste conforme necessário */
-    color: 6E6E6D; /* Cor do texto */
+    background-color: $color-clear; /* Cor de fundo do botão, ajuste conforme necessário */
+    color: $color-font-caption; /* Cor do texto */
     font-weight: 800; /* Extrabold */
     border-radius: 10px; /* Cantos arredondados, ajuste conforme necessário */
     cursor: pointer;
@@ -23,6 +25,6 @@
     }
   
     &:hover {
-      background-color: #d3cbcb; /* Cor de fundo ao passar o mouse, ajuste conforme necessário */
+      background-color: $color-button-hover; /* Cor de fundo ao passar o mouse, ajuste conforme necessário */
     }
   }

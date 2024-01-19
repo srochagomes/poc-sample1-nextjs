@@ -3,7 +3,7 @@
 .typography {
     font-size: 1rem; // Tamanho de fonte padrão
     font-weight: normal;
-    color: #949494;   // Cor padrão
+    color: $color-standard-typography;   // Cor padrão
     
   
     
@@ -86,30 +86,24 @@
     &[data-font-size='input-filter'] {
       font-size: 0.8rem;
     }
-
-  
-    
     
     &[data-color='red'] {
-      color: red;
+      color: $color-red;
     }
   
     &[data-color='blue'] {
-      color: blue;
+      color: $color-blue;
     }
     &[data-color='white'] {
-      color: white;
+      color: $color-clear;
     }
     &[data-color='pink'] {
-      color: #E7216A;
+      color: $color-secondary;
     }
     &[data-color='primary'] {
-      color: $color-background-principal;
+      color: $color-principal;
     }
     
-    
-    
-
     &[data-weight='bold'] {
       font-weight: bold;
     }

@@ -1,5 +1,7 @@
+@import '@/styles/global-variables';
+
 .simpleDropdownContainer {
-    background-color: white;
+    background-color: $color-clear;
     display: flex;  
     flex-direction: row;
     position: relative;    
@@ -55,7 +57,7 @@
         overflow: hidden;
         flex-grow: 1;
         width: auto;
-        height: 5.4vh;
+        height: 5vh;
       
         & > label {
           position: relative;
@@ -64,7 +66,7 @@
       
         & > input {
             
-            color: #6E6E6D;        
+            color: $color-font-caption;
             border: none;        
             outline: none;   
             width: 100%; /* Faz com que o input ocupe 100% da largura disponível */

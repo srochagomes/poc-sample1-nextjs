@@ -1,3 +1,5 @@
+@import '@/styles/global-variables';
+
 .stepperControl{
     display: flex;
     flex-direction: row;
@@ -23,32 +25,32 @@
         margin-left: 0.3rem;
         display: flex;
         flex-direction: row;
-        border: 0.1rem solid #D9D9D9;
+        border: 0.1rem solid $color-grey-light;
         width:4rem;
         justify-content: space-evenly;
         align-items: center;
         border-radius:0.3rem 0.3rem 0.3rem 0.3rem;
         &-button {
-            color: #69C6DE;
+            color: $color-principal;
             width: 30%;
             text-align: center;
             transition: background-color 0.3s, color 0.3s;
-            border-radius: 20px; /* Adicione o raio desejado para bordas arredondadas */
+            border-radius: 20px; 
           
             &:hover {
-              background-color: #f0f0f5;
+              background-color: $color-white-light-slight;
                
               font-weight: bold;
-              color: #007acc;
+              color: $color-blue-dark;
             }
           
             &:active {
-              background-color: #d9d9d9;
-              color: #005699;
+              background-color: $color-grey-light;
+              color: $color-blue-dark-extra;
             }
           
             &-disabled {
-              color: #c0c0c8;
+              color: $color-grey-dark;
               pointer-events: none;
             }
           }     

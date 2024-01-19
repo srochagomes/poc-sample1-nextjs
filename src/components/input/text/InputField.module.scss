@@ -1,6 +1,8 @@
+@import '@/styles/global-variables';
+
 .inputContainer {    
     position: relative;
-    background-color: white;
+    background-color: $color-clear;
     display: flex;  
     flex-direction: row;
     align-items: center;
@@ -42,7 +44,7 @@
     }
     &-inputText { 
         height: 3.5vh;                
-        color: #6E6E6D;        
+        color: $color-font-caption;        
         border: none;        
         outline: none;   
         width: 100%; /* Faz com que o input ocupe 100% da largura disponível */

@@ -21,10 +21,11 @@ interface Props {
     width?:string
     monthsShow?:number
     permitPeriodChoice?:boolean
+    hasFlexibleDate?:boolean
 }
 
 function CalendarField(props:Props) {
-  const { permitPeriodChoice, monthsShow, id = generateInputRandomId(), caption, width, iconLeft, colorCaprion, type, roundType, placeholder } = props;
+  const { hasFlexibleDate, permitPeriodChoice, monthsShow, id = generateInputRandomId(), caption, width, iconLeft, colorCaprion, type, roundType, placeholder } = props;
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
   const [fieldType, setFieldType] = useState(type);
   const [showDatePicker, setShowDatePicker] = useState(false);
@@ -172,6 +173,7 @@ function CalendarField(props:Props) {
                     />
             </div>
             <DatePicker monthsShow={monthsShow}
+                        hasFlexibleDate={hasFlexibleDate}
                         dateBase={dateBase}
                         show={showDatePicker} 
                         isSelectDay={isSelectDay} 

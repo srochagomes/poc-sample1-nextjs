@@ -6,6 +6,7 @@ import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import TripPeoplePopup from "./ pop-up";
+import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
 
 interface Props {
     type : FieldTypeEnum  
@@ -65,13 +66,16 @@ function TripPeopleDetail(props:Props) {
 
   const iconLeftComponent = iconLeft ?
                   <div className={style['tripPeopleDetailField-iconleft']}>
-                    <IconSVG path={FieldIconPath[iconLeft]} alt={placeholder} height={18} width={18} />
+                    <div className={style['tripPeopleDetailField-iconleft-area']}>
+                      <IconSVG path={FieldIconPath[iconLeft]} alt={placeholder} height={18} width={18} />
+                    </div>
+                    
                   </div>
                   : <></>;
 
-  const captionComponent = caption ? <span className={style['tripPeopleDetailField-caption']}>
-                                        <Typography fontSize="input-box" color={colorCaprion?colorCaprion:'black'}>{caption}</Typography>
-                                     </span> 
+  const captionComponent = caption ? <div className={style['tripPeopleDetailField-caption']}>
+                                        <Typography type={ComponentTypeEnum.Label} fontSize="input-box" color={colorCaprion?colorCaprion:'black'}>{caption}</Typography>
+                                     </div> 
                                      : <></>;
 
   return (
@@ -82,17 +86,20 @@ function TripPeopleDetail(props:Props) {
          onClick={onClickComponent}
          >
             {iconLeftComponent}
-            {captionComponent}
-            <input type={fieldType}                
-                placeholder={placeholder}
-                className={style['tripPeopleDetailField-inputText']}                
-                
-                onFocus={onFocus}
-                onBlur={onBlur}
-                readOnly={true}
-                value={valueText}
-                
-            />
+            <div className={style['tripPeopleDetailField-inputArea']} >
+              {captionComponent}
+              <input type={fieldType}                
+                  placeholder={placeholder}
+                  className={style['tripPeopleDetailField-inputText']}                
+                  
+                  onFocus={onFocus}
+                  onBlur={onBlur}
+                  readOnly={true}
+                  value={valueText}
+                  
+              />
+            </div>
+            
             <TripPeoplePopup show={showPopup} onClickConfirm={onClickConfirm}/>
 
     </div>

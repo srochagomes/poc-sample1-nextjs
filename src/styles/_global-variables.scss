@@ -1,3 +1,31 @@
-$color-background-principal: #69C6DE;
-$tablet: 1024px;
-$mobile-sm: 600px;
+$color-principal: #69C6DE;
+$color-secondary: #E7216A;
+$color-secondary-hover:#e97aa8;
+$color-clear: #ffff;
+$color-blue: blue;
+$color-red: red;
+$color-dark: #333;
+$color-white-light: #F5F5F5;
+$color-white-light-slight:#f0f0f5;
+$color-grey-light: #D9D9D9;
+$color-grey-dark:#c0c0c8;
+$color-grey-middle: #ccc;
+$color-standard-typography: #949494;
+$color-background-group-buttons: #E7E7E7;
+
+$color-font-caption: #6E6E6D;
+$color-selection-period: rgba(105, 198, 222, 0.3);
+$color-button-hover: #d3cbcb;
+$color-item-select-hover: #BDF1FF;
+$color-blue-dark: #007acc;
+$color-blue-dark-extra: #005699;
+
+
+$resolution-tablet-md: 1920px;
+$resolution-mobile-sm: 600px;
+$resolution-desktop-lg: 600px;
+
+// xs (extra small): Geralmente usado para dispositivos muito pequenos, como smartphones em modo retrato.
+// sm (small): Geralmente usado para dispositivos pequenos, como smartphones em modo paisagem ou tablets.
+// md (medium):  Geralmente usado para dispositivos de tamanho médio, como tablets maiores ou monitores de desktop.
+// lg (large): Geralmente usado para dispositivos grandes, como monitores de desktop maiores ou TVs.

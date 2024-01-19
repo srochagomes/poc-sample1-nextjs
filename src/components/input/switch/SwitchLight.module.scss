@@ -1,3 +1,5 @@
+@import '@/styles/global-variables';
+
 // styles.scss (ou o nome do seu arquivo SCSS)
 .switchLight {
   position: relative;
@@ -25,7 +27,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: #ccc;
+      background-color: $color-grey-middle;
       transition: .4s;
       border-radius: 1rem;
       
@@ -36,14 +38,14 @@
         width: 1.3rem;
         left: 0.1rem;
         bottom: 0.1rem;
-        background-color: white;
+        background-color: $color-clear;
         transition: .4s;
         border-radius: 50%;
       }
     }
 
     > input:checked + .switchLight-switch-slider {
-      background-color: #E7216A;
+      background-color: $color-secondary;
 
       &:before {
         transform: translateX(1.7rem);

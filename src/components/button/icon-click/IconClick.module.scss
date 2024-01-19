@@ -1,3 +1,5 @@
+@import '@/styles/global-variables';
+
 .iconClick{
     display: flex;
     flex-direction: column;
@@ -18,7 +20,7 @@
     }
     > span{
         margin-top: 1.5rem;
-        color: #6E6E6D;
+        color: $color-font-caption;
         font-size: 0.6rem;
         font-weight: 800;
     }
