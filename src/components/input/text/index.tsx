@@ -5,6 +5,7 @@ import IconSVG from "@/components/icons/icon-svg";
 import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
+import IconSelecting from "@/components/button/icon-selecting";
 
 
 interface Props {
@@ -63,11 +64,16 @@ function InputField(props:Props) {
             
             {type==FieldTypeEnum.Password && (  
               <div className={style['inputContainer-passwordIcon']}
-                  onClick={togglePasswordVisibility}
+                  
               >
                 <div className={style['inputContainer-passwordIcon-area']}>
-                  <IconSVG path={FieldIconPath.eye} isFill={true}/>
-              </div>              
+                    <IconSelecting isSelected={showPassword} 
+                    normal={(<IconSVG path={FieldIconPath.eye} isFill={true}/>)} 
+                    whenSelected={(<IconSVG path={FieldIconPath.circle} isFill={true}/>)}
+                    onClick={togglePasswordVisibility}
+                    />
+                  
+                </div>              
               </div>              
             )}
     </div>

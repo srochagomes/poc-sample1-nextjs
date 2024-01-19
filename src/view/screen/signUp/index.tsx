@@ -11,6 +11,7 @@ import ButtonPrimary from "@/components/button/primary-button";
 import ButtonStyle, { ButtonStyleIconEnum } from "@/components/button/style-buton";
 
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
+import CalendarField from "@/components/input/calendar";
 
 
 
@@ -39,44 +40,57 @@ export default function SignUp() {
               <InputField  
                       iconLeft={FieldIconEnum.FingerPrint}
                       type={FieldTypeEnum.Text} 
+                      caption={field.t('signup.name.caption')} 
+                      placeholder={field.t('signup.name.placehold')} 
+                      roundType={FieldRoundEnum.Top}
+                      width="40vw"/>
+              <InputField  
+                      iconLeft={FieldIconEnum.Email}
+                      type={FieldTypeEnum.Email} 
                       caption={field.t('email.caption')} 
                       placeholder={field.t('email.placehold')} 
-                      roundType={FieldRoundEnum.Top}/>
+                      width="40vw"/>
+              <div className={style['body-form-login-group-row-two']} style={{ width: `40vw` }}>
+                  <InputField  
+                          iconLeft={FieldIconEnum.PhoneCall}
+                          type={FieldTypeEnum.Text} 
+                          caption={field.t('signup.phone.caption')} 
+                          placeholder={field.t('signup.phone.placehold')} 
+                          width="19.5vw"
+                          />
+
+                    <CalendarField
+                                type={FieldTypeEnum.Text}
+                                  placeholder={field.t('signup.born.placehold')}   
+                                caption={field.t('signup.born.caption')}   
+                                iconLeft={FieldIconEnum.Calendar}
+                                width="19.5vw"
+                            />
+              </div>
               <InputField  
                 iconLeft={FieldIconEnum.Password}
                 type={FieldTypeEnum.Password} 
-                caption={field.t('password.caption')} 
-                placeholder={field.t('password.placehold')} 
-                roundType={FieldRoundEnum.Button}/>              
+                caption={field.t('signup.password.caption')} 
+                placeholder={field.t('signup.password.placehold')}
+                width="40vw"/>  
+              <InputField  
+                iconLeft={FieldIconEnum.Password}
+                type={FieldTypeEnum.Password} 
+                caption={field.t('signup.password-confirm.caption')} 
+                placeholder={field.t('signup.password-confirm.placehold')} 
+                roundType={FieldRoundEnum.Button}
+                width="40vw"/>
           </FormGroup>          
-          <div className={style['body-form-login-forgot-password']}>
-            <Typography fontSize="caption2" color="white">{common.t('login.forgot.caption')}</Typography>
+          <div className={style['body-form-login-field-required']}>
+            <Typography fontSize="caption3-a" color="white">{field.t('field.required.caption')}</Typography>
           </div>
           <div className={style['body-form-login-button']}>
             <ButtonPrimary>
-              {btn.t('login.button')}
+              {btn.t('confirm.button')}
             </ButtonPrimary>
           </div>
         </div>
-          <div className={style['body-or-login-social-caption']}>
-            <Typography fontSize="caption2" color="white">{common.t('login.or-login-social.caption')}</Typography>
-          </div>
-          <div className={style['body-button-login-google']}>
-            <ButtonStyle icon={ButtonStyleIconEnum.Google}>              
-              {btn.t('login.goole.button')}
-            </ButtonStyle>
-          </div>
-
-          <div className={style['body-button-login-facebook']}>
-            <ButtonStyle icon={ButtonStyleIconEnum.Facebook}>              
-              {btn.t('login.facebook.button')}
-            </ButtonStyle>
-          </div>
-
-          <div className={style['body-invite-signin']}>
-            <Typography fontSize="caption1" color="white">{common.t('user.without.account.caption')}</Typography>
-            <Typography fontSize="caption2" color="white">{common.t('user.should-create.account.caption')}</Typography>
-          </div>
+          
         
       </section>
     </>

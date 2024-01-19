@@ -4,15 +4,18 @@
     "email.caption": "INSIRA SEU EMAIL",
     "password.caption": "INSIRA SUA SENHA",
     "signup.name.caption": "INSIRA SEU NOME*",
-    "signup.name.placeholder": "Nome do viajante",
+    "signup.name.placehold": "Nome do viajante",
+    "signup.email.caption": "INSIRA SEU EMAIL*",
+    "signup.email.placehold": "Email do viajante",
     "signup.phone.caption": "INSIRA SEU TELEFONE*",
-    "signup.phone.placeholder": "(11) 98888-8888",
+    "signup.phone.placehold": "(11) 98888-8888",
     "signup.born.caption": "INSIRA SUA DATA DE NASCIMENTO",
-    "signup.born.placeholder": "99/99/9999",
+    "signup.born.placehold": "99/99/9999",
     "signup.password.caption": "INSIRA SUA SENHA",
-    "signup.password.placeholder": "Senha",
+    "signup.password.placehold": "Senha",
     "signup.password-confirm.caption": "INSIRA A CONFIRMAÇÃO DA SENHA",
-    "signup.password-confirm.placeholder": "Confirmação da senha"
+    "signup.password-confirm.placehold": "Confirmação da senha",
+    "field.required.caption":"* campos obrigatórios"
 
 
 }

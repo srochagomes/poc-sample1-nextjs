@@ -4,15 +4,18 @@
     "email.caption": "INSERT YOUR EMAIL",
     "password.caption": "INSERT YOUR PASSWORD",
     "signup.name.caption": "TYPE YOUR NAME*",
-    "signup.name.placeholder": "traveler's name",
+    "signup.name.placehold": "traveler's name",
+    "signup.email.caption": "TYPE YOUR EMAIL*",
+    "signup.email.placehold": "Traveler's email",
     "signup.phone.caption": "TYPE YOUR PHONE*",
-    "signup.phone.placeholder": "(11) 98888-8888",
+    "signup.phone.placehold": "(11) 98888-8888",
     "signup.born.caption": "INSERT YOUR DATE OF BIRTH",
-    "signup.born.placeholder": "99/99/9999",
+    "signup.born.placehold": "99/99/9999",
     "signup.password.caption": "INSERT YOUR PASSWORD",
-    "signup.password.placeholder": "Password",
+    "signup.password.placehold": "Password",
     "signup.password-confirm.caption": "INSERT YOUR CONFIRM PASSWORD",
-    "signup.password-confirm.placeholder": "Confirm password",
+    "signup.password-confirm.placehold": "Confirm password",
+    "field.required.caption":"* fields required"
 
 
 }

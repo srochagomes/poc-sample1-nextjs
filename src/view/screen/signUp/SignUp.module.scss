@@ -26,10 +26,16 @@
       }
   
       margin-top: 8vh;
-      &-forgot-password {
+      
+      &-group-row-two{
+        display: flex;
+        flex-direction: row;  
+        justify-content: space-between;
+      }
+      &-field-required {
         display: flex;
         padding-right: 1%;        
-        margin-top: 3vh;
+        margin-top: 0.7vh;
         justify-content: flex-end;            
       }
       &-button{
@@ -46,25 +52,8 @@
       justify-content: center;   
     }
     
-    &-button-login-google{
-      margin-top: 8vh;
-      display: flex;      
-      margin-top: 2rem;                
-      justify-content: center;  
-    }
 
-    &-button-login-facebook{      
-      display: flex;      
-      margin-top: 0.8vh;                
-      justify-content: center;  
-    }
 
-    &-invite-signin {
-      margin-top: 8vh;
-      & > * {        
-        margin: 0.5rem; 
-    } 
-    }
   }
   
 

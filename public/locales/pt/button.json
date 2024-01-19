@@ -1,5 +1,6 @@
 {
     "login.button": "Login",
     "login.goole.button" : "Google",
-    "login.facebook.button" : "Facebook"    
+    "login.facebook.button" : "Facebook",
+    "confirm.button":"Confirmar"    
 }
