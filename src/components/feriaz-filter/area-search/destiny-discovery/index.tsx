@@ -72,6 +72,9 @@ function DestinyDiscovery(props:Props) {
                                             placeholder={common.t('calendar.when.placeholder')}   
                                             caption={common.t('calendar.go.caption')}   
                                             iconLeft={FieldIconEnum.Calendar}
+                                            hasFlexibleDate={true}
+                                            monthsShow={2}
+                                            permitPeriodChoice={true}
                                             width='13vw'
                                         />
                                 
@@ -80,6 +83,9 @@ function DestinyDiscovery(props:Props) {
                                         placeholder={common.t('calendar.when.placeholder')}   
                                         caption={common.t('calendar.back.caption')}   
                                         iconLeft={FieldIconEnum.Calendar}
+                                        hasFlexibleDate={true}
+                                        monthsShow={2}
+                                        permitPeriodChoice={true}
                                         width='13vw'
                                     />
                                 </div>

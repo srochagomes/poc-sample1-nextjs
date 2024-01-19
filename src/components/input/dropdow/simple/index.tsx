@@ -5,12 +5,15 @@ import IconSVG from "@/components/icons/icon-svg";
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import SimpleDropdownPopup, { SimpleDrodownItem } from "./ pop-up";
+import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
+import { generateInputRandomId } from "@/types/utils/MathFunctions";
 
 
 
 
 
-interface Props {     
+interface Props {  
+    id?: string   
     roundType?:String
     placeholder?:string
     caption?:string
@@ -23,7 +26,7 @@ interface Props {
 
 
 function SimpleDropdow(props:Props) {
-  const {caption, placeholder, roundType, width, itens = []} = props;
+  const {id = generateInputRandomId(), caption, placeholder, roundType, width, itens = []} = props;
   const [openOptions, setOpenOptions] = useState(false);
   const [itensSelectd, setItensSelected] = useState<SimpleDrodownItem[]>([]);
   const [textValue, setTextValue] = useState<string>("");
@@ -70,7 +73,9 @@ function SimpleDropdow(props:Props) {
                               : <></>;
 
 
-  const captionComponent = caption ? <Typography fontSize="input-box" >{caption}</Typography>
+  const captionComponent = caption ? <Typography 
+                                        idLink={id}
+                                        type={ComponentTypeEnum.Label} fontSize="input-box" >{caption}</Typography>
                                      : <></>;
 
   return (
@@ -86,7 +91,7 @@ function SimpleDropdow(props:Props) {
 
             <div className={style['simpleDropdownContainer-groupField']} >
               {captionComponent}
-              <input type="text" readOnly={true} value={textValue} />
+              <input id={id} type="text" readOnly={true} value={textValue} />
             </div>
             {iconRightComponent}
             <SimpleDropdownPopup show={openOptions} 

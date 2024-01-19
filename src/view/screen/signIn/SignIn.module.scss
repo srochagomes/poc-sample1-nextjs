@@ -28,9 +28,10 @@
       margin-top: 8vh;
       &-forgot-password {
         display: flex;
-        padding-right: 1%;        
-        margin-top: 3vh;
         justify-content: flex-end;            
+        margin-top: .1vh;
+        width: 100%;
+
       }
       &-button{
         display: flex;        
@@ -81,11 +82,11 @@
         }
       }
       &-form-login {
-        margin-top: 4vh;
-        width: 40vh; 
+        margin-top: 4vh;        
 
         &-forgot-password {
-          margin-top: 5vh;
+          margin-top: .1vh;
+          width: 100%;
         }
         &-button{
           margin-top: 4vh;

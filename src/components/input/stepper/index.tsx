@@ -3,10 +3,13 @@ import React, { useState, ChangeEvent, useEffect } from 'react';
 import style from './StepperControl.module.scss'
 import Typography from '@/components/text/typography';
 import { ItemPositionEnum } from '@/types/enums/ItemPosition';
+import { ComponentTypeEnum } from '@/types/enums/ComponentTypeEnum';
+import { generateInputRandomId } from '@/types/utils/MathFunctions';
 
 
 
 interface StepperControlProps {
+  id?:string
   min?: number;
   max?: number;
   editable?: boolean;
@@ -17,7 +20,8 @@ interface StepperControlProps {
 }
 
 const StepperControl: React.FC<StepperControlProps> = (props:StepperControlProps) => {
-  const { min = 0, 
+  const { id = generateInputRandomId(),
+          min = 0, 
           max = Infinity, 
           editable = false, 
           maxDigits = Infinity, 
@@ -58,13 +62,15 @@ const StepperControl: React.FC<StepperControlProps> = (props:StepperControlProps
 
   return (
     <div className={style['stepperControl']} item-position={captionPosition}>
-      <Typography fontSize="caption3-a">{caption}</Typography>
+      <Typography idLink={id} type={ComponentTypeEnum.Label} fontSize="caption3-a">{caption}</Typography>
       <div className={style['stepperControl-value']}>
+          
           <span onClick={handleDecrement} className={quantity <= min?
             `${style['stepperControl-value-button']} ${style['stepperControl-value-button-disabled']}`
             :`${style['stepperControl-value-button']}`}> -</span>
           {editable ? (
             <input
+              id={id}
               type="text"
               value={quantity}
               onChange={handleChange}

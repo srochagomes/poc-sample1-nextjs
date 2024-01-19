@@ -7,8 +7,11 @@ import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import DatePicker from "./date-picker";
 import { TypeCalendar } from "./date-picker/date-command";
+import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
+import { generateInputRandomId } from "@/types/utils/MathFunctions";
 
 interface Props {
+    id?:string
     type : FieldTypeEnum  
     roundType?:String
     placeholder?:string
@@ -16,10 +19,12 @@ interface Props {
     colorCaprion?:string
     iconLeft?:FieldIconEnum
     width?:string
+    monthsShow?:number
+    permitPeriodChoice?:boolean
 }
 
 function CalendarField(props:Props) {
-  const { caption, width, iconLeft, colorCaprion, type, roundType, placeholder } = props;
+  const { permitPeriodChoice, monthsShow, id = generateInputRandomId(), caption, width, iconLeft, colorCaprion, type, roundType, placeholder } = props;
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
   const [fieldType, setFieldType] = useState(type);
   const [showDatePicker, setShowDatePicker] = useState(false);
@@ -87,8 +92,7 @@ function CalendarField(props:Props) {
         if (prevKeys.includes(keyAttributeValue)) {
           // Se a chave já estiver no estado, remova-a
           return prevKeys.filter((key) => key !== keyAttributeValue);
-        } else {
-          
+        } else if (permitPeriodChoice){
           // Se já houver 2 datas, substitua uma delas com base nas regras
 
           const valueToAdd = Number(keyAttributeValue);
@@ -114,6 +118,8 @@ function CalendarField(props:Props) {
             // O novo valor está entre o primeiro e o segundo, não faz nada
             return prevKeys;
           }
+        } else {
+          return [keyAttributeValue];
         }
       });
     }    
@@ -140,9 +146,12 @@ function CalendarField(props:Props) {
                   </div>
                   : <></>;
 
-  const captionComponent = caption ? <span className={style['calendarContainer-caption']}>
-                                        <Typography fontSize="input-box" color={colorCaprion?colorCaprion:'black'}>{caption}</Typography>
-                                     </span> 
+  const captionComponent = caption ? <div className={style['calendarContainer-caption']}>
+                                        <Typography 
+                                            idLink={id}
+                                            type={ComponentTypeEnum.Label}
+                                            fontSize="input-box" color={colorCaprion?colorCaprion:'black'}>{caption}</Typography>
+                                     </div> 
                                      : <></>;
 
   return (
@@ -153,14 +162,17 @@ function CalendarField(props:Props) {
             {iconLeftComponent}
             <div className={style['calendarContainer-inputArea']} >
                 {captionComponent}
-                <input type={fieldType}                
+                <input 
+                    id={id}
+                    type={fieldType}                
                     placeholder={placeholder}
                     className={style['calendarContainer-inputText']}                                    
                     onFocus={onFocus}
                     onBlur={onBlur}
                     />
             </div>
-            <DatePicker dateBase={dateBase}
+            <DatePicker monthsShow={monthsShow}
+                        dateBase={dateBase}
                         show={showDatePicker} 
                         isSelectDay={isSelectDay} 
                         typeCalendar={typeCalendar}                        

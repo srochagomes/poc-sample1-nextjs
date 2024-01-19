@@ -17,20 +17,21 @@ interface Props {
     onClickClear: (event:React.MouseEvent<HTMLDivElement>) => void;
     onClickConfirm: (event:React.MouseEvent<HTMLButtonElement>) => void;
     typeCalendar: TypeCalendar;
+    hasFlexibleDate:boolean
     
 }
 
 function DateCommand(props:Props) {
-    const {onClickClear, onClickDateFixed, typeCalendar, onClickConfirm, onClickDateFlexible} = props;
+    const {hasFlexibleDate, onClickClear, onClickDateFixed, typeCalendar, onClickConfirm, onClickDateFlexible} = props;
 
     return (
         <div className={style['dateCommand']}>
             <div className={style['dateCommand-flexible']}>
             {typeCalendar==TypeCalendar.fixed?
-                <LinkAction onClick={onClickDateFlexible}>                    
+                hasFlexibleDate && (<LinkAction onClick={onClickDateFlexible}>                    
                      <Typography fontSize="button-link" color='pink'>Escolher data flexível</Typography>
-                </LinkAction>
-                :
+                </LinkAction>)
+                : 
                 <LinkAction onClick={onClickDateFixed}>                    
                      <Typography fontSize="button-link" color='pink'>Escolher data Fixa</Typography>
                 </LinkAction>              

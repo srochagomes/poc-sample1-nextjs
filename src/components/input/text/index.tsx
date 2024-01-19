@@ -6,9 +6,12 @@ import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import IconSelecting from "@/components/button/icon-selecting";
+import { generateInputRandomId } from "@/types/utils/MathFunctions";
+import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
 
 
 interface Props {
+    id?: string
     type : FieldTypeEnum  
     roundType?:String
     placeholder?:string
@@ -19,7 +22,15 @@ interface Props {
 }
 
 function InputField(props:Props) {
-  const { caption, width, iconLeft, colorCaprion, type, roundType, placeholder } = props;
+  const { caption, 
+          width, 
+          iconLeft, 
+          colorCaprion, 
+          type, 
+          roundType, 
+          placeholder, 
+          id = generateInputRandomId()
+        } = props;
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -42,9 +53,11 @@ function InputField(props:Props) {
                   </div>
                   : <></>;
 
-  const captionComponent = caption ? <span className={style['inputContainer-caption']}>
-                                        <Typography fontSize="input-box" color={colorCaprion?colorCaprion:'black'}>{caption}</Typography>
-                                     </span> 
+  const captionComponent = caption ? <div className={style['inputContainer-caption']}>
+                                        <Typography type={ComponentTypeEnum.Label}
+                                        idLink={id}
+                                            fontSize="input-box" color={colorCaprion?colorCaprion:'black'}>{caption}</Typography>
+                                     </div> 
                                      : <></>;
 
   return (
@@ -55,7 +68,8 @@ function InputField(props:Props) {
             {iconLeftComponent}
             <div className={style['inputContainer-inputArea']} >
                 {captionComponent}
-                <input type={fieldType}                
+                <input type={fieldType}           
+                    id={id}     
                     placeholder={placeholder}
                     className={style['inputContainer-inputText']}                                
                     />

@@ -56,10 +56,10 @@ export default function PrincipalHome() {
         </div>
                         
         <div className={`${style['body-area-cards']} ${style['body-area-cards-visible']}`}>
-          <CardInformation icon={FieldIconPath.car} header={common.t('home.cards.first.header')} content={common.t('home.cards.first.content')}/>          
-          <CardInformation icon={FieldIconPath.car} header={common.t('home.cards.second.header')} content={common.t('home.cards.second.content')}/>          
-          <CardInformation icon={FieldIconPath.car} header={common.t('home.cards.third.header')} content={common.t('home.cards.third.content')}/>          
-          <CardInformation icon={FieldIconPath.car} header={common.t('home.cards.fourth.header')} content={common.t('home.cards.fourth.content')}/>          
+          <CardInformation icon={FieldImagePath.do_seu_jeito} header={common.t('home.cards.first.header')} content={common.t('home.cards.first.content')}/>          
+          <CardInformation icon={FieldImagePath.location_radar} header={common.t('home.cards.second.header')} content={common.t('home.cards.second.content')}/>          
+          <CardInformation icon={FieldImagePath.target_image} header={common.t('home.cards.third.header')} content={common.t('home.cards.third.content')}/>          
+          <CardInformation icon={FieldImagePath.ai_image} header={common.t('home.cards.fourth.header')} content={common.t('home.cards.fourth.content')}/>          
         </div>
 
         <div className={style['body-area-banner']}>

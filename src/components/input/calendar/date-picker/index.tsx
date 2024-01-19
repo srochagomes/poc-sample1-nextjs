@@ -5,7 +5,7 @@ import DateOperations, { DateFields } from "@/types/date/DateOperations";
 import DateCommand, { TypeCalendar } from "./date-command";
 import DateFlexible from "./date-flexible";
 interface Props {
-
+    monthsShow?:number;
     show:boolean;
     dateBase: Date;    
     isSelectDay: (index:number|null)=>boolean;
@@ -15,12 +15,13 @@ interface Props {
     onClickConfirm: (event:React.MouseEvent<HTMLButtonElement>)=> void;    
     onClickDateFlexible: (event:React.MouseEvent<HTMLDivElement>)=> void;    
     onClickDateFixed: (event:React.MouseEvent<HTMLDivElement>)=> void;  
-    typeCalendar: TypeCalendar;  
+    typeCalendar: TypeCalendar; 
+    hasFlexibleDate?:boolean 
 
 }
 
 function DatePicker(props:Props) {
-    let {show, typeCalendar, dateBase, onSelectDay, isSelectDay, onClickClear, onClickConfirm, onClickDateFlexible, onClickDateFixed, isDayBetweenSelected} = props;
+    let {hasFlexibleDate = false, monthsShow = 1, show, typeCalendar, dateBase, onSelectDay, isSelectDay, onClickClear, onClickConfirm, onClickDateFlexible, onClickDateFixed, isDayBetweenSelected} = props;
     const [componentShow,    setComponentShow] = useState(show)
     const [dateBaseStart,    setDateBaseStart] = useState(dateBase)
     
@@ -85,14 +86,14 @@ function DatePicker(props:Props) {
                 ref={divRef} 
                 onClick={handleDivClick}
             >
-               {createDateSelection(2, 
+               {createDateSelection(monthsShow, 
                       {month: DateOperations.getMonthFromDate(dateBaseStart),year: DateOperations.getYearFromDate(dateBaseStart)}, 
                         isSelectDay, 
                         isDayBetweenSelected,
                         onSelectDay,
                         onClickToBack,
                         onClickToFoward)}
-                { typeCalendar === TypeCalendar.flexible && 
+                { hasFlexibleDate && typeCalendar === TypeCalendar.flexible && 
                     <div  className={style['datePickerContainer-periodflexible']}>
                       <DateFlexible/>
                 

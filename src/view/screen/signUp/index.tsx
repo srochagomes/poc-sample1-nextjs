@@ -80,10 +80,11 @@ export default function SignUp() {
                 placeholder={field.t('signup.password-confirm.placehold')} 
                 roundType={FieldRoundEnum.Button}
                 width="40vw"/>
+                <div className={style['body-form-login-field-required']}>
+                  <Typography fontSize="caption3-a" color="white">{field.t('field.required.caption')}</Typography>
+                </div>
           </FormGroup>          
-          <div className={style['body-form-login-field-required']}>
-            <Typography fontSize="caption3-a" color="white">{field.t('field.required.caption')}</Typography>
-          </div>
+          
           <div className={style['body-form-login-button']}>
             <ButtonPrimary>
               {btn.t('confirm.button')}

@@ -49,10 +49,11 @@ export default function SignIn() {
                 caption={field.t('password.caption')} 
                 placeholder={field.t('password.placehold')} 
                 roundType={FieldRoundEnum.Button}/>              
+              <div className={style['body-form-login-forgot-password']}>
+                <Typography fontSize="caption2" color="white">{common.t('login.forgot.caption')}</Typography>
+              </div>
+
           </FormGroup>          
-          <div className={style['body-form-login-forgot-password']}>
-            <Typography fontSize="caption2" color="white">{common.t('login.forgot.caption')}</Typography>
-          </div>
           <div className={style['body-form-login-button']}>
             <ButtonPrimary>
               {btn.t('login.button')}

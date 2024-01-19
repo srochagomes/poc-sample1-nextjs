@@ -14,5 +14,8 @@ export enum FieldImagePath {
   SolPicture3 = "/images/png/characters/sol-picture3.png",
   GuiPicture1 = "/images/png/characters/gui-picture1.png",
   GuiPicture2 = "/images/png/characters/gui-picture2.png",
-  
+  do_seu_jeito= "/images/png/do-seu-jeito.png",
+  location_radar = "/images/png/200.png",
+  ai_image = "/images/png/AI.png",
+  target_image= "/images/png/target.png",
 }
