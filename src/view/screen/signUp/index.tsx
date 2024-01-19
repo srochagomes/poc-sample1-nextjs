@@ -1,6 +1,6 @@
 import { useTranslation } from "next-i18next"
 
-import style from "./LoginHome.module.scss"
+import style from "./SignUp.module.scss"
 import FeriazText from "@/components/svg/feriaz-text";
 import Typography from "@/components/text/typography";
 import FormGroup from "@/components/form/group";
@@ -10,9 +10,11 @@ import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
 import ButtonPrimary from "@/components/button/primary-button";
 import ButtonStyle, { ButtonStyleIconEnum } from "@/components/button/style-buton";
 
+import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 
 
-export default function LoginHome() {
+
+export default function SignUp() {
   const common = useTranslation('common')
   const field = useTranslation('field')
   const btn = useTranslation('button')
@@ -29,13 +31,23 @@ export default function LoginHome() {
           <Typography fontSize="H2" color="white" weight="extrabold">{common.t('welcome.traveler')}</Typography>
         </div>
         <div className={style['body-welcome-login-caption']}>
-          <Typography fontSize="caption1" color="white">{common.t('login.caption')}</Typography>
+          <Typography fontSize="caption1" color="white">{common.t('sign-up.caption')}</Typography>
         </div>
 
         <div className={style['body-form-login']}>
           <FormGroup applyOnValidForm={handleAccessConfirm}>
-              <InputField  type={FieldTypeEnum.Email} placeholder={field.t('email.placehold')} roundType={FieldRoundEnum.Top}/>
-              <InputField  type={FieldTypeEnum.Password} placeholder={field.t('password.placehold')} roundType={FieldRoundEnum.Button}/>              
+              <InputField  
+                      iconLeft={FieldIconEnum.FingerPrint}
+                      type={FieldTypeEnum.Text} 
+                      caption={field.t('email.caption')} 
+                      placeholder={field.t('email.placehold')} 
+                      roundType={FieldRoundEnum.Top}/>
+              <InputField  
+                iconLeft={FieldIconEnum.Password}
+                type={FieldTypeEnum.Password} 
+                caption={field.t('password.caption')} 
+                placeholder={field.t('password.placehold')} 
+                roundType={FieldRoundEnum.Button}/>              
           </FormGroup>          
           <div className={style['body-form-login-forgot-password']}>
             <Typography fontSize="caption2" color="white">{common.t('login.forgot.caption')}</Typography>

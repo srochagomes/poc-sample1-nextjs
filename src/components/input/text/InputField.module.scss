@@ -7,6 +7,8 @@
     align-content: flex-start;
     
     
+    
+    
 
     &[data-round='top'] {
         border-radius: 10px 10px 0 0;
@@ -60,24 +62,39 @@
     }
 
 
-    &-passwordIcon {    
-        background: url('/images/icons/eye.svg') no-repeat; 
-        background-position: right center;               
-        flex: 1;   
+    &-passwordIcon {            
+        position: relative;
+        display: flex;                
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 2.5vw;
+        height:3.5vh;                        
+        &-area{
+            position: relative;            
+            display: flex;
+            flex-direction: column;
+            width: 1.8vw;
+            height:3vh;                        
+        }
+        
     }
     &-iconleft{
         position: relative;
-        display: flex;                
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: center;
+        
         width: 2.5vw;
-        height: 80%;
+        height:3.5vh;
         &-area{
             position: relative;
             display: flex;
-            width: 15px;
-            height:15px;
+            width: 1.8vw;
+            height:2.3vh;
             margin-left: 3px;
+            
         }
 
     }

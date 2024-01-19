@@ -62,11 +62,14 @@ function InputField(props:Props) {
             
             
             {type==FieldTypeEnum.Password && (  
-            <div className={style['inputContainer-passwordIcon']}
-                onClick={togglePasswordVisibility}
-            >
-            </div>
-        )}
+              <div className={style['inputContainer-passwordIcon']}
+                  onClick={togglePasswordVisibility}
+              >
+                <div className={style['inputContainer-passwordIcon-area']}>
+                  <IconSVG path={FieldIconPath.eye} isFill={true}/>
+              </div>              
+              </div>              
+            )}
     </div>
     
     

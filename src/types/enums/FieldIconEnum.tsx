@@ -20,6 +20,11 @@ export enum FieldIconEnum {
   Money="money",
   MenuHorizontal="menu_horizontal",
   MenuVertical="menu_vertical",
-  ProfileCircle="profile_circle"
+  ProfileCircle="profile_circle",
+  Eye = "eye",
+  Email = "email",
+  Password = "password",
+  FingerPrint = "finger_print",
+  PhoneCall = "phone_call"
 
 }

@@ -2,6 +2,7 @@
     "welcome": "Welcome to our website!",
     "welcome.traveler": "Hi Traveler!",
     "login.caption": "Do your login.",
+    "sign-up.caption": "Do your register.",
     "login.forgot.caption" : "Forgot my password",
     "login.or-login-social.caption" : "or get in with",
     "user.without.account.caption" : "Do not you have an account?",

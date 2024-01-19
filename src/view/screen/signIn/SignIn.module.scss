@@ -18,6 +18,12 @@
     }
     &-form-login {
       width: 80vh; /* Largura de 100% */
+
+      > section{
+        > div{
+          margin-bottom: 1vh;
+        }
+      }
   
       margin-top: 8vh;
       &-forgot-password {

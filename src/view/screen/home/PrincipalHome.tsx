@@ -7,13 +7,14 @@ import AreaLogin from "./header/area-login"
 import { FieldVideoPath } from "@/types/enums/FieldVideoPath"
 import dynamic from 'next/dynamic'
 import VideoPlayer from "@/components/video"
-import CardInformation from "../cards"
+
 import { FieldIconPath } from "@/types/enums/FieldIconPath"
 import IconSVG from "@/components/icons/icon-svg"
 import { FieldImagePath } from "@/types/enums/FieldImagePath"
 import Typography from "@/components/text/typography"
 import InstructionsFeriaz from "./instructions"
 import SimpleCarousel from "@/components/carousel/simple"
+import CardInformation from "./cards"
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
  
 

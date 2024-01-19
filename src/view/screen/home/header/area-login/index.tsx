@@ -11,7 +11,7 @@ export default function AreaLogin() {
     const router = useRouter(); // Add useRouter hook
     
     const menuClicked = () : void => {
-        router.push('/login');
+        router.push('/signIn');
     }
   
     const { t } = useTranslation('common')
