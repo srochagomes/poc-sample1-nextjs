@@ -123,9 +123,9 @@
     }
 
     &-area-sol{
-        padding-top: 5rem;
+        padding-top: 5vh;
         background-color: $color-clear;
-        height: 30rem;
+        height: auto;
         width: 100%;
         display: flex;
         flex-direction: row ;
@@ -135,17 +135,17 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            height: 30rem;
-            width: 30rem;
+            height: 80vh;
+            width: 100%;
         }
         &-message{
             display: flex;
             flex-direction: column;
-            width: 30rem;
+            width: 100%;
             text-align: center;
-            margin-right: 15rem;
+            margin-right: 15vw;
             > span{
-                margin-bottom: 3rem;
+                margin-bottom: 3vh;
                 line-height: 2.8rem;
             }
             
@@ -154,9 +154,9 @@
     }
     
     &-area-guicare{
-        padding-top: 10rem;
+        padding-top: 10vh;
         background-color: $color-clear;
-        height: 30rem;
+        height: auto;
         width: 100%;
         display: flex;
         flex-direction: row ;
@@ -166,18 +166,18 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            height: 30rem;
-            width: 20rem;
-            margin-right: 15rem;
+            height: 80vh;
+            width: 100%;
+            margin-right: 15vw;
         }
         &-message{
             display: flex;
             flex-direction: column;
-            width: 30rem;
+            width: 100%;
             text-align: center;            
 
             > span{
-                margin-bottom: 3rem;
+                margin-bottom: 3vw;
                 line-height: 2.8rem;
             }
             
@@ -186,9 +186,9 @@
     }
 
     &-area-tripplan{
-        padding-top: 10rem;
+        padding-top: 10vh;
         background-color: $color-clear;
-        height: 40rem;
+        height: auto;
         width: 100%;
         display: flex;
         flex-direction: column ;
@@ -198,8 +198,8 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            width: 50rem;
-            height: 30rem;
+            width: 80vw;
+            height: 70vh;
         }
         &-message{
             display: flex;
@@ -218,9 +218,11 @@
     &-area-links{
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         background-color: $color-clear;
         justify-content: center;
-        padding-bottom: 2rem;
+        align-items: center;
+        padding-bottom: 2vh;
         width: 100%;       
         > nav {
             width: 100%;
@@ -233,6 +235,8 @@
                 flex-direction: row;
                 justify-content: space-around;
                 > li > a{
+                    
+                    align-content: center;
                     text-decoration: none;
                 }
             }
@@ -241,26 +245,31 @@
 
     &-area-advertising{
         width: 100%;
-        height: 15rem;
-        margin-top: 5rem;
+        height: 15vh;
+        margin-top: 5vh;
         > span{
-            margin-left: 29.5rem;
+            margin-left: 29.5vw;
         }
     }
 
     &-area-footer{
+        bottom: 0;
+        position: relative;
         display: flex;
         flex-direction: row;
         background-color: $color-clear;
-        width: 100%;       
-        height: 3rem;
+        width: 100vw;       
+        height: 15vh;
         align-items: center;
         justify-content: center;
-        padding-bottom: 1rem;
+        flex-wrap: wrap;
+        padding-bottom: 1;
         > ul{
-            width: 45%;       
+            position: relative;
+            width: 100vw;       
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
             justify-content: space-around;   
             > li{
                 text-wrap: nowrap;

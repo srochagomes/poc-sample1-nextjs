@@ -1,11 +1,11 @@
 @import '@/styles/global-variables';
 
 .instructionsFeriaz{
-    margin-top: 5rem;
-    margin-left: 10rem;
+    margin-top: 5vh;
+    
     padding: 0;
-    width: 50rem; /* Ajuste conforme necessário */
-    height: 40rem; /* Ajuste conforme necessário */
+    width: 100%; /* Ajuste conforme necessário */
+    height: 60vh; /* Ajuste conforme necessário */
     position: relative;
     display: grid;
     grid-template-rows: 50% 50%;
@@ -63,6 +63,8 @@
 
      &-area-central {
         position: absolute;
+        display: flex;
+        flex-direction: column;
         background-color: $color-grey-light;        
         width: 95%;
         height: 80%;
@@ -72,7 +74,7 @@
         &-content {
             position: relative;
             
-            left: 2rem;
+            
             width: 90%;
             height: 90%;
             
