@@ -60,10 +60,12 @@ function WhereStayHowGo(props:Props) {
                                     caption={common.t('city-destiny.caption')}   
                                     iconLeft={FieldIconEnum.Location}
                                 />
-                        </div>
+                            </div>
                         
                         </div>
+
                         <div className={style['whereStayHowGo-fields-group']} >
+                            
                             <CalendarField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Left}
@@ -71,11 +73,11 @@ function WhereStayHowGo(props:Props) {
                                 caption={common.t('calendar.go.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
                                 hasFlexibleDate={true}
-                                monthsShow={2}
+                                monthsShow={2}                                
                                 permitPeriodChoice={true}
-                                width="13vw"
+                                width="10vw"
                             />
-                            <CalendarField  
+                             <CalendarField  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Right}
                                 placeholder={common.t('calendar.when.placeholder')}   
@@ -84,25 +86,25 @@ function WhereStayHowGo(props:Props) {
                                 hasFlexibleDate={true}
                                 monthsShow={2}
                                 permitPeriodChoice={true}
-                                width="13vw"
-                            />
+                                width="10vw"
+                            /> 
                         </div>
 
-                        <div className={style['whereStayHowGo-fields-group']} >
+                         <div className={style['whereStayHowGo-fields-group']} >
                             <TripPeopleDetail  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.All}
                                 placeholder={common.t('trip-people-detail.component.placeholder')}   
                                 caption={common.t('trip-people-detail.component.caption')}     
                                 iconLeft={FieldIconEnum.User}
-                                width="13vw"
+                                width="10vw"
                             />
                         </div>
                         <div className={style['whereStayHowGo-fields-group']} >
                             <SimpleDropdow
                                 roundType={FieldRoundEnum.All}
                                 caption={common.t('simpledropdow.howtogo.caption')}                                   
-                                width="15vw"
+                                width="12vw"
                                 itens={dropdownVeiculosItems}/>
                         </div>
                         <div className={style['whereStayHowGo-button-plus']} >
@@ -113,7 +115,7 @@ function WhereStayHowGo(props:Props) {
                                        captionColor="white"
                             
                             />
-                        </div>
+                        </div> 
                     </div>
                 </FormGroup>
                 

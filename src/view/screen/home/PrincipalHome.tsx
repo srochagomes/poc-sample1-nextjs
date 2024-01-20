@@ -5,7 +5,6 @@ import HeaderMenu from "./header/menu"
 import FeriazFilter from "@/components/feriaz-filter"
 import AreaLogin from "./header/area-login"
 import { FieldVideoPath } from "@/types/enums/FieldVideoPath"
-import dynamic from 'next/dynamic'
 import VideoPlayer from "@/components/video"
 
 import { FieldIconPath } from "@/types/enums/FieldIconPath"
@@ -15,7 +14,7 @@ import Typography from "@/components/text/typography"
 import InstructionsFeriaz from "./instructions"
 import SimpleCarousel from "@/components/carousel/simple"
 import CardInformation from "./cards"
-const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
+
  
 
 
@@ -41,13 +40,17 @@ export default function PrincipalHome() {
           <AreaLogin />
         </div>
 
+        <div className={style['body-area-search']}>
+          <FeriazFilter/>
+        </div>
+
         <div className={style['body-area-text']}>
           <Typography fontSize="H1" weight="bold" color="white">
               {common.t('message.feriaz.brand')}
           </Typography> 
           
         </div>
-        
+
         <div className={style['body-area-video']}>
           <VideoPlayer
               url={FieldVideoPath.Apresentation} />          
@@ -72,7 +75,7 @@ export default function PrincipalHome() {
               {common.t('message.feriaz.instruction.caption')}
             </Typography> 
             <InstructionsFeriaz>
-              <IconSVG path={FieldImagePath.FiveSteps} isFill={true} />
+              <IconSVG path={FieldImagePath.FiveSteps} isFill={true} priority={false}/>
             </InstructionsFeriaz>
         </div>
 
@@ -96,7 +99,7 @@ export default function PrincipalHome() {
                 </Typography>
             </div>
             <div className={style['body-area-sol-image']}>
-              <IconSVG path={FieldImagePath.SolPicture3} isFill={true} />
+              <IconSVG path={FieldImagePath.SolPicture3} isFill={true}/>
             </div>
         </div>
 

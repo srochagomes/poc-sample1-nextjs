@@ -23,7 +23,7 @@ function Typography(props:Props) {
 
   return (
     <Component
-      {...(Component == ComponentTypeEnum.Label? { htmlFor: idLink} : {})}      
+      {...(idLink && Component == ComponentTypeEnum.Label? { htmlFor: idLink} : {})}      
       className={style.typography}
       data-font-size={fontSize}
       data-color={color}

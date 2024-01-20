@@ -2,14 +2,14 @@
 
 .dateSelection {    
   background-color: $color-clear;
-  width: 15rem;
-  height: 17rem;
+  width: 17vw;
+  height: 30vh;
   border-radius: 10px 10px 10px 10px;  
 
   &-divider{
     position: absolute;
-    top: 4rem;
-    height: 5rem;
+    top: 8vh;
+    height: 10vh;
     border-left: solid $color-principal;
     border-left-width: 1.5px;
     
@@ -18,22 +18,23 @@
   &-top{
     display: flex;
     flex-direction: row;  
-    margin-top: 0.6rem;
+    margin-top: 0.6vh;
+    margin-right: 0.6vh;
     cursor: auto;
     
     align-items: center;
     justify-content: space-between;
 
     > div:first-child {
-      width: 0.8rem;
-      margin-left: 0.8rem; 
+      width: 1vw;
+      margin-left: 0.8vw; 
       &[data-position='last'] {
         visibility: hidden;
       }
     }
     > div:last-child {
-      width: 0.8rem;
-      margin-right: 0.8rem; 
+      width: 1vw;
+      margin-left: 0.8vw; 
       &[data-position='first'] {
         visibility: hidden;
       }
@@ -41,7 +42,7 @@
     > div:nth-child(2) {
       
       span:first-child {
-        margin-bottom: 0.3rem;        
+        margin-bottom: 0.6vh;        
       }      
     }
 
@@ -54,7 +55,7 @@
 
   &[data-position='middle'] {
     border: solid $color-grey-light;
-    border-width: .1rem 0 .1rem 0;
+    border-width: .1vw 0 .1vw 0;
     .dateSelection-top{
       > div:first-child {
         visibility: hidden;
@@ -66,7 +67,7 @@
   }
   &[data-position='last'] {
     border: solid $color-grey-light;
-    border-width: .1rem .1rem .1rem 0;
+    border-width: .1vw .1vw .1vw 0;
     .dateSelection-top{
       > div:first-child {
         visibility: hidden;
@@ -75,7 +76,7 @@
   }
   &[data-position='first'] {
     border: solid $color-grey-light;
-    border-width: .1rem 0 .1rem .1rem;
+    border-width: .1vw 0 .1vw .1vw;
     .dateSelection-top{
       > div:last-child {
         visibility: hidden;
@@ -86,7 +87,7 @@
     }
   }
   &[data-position='onlyone'] {
-    border: 0.1rem solid $color-grey-light;
+    border: 0.1vw solid $color-grey-light;
     
   }
 

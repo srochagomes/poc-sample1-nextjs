@@ -5,20 +5,7 @@
     justify-content: stretch;
     
 	box-sizing: border-box;
-    padding: 0;
-
-    @media (max-width: 912px) {        
-        width: 60vh; 
-    }
-    @media (max-width: 540px) {
-        
-        width: 55vh;
-    }
-
-    @media (max-width: 480px) {
-        /* Quando a largura da tela for 480px ou menos */
-        width: 40vh; /* Altere a largura para 40vh */
-    }
+    padding: 0;    
   }
 
   

@@ -17,11 +17,25 @@
       }
     }
     &-form-login {
+      position: relative;
+      width: 100%;
       
-
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+  
       > section{
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        width: 40vw;
+        
         > div{
           margin-bottom: 1vh;
+          width: 100%;
         }
       }
   
@@ -31,6 +45,9 @@
         display: flex;
         flex-direction: row;  
         justify-content: space-between;
+        > div{          
+          width: 49%;
+        }
       }
       &-field-required {
         display: flex;

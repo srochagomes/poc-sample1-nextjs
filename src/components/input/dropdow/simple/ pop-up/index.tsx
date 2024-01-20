@@ -94,7 +94,7 @@ function SimpleDropdownPopup(props: Props) {
       ref={divRef}
       onClick={handleDivClick}
     >
-      {/* Mapeando e renderizando os itens usando SimpleDropdownItemComponent */}
+      
       {itens.map(item => (
         <SimpleDropdownItemComponent key={item.key} item={item} isItemClicked={isItemClicked} onItemClicked={onItemClicked} />
       ))}

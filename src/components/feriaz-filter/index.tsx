@@ -19,10 +19,10 @@ function FeriazFilter(props:Props) {
 
     return (
         <section className={style['feriazFilterContainer']}  >
-            <TripTypeButtons selectButton={feriazIconTypeClick}/>
-            <div className={style['feriazFilterContainer-parameters']}  >
+            <TripTypeButtons selectButton={feriazIconTypeClick}/> 
+             <div className={style['feriazFilterContainer-parameters']}  >
                 <AreaSearch indice={indiceSelected}/>
-            </div>
+            </div> 
         </section>
     );
 }

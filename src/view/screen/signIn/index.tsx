@@ -4,7 +4,7 @@ import style from "./SignIn.module.scss"
 import FeriazText from "@/components/svg/feriaz-text";
 import Typography from "@/components/text/typography";
 import FormGroup from "@/components/form/group";
-import InputField from "@/components/input/text";
+
 import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
 import ButtonPrimary from "@/components/button/primary-button";
@@ -12,6 +12,8 @@ import ButtonStyle, { ButtonStyleIconEnum } from "@/components/button/style-buto
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import LinkFoward from "@/components/link/foward";
+import dynamic from 'next/dynamic'
+const InputField = dynamic(() => import("@/components/input/text"), { ssr: false });
 
 
 

@@ -86,7 +86,7 @@ function DatePicker(props:Props) {
                 ref={divRef} 
                 onClick={handleDivClick}
             >
-               {createDateSelection(monthsShow, 
+                {createDateSelection(monthsShow, 
                       {month: DateOperations.getMonthFromDate(dateBaseStart),year: DateOperations.getYearFromDate(dateBaseStart)}, 
                         isSelectDay, 
                         isDayBetweenSelected,
@@ -105,8 +105,9 @@ function DatePicker(props:Props) {
                                 onClickDateFlexible={onClickDateFlexible}
                                 onClickDateFixed={onClickDateFixed}
                                 typeCalendar={typeCalendar}
+                                hasFlexibleDate={true}
                       />
-                </div>
+                </div> 
               
             
             </div>

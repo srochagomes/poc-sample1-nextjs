@@ -4,42 +4,45 @@
     background-color: $color-clear;
     display: flex;  
     flex-direction: row;
-    position: relative;    
-    justify-content: flex-start;
+    position: relative;        
     justify-items: center;
-    align-items: center;    
+    align-items: stretch;    
     
     cursor: pointer;
 
     &-iconleft{
         position: relative;
         display: flex;                
+        flex-direction: column;
         align-items: center;
-        justify-content: flex-end;
-        width: 3vw;
-        height: 80%;
+        justify-content: center;        
+        width: 4vw;
+        height: auto;
+        
         &-area{
-            position: relative;
             display: flex;
-            width: 60%;
-            height: 60%;
+            flex-direction: column;            
+            position: relative;            
+            width: 2.5vw;
+            height: 2.5vh;
         }
 
     }
 
-    &-iconright{    
+    &-iconright{
+        
         position: relative;
         display: flex;                
         align-items: center;
-        justify-content: flex-end;
-        margin-right: 0.2vw;
-        width: 3vw;
-        height: 80%;
+        justify-content: flex-end;        
+        width: 4vw;
+        height: auto;
         &-area{
-            position: relative;
             display: flex;
-            width: 60%;
-            height: 60%;
+            flex-direction: column;            
+            position: relative;            
+            width: 2.5vw;
+            height: 2.5vh;
         }
         
           

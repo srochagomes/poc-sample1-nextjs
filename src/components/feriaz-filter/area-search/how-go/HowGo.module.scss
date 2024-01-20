@@ -15,7 +15,8 @@
 
     &-fields {
         margin-top: 0.5rem;
-        display: flex;     
+        display: flex; 
+        flex-wrap: wrap;    
            
         
         & > div {        

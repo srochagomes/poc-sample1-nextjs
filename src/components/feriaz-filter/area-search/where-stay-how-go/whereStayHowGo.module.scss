@@ -1,5 +1,5 @@
 .whereStayHowGo{
-    margin-top: 0.4rem;
+    margin-top: 0.8vh;
     display: flex;
     flex-direction: column;
     align-items: center;   
@@ -7,15 +7,15 @@
     &-title {
         display: flex;
         justify-content: flex-start; 
-        align-items: center;
         width: 100%;
-        margin-bottom: 1rem;
+        margin-bottom: 2vh;
     }
 
     &-fields {
-        margin-top: 0.5rem;
-        display: flex;     
-           
+        margin-top: 1vh;
+        display: flex;    
+        justify-content: flex-start; 
+        flex-wrap: wrap;
         
         & > div {        
             margin-right: 1vh;
@@ -29,26 +29,30 @@
         & >div:first-child {            
             position: absolute;
             z-index: 1;
-            width: 1.3rem;            
-            height: 1.5rem;            
+            width: 3vw;            
+            height: 3vh;            
         }   
     }
 
     &-fields-group {
-        display: inline-flex;           
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         
         & > div {        
             margin-right: 0.11vh;
         }
     }
     &-button-plus{
-        margin-left: 0.5rem;
-        display: inline-flex;
+        margin-left: 1vw;
+        display: flex;
         align-items: center;
+        justify-content: center;
     }
 
     &-button-next{
-        margin-top: 2rem;
+        margin-top: 4vh;
     }
    
 }

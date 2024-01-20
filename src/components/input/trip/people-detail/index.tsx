@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import style from "./PeopleDetailField.module.scss"
+import style from "./TripPeopleDetail.module.scss"
 import Typography from "@/components/text/typography";
 import IconSVG from "@/components/icons/icon-svg";
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
-import TripPeoplePopup from "./ pop-up";
+import TripPeoplePopup from "./pop-up";
 import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
 
 interface Props {
@@ -65,32 +65,32 @@ function TripPeopleDetail(props:Props) {
   }
 
   const iconLeftComponent = iconLeft ?
-                  <div className={style['tripPeopleDetailField-iconleft']}>
-                    <div className={style['tripPeopleDetailField-iconleft-area']}>
+                  <div className={style['tripPeopleDetail-iconleft']}>
+                    <div className={style['tripPeopleDetail-iconleft-area']}>
                       <IconSVG path={FieldIconPath[iconLeft]} alt={placeholder} height={18} width={18} />
                     </div>
                     
                   </div>
                   : <></>;
 
-  const captionComponent = caption ? <div className={style['tripPeopleDetailField-caption']}>
+  const captionComponent = caption ? <div className={style['tripPeopleDetail-caption']}>
                                         <Typography type={ComponentTypeEnum.Label} fontSize="input-box" color={colorCaprion?colorCaprion:'black'}>{caption}</Typography>
                                      </div> 
                                      : <></>;
 
   return (
     
-    <div className={style['tripPeopleDetailField']} 
+    <div className={style['tripPeopleDetail']} 
     style={{ width: `${width}` }}
-         data-round={roundType} data-iconleft={iconLeft?'true':'false'}
-         onClick={onClickComponent}
+    data-round={roundType} data-iconleft={iconLeft?'true':'false'}
+    onClick={onClickComponent}
          >
             {iconLeftComponent}
-            <div className={style['tripPeopleDetailField-inputArea']} >
+            <div className={style['tripPeopleDetail-inputArea']} >
               {captionComponent}
               <input type={fieldType}                
                   placeholder={placeholder}
-                  className={style['tripPeopleDetailField-inputText']}                
+                  className={style['tripPeopleDetail-inputText']}                
                   
                   onFocus={onFocus}
                   onBlur={onBlur}

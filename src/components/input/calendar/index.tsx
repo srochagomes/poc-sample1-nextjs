@@ -160,7 +160,7 @@ function CalendarField(props:Props) {
     <div className={style['calendarContainer']} 
             style={{ width: `${width}` }}
             data-round={roundType} data-iconleft={iconLeft?'true':'false'}>
-            {iconLeftComponent}
+             {iconLeftComponent}
             <div className={style['calendarContainer-inputArea']} >
                 {captionComponent}
                 <input 
@@ -183,7 +183,7 @@ function CalendarField(props:Props) {
                         onClickClear={onClickClear} 
                         onClickConfirm={onClickConfirm}
                         onClickDateFlexible={onClickDateFlexible}
-                        onClickDateFixed={onClickDateFixed}/>
+                        onClickDateFixed={onClickDateFixed}/> 
     </div>
     
     

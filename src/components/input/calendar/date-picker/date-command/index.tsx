@@ -17,12 +17,12 @@ interface Props {
     onClickClear: (event:React.MouseEvent<HTMLDivElement>) => void;
     onClickConfirm: (event:React.MouseEvent<HTMLButtonElement>) => void;
     typeCalendar: TypeCalendar;
-    hasFlexibleDate:boolean
+    hasFlexibleDate?:boolean
     
 }
 
 function DateCommand(props:Props) {
-    const {hasFlexibleDate, onClickClear, onClickDateFixed, typeCalendar, onClickConfirm, onClickDateFlexible} = props;
+    const {hasFlexibleDate = false, onClickClear, onClickDateFixed, typeCalendar, onClickConfirm, onClickDateFlexible} = props;
 
     return (
         <div className={style['dateCommand']}>

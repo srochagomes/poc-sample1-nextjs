@@ -59,7 +59,7 @@ function HowGo(props:Props) {
                             <SimpleDropdow
                                 roundType={FieldRoundEnum.All}
                                 caption={common.t('simpledropdow.howtogo.caption')}
-                                width="18vw"
+                                width="12vw"
                                 itens={dropdownVeiculosItems}/>
                         </div>
                         <div className={style['HowGo-fields-group']} >
@@ -72,7 +72,7 @@ function HowGo(props:Props) {
                                 hasFlexibleDate={true}
                                 monthsShow={2}
                                 permitPeriodChoice={true}
-                                width="13vw"
+                                width="10vw"
                             />
                             <CalendarField  
                                 type={FieldTypeEnum.Text}  
@@ -83,11 +83,11 @@ function HowGo(props:Props) {
                                 hasFlexibleDate={true}
                                 monthsShow={2}
                                 permitPeriodChoice={true}
-                                width="13vw"
+                                width="10vw"
                             />
                         </div>
 
-                        <div className={style['HowGo-fields-group']} >
+                         <div className={style['HowGo-fields-group']} >
                             <TripPeopleDetail  
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.All}
@@ -96,7 +96,7 @@ function HowGo(props:Props) {
                                 iconLeft={FieldIconEnum.User}
                                 width="13vw"
                             />
-                        </div>
+                        </div> 
                         <div className={style['HowGo-button-plus']} >
                             <IconClick path={FieldIconPath.plus} 
                                        widthSize={30}
