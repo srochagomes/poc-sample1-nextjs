@@ -5,7 +5,7 @@
     
     padding: 0;
     width: 100%; /* Ajuste conforme necessário */
-    height: 60vh; /* Ajuste conforme necessário */
+    height: 80vh; /* Ajuste conforme necessário */
     position: relative;
     display: grid;
     grid-template-rows: 50% 50%;
@@ -15,69 +15,69 @@
     &-top-left {
         background-color: $color-grey-light;
         border-radius: 100% 0 0 0;          
-        height: 25%;
+        height: 10vh;
     }
     
     &-top-right {
         background-color: $color-grey-light;
         border-radius: 0 100% 0 0;
-        height: 25%;
+        height: 10vh;
+        margin-left: -0.2vw; 
     }
     
     &-middle-left {
         position: absolute;
-        background-color: $color-grey-light;        
-        width: 10%;
-        height: 80%;
-        top: 10%;
+        background-color: $color-grey-light;
+        width: 5.5vw;
+        height: 64vh;
+        top: 8vh;
         border-radius: 80% 0 0 80%;
-        margin-left: -4%;
+        margin-left: -2.1vw;
         
     }
 
     &-middle-right {
         position: absolute;
         background-color: $color-grey-light;        
-        width: 10%;
-        height: 80%;
-        top: 10%;
-        left: 90%;
-        border-radius: 0 80% 80% 0;
-        margin-left: 4%;
+        width: 5.5vw;
+        height: 64vh;
+        top: 8vh;
+        left: 66.6vw;
+        border-radius: 0 80% 80% 0;        
      }
      
      &-bottom-left {
         background-color: $color-grey-light;
-        border-radius: 0 0 0 100%;          
-        
-        height: 25%;
-        margin-top: 60%;
+        border-radius: 0 0 0 100%;                  
+        height: 10vh;
+        margin-top: 30vh;
       }
 
      &-bottom-right {
         background-color: $color-grey-light;        
         border-radius: 0 0 100% 0;
-        height: 25%;
-        margin-top: 60%;
+        height: 10vh;
+        margin-top: 30vh;
+        margin-left: -0.2vw; 
      }
 
      &-area-central {
         position: absolute;
         display: flex;
         flex-direction: column;
-        background-color: $color-grey-light;        
-        width: 95%;
-        height: 80%;
-        top: 10%;
-        left: 1%;
+        background-color: $color-grey-light;  
+        border-radius: 15px 15px 15px 15px;        
+        align-items: center;
+        justify-content: center;              
+        width: 68vw;
+        height: 66vh;
+        top: 7vh;
+        left: 1vw;
 
         &-content {
             position: relative;
-            
-            
-            width: 90%;
-            height: 90%;
-            
+            width: 100%;
+            height: 100%;            
         }
 
         

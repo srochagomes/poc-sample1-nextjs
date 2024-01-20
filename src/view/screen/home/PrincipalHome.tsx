@@ -41,12 +41,38 @@ export default function PrincipalHome() {
           <AreaLogin />
         </div>
 
+        <div className={style['body-area-text']}>
+          <Typography fontSize="H1" weight="bold" color="white">
+              {common.t('message.feriaz.brand')}
+          </Typography> 
+          
+        </div>
+        
+        <div className={style['body-area-video']}>
+          <VideoPlayer
+              url={FieldVideoPath.Apresentation} />          
+        </div>
+
+
+        <div className={`${style['body-area-cards']} ${style['body-area-cards-visible']}`}>
+          <CardInformation icon={FieldImagePath.do_seu_jeito} header={common.t('home.cards.first.header')} content={common.t('home.cards.first.content')}/>          
+          <CardInformation icon={FieldImagePath.location_radar} header={common.t('home.cards.second.header')} content={common.t('home.cards.second.content')}/>          
+          <CardInformation icon={FieldImagePath.target_image} header={common.t('home.cards.third.header')} content={common.t('home.cards.third.content')}/>          
+          <CardInformation icon={FieldImagePath.ai_image} header={common.t('home.cards.fourth.header')} content={common.t('home.cards.fourth.content')}/>          
+        </div>
+
+
+        <div className={style['body-area-banner']}>
+          <IconSVG path={FieldImagePath.BannerFino} isFill={true}/>
+        </div>
+
+
         <div className={style['body-area-instructionVacation']}>
             <Typography fontSize="H1" weight="bold" color="white">
               {common.t('message.feriaz.instruction.caption')}
             </Typography> 
             <InstructionsFeriaz>
-              <IconSVG path={FieldImagePath.FiveSteps} width={400} height={500} />
+              <IconSVG path={FieldImagePath.FiveSteps} isFill={true} />
             </InstructionsFeriaz>
         </div>
 
@@ -56,9 +82,10 @@ export default function PrincipalHome() {
             </Typography> 
             <div className={style['body-area-knowingPatners-carousel']}>
               <SimpleCarousel images={imagesPatners} minImagesToShow={4}/>
-            </div>
-            
+            </div>            
         </div>
+
+
         <div className={style['body-area-sol']}>
             <div className={style['body-area-sol-message']}>
               <Typography fontSize="H1" weight="bold" color="primary">
@@ -72,6 +99,7 @@ export default function PrincipalHome() {
               <IconSVG path={FieldImagePath.SolPicture3} isFill={true} />
             </div>
         </div>
+
         <div className={style['body-area-guicare']}>
             <div className={style['body-area-guicare-image']}>
               <IconSVG path={FieldImagePath.GuiPicture1} isFill={true} />
@@ -86,6 +114,7 @@ export default function PrincipalHome() {
             </div>
             
         </div>
+
         <div className={style['body-area-tripplan']}>
             <div className={style['body-area-tripplan-message']}>
                 <Typography fontSize="H1" weight="bold" color="primary">
@@ -97,7 +126,8 @@ export default function PrincipalHome() {
             </div>
             
         </div>
-        
+
+
         <div className={style['body-area-links']}>
             <nav>
                 <ul>
@@ -108,11 +138,13 @@ export default function PrincipalHome() {
                 </ul>
             </nav>
         </div>
+
         <div className={style['body-area-advertising']}>
                 <Typography fontSize="H4" color="white" >
                     {common.t('message.feriaz.advertising.caption')}
                 </Typography>
         </div>
+        
         <footer  className={style['body-area-footer']}>
                 <ul>
                   <li>
