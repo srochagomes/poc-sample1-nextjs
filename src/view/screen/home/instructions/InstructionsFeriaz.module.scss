@@ -1,8 +1,7 @@
 @import '@/styles/global-variables';
 
 .instructionsFeriaz{
-    margin-top: 5vh;
-    
+    margin-top: 5vh;    
     padding: 0;
     width: 100%; /* Ajuste conforme necessário */
     height: 80vh; /* Ajuste conforme necessário */
@@ -91,6 +90,44 @@
         top: -15px; /* Ajusta para ficar acima do balão */
         left: 50%;
         transform: translateX(-50%) rotate(45deg);
+     }
+
+     @media screen and (max-width: $resolution-tablet-md) {
+        margin-top: 4vh;    
+        margin-bottom: 6vh;    
+        height: 60vh; /* Ajuste conforme necessário */        
+        
+        &-middle-left {
+            height: 54vh;
+        }
+    
+        &-middle-right {
+            height: 54vh;
+         }
+         
+    
+         &-area-central {
+            width: 68vw;
+            height: 55vh;
+            top: 6.5vh;
+   
+            &-content {
+                width: 65vw;
+                height: 70vh;            
+            }
+            
+         }
+      
+         &-tail {
+            width: 40px; /* Ajuste conforme necessário */
+            height: 40px; /* Ajuste conforme necessário */
+            background-color: $color-grey-light;
+            position: absolute;
+            top: -15px; /* Ajusta para ficar acima do balão */
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+         }
+    
      }
 
 }
