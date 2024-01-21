@@ -59,12 +59,10 @@
         position: relative;
         display: flex;  
         flex-direction: row;
-        
-        
+                
         & > div {        
             margin-left: 0.1vw;
             margin-top: 0.1vw;
-            height: auto;
         }
     }
     &-button-plus{

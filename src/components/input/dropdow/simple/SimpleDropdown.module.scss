@@ -7,7 +7,7 @@
     position: relative;        
     justify-items: center;
     align-items: stretch;    
-    
+    height: 5.5vh;    
     cursor: pointer;
 
     &-iconleft{
@@ -60,7 +60,7 @@
         overflow: hidden;
         flex-grow: 1;
         width: auto;
-        height: 5.5vh;
+        
       
         & > label {
           position: relative;
