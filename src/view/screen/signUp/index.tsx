@@ -10,8 +10,7 @@ import ButtonPrimary from "@/components/button/primary-button";
 
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import CalendarField from "@/components/input/calendar";
-import dynamic from 'next/dynamic'
-const InputField = dynamic(() => import("@/components/input/text"), { ssr: false });
+import InputField from "@/components/input/text";
 
 
 
@@ -38,18 +37,21 @@ export default function SignUp() {
         <div className={style['body-form-login']}>
           <FormGroup applyOnValidForm={handleAccessConfirm}>
               <InputField
+                      id="traveler_name"
                       iconLeft={FieldIconEnum.FingerPrint}
                       type={FieldTypeEnum.Text} 
                       caption={field.t('signup.name.caption')} 
                       placeholder={field.t('signup.name.placehold')} 
                       roundType={FieldRoundEnum.Top}/>
               <InputField  
+                      id="traveler_email"
                       iconLeft={FieldIconEnum.Email}
                       type={FieldTypeEnum.Email} 
                       caption={field.t('email.caption')} 
                       placeholder={field.t('email.placehold')} />
               <div className={style['body-form-login-group-row-two']} style={{ width: `40vw` }}>
                   <InputField  
+                          id="traveler_phone"
                           iconLeft={FieldIconEnum.PhoneCall}
                           type={FieldTypeEnum.Text} 
                           caption={field.t('signup.phone.caption')} 
@@ -57,6 +59,7 @@ export default function SignUp() {
                           />
 
                     <CalendarField
+                                id="traveler_born"
                                 type={FieldTypeEnum.Text}
                                   placeholder={field.t('signup.born.placehold')}   
                                 caption={field.t('signup.born.caption')}   
@@ -66,11 +69,13 @@ export default function SignUp() {
                             />
               </div>
               <InputField  
+                id="traveler_password"
                 iconLeft={FieldIconEnum.Password}
                 type={FieldTypeEnum.Password} 
                 caption={field.t('signup.password.caption')} 
                 placeholder={field.t('signup.password.placehold')}/>  
               <InputField  
+                id="traveler_password_confirm"
                 iconLeft={FieldIconEnum.Password}
                 type={FieldTypeEnum.Password} 
                 caption={field.t('signup.password-confirm.caption')} 

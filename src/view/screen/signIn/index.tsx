@@ -12,8 +12,7 @@ import ButtonStyle, { ButtonStyleIconEnum } from "@/components/button/style-buto
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import LinkFoward from "@/components/link/foward";
-import dynamic from 'next/dynamic'
-const InputField = dynamic(() => import("@/components/input/text"), { ssr: false });
+import InputField from "@/components/input/text";
 
 
 
@@ -40,12 +39,14 @@ export default function SignIn() {
         <div className={style['body-form-login']}>
           <FormGroup applyOnValidForm={handleAccessConfirm}>
               <InputField  
+                      id="email"
                       iconLeft={FieldIconEnum.Email}
                       type={FieldTypeEnum.Email} 
                       caption={field.t('email.caption')} 
                       placeholder={field.t('email.placehold')} 
                       roundType={FieldRoundEnum.Top}/>
               <InputField  
+                id="password"
                 iconLeft={FieldIconEnum.Password}
                 type={FieldTypeEnum.Password} 
                 caption={field.t('password.caption')} 

@@ -11,7 +11,7 @@ import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
 import { generateInputRandomId } from "@/types/utils/MathFunctions";
 
 interface Props {
-    id?:string
+    id:string
     type : FieldTypeEnum  
     roundType?:String
     placeholder?:string
@@ -25,7 +25,7 @@ interface Props {
 }
 
 function CalendarField(props:Props) {
-  const { hasFlexibleDate, permitPeriodChoice, monthsShow, id = generateInputRandomId(), caption, width, iconLeft, colorCaprion, type, roundType, placeholder } = props;
+  const { hasFlexibleDate, permitPeriodChoice, monthsShow, id, caption, width, iconLeft, colorCaprion, type, roundType, placeholder } = props;
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
   const [fieldType, setFieldType] = useState(type);
   const [showDatePicker, setShowDatePicker] = useState(false);

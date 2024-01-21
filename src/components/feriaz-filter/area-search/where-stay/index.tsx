@@ -35,6 +35,7 @@ function WhereStay(props:Props) {
                         
                             <div className={style['whereStay-fields-group']} >
                                 <InputField  
+                                    id='city_destiny'
                                     type={FieldTypeEnum.Text}  
                                     roundType={FieldRoundEnum.All}
                                     placeholder={common.t('city-destiny.placeholder')}   
@@ -47,6 +48,7 @@ function WhereStay(props:Props) {
                         </div>
                         <div className={style['whereStay-fields-group']} >
                             <CalendarField  
+                                id='calendar_when'
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Left}
                                 placeholder={common.t('calendar.when.placeholder')}   
@@ -58,6 +60,7 @@ function WhereStay(props:Props) {
                                 width="13vw"
                             />
                             <CalendarField  
+                                id='calendar_back'
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Right}
                                 placeholder={common.t('calendar.when.placeholder')}   
@@ -72,6 +75,7 @@ function WhereStay(props:Props) {
 
                         <div className={style['whereStay-fields-group']} >
                             <TripPeopleDetail  
+                                id='people_detail'
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.All}
                                 placeholder={common.t('trip-people-detail.component.placeholder')}   

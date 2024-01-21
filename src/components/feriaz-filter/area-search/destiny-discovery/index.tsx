@@ -4,11 +4,8 @@ import style from './DestinyDiscovery.module.scss'
 import Typography from '@/components/text/typography';
 import { useTranslation } from 'next-i18next';
 import FormGroup from '@/components/form/group';
-import { FieldIconPath } from '@/types/enums/FieldIconPath';
-import IconClick from '@/components/button/icon-click';
 import InputField from '@/components/input/text';
 import { FieldTypeEnum } from '@/types/enums/FieldTypeEnum';
-import { FieldRoundEnum } from '@/types/enums/FieldRoundEnum';
 import { FieldIconEnum } from '@/types/enums/FieldIconEnum';
 import CalendarField from '@/components/input/calendar';
 import TripPeopleDetail from '@/components/input/trip/people-detail';
@@ -39,6 +36,7 @@ function DestinyDiscovery(props:Props) {
                             
                                 <div className={style['destinyDiscovery-fields-group']} >
                                     <InputField  
+                                        id='city_origin'
                                         type={FieldTypeEnum.Text}                                      
                                         placeholder={common.t('city-origin.placeholder')}   
                                         caption={common.t('city-origin.caption')}   
@@ -49,6 +47,7 @@ function DestinyDiscovery(props:Props) {
                                 </div>
                                 <div className={style['destinyDiscovery-fields-group']} >
                                     <InputField  
+                                        id='budget'
                                         type={FieldTypeEnum.Text}                                      
                                         placeholder={common.t('budget-preview.placeholder')}   
                                         caption={common.t('budget-preview.caption')}   
@@ -56,7 +55,8 @@ function DestinyDiscovery(props:Props) {
                                         width='15vw'
                                     />
                             
-                                    <TripPeopleDetail  
+                                    <TripPeopleDetail 
+                                        id='people_detail' 
                                         type={FieldTypeEnum.Text}                                  
                                         placeholder={common.t('trip-people-detail.component.placeholder')}   
                                         caption={common.t('trip-people-detail.component.caption')}     
@@ -68,6 +68,7 @@ function DestinyDiscovery(props:Props) {
                             <div className={style['destinyDiscovery-fields-group-place']} >
                                 <div className={style['destinyDiscovery-fields-group']} >
                                     <CalendarField  
+                                            id='calendar_when'
                                             type={FieldTypeEnum.Text}  
                                             placeholder={common.t('calendar.when.placeholder')}   
                                             caption={common.t('calendar.go.caption')}   
@@ -79,6 +80,7 @@ function DestinyDiscovery(props:Props) {
                                         />
                                 
                                     <CalendarField  
+                                        id='calendar_back'
                                         type={FieldTypeEnum.Text}                                      
                                         placeholder={common.t('calendar.when.placeholder')}   
                                         caption={common.t('calendar.back.caption')}   
@@ -91,11 +93,13 @@ function DestinyDiscovery(props:Props) {
                                 </div>
                         
                                 <div className={style['destinyDiscovery-fields-group']} >
-                                    <SimpleDropdow                                
+                                    <SimpleDropdow   
+                                        id='type_room'                             
                                         caption={common.t('simpledropdow.type-room.caption')}                                        
                                         itens={dropdownVeiculosItems}
                                         width='13vw'/>
-                                    <SimpleDropdow                                
+                                    <SimpleDropdow
+                                        id='vehicles'                                
                                         caption={common.t('simpledropdow.howtogo.caption')}                                        
                                         itens={dropdownVeiculosItems}
                                         width='13vw'/>

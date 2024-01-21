@@ -96,9 +96,9 @@ function TripPeoplePopup(props: Props) {
       onClick={handleDivClick}
     >
       <div className={style['tripPeoplePopup-peopleCount']}>
-        <StepperControl caption="Números de quartos" captionPosition={ItemPositionEnum.Left} changeValue={changeRoomPeople} />
-        <StepperControl caption="Maiores de 18" captionPosition={ItemPositionEnum.Left} changeValue={changeOlderPeople} />
-        <StepperControl caption="Menores de 18" captionPosition={ItemPositionEnum.Left} changeValue={changeMinorPeople} />        
+        <StepperControl id="roons" caption="Números de quartos" captionPosition={ItemPositionEnum.Left} changeValue={changeRoomPeople} />
+        <StepperControl id="olders" caption="Maiores de 18" captionPosition={ItemPositionEnum.Left} changeValue={changeOlderPeople} />
+        <StepperControl id="minors" caption="Menores de 18" captionPosition={ItemPositionEnum.Left} changeValue={changeMinorPeople} />        
       </div>
 
       <div className={style['tripPeoplePopup-menores']}>
@@ -106,7 +106,7 @@ function TripPeoplePopup(props: Props) {
             <select key={index} placeholder="Idade menor"
               onChange={(e) => changeMinorAge(Number(e.target.value), index)}
             >
-              <option disabled selected value="">Idade menore</option>
+              <option disabled defaultValue={""}>Idade menore</option>
               {minorOptions.map((option) => (
                 <option key={option} value={option}>
                   {option}

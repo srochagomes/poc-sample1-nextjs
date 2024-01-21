@@ -9,7 +9,6 @@ import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
-import SimpleDropdow from '@/components/input/dropdow/simple';
 import SwitchLight from '@/components/input/switch';
 import CalendarField from '@/components/input/calendar';
 import { useTranslation } from 'next-i18next';
@@ -39,6 +38,7 @@ function RentCar(props:Props) {
                                        heightSize={25}/>
                             <div className={style['RentCar-fields-group']} >
                                 <InputField  
+                                    id='city_origin'
                                     type={FieldTypeEnum.Text}  
                                     roundType={FieldRoundEnum.Left}
                                     placeholder={common.t('city-origin.placeholder')}   
@@ -46,6 +46,7 @@ function RentCar(props:Props) {
                                     iconLeft={FieldIconEnum.Circle}
                                 />
                                 <InputField  
+                                    id='ciy_destiny'
                                     type={FieldTypeEnum.Text}  
                                     roundType={FieldRoundEnum.Right}
                                     placeholder={common.t('city-destiny.placeholder')}   
@@ -57,6 +58,7 @@ function RentCar(props:Props) {
                         
                         <div className={style['RentCar-fields-group']} >
                             <CalendarField  
+                                id='calendar_when1'
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Left}
                                 placeholder={common.t('calendar.when.placeholder')}   
@@ -68,6 +70,7 @@ function RentCar(props:Props) {
                                 width="13vw"
                             />
                             <InputField  
+                                id='time_pickup_start'
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Right}
                                 placeholder={common.t('input.time-pickup.placeholder')}   
@@ -78,7 +81,8 @@ function RentCar(props:Props) {
                         </div>
 
                         <div className={style['RentCar-fields-group']} >
-                            <CalendarField  
+                            <CalendarField 
+                                id='calendar_when2' 
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Left}
                                 placeholder={common.t('calendar.when.placeholder')}   
@@ -89,7 +93,8 @@ function RentCar(props:Props) {
                                 permitPeriodChoice={true}
                                 width="13vw"
                             />
-                            <InputField  
+                            <InputField 
+                                id='time_pickup_finish' 
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Right}
                                 placeholder={common.t('input.time-pickup.placeholder')}   

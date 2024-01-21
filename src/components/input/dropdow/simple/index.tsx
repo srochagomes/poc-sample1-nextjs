@@ -13,7 +13,7 @@ import { generateInputRandomId } from "@/types/utils/MathFunctions";
 
 
 interface Props {  
-    id?: string   
+    id: string   
     roundType?:String
     placeholder?:string
     caption?:string
@@ -26,7 +26,7 @@ interface Props {
 
 
 function SimpleDropdow(props:Props) {
-  const {id = generateInputRandomId(), caption, placeholder, roundType, width, itens = []} = props;
+  const {id, caption, placeholder, roundType, width, itens = []} = props;
   const [openOptions, setOpenOptions] = useState(false);
   const [itensSelectd, setItensSelected] = useState<SimpleDrodownItem[]>([]);
   const [textValue, setTextValue] = useState<string>("");

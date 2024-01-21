@@ -5,11 +5,12 @@ import Typography from '@/components/text/typography';
 import { ItemPositionEnum } from '@/types/enums/ItemPosition';
 import { ComponentTypeEnum } from '@/types/enums/ComponentTypeEnum';
 import { generateInputRandomId } from '@/types/utils/MathFunctions';
+import { FieldTypeEnum } from '@/types/enums/FieldTypeEnum';
 
 
 
 interface StepperControlProps {
-  id?:string
+  id:string
   min?: number;
   max?: number;
   editable?: boolean;
@@ -20,7 +21,7 @@ interface StepperControlProps {
 }
 
 const StepperControl: React.FC<StepperControlProps> = (props:StepperControlProps) => {
-  const { id = generateInputRandomId(),
+  const { id,
           min = 0, 
           max = Infinity, 
           editable = false, 
@@ -62,25 +63,25 @@ const StepperControl: React.FC<StepperControlProps> = (props:StepperControlProps
 
   return (
     <div className={style['stepperControl']} item-position={captionPosition}>
-      <Typography idLink={id} type={ComponentTypeEnum.Label} fontSize="caption3-a">{caption}</Typography>
+      <Typography 
+          idLink={id} 
+          type={ComponentTypeEnum.Label} fontSize="caption3-a">{caption}</Typography>
       <div className={style['stepperControl-value']}>
           
           <span onClick={handleDecrement} className={quantity <= min?
             `${style['stepperControl-value-button']} ${style['stepperControl-value-button-disabled']}`
             :`${style['stepperControl-value-button']}`}> -</span>
-          {editable ? (
+          
             <input
               id={id}
-              type="text"
+              type={FieldTypeEnum.Text}
               value={quantity}
+              readOnly={!editable}
               onChange={handleChange}
               min={min}
               max={max}
             />
-          ) : (
-            <Typography fontSize="caption3-a">{quantity.toString()}</Typography>
-            
-          )}
+          
           <span onClick={handleIncrement} className={quantity >= max?
             `${style['stepperControl-value-button']} ${style['stepperControl-value-button-disabled']}`
             :`${style['stepperControl-value-button']}`}>+ </span>

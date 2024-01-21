@@ -9,6 +9,7 @@ import TripPeoplePopup from "./pop-up";
 import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
 
 interface Props {
+    id:string
     type : FieldTypeEnum  
     roundType?:String
     placeholder?:string
@@ -30,7 +31,7 @@ export interface PeopleData{
 }
 
 function TripPeopleDetail(props:Props) {
-  const { caption, width, iconLeft, colorCaprion, type, roundType, placeholder } = props;
+  const { id, caption, width, iconLeft, colorCaprion, type, roundType, placeholder } = props;
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
   const [showPopup, setShowPopup] = useState(false);
   const [fieldType, setFieldType] = useState(type);
@@ -55,13 +56,13 @@ function TripPeopleDetail(props:Props) {
   let onFocus = (event: React.FocusEvent<HTMLInputElement>):void => {
     setSelectedKeys([]);
     setShowPopup(true); 
-    console.log('onFocus=',showPopup)   
+    
   }
 
   let onBlur = (event: React.FocusEvent<HTMLInputElement>):void => {
     setSelectedKeys([]);
     setShowPopup(false);
-    console.log('onBlur=',showPopup)   
+    
   }
 
   const iconLeftComponent = iconLeft ?
@@ -74,7 +75,7 @@ function TripPeopleDetail(props:Props) {
                   : <></>;
 
   const captionComponent = caption ? <div className={style['tripPeopleDetail-caption']}>
-                                        <Typography type={ComponentTypeEnum.Label} fontSize="input-box" color={colorCaprion?colorCaprion:'black'}>{caption}</Typography>
+                                        <Typography idLink={id} type={ComponentTypeEnum.Label} fontSize="input-box" color={colorCaprion?colorCaprion:'black'}>{caption}</Typography>
                                      </div> 
                                      : <></>;
 
@@ -88,7 +89,8 @@ function TripPeopleDetail(props:Props) {
             {iconLeftComponent}
             <div className={style['tripPeopleDetail-inputArea']} >
               {captionComponent}
-              <input type={fieldType}                
+              <input type={fieldType}  
+                  id={id}              
                   placeholder={placeholder}
                   className={style['tripPeopleDetail-inputText']}                
                   

@@ -6,13 +6,13 @@ import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import IconSelecting from "@/components/button/icon-selecting";
-import { generateInputRandomId } from "@/types/utils/MathFunctions";
+
 import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
 
 
 
 interface Props {
-    id?: string
+    id: string
     type : FieldTypeEnum  
     roundType?:String
     placeholder?:string
@@ -30,7 +30,7 @@ function InputField(props:Props) {
           type, 
           roundType, 
           placeholder, 
-          id = generateInputRandomId()
+          id
         } = props;
 
   const [showPassword, setShowPassword] = useState(false);

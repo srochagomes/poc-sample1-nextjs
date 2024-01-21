@@ -1,13 +1,13 @@
 
 import React from 'react';
 import style from './AreaSearch.module.scss'
+import WhereStayHowGo from './where-stay-how-go';
+import WhereStay from './where-stay';
+import HowGo from './how-go';
+import RentCar from './rent-car';
+import DestinyDiscovery from './destiny-discovery';
 
-import dynamic from 'next/dynamic'
-const WhereStay = dynamic(() => import("./where-stay"), { ssr: false });
-const WhereStayHowGo = dynamic(() => import("./where-stay-how-go"), { ssr: false });
-const HowGo = dynamic(() => import("./how-go"), { ssr: false });
-const RentCar = dynamic(() => import("./rent-car"), { ssr: false });
-const DestinyDiscovery = dynamic(() => import("./destiny-discovery"), { ssr: false });
+
 
 
 

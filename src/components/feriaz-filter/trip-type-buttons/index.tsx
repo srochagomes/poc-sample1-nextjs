@@ -44,7 +44,7 @@ function TripTypeButtons(props:Props) {
 
     const feriazIconTypeClick = (indice:number) => {   
         setBtnIndiceSelected(indice);     
-        console.log("Click teste");
+        
     };
 
     return (    

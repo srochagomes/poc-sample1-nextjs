@@ -40,6 +40,7 @@ function HowGo(props:Props) {
                                        heightSize={25}/>
                             <div className={style['HowGo-fields-group']} >
                                 <InputField  
+                                    id='city_origin'
                                     type={FieldTypeEnum.Text}  
                                     roundType={FieldRoundEnum.Left}
                                     placeholder={common.t('city-origin.placeholder')}   
@@ -47,6 +48,7 @@ function HowGo(props:Props) {
                                     iconLeft={FieldIconEnum.Circle}
                                 />
                                 <InputField  
+                                    id='city_destiny'
                                     type={FieldTypeEnum.Text}  
                                     roundType={FieldRoundEnum.Right}
                                     placeholder={common.t('city-destiny.placeholder')}   
@@ -57,6 +59,7 @@ function HowGo(props:Props) {
                         </div>
                         <div className={style['HowGo-fields-group']} >
                             <SimpleDropdow
+                                id='vehicles'
                                 roundType={FieldRoundEnum.All}
                                 caption={common.t('simpledropdow.howtogo.caption')}
                                 width="12vw"
@@ -64,6 +67,7 @@ function HowGo(props:Props) {
                         </div>
                         <div className={style['HowGo-fields-group']} >
                             <CalendarField  
+                                id='calendar_when'
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Left}
                                 placeholder={common.t('calendar.when.placeholder')}   
@@ -75,6 +79,7 @@ function HowGo(props:Props) {
                                 width="10vw"
                             />
                             <CalendarField  
+                                id='calendar_back'
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.Right}
                                 placeholder={common.t('calendar.when.placeholder')}   
@@ -88,7 +93,8 @@ function HowGo(props:Props) {
                         </div>
 
                          <div className={style['HowGo-fields-group']} >
-                            <TripPeopleDetail  
+                            <TripPeopleDetail 
+                                id='people_detail' 
                                 type={FieldTypeEnum.Text}  
                                 roundType={FieldRoundEnum.All}
                                 placeholder={common.t('trip-people-detail.component.placeholder')}   
