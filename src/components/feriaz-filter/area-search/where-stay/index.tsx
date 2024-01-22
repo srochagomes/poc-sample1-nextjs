@@ -32,57 +32,66 @@ function WhereStay(props:Props) {
                 
                 <FormGroup applyOnValidForm={handleAccessConfirm}>
                     <div className={style['whereStay-fields']} >
-                        
+                        <div className={style['whereStay-broke-resolution']} >
                             <div className={style['whereStay-fields-group']} >
-                                <InputField  
-                                    id='city_destiny'
-                                    type={FieldTypeEnum.Text}  
-                                    roundType={FieldRoundEnum.All}
-                                    placeholder={common.t('city-destiny.placeholder')}   
-                                    caption={common.t('city-destiny.caption')}   
-                                    iconLeft={FieldIconEnum.Location}
-                                    width='30vw'
-                                />
-                        
-                        
+                                <div className={style['whereStay-field-location']} >
+                                    <InputField  
+                                            id='city_destiny'
+                                            type={FieldTypeEnum.Text}  
+                                            roundType={FieldRoundEnum.All}
+                                            placeholder={common.t('city-destiny.placeholder')}   
+                                            caption={common.t('city-destiny.caption')}   
+                                            iconLeft={FieldIconEnum.Location}
+                                            />
+                                </div>
+                            </div>
                         </div>
-                        <div className={style['whereStay-fields-group']} >
-                            <CalendarField  
-                                id='calendar_when'
-                                type={FieldTypeEnum.Text}  
-                                roundType={FieldRoundEnum.Left}
-                                placeholder={common.t('calendar.when.placeholder')}   
-                                caption={common.t('calendar.go.caption')}   
-                                iconLeft={FieldIconEnum.Calendar}
-                                hasFlexibleDate={true}
-                                monthsShow={2}
-                                permitPeriodChoice={true}
-                                width="13vw"
-                            />
-                            <CalendarField  
-                                id='calendar_back'
-                                type={FieldTypeEnum.Text}  
-                                roundType={FieldRoundEnum.Right}
-                                placeholder={common.t('calendar.when.placeholder')}   
-                                caption={common.t('calendar.back.caption')}   
-                                iconLeft={FieldIconEnum.Calendar}
-                                hasFlexibleDate={true}
-                                monthsShow={2}
-                                permitPeriodChoice={true}
-                                width="13vw"
-                            />
-                        </div>
+                        <div className={style['whereStay-broke-resolution']} >
 
-                        <div className={style['whereStay-fields-group']} >
-                            <TripPeopleDetail  
-                                id='people_detail'
-                                type={FieldTypeEnum.Text}  
-                                roundType={FieldRoundEnum.All}
-                                placeholder={common.t('trip-people-detail.component.placeholder')}   
-                                caption={common.t('trip-people-detail.component.caption')}     
-                                iconLeft={FieldIconEnum.User}
-                                width="13vw"
-                            />
+                            <div className={style['whereStay-fields-group']} >
+                                <div className={style['whereStay-field-period']} >
+                                    <CalendarField  
+                                        id='calendar_when'
+                                        type={FieldTypeEnum.Text}  
+                                        roundType={FieldRoundEnum.Left}
+                                        placeholder={common.t('calendar.when.placeholder')}   
+                                        caption={common.t('calendar.go.caption')}   
+                                        iconLeft={FieldIconEnum.Calendar}
+                                        hasFlexibleDate={true}
+                                        monthsShow={2}
+                                        permitPeriodChoice={true}
+                                        
+                                    />
+                                </div>
+                                <div className={style['whereStay-field-period']} >
+                                    <CalendarField  
+                                        id='calendar_back'
+                                        type={FieldTypeEnum.Text}  
+                                        roundType={FieldRoundEnum.Right}
+                                        placeholder={common.t('calendar.when.placeholder')}   
+                                        caption={common.t('calendar.back.caption')}   
+                                        iconLeft={FieldIconEnum.Calendar}
+                                        hasFlexibleDate={true}
+                                        monthsShow={2}
+                                        permitPeriodChoice={true}
+                                        
+                                    />
+                                </div>
+                            </div>
+
+                            <div className={style['whereStay-fields-group']} >
+                                <div className={style['whereStay-field-room']} >
+                                    <TripPeopleDetail  
+                                        id='people_detail'
+                                        type={FieldTypeEnum.Text}  
+                                        roundType={FieldRoundEnum.All}
+                                        placeholder={common.t('trip-people-detail.component.placeholder')}   
+                                        caption={common.t('trip-people-detail.component.caption')}     
+                                        iconLeft={FieldIconEnum.User}
+                                        
+                                    />
+                                </div>
+                            </div>
                         </div>
                         <div className={style['whereStay-button-plus']} >
                             <IconClick path={FieldIconPath.plus} 

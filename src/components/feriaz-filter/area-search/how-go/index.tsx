@@ -34,83 +34,117 @@ function HowGo(props:Props) {
                 
                 <FormGroup applyOnValidForm={handleAccessConfirm}>
                     <div className={style['HowGo-fields']} >
-                        <div className={style['HowGo-fields-move-data']} >
-                            <IconClick path={FieldIconPath.moveside} 
-                                       widthSize={25}
-                                       heightSize={25}/>
+                    <div className={style['HowGo-broke-resolution']} >
                             <div className={style['HowGo-fields-group']} >
-                                <InputField  
-                                    id='city_origin'
-                                    type={FieldTypeEnum.Text}  
-                                    roundType={FieldRoundEnum.Left}
-                                    placeholder={common.t('city-origin.placeholder')}   
-                                    caption={common.t('city-origin.caption')}   
-                                    iconLeft={FieldIconEnum.Circle}
-                                />
-                                <InputField  
-                                    id='city_destiny'
-                                    type={FieldTypeEnum.Text}  
-                                    roundType={FieldRoundEnum.Right}
-                                    placeholder={common.t('city-destiny.placeholder')}   
-                                    caption={common.t('city-destiny.caption')}   
-                                    iconLeft={FieldIconEnum.Location}
-                                />
-                            </div>                        
+                                <div className={style['HowGo-fields-move-data']} >
+                                     <div className={style['HowGo-fields-move-data-image']} />
+                                        
+                                    <div className={style['HowGo-field-location']} >
+                                        <InputField  
+                                            id='city_origem'
+                                            type={FieldTypeEnum.Text}  
+                                            roundType={FieldRoundEnum.Left}
+                                            placeholder={common.t('city-origin.placeholder')}   
+                                            caption={common.t('city-origin.caption')}   
+                                            iconLeft={FieldIconEnum.Circle}
+                                            
+                                        />
+
+                                    </div>
+                                    <div className={style['HowGo-field-location']} >
+                                        <InputField  
+                                            id='city_destiny'
+                                            type={FieldTypeEnum.Text}  
+                                            roundType={FieldRoundEnum.Right}
+                                            placeholder={common.t('city-destiny.placeholder')}   
+                                            caption={common.t('city-destiny.caption')}   
+                                            iconLeft={FieldIconEnum.Location}
+                                        />
+
+                                    </div>
+                                </div>
+                            
+                            </div>
                         </div>
-                        <div className={style['HowGo-fields-group']} >
-                            <SimpleDropdow
-                                id='vehicles'
-                                roundType={FieldRoundEnum.All}
-                                caption={common.t('simpledropdow.howtogo.caption')}
-                                width="12vw"
-                                itens={dropdownVeiculosItems}/>
-                        </div>
-                        <div className={style['HowGo-fields-group']} >
-                            <CalendarField  
-                                id='calendar_when'
-                                type={FieldTypeEnum.Text}  
-                                roundType={FieldRoundEnum.Left}
-                                placeholder={common.t('calendar.when.placeholder')}   
-                                caption={common.t('calendar.go.caption')}   
-                                iconLeft={FieldIconEnum.Calendar}
-                                hasFlexibleDate={true}
-                                monthsShow={2}
-                                permitPeriodChoice={true}
-                                width="10vw"
-                            />
-                            <CalendarField  
-                                id='calendar_back'
-                                type={FieldTypeEnum.Text}  
-                                roundType={FieldRoundEnum.Right}
-                                placeholder={common.t('calendar.when.placeholder')}   
-                                caption={common.t('calendar.back.caption')}   
-                                iconLeft={FieldIconEnum.Calendar}
-                                hasFlexibleDate={true}
-                                monthsShow={2}
-                                permitPeriodChoice={true}
-                                width="10vw"
-                            />
+                        
+
+                        <div className={style['HowGo-broke-resolution']} >
+
+                            <div className={style['HowGo-fields-group']} >
+                                
+                                <div className={style['HowGo-field-period']} >
+                                    <CalendarField 
+                                        id='calendar_when' 
+                                        type={FieldTypeEnum.Text}  
+                                        roundType={FieldRoundEnum.Left}
+                                        placeholder={common.t('calendar.when.placeholder')}   
+                                        caption={common.t('calendar.go.caption')}   
+                                        iconLeft={FieldIconEnum.Calendar}
+                                        hasFlexibleDate={true}
+                                        monthsShow={2}                                
+                                        permitPeriodChoice={true}
+                                        
+                                        
+                                    />
+
+                                </div>
+                                
+                                <div className={style['HowGo-field-period']} >
+                                    <CalendarField 
+                                        id='calendar_back' 
+                                        type={FieldTypeEnum.Text}  
+                                        roundType={FieldRoundEnum.Right}
+                                        placeholder={common.t('calendar.when.placeholder')}   
+                                        caption={common.t('calendar.back.caption')}   
+                                        iconLeft={FieldIconEnum.Calendar}
+                                        hasFlexibleDate={true}
+                                        monthsShow={2}
+                                        permitPeriodChoice={true}
+                                        
+                                    /> 
+
+                                </div>
+                            </div>
                         </div>
 
-                         <div className={style['HowGo-fields-group']} >
-                            <TripPeopleDetail 
-                                id='people_detail' 
-                                type={FieldTypeEnum.Text}  
-                                roundType={FieldRoundEnum.All}
-                                placeholder={common.t('trip-people-detail.component.placeholder')}   
-                                caption={common.t('trip-people-detail.component.caption')}     
-                                iconLeft={FieldIconEnum.User}
-                                width="13vw"
-                            />
-                        </div> 
+                        <div className={style['HowGo-broke-resolution']} >
+
+                            <div className={style['HowGo-fields-group']} >
+                                <div className={style['HowGo-field-room']} >
+                                    <TripPeopleDetail  
+                                            id='people_detail'
+                                            type={FieldTypeEnum.Text}  
+                                            roundType={FieldRoundEnum.All}
+                                            placeholder={common.t('trip-people-detail.component.placeholder')}   
+                                            caption={common.t('trip-people-detail.component.caption')}     
+                                            iconLeft={FieldIconEnum.User}
+                                            
+                                        />
+
+                                </div>
+                            </div>
+
+                            
+                            <div className={style['HowGo-fields-group']} >
+                                <div className={style['HowGo-field-vehicle']} >
+                                    <SimpleDropdow
+                                        id='vehicle'
+                                        roundType={FieldRoundEnum.All}
+                                        caption={common.t('simpledropdow.howtogo.caption')}                                   
+                                        
+                                        itens={dropdownVeiculosItems}/>                                
+                                </div>
+                            </div>
+                        </div>
                         <div className={style['HowGo-button-plus']} >
                             <IconClick path={FieldIconPath.plus} 
                                        widthSize={30}
                                        heightSize={30}
                                        caption={common.t('button.patchs.caption')}  
-                                       captionColor="white"                            
+                                       captionColor="white"
+                            
                             />
-                        </div>
+                        </div> 
                     </div>
                 </FormGroup>
                 
