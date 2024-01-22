@@ -34,7 +34,7 @@ function HowGo(props:Props) {
                 
                 <FormGroup applyOnValidForm={handleAccessConfirm}>
                     <div className={style['HowGo-fields']} >
-                    <div className={style['HowGo-broke-resolution']} >
+                        <div className={style['HowGo-broke-resolution']} >
                             <div className={style['HowGo-fields-group']} >
                                 <div className={style['HowGo-fields-move-data']} >
                                      <div className={style['HowGo-fields-move-data-image']} />

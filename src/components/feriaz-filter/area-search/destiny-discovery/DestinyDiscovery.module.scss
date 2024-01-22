@@ -1,3 +1,5 @@
+@import '@/styles/global-variables';
+
 .destinyDiscovery{
     position: relative;
     margin-top: 0.4rem;
@@ -19,26 +21,26 @@
         display: flex;
         flex-direction: row;
         > div:first-child {           
-            > div:first-child {
+            > div:first-child > div:first-child {
                 > div:first-child {
                     border-radius: .5rem 0 0 0;
                 }
             }
             > div:nth-child(2) {
-                > div:first-child {
+                > div:first-child > div:first-child{
                     border-radius: 0 0 0 .5rem;
                 }
             }
         
         }
         > div:nth-child(2) {
-            > div:nth-child(1) {
-                > div:nth-child(2) {
+            > div:nth-child(1)  {
+                > div:nth-child(2) > div:first-child {
                     border-radius: 0 .5rem 0 0;
                 }
             }
             > div:nth-child(2) {
-                > div:nth-child(2) {
+                > div:nth-child(2) > div:first-child{
                     border-radius: 0 0 .5rem 0;
                 }
             }
@@ -46,7 +48,7 @@
         }
     }
 
-    &-fields-group-place {
+    &-fields-group-place {        
         position: relative;
         display: flex;  
         flex-direction: column; 
@@ -56,6 +58,7 @@
     }
 
     &-fields-group {
+        
         position: relative;
         display: flex;  
         flex-direction: row;
@@ -75,5 +78,91 @@
         margin-top: 2rem;
     }
 
+    &-field-location{
+        width: 30vw;        
+    }
+    &-field-budget{
+        width: 15vw;        
+    }
+    
+    &-field-period{
+        width: 15vw;
+    }
+    &-field-room{
+        width: 15vw;
+    }
+    &-field-vehicle{
+        width: 15vw;
+    }
+
+    @media screen and (max-width: $resolution-tablet-md) {
+        
+        &-fields {
+            position: relative;            
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; 
+            width: 65vw;                        
+            > div:first-child {           
+                > div:first-child > div:first-child {
+                    > div:first-child {
+                        border-radius: .5rem .5rem 0 0;
+                    }
+                }
+                > div:nth-child(2) {
+                    > div:first-child > div:first-child{
+                        border-radius: 0 0 0 0;
+                    }
+                }
+            
+            }
+            > div:nth-child(2) {
+                > div:nth-child(1)  {
+                    > div:nth-child(2) > div:first-child {
+                        border-radius: 0 0 0 0;
+                    }
+                }
+                > div:nth-child(2) {
+                    > div:nth-child(1) > div:first-child{
+                        border-radius: 0 0 0 .5rem;
+                    }
+                    > div:nth-child(2) > div:first-child{
+                        border-radius: 0 0 .5rem 0;
+                    }
+                }
+            
+            }
+        }
+    
+        
+        &-fields-group-place {
+            position: relative;
+            display: flex;  
+            flex-direction: column; 
+            height: auto;
+        }
+
+        &-fields-group {
+            margin-bottom: 1.5vh;
+        }
+    
+        &-field-location{
+            width: 100%;        
+        }
+        &-field-budget{
+            width: 100%;        
+        }
+        
+        &-field-period{
+            width: 100%;
+        }
+        &-field-room{
+            width: 100%;
+        }
+        &-field-vehicle{
+            width: 100%;
+        }
+
+    }
     
 }
