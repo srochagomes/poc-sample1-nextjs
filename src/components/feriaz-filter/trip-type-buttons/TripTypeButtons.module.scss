@@ -1,3 +1,5 @@
+@import '@/styles/global-variables';
+
 .buttonsTripType{
     display: flex;
     flex-direction: row;    
@@ -7,6 +9,15 @@
     
     &:hover {
         cursor: pointer; // Altera o cursor para "mão"
+    }
+
+    @media screen and (max-width: $resolution-tablet-md) {
+        width: 70vw;
+     
+    }
+    
+    @media screen and (max-width: $resolution-mobile-sm) {
+
     }
 
 }

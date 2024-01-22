@@ -41,77 +41,107 @@ function WhereStayHowGo(props:Props) {
                 
                 <FormGroup applyOnValidForm={handleAccessConfirm}>
                     <div className={style['whereStayHowGo-fields']} >
-                        <div className={style['whereStayHowGo-fields-move-data']} >
-                            <IconClick path={FieldIconPath.moveside} 
-                                       widthSize={25}
-                                       heightSize={25}/>
+                        <div className={style['whereStayHowGo-broke-resolution']} >
                             <div className={style['whereStayHowGo-fields-group']} >
-                                <InputField  
-                                    id='city_origem'
-                                    type={FieldTypeEnum.Text}  
-                                    roundType={FieldRoundEnum.Left}
-                                    placeholder={common.t('city-origin.placeholder')}   
-                                    caption={common.t('city-origin.caption')}   
-                                    iconLeft={FieldIconEnum.Circle}
-                                />
-                                <InputField  
-                                    id='city_destiny'
-                                    type={FieldTypeEnum.Text}  
-                                    roundType={FieldRoundEnum.Right}
-                                    placeholder={common.t('city-destiny.placeholder')}   
-                                    caption={common.t('city-destiny.caption')}   
-                                    iconLeft={FieldIconEnum.Location}
-                                />
-                            </div>
-                        
-                        </div>
+                                <div className={style['whereStayHowGo-fields-move-data']} >
+                                     <div className={style['whereStayHowGo-fields-move-data-image']} />
+                                        
+                                    <div className={style['whereStayHowGo-field-location']} >
+                                        <InputField  
+                                            id='city_origem'
+                                            type={FieldTypeEnum.Text}  
+                                            roundType={FieldRoundEnum.Left}
+                                            placeholder={common.t('city-origin.placeholder')}   
+                                            caption={common.t('city-origin.caption')}   
+                                            iconLeft={FieldIconEnum.Circle}
+                                            
+                                        />
 
-                        <div className={style['whereStayHowGo-fields-group']} >
+                                    </div>
+                                    <div className={style['whereStayHowGo-field-location']} >
+                                        <InputField  
+                                            id='city_destiny'
+                                            type={FieldTypeEnum.Text}  
+                                            roundType={FieldRoundEnum.Right}
+                                            placeholder={common.t('city-destiny.placeholder')}   
+                                            caption={common.t('city-destiny.caption')}   
+                                            iconLeft={FieldIconEnum.Location}
+                                        />
+
+                                    </div>
+                                </div>
                             
-                            <CalendarField 
-                                id='calendar_when' 
-                                type={FieldTypeEnum.Text}  
-                                roundType={FieldRoundEnum.Left}
-                                placeholder={common.t('calendar.when.placeholder')}   
-                                caption={common.t('calendar.go.caption')}   
-                                iconLeft={FieldIconEnum.Calendar}
-                                hasFlexibleDate={true}
-                                monthsShow={2}                                
-                                permitPeriodChoice={true}
-                                width="10vw"
-                            />
-                             <CalendarField 
-                                id='calendar_back' 
-                                type={FieldTypeEnum.Text}  
-                                roundType={FieldRoundEnum.Right}
-                                placeholder={common.t('calendar.when.placeholder')}   
-                                caption={common.t('calendar.back.caption')}   
-                                iconLeft={FieldIconEnum.Calendar}
-                                hasFlexibleDate={true}
-                                monthsShow={2}
-                                permitPeriodChoice={true}
-                                width="10vw"
-                            /> 
+                            </div>
+                        </div>
+                        
+
+                        <div className={style['whereStayHowGo-broke-resolution']} >
+
+                            <div className={style['whereStayHowGo-fields-group']} >
+                                
+                                <div className={style['whereStayHowGo-field-period']} >
+                                    <CalendarField 
+                                        id='calendar_when' 
+                                        type={FieldTypeEnum.Text}  
+                                        roundType={FieldRoundEnum.Left}
+                                        placeholder={common.t('calendar.when.placeholder')}   
+                                        caption={common.t('calendar.go.caption')}   
+                                        iconLeft={FieldIconEnum.Calendar}
+                                        hasFlexibleDate={true}
+                                        monthsShow={2}                                
+                                        permitPeriodChoice={true}
+                                        
+                                        
+                                    />
+
+                                </div>
+                                
+                                <div className={style['whereStayHowGo-field-period']} >
+                                    <CalendarField 
+                                        id='calendar_back' 
+                                        type={FieldTypeEnum.Text}  
+                                        roundType={FieldRoundEnum.Right}
+                                        placeholder={common.t('calendar.when.placeholder')}   
+                                        caption={common.t('calendar.back.caption')}   
+                                        iconLeft={FieldIconEnum.Calendar}
+                                        hasFlexibleDate={true}
+                                        monthsShow={2}
+                                        permitPeriodChoice={true}
+                                        
+                                    /> 
+
+                                </div>
+                            </div>
                         </div>
 
-                         <div className={style['whereStayHowGo-fields-group']} >
-                            <TripPeopleDetail  
-                                id='people_detail'
-                                type={FieldTypeEnum.Text}  
-                                roundType={FieldRoundEnum.All}
-                                placeholder={common.t('trip-people-detail.component.placeholder')}   
-                                caption={common.t('trip-people-detail.component.caption')}     
-                                iconLeft={FieldIconEnum.User}
-                                width="10vw"
-                            />
-                        </div>
-                        <div className={style['whereStayHowGo-fields-group']} >
-                            <SimpleDropdow
-                                id='vehicle'
-                                roundType={FieldRoundEnum.All}
-                                caption={common.t('simpledropdow.howtogo.caption')}                                   
-                                width="12vw"
-                                itens={dropdownVeiculosItems}/>
+                        <div className={style['whereStayHowGo-broke-resolution']} >
+
+                            <div className={style['whereStayHowGo-fields-group']} >
+                                <div className={style['whereStayHowGo-field-room']} >
+                                    <TripPeopleDetail  
+                                            id='people_detail'
+                                            type={FieldTypeEnum.Text}  
+                                            roundType={FieldRoundEnum.All}
+                                            placeholder={common.t('trip-people-detail.component.placeholder')}   
+                                            caption={common.t('trip-people-detail.component.caption')}     
+                                            iconLeft={FieldIconEnum.User}
+                                            
+                                        />
+
+                                </div>
+                            </div>
+
+                            
+                            <div className={style['whereStayHowGo-fields-group']} >
+                                <div className={style['whereStayHowGo-field-vehicle']} >
+                                    <SimpleDropdow
+                                        id='vehicle'
+                                        roundType={FieldRoundEnum.All}
+                                        caption={common.t('simpledropdow.howtogo.caption')}                                   
+                                        
+                                        itens={dropdownVeiculosItems}/>                                
+                                </div>
+                            </div>
                         </div>
                         <div className={style['whereStayHowGo-button-plus']} >
                             <IconClick path={FieldIconPath.plus} 

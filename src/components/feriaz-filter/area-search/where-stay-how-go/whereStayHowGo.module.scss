@@ -1,3 +1,5 @@
+@import '@/styles/global-variables';
+
 .whereStayHowGo{
     margin-top: 0.8vh;
     display: flex;
@@ -13,39 +15,55 @@
 
     &-fields {
         margin-top: 1vh;
-        display: flex;    
+        display: flex;  
+        flex-direction: row;  
         justify-content: flex-start; 
         flex-wrap: wrap;
         
-        & > div {        
-            margin-right: 1vh;
-        }
+       
     }
     &-fields-move-data {
         
         display: flex;     
         align-items: center;
         justify-content: center; 
-        & >div:first-child {            
+        
+        &-image{
+            background: url('/images/icons/icon-move-side.svg') no-repeat;
+            background-size: 100% 100%; 
+            object-fit: cover; /* Faz com que a imagem cubra completamente a área da div */
+            object-position: center center;
             position: absolute;
             z-index: 1;
             width: 3vw;            
-            height: 3vh;            
-        }   
-    }
+            height: 3vh;   
+            margin-right: 1vw;         
+        }
+}
 
+    &-broke-resolution{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
     &-fields-group {
+        margin-right: 1vh;
+        
         position: relative;
         display: flex;
         flex-direction: row;
         align-items: center;
         
+        
+        
         & > div {        
-            margin-right: 0.11vh;
+            margin-right: 0.2vh;
+            
         }
     }
     &-button-plus{
-        margin-left: 1vw;
+        margin-left: 3vw;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -53,6 +71,84 @@
 
     &-button-next{
         margin-top: 4vh;
+    }
+    
+    &-field-location{
+        width: 15vw;
+        margin-right: 0.1vw;
+    }
+    &-field-period{
+        width: 10vw;
+    }
+    &-field-room{
+        width: 10vw;
+    }
+    &-field-vehicle{
+        width: 10vw;
+    }
+    @media screen and (max-width: $resolution-tablet-md) {
+        
+        &-fields-move-data {
+            display: flex;     
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center; 
+            width: 100%;
+            &-image{
+                background: url('/images/icons/icon-move-updown.svg') no-repeat;
+                background-size: 100% 100%; 
+                object-fit: cover; /* Faz com que a imagem cubra completamente a área da div */
+                object-position: center center;
+                position: absolute;
+                z-index: 1;
+                width: 4vw;            
+                height: 4vh; 
+                margin-right: 1vw;
+            }
+        }
+
+        &-broke-resolution{
+            flex-grow: 1;
+            width: 100%;
+            justify-content: stretch;
+        }
+        
+        &-fields {
+            margin-top: 1vh;
+            display: flex;  
+            flex-direction: column;  
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            width: 50vh;
+            & > div {        
+                margin-right: 1vh;
+                
+            }
+        }
+        &-fields-group {
+            display: flex;
+            justify-content: stretch;
+            flex-grow: 1;
+            width: 100%;
+        }
+        &-field-location{
+            width: 100%;
+        }
+        &-field-period{
+            width: 50%;
+        }
+        &-field-room{
+            width: 100%;
+            
+        }
+        &-field-vehicle{
+            width: 100%;
+            
+        }
+    }
+    
+    @media screen and (max-width: $resolution-mobile-sm) {
+
     }
    
 }

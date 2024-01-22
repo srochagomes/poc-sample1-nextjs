@@ -7,6 +7,7 @@
     flex-direction: row;
     align-items: center;
         
+        
 
     &[data-round='top'] {
         border-radius: 10px 10px 0 0;
@@ -44,13 +45,6 @@
         
         width: auto;     
         
-
-        @media (max-width: 520px) {
-            flex: 9; 
-        }
-        @media (max-width: 375px) {
-            flex: 7; 
-        }
     }
     &-caption {
         position: relative;

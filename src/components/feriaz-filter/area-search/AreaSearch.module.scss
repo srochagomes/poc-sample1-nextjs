@@ -12,4 +12,13 @@
     height: auto;
     max-width: 90%;
 
+    @media screen and (max-width: $resolution-tablet-md) {
+        
+     
+    }
+    
+    @media screen and (max-width: $resolution-mobile-sm) {
+
+    }
+
 }
