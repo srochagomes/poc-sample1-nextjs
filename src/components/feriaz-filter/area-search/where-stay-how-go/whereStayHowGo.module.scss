@@ -45,7 +45,7 @@
         position: relative;
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-content: stretch;
     }
     &-fields-group {
         margin-right: 1vh;
@@ -54,8 +54,6 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        
-        
         
         & > div {        
             margin-right: 0.2vh;
@@ -111,6 +109,7 @@
             flex-grow: 1;
             width: 100%;
             justify-content: stretch;
+            margin-bottom: 1vh;
         }
         
         &-fields {
@@ -120,9 +119,42 @@
             justify-content: flex-start;
             flex-wrap: wrap;
             width: 50vh;
+            
             & > div {        
                 margin-right: 1vh;
                 
+            }
+
+            > div:first-child > div:first-child > div{
+                 > div:nth-child(2) > div{
+                    border-radius: 5px 5px 0 0;
+                 }
+                 > div:nth-child(3) > div{
+                    border-radius: 0 0 0 0;
+                 }
+
+            }
+            > div:nth-child(2) > div:first-child > div:first-child {
+                > div:nth-child(1){
+                   border-radius: 0 0 0 0;
+                }
+           }
+            > div:nth-child(2) > div:first-child > div:nth-child(2){
+                > div:nth-child(1){
+                border-radius: 0 0 0 0;
+                }
+            }
+            > div:nth-child(3) > div:first-child > div:nth-child(1){
+                
+                > div:nth-child(1){
+                border-radius: 0 0 0 5px;
+                }
+            }
+            > div:nth-child(3) > div:nth-child(2) > div:nth-child(1){
+                > div:nth-child(1){
+                    border-radius: 0 0 5px 0;
+                }
+            
             }
         }
         &-fields-group {
@@ -130,6 +162,12 @@
             justify-content: stretch;
             flex-grow: 1;
             width: 100%;
+            margin-right: .1vh;
+            
+        }
+        &-button-plus{
+            margin-top: 2vw;
+            width: 90%;
         }
         &-field-location{
             width: 100%;
