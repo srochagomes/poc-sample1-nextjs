@@ -43,9 +43,11 @@
         border: none;        
         outline: none;   
         
-        width: auto;     
-        
+        width: 100%; /* Faz com que o input ocupe 100% da largura disponível */
+        box-sizing: border-box;
     }
+        
+    
     &-caption {
         position: relative;
         margin-bottom: -0.4vh;

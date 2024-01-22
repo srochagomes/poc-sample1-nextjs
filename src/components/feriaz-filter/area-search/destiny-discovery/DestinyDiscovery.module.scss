@@ -17,7 +17,7 @@
 
     &-fields {
         position: relative;
-        margin-top: 0.5rem;
+        margin-top: 1vh;
         display: flex;
         flex-direction: row;
         > div:first-child {           
@@ -70,12 +70,12 @@
     }
     &-button-plus{
         display: inline-flex;
-        padding-top: 0.5rem;
+        padding-top: 1vh;
 
     }
 
     &-button-next{
-        margin-top: 2rem;
+        margin-top: 4vh;
     }
 
     &-field-location{
@@ -164,5 +164,39 @@
         }
 
     }
+
+    @media screen and (max-width: $resolution-mobile-sm) {
+        &-fields {
+            width: 85vw;
+        }
+
+        &-field-period{
+            position: relative;
+            width: auto;
+        }
+
+        &-fields{
+            position: relative;
+            
+        }
+        &-fields-group-place {
+            position: relative;
+            
+        }
+        &-fields-group {
+            background-color: red;
+            position: relative;
+            width: 100%;
+            
+            
+        
+            & > div {        
+                margin-left: 0.8vw;
+                
+            }
+        }
+    
+    }
+
     
 }

@@ -44,13 +44,6 @@
         outline: none;   
         width: 100%; /* Faz com que o input ocupe 100% da largura disponível */
         box-sizing: border-box;
-           
-        @media (max-width: 520px) {
-            flex: 9; 
-        }
-        @media (max-width: 375px) {
-            flex: 7; 
-        }
     }
     &-caption {
         position: relative;
