@@ -364,6 +364,9 @@
                 width: 50%;
                 > span{                    
                     line-height: 2.5rem;
+                    display: inline-block;
+                    text-align: center;
+                    flex-wrap: wrap;
                 }
                 
             }
@@ -394,6 +397,102 @@
     }
     
     @media screen and (max-width: $resolution-mobile-sm) {
+
+        &-area-text{
+            padding-top: 14vh;        
+            
+            margin-top: 16vh;             
+            width: 90vw;
+            text-align: center;
+            
+            &>span{
+                word-wrap: break-word;
+                white-space: pre-wrap;    
+            }
+    
+        }
+
+        &-area-cards {
+            
+            
+        
+            > div {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 80vw;
+                margin-right: 4vw;            
+                transform: translateY(20px); /* Move para baixo (ou ajuste conforme necessário) */
+                transition: opacity 0.5s ease, transform 0.5s ease; /* Adiciona transição suave */
+            }
+        
+            
+        }
+    
+
+        &-area-sol{
+            &-image{
+                width: 35vw;
+
+            }
+            &-message{
+                width: 50vw; 
+                           
+                > span{                    
+                    line-height: 1.8rem;
+                    font-weight: 100;
+                    font-size: 0.1rem;
+                }
+            }
+        }
+        &-area-guicare{
+            
+    
+            &-image{
+                width: 35vw;
+            }
+            &-message{
+                width: 50vw;            
+                > span{                    
+                    line-height: 1.8rem;
+                    font-weight: 100;
+                    font-size: 0.1rem;
+                }
+            }
+        }
+        
+        &-area-links{
+            > nav {
+                flex-wrap: wrap;
+                > ul {
+                    flex-wrap: wrap;
+                    > li{
+                        margin-bottom: 4vh;
+                        
+                    }
+                    > li > a{
+
+                        align-content: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        &-area-footer{
+            height: 20vh;
+            > ul{                
+                
+                line-height: 1.5rem;
+                font-size: 0.4rem;
+                > li{
+                    text-wrap: nowrap;
+                }         
+            }
+            
+        }
 
     }
 }

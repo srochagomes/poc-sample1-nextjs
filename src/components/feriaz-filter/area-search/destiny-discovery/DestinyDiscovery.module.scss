@@ -173,7 +173,7 @@
 
     @media screen and (max-width: $resolution-mobile-sm) {
         &-fields {
-            width: 85vw;
+            width: 100%;
         }
 
         &-field-period{
@@ -190,12 +190,9 @@
             
         }
         &-fields-group {
-            background-color: red;
             position: relative;
             width: 100%;
             
-            
-        
             & > div {        
                 margin-left: 0.8vw;
                 
