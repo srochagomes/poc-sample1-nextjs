@@ -1,3 +1,4 @@
+@import '@/styles/global-variables';
 .body {    
     
     display: flex;
@@ -25,7 +26,7 @@
 
       > section{
         
-        width: 40vw;
+        width: 25vw;
         > div{
           margin-bottom: 1vh;
         }
@@ -72,54 +73,79 @@
         margin: 1vw; 
     } 
     }
-  }
+  
   
 
-  @media (max-width: 400px) {
-    .body {
-  
-      &-feriaz {
-        margin-top: 4vh;
-      }
-      &-welcome {
-        margin-top: 4vh;
-        &-login-caption {
-          margin-top: 0.2vh;
-        }
-      }
-      &-form-login {
-        margin-top: 4vh;        
-
-        &-forgot-password {
-          margin-top: .1vh;
-          width: 100%;
-        }
-        &-button{
+    @media screen and (max-width: $resolution-tablet-md) {
+      
+    
+        &-feriaz {
           margin-top: 4vh;
         }
-      }
-  
-      &-or-login-social-caption {
-        margin-top: 2vh;
+        &-welcome {
+          margin-top: 4vh;
+          &-login-caption {
+            margin-top: 0.2vh;
+          }
+        }
+        &-form-login {
+          margin-top: 4vh;        
+
+          > section{        
+            width: 70vw;
+            > div{
+              margin-bottom: 1vh;
+            }
+          }
+
+          &-forgot-password {
+            margin-top: .1vh;
+            width: 100%;
+          }
+          &-button{
+            margin-top: 4vh;
+
+            
+          }
+        }
+    
+        &-or-login-social-caption {
+          margin-top: 2vh;
+        }
+        
+        &-button-login-google{
+          margin-top: 4vh;
+        }
+    
+        &-button-login-facebook{      
+          display: flex;      
+          margin-top: 0.8vh;                
+          justify-content: center;  
+        }
+    
+        &-invite-signin {
+          margin-top: 3vh;
+          & > * {        
+            margin: 1vh; 
+        } 
+        }
       }
       
-      &-button-login-google{
-        margin-top: 4vh;
+
+      @media screen and (max-width: $resolution-mobile-sm) {
+        
+        &-form-login {
+
+          > section{
+        
+            width: 80vw;
+            > div{
+              margin-bottom: 1vh;
+            }
+          }
+
+        }
       }
-  
-      &-button-login-facebook{      
-        display: flex;      
-        margin-top: 0.8vh;                
-        justify-content: center;  
-      }
-  
-      &-invite-signin {
-        margin-top: 3vh;
-        & > * {        
-          margin: 1vh; 
-      } 
-      }
-    }
+
     
-    
-  }
+}

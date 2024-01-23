@@ -49,7 +49,7 @@ export default function SignUp() {
                       type={FieldTypeEnum.Email} 
                       caption={field.t('email.caption')} 
                       placeholder={field.t('email.placehold')} />
-              <div className={style['body-form-login-group-row-two']} style={{ width: `40vw` }}>
+              <div className={style['body-form-login-group-row-two']}>
                   <InputField  
                           id="traveler_phone"
                           iconLeft={FieldIconEnum.PhoneCall}
