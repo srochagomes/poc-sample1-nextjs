@@ -108,7 +108,7 @@ function RentCar(props:Props) {
                                     <CalendarField 
                                             id='calendar_back' 
                                             type={FieldTypeEnum.Text}  
-                                            roundType={FieldRoundEnum.Right}
+                                            roundType={FieldRoundEnum.Left}
                                             placeholder={common.t('calendar.when.placeholder')}   
                                             caption={common.t('calendar.back.caption')}   
                                             iconLeft={FieldIconEnum.Calendar}
@@ -118,10 +118,10 @@ function RentCar(props:Props) {
                                             
                                         /> 
                                 </div>
-                            </div>
+                            
 
                             
-                            <div className={style['rentCar-fields-group']} >
+                            
                                 <div className={style['rentCar-field-time-pickup']} >
                                     <InputField 
                                         id='time_pickup_finish' 

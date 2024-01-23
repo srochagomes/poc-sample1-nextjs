@@ -98,7 +98,7 @@ function DestinyDiscovery(props:Props) {
                                 </div>
                         
                                 <div className={style['destinyDiscovery-fields-group']} >
-                                    <div className={style['destinyDiscovery-field-room']} >
+                                    <div className={style['destinyDiscovery-field-type-room']} >
                                         <SimpleDropdow   
                                             id='type_room'                             
                                             caption={common.t('simpledropdow.type-room.caption')}                                        
