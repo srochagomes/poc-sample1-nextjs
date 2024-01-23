@@ -91,4 +91,16 @@
     
   }
 
+  @media screen and (max-width: $resolution-tablet-md) {
+    width: 30vw;
+    height: 25vh;
+  }
+
+  @media screen and (max-width: $resolution-mobile-sm) {
+    width: 30vw;
+    height: 25vh;
+  }
+
 }
+
+
