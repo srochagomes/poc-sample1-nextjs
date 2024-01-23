@@ -6,7 +6,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-left: 0.5rem;
+  
+  
   cursor: pointer;
 
   & > nav {    
@@ -68,4 +69,5 @@
     text-decoration: none;
     color: $color-dark ;
   }
+
 }

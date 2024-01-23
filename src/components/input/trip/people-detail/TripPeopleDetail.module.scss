@@ -91,7 +91,52 @@
             
         }
     }
+
+    @media screen and (max-width: $resolution-tablet-md) {
+     
+        &-iconleft{
+            
+            width: 3.5vw;
+            height:4vh;
+            &-area{
+                position: relative;
+                display: flex;
+                width: 2vw;
+                height:3vh;
+                margin-left: 3px;
+                
+            }
+    
+        }
+
+     
+    }
+    
+    @media screen and (max-width: $resolution-mobile-sm) {
+
+        &-iconleft{
+            
+            width: 5vw;
+            height:4vh;
+            &-area{
+                position: relative;
+                display: flex;
+                width: 2.5vw;
+                height:3vh;
+                margin-left: 3px;
+                
+            }
+    
+        }
+
+    }
+    
+
 }
+
+
+
+
 
 
 

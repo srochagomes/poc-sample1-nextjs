@@ -23,8 +23,8 @@ export default function AreaLogin() {
                             normal={IconesEnum.BUTTON_MENU.normal} 
                             whenSelected={IconesEnum.BUTTON_MENU.selected}                      
                             onClick={menuClicked}
-                            width={"3rem"}
-                            height={"3.5rem"}/>
+                            width={"7vw"}
+                            height={"4vh"}/>
             </div> 
             
         </>

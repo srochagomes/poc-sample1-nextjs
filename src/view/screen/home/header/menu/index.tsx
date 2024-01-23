@@ -23,8 +23,8 @@ export default function HeaderMenu() {
                       normal={IconesEnum.BUTTON_MENU.normal} 
                       whenSelected={IconesEnum.BUTTON_MENU.selected}                      
                       onClick={menuClicked} 
-                      width={"3.5rem"}
-                      height={"3rem"}
+                      width={"7vw"}
+                      height={"3vh"}
                       />
         <nav>
             <ul>

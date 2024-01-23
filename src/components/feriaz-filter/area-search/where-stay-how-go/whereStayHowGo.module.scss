@@ -20,6 +20,7 @@
         justify-content: flex-start; 
         flex-wrap: wrap;
         
+        
        
     }
     &-fields-move-data {
@@ -61,7 +62,8 @@
         }
     }
     &-button-plus{
-        margin-left: 3vw;
+        margin-left: 1vw;
+        margin-right: 1vw;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -99,9 +101,9 @@
                 object-position: center center;
                 position: absolute;
                 z-index: 1;
-                width: 4vw;            
-                height: 4vh; 
-                margin-right: 1vw;
+                width: 4.5vw;            
+                height: 4.5vh; 
+                margin-right: 2vw;
             }
         }
 
@@ -118,7 +120,7 @@
             flex-direction: column;  
             justify-content: flex-start;
             flex-wrap: wrap;
-            width: 50vh;
+            width: 100%;
             
             & > div {        
                 margin-right: 1vh;
@@ -165,9 +167,13 @@
             margin-right: .1vh;
             
         }
+
+            
         &-button-plus{
+            margin-left: 0;
+            margin-right: 0;
             margin-top: 2vw;
-            width: 90%;
+            width: 100%;
         }
         &-field-location{
             width: 100%;
@@ -186,6 +192,14 @@
     }
     
     @media screen and (max-width: $resolution-mobile-sm) {
+        &-fields-move-data {
+            &-image{
+                width: 5vw;            
+                height: 5vh; 
+                margin-right: 2vw;
+            }
+        }
+
 
     }
    

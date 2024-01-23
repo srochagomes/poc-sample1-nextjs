@@ -100,7 +100,36 @@
     
 
 
+    @media screen and (max-width: $resolution-tablet-md) {
+     
+        &-iconleft{
+            width: 5vw;
+            
+        }
+    
+     
+    }
+    
+    @media screen and (max-width: $resolution-mobile-sm) {
+
+        &-iconleft{
+            width: 5vw;
+            
+        }
+    
+
+    }
+    
+
 }
+
+
+
+
+
+
+
+
 
 
 

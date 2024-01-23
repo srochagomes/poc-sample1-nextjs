@@ -50,3 +50,28 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/* Defina variáveis para reutilização de cores */
+$scrollbar-color: $color-principal;
+$scrollbar-track-color: #f1f1f1;
+
+/* Estilizando o scrollbar */
+::-webkit-scrollbar {
+  width: 0.1vw; /* Largura do scrollbar */
+}
+
+/* Estilizando o botão de rolagem */
+::-webkit-scrollbar-thumb {
+  background-color: $scrollbar-color; /* Cor do botão de rolagem */
+  border-radius: 6px; /* Borda arredondada do botão de rolagem */
+}
+
+/* Estilizando a área de trilha */
+::-webkit-scrollbar-track {
+  background-color: $scrollbar-track-color; /* Cor de fundo da trilha */
+}
+
+/* Estilizando o canto inferior direito */
+::-webkit-scrollbar-corner {
+  background-color: $scrollbar-track-color; /* Cor de fundo do canto inferior direito (opcional) */
+}
