@@ -35,9 +35,12 @@ const SimpleCarousel = (props: Props) => {
     <div className={style['simpleCarousel']}>
       <IconClick path={FieldIconPath.fowardback} onClick={prevSlide} />
       <div className={style['simpleCarousel-images-container']}>
-        <div className={`${style['simpleCarousel-images']} ${style[`simpleCarousel-${direction}`]}`} style={{ transform: `translateX(-${currentIndex * 30}%)` }} onTransitionEnd={handleTransitionEnd}>
+        <div className={`${style['simpleCarousel-images']} ${style[`simpleCarousel-${direction}`]}`} style={{ transform: `translateX(-${currentIndex * 10}%)` }} onTransitionEnd={handleTransitionEnd}>
           {imagesView.map((image, index) => (
-            <IconSVG key={index} priority={true} path={image} width={250} height={250} alt={`Slide ${currentIndex + 1}`} />
+            <div key={'item'+index} className={style['simpleCarousel-images-container-item']}>
+              <IconSVG key={index} priority={true} path={image} isFill={true} alt={`Slide ${currentIndex + 1}`} />
+            </div>
+            
           ))}
         </div>
       </div>

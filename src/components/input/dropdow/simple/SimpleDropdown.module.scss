@@ -104,19 +104,39 @@
      
         &-iconleft{
             width: 5vw;
-            
-        }
+            &-area{
+                width: 4vw;
+                height:5vh;
+            }
     
+        }
+
+        &-iconright{            
+            justify-content: center;
+            width: 8vw;
+            &-area{
+                width: 4vw;
+                height: 4vh;
+            }
+            
+              
+        }  
+        
      
     }
     
     @media screen and (max-width: $resolution-mobile-sm) {
 
         &-iconleft{
-            width: 5vw;
-            
-        }
+            justify-content: center;
+            width: 8vw;
+            &-area{
+                width: 5vw;
+                height:5vh;
+            }
     
+        }
+   
 
     }
     

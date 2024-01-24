@@ -80,9 +80,9 @@ export default function PrincipalHome() {
         </div>
 
         <div className={style['body-area-knowingPatners']}>
-            <Typography fontSize="H1" weight="bold" color="white">
+            <span>
               {common.t('message.feriaz.knowing-pattners.caption')}
-            </Typography> 
+            </span> 
             <div className={style['body-area-knowingPatners-carousel']}>
               <SimpleCarousel images={imagesPatners} minImagesToShow={4}/>
             </div>            
