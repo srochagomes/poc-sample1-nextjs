@@ -32,7 +32,7 @@ function HowGo(props:Props) {
                     <Typography fontSize="caption2" color="white">{common.t('message.howtogo.title')}</Typography>
                 </div>
                 
-                <FormGroup applyOnValidForm={handleAccessConfirm}>
+                <FormGroup>
                     <div className={style['HowGo-fields']} >
                         <div className={style['HowGo-broke-resolution']} >
                             <div className={style['HowGo-fields-group']} >
@@ -74,8 +74,7 @@ function HowGo(props:Props) {
                                 
                                 <div className={style['HowGo-field-period']} >
                                     <CalendarField 
-                                        id='calendar_when' 
-                                        type={FieldTypeEnum.Text}  
+                                        id='calendar_when'                                         
                                         roundType={FieldRoundEnum.Left}
                                         placeholder={common.t('calendar.when.placeholder')}   
                                         caption={common.t('calendar.go.caption')}   
@@ -91,8 +90,7 @@ function HowGo(props:Props) {
                                 
                                 <div className={style['HowGo-field-period']} >
                                     <CalendarField 
-                                        id='calendar_back' 
-                                        type={FieldTypeEnum.Text}  
+                                        id='calendar_back'                                         
                                         roundType={FieldRoundEnum.Right}
                                         placeholder={common.t('calendar.when.placeholder')}   
                                         caption={common.t('calendar.back.caption')}   

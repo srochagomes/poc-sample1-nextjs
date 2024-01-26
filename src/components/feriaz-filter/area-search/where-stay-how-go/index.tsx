@@ -15,6 +15,8 @@ import TripPeopleDetail from '@/components/input/trip/people-detail';
 import { SimpleDrodownItem } from '@/components/input/dropdow/simple/ pop-up';
 import dropdownVeiculosItems from '@/types/date/TripeVehicleSelect';
 import { useTranslation } from 'next-i18next';
+import FieldData from '@/types/structure/FieldData';
+
 
 
 interface Props{
@@ -24,8 +26,12 @@ interface Props{
 
 function WhereStayHowGo(props:Props) {
     const common = useTranslation('common');
+    const fields : FieldData[] = [];
+    
     
     const handleAccessConfirm = () =>{
+
+        console.log('Valores', fields);
 
     }
 
@@ -39,7 +45,7 @@ function WhereStayHowGo(props:Props) {
                     <Typography fontSize="caption2" color="white">{common.t('message.wherestayhowtogo.title')}</Typography>
                 </div>
                 
-                <FormGroup applyOnValidForm={handleAccessConfirm}>
+                <FormGroup>
                     <div className={style['whereStayHowGo-fields']} >
                         <div className={style['whereStayHowGo-broke-resolution']} >
                             <div className={style['whereStayHowGo-fields-group']} >
@@ -48,6 +54,7 @@ function WhereStayHowGo(props:Props) {
                                         
                                     <div className={style['whereStayHowGo-field-location']} >
                                         <InputField  
+                                            dataSource={fields}
                                             id='city_origem'
                                             type={FieldTypeEnum.Text}  
                                             roundType={FieldRoundEnum.Left}
@@ -59,7 +66,8 @@ function WhereStayHowGo(props:Props) {
 
                                     </div>
                                     <div className={style['whereStayHowGo-field-location']} >
-                                        <InputField  
+                                        <InputField
+                                            dataSource={fields}  
                                             id='city_destiny'
                                             type={FieldTypeEnum.Text}  
                                             roundType={FieldRoundEnum.Right}
@@ -81,8 +89,7 @@ function WhereStayHowGo(props:Props) {
                                 
                                 <div className={style['whereStayHowGo-field-period']} >
                                     <CalendarField 
-                                        id='calendar_when' 
-                                        type={FieldTypeEnum.Text}  
+                                        id='calendar_when'                                         
                                         roundType={FieldRoundEnum.Left}
                                         placeholder={common.t('calendar.when.placeholder')}   
                                         caption={common.t('calendar.go.caption')}   
@@ -98,8 +105,7 @@ function WhereStayHowGo(props:Props) {
                                 
                                 <div className={style['whereStayHowGo-field-period']} >
                                     <CalendarField 
-                                        id='calendar_back' 
-                                        type={FieldTypeEnum.Text}  
+                                        id='calendar_back'                                         
                                         roundType={FieldRoundEnum.Right}
                                         placeholder={common.t('calendar.when.placeholder')}   
                                         caption={common.t('calendar.back.caption')}   
@@ -156,7 +162,7 @@ function WhereStayHowGo(props:Props) {
                 </FormGroup>
                 
                 <div className={style['whereStayHowGo-button-next']} >
-                    <ButtonPrimary >
+                    <ButtonPrimary onClick={handleAccessConfirm}>
                         <Typography fontSize="button-primary" color="white">{common.t('button.next-process.caption')} </Typography>
                     </ButtonPrimary>
                 </div>

@@ -29,7 +29,7 @@ function DestinyDiscovery(props:Props) {
                 <div className={style['destinyDiscovery-title']}>
                     <Typography fontSize="caption2" color="white">{common.t('message.destiny-discovery.title')}</Typography>
                 </div>
-                <FormGroup applyOnValidForm={handleAccessConfirm}>
+                <FormGroup >
                     <div className={style['destinyDiscovery-fields']} >
                         
                             <div className={style['destinyDiscovery-fields-group-place']} >
@@ -72,8 +72,7 @@ function DestinyDiscovery(props:Props) {
                                 <div className={style['destinyDiscovery-fields-group']} >
                                     <div className={style['destinyDiscovery-field-period']} >
                                         <CalendarField  
-                                                id='calendar_when'
-                                                type={FieldTypeEnum.Text}  
+                                                id='calendar_when'                                               
                                                 placeholder={common.t('calendar.when.placeholder')}   
                                                 caption={common.t('calendar.go.caption')}   
                                                 iconLeft={FieldIconEnum.Calendar}
@@ -85,8 +84,7 @@ function DestinyDiscovery(props:Props) {
 
                                     <div className={style['destinyDiscovery-field-period']} >
                                         <CalendarField  
-                                            id='calendar_back'
-                                            type={FieldTypeEnum.Text}                                      
+                                            id='calendar_back'                                                                    
                                             placeholder={common.t('calendar.when.placeholder')}   
                                             caption={common.t('calendar.back.caption')}   
                                             iconLeft={FieldIconEnum.Calendar}
@@ -98,7 +96,7 @@ function DestinyDiscovery(props:Props) {
                                 </div>
                         
                                 <div className={style['destinyDiscovery-fields-group']} >
-                                    <div className={style['destinyDiscovery-field-type-room']} >
+                                    <div className={style['destinyDiscovery-field-room']} >
                                         <SimpleDropdow   
                                             id='type_room'                             
                                             caption={common.t('simpledropdow.type-room.caption')}                                        
@@ -115,9 +113,7 @@ function DestinyDiscovery(props:Props) {
                                 </div>                            
                             
                             </div>
-                            
-                       
-                    </div>
+                        </div>
                 </FormGroup>
                 
                 <div className={style['destinyDiscovery-button-next']} >

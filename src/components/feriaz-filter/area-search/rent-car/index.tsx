@@ -30,7 +30,7 @@ function RentCar(props:Props) {
                     <Typography fontSize="caption2" color="white">{common.t('message.rentcar.title')}</Typography>
                 </div>
                 
-                <FormGroup applyOnValidForm={handleAccessConfirm}>
+                <FormGroup>
                     <div className={style['rentCar-fields']} >
                         <div className={style['rentCar-broke-resolution']} >
                             <div className={style['rentCar-fields-group']} >
@@ -72,8 +72,7 @@ function RentCar(props:Props) {
                                 
                                 <div className={style['rentCar-field-period']} >
                                     <CalendarField 
-                                        id='calendar_when' 
-                                        type={FieldTypeEnum.Text}  
+                                        id='calendar_when'                                          
                                         roundType={FieldRoundEnum.Left}
                                         placeholder={common.t('calendar.when.placeholder')}   
                                         caption={common.t('calendar.go.caption')}   
@@ -106,8 +105,7 @@ function RentCar(props:Props) {
                             <div className={style['rentCar-fields-group']} >
                                 <div className={style['rentCar-field-period']} >
                                     <CalendarField 
-                                            id='calendar_back' 
-                                            type={FieldTypeEnum.Text}  
+                                            id='calendar_back'                                             
                                             roundType={FieldRoundEnum.Left}
                                             placeholder={common.t('calendar.when.placeholder')}   
                                             caption={common.t('calendar.back.caption')}   

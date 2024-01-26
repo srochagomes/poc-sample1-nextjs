@@ -30,7 +30,7 @@ function WhereStay(props:Props) {
                     <Typography fontSize="caption2" color="white">{common.t('message.wherestay.title')}</Typography>
                 </div>
                 
-                <FormGroup applyOnValidForm={handleAccessConfirm}>
+                <FormGroup>
                     <div className={style['whereStay-fields']} >
                         <div className={style['whereStay-broke-resolution']} >
                             <div className={style['whereStay-fields-group']} >
@@ -51,8 +51,7 @@ function WhereStay(props:Props) {
                             <div className={style['whereStay-fields-group']} >
                                 <div className={style['whereStay-field-period']} >
                                     <CalendarField  
-                                        id='calendar_when'
-                                        type={FieldTypeEnum.Text}  
+                                        id='calendar_when'                                        
                                         roundType={FieldRoundEnum.Left}
                                         placeholder={common.t('calendar.when.placeholder')}   
                                         caption={common.t('calendar.go.caption')}   
@@ -65,8 +64,7 @@ function WhereStay(props:Props) {
                                 </div>
                                 <div className={style['whereStay-field-period']} >
                                     <CalendarField  
-                                        id='calendar_back'
-                                        type={FieldTypeEnum.Text}  
+                                        id='calendar_back'                                        
                                         roundType={FieldRoundEnum.Right}
                                         placeholder={common.t('calendar.when.placeholder')}   
                                         caption={common.t('calendar.back.caption')}   

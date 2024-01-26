@@ -9,10 +9,12 @@ import DatePicker from "./date-picker";
 import { TypeCalendar } from "./date-picker/date-command";
 import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
 import { generateInputRandomId } from "@/types/utils/MathFunctions";
+import FieldData from "@/types/structure/FieldData";
+import { IMaskInput } from "react-imask";
+
 
 interface Props {
-    id:string
-    type : FieldTypeEnum  
+    id:string      
     roundType?:String
     placeholder?:string
     caption?:string
@@ -22,14 +24,24 @@ interface Props {
     monthsShow?:number
     permitPeriodChoice?:boolean
     hasFlexibleDate?:boolean
+    dataSource?: FieldData[]
+    maxDigits?:number
+    
 }
 
 function CalendarField(props:Props) {
-  const { hasFlexibleDate, permitPeriodChoice, monthsShow, id, caption, width, iconLeft, colorCaprion, type, roundType, placeholder } = props;
-  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
-  const [fieldType, setFieldType] = useState(type);
+  const { maxDigits = 10, hasFlexibleDate, permitPeriodChoice, monthsShow, id, caption, width, iconLeft, colorCaprion, roundType, placeholder,dataSource } = props;
+  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);  
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [typeCalendar, setTypeCalendar] = useState(TypeCalendar.fixed);
+  const [value, setValue] = useState("");
+        
+  const isValid = () : boolean =>{
+    return false;
+
+  }
+  
+  const dataSourceItem : FieldData = {name:id, isValid,value};
 
   let dateBase = new Date();
 
@@ -37,6 +49,7 @@ function CalendarField(props:Props) {
   useEffect(() => {
     setSelectedKeys(selectedKeys);
   }, [selectedKeys]);
+
   useEffect(() => {
     setShowDatePicker(showDatePicker);
   }, [showDatePicker]);
@@ -85,6 +98,7 @@ function CalendarField(props:Props) {
     setShowDatePicker(false);
     setSelectedKeys([]);
   }
+
   const onSelectDay = (event:React.MouseEvent<HTMLDivElement>, index:number): void =>{
     const keyAttributeValue = index.toString();
 
@@ -126,6 +140,23 @@ function CalendarField(props:Props) {
     }    
   }
 
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {    
+    let valorInput: string = event.target.value;
+
+    // // Remove caracteres não numéricos
+    valorInput = valorInput.replace(/\D/g, '');
+    
+    const cursorPosition: number = event.target.selectionStart || 0;
+
+
+    // // Aplica a máscara para data (DD/MM/AAAA)
+    let maskedValue: string = '';
+    maskedValue = valorInput.replace(/^(\d{2})(\d{2})(\d{0,4})/, '$1/$2/$3');    
+    // Atualiza o valor do campo com a máscara aplicada
+    setValue(maskedValue.slice(0,maxDigits));    
+
+  }
+
 
   let onFocus = (event: React.FocusEvent<HTMLInputElement>):void => {
     setSelectedKeys([]);
@@ -154,7 +185,18 @@ function CalendarField(props:Props) {
                                             fontSize="input-box" color={colorCaprion?colorCaprion:'black'}>{caption}</Typography>
                                      </div> 
                                      : <></>;
-
+  if (dataSource){
+  const existingIndex = dataSource.findIndex(item => item.name === dataSourceItem.name);
+  // Se não existir, adiciona o novo item
+  if (existingIndex === -1) {
+      dataSource.push(dataSourceItem);
+  } else {
+      // Se existir, substitui o objeto existente pelo novo objeto
+      dataSource[existingIndex] = dataSourceItem;
+  }
+  
+}
+                            
   return (
     
     <div className={style['calendarContainer']} 
@@ -163,13 +205,16 @@ function CalendarField(props:Props) {
              {iconLeftComponent}
             <div className={style['calendarContainer-inputArea']} >
                 {captionComponent}
-                <input 
+                <IMaskInput 
                     id={id}
-                    type={fieldType}                
+                    mask="00/00/0000"
+                    type={FieldTypeEnum.Text}                
                     placeholder={placeholder}
                     className={style['calendarContainer-inputText']}                                    
                     onFocus={onFocus}
                     onBlur={onBlur}
+                    onChange={onChange}
+                    value={value}
                     />
             </div>
             <DatePicker monthsShow={monthsShow}

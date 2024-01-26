@@ -8,6 +8,7 @@ import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import IconSelecting from "@/components/button/icon-selecting";
 
 import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
+import FieldData from "@/types/structure/FieldData";
 
 
 
@@ -20,6 +21,7 @@ interface Props {
     colorCaprion?:string
     iconLeft?:FieldIconEnum
     width?:string
+    dataSource?: FieldData[]
 }
 
 function InputField(props:Props) {
@@ -30,36 +32,71 @@ function InputField(props:Props) {
           type, 
           roundType, 
           placeholder, 
-          id
+          id,
+          dataSource
         } = props;
 
-  const [showPassword, setShowPassword] = useState(false);
+        const [showPassword, setShowPassword] = useState(false);
 
-  const [fieldType, setFieldType] = useState(type);
+        const [fieldType, setFieldType] = useState(type);
+        const [value, setValue] = useState("");
+        
+        const isValid = () : boolean =>{
+          return false;
 
-  const togglePasswordVisibility = () => {
-    let showPwd = !showPassword
-    setShowPassword(showPwd);
-    setFieldType(showPwd?FieldTypeEnum.Text:FieldTypeEnum.Password)
-  };
+        }
+        
+        
+        const dataSourceItem : FieldData = {name:id, isValid,value};
+
+        const togglePasswordVisibility = () => {
+          let showPwd = !showPassword
+          setShowPassword(showPwd);
+          setFieldType(showPwd?FieldTypeEnum.Text:FieldTypeEnum.Password)
+        };
 
 
 
-  const iconLeftComponent = iconLeft ?
-                  <div className={style['inputContainer-iconleft']}>
-                    <div className={style['inputContainer-iconleft-area']}>
-                        <IconSVG path={FieldIconPath[iconLeft]} alt={placeholder} isFill={true} />
-                    </div>
-                    
-                  </div>
-                  : <></>;
+        const iconLeftComponent = iconLeft ?
+                        <div className={style['inputContainer-iconleft']}>
+                          <div className={style['inputContainer-iconleft-area']}>
+                              <IconSVG path={FieldIconPath[iconLeft]} alt={placeholder} isFill={true} />
+                          </div>
+                          
+                        </div>
+                        : <></>;
 
-  const captionComponent = caption ? <div className={style['inputContainer-caption']}>
-                                        <Typography type={ComponentTypeEnum.Label}
-                                        idLink={id}
-                                            fontSize="input-box" color={colorCaprion?colorCaprion:'black'}>{caption}</Typography>
-                                     </div> 
-                                     : <></>;
+        const captionComponent = caption ? <div className={style['inputContainer-caption']}>
+                                              <Typography type={ComponentTypeEnum.Label}
+                                              idLink={id}
+                                                  fontSize="input-box" color={colorCaprion?colorCaprion:'black'}>{caption}</Typography>
+                                          </div> 
+                                          : <></>;
+
+        
+        
+        const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+          const valorInput: string = event.target.value;
+          setValue(valorInput);
+          
+          
+          
+        }
+        
+        
+
+        if (dataSource){
+          const existingIndex = dataSource.findIndex(item => item.name === dataSourceItem.name);
+          // Se não existir, adiciona o novo item
+          if (existingIndex === -1) {
+              dataSource.push(dataSourceItem);
+          } else {
+              // Se existir, substitui o objeto existente pelo novo objeto
+              dataSource[existingIndex] = dataSourceItem;
+          }
+          
+        }
+  
 
   return (
     
@@ -72,7 +109,8 @@ function InputField(props:Props) {
                 <input type={fieldType}           
                     id={id}     
                     placeholder={placeholder}
-                    className={style['inputContainer-inputText']}                                
+                    className={style['inputContainer-inputText']}   
+                    onChange={onChange}                             
                     />
             </div>
             

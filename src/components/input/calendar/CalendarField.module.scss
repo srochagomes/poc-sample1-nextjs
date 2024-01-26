@@ -34,6 +34,9 @@
         margin-left: 1vw;
         margin-right: 1.2vw;
         overflow: hidden;
+        > input[type="date"]::-webkit-calendar-picker-indicator {
+            display: none;
+        }
     }
 
 
@@ -45,6 +48,8 @@
         
         width: 100%; /* Faz com que o input ocupe 100% da largura disponível */
         box-sizing: border-box;
+        
+        
     }
         
     

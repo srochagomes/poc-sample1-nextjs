@@ -37,7 +37,7 @@ export default function SignIn() {
         </div>
 
         <div className={style['body-form-login']}>
-          <FormGroup applyOnValidForm={handleAccessConfirm}>
+          <FormGroup>
               <InputField  
                       id="email"
                       iconLeft={FieldIconEnum.Email}

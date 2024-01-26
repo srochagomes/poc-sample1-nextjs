@@ -35,7 +35,7 @@ export default function SignUp() {
         </div>
 
         <div className={style['body-form-login']}>
-          <FormGroup applyOnValidForm={handleAccessConfirm}>
+          <FormGroup>
               <InputField
                       id="traveler_name"
                       iconLeft={FieldIconEnum.FingerPrint}
@@ -59,9 +59,8 @@ export default function SignUp() {
                           />
 
                     <CalendarField
-                                id="traveler_born"
-                                type={FieldTypeEnum.Text}
-                                  placeholder={field.t('signup.born.placehold')}   
+                                id="traveler_born"                                
+                                placeholder={field.t('signup.born.placehold')}   
                                 caption={field.t('signup.born.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
                                 
