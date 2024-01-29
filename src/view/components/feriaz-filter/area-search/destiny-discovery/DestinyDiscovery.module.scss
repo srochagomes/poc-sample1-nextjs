@@ -1,0 +1,205 @@
+@import '@/view/styles/global-variables';
+
+.destinyDiscovery{
+    position: relative;
+    margin-top: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+ 
+    &-title {
+        display: flex;
+        justify-content: flex-start; 
+        align-items: center;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    &-fields {
+        position: relative;
+        margin-top: 1vh;
+        display: flex;
+        flex-direction: row;
+        > div:first-child {           
+            > div:first-child > div:first-child {
+                > div:first-child {
+                    border-radius: .5rem 0 0 0;
+                }
+            }
+            > div:nth-child(2) {
+                > div:first-child > div:first-child{
+                    border-radius: 0 0 0 .5rem;
+                }
+            }
+        
+        }
+        > div:nth-child(2) {
+            > div:nth-child(1)  {
+                > div:nth-child(2) > div:first-child {
+                    border-radius: 0 .5rem 0 0;
+                }
+            }
+            > div:nth-child(2) {
+                > div:nth-child(2) > div:first-child{
+                    border-radius: 0 0 .5rem 0;
+                }
+            }
+        
+        }
+    }
+
+    &-fields-group-place {        
+        position: relative;
+        display: flex;  
+        flex-direction: column; 
+        height: auto;
+
+        
+    }
+
+    &-fields-group {
+        
+        position: relative;
+        display: flex;  
+        flex-direction: row;
+                
+        & > div {        
+            margin-left: 0.1vw;
+            margin-top: 0.1vw;
+        }
+    }
+    &-button-plus{
+        display: inline-flex;
+        padding-top: 1vh;
+
+    }
+
+    &-button-next{
+        margin-top: 4vh;
+    }
+
+    &-field-location{
+        width: 30vw;        
+    }
+    &-field-budget{
+        width: 15vw;        
+    }
+    
+    &-field-period{
+        width: 18vw;
+    }
+    &-field-room{
+        width: 15vw;
+    }
+    &-field-type-room{
+        width: 18vw;
+    }
+    &-field-vehicle{
+        width: 18vw;
+    }
+
+    @media screen and (max-width: $resolution-tablet-md) {
+        
+        &-fields {
+            position: relative;            
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; 
+            width: 65vw;                        
+            > div:first-child {           
+                > div:first-child > div:first-child {
+                    > div:first-child {
+                        border-radius: .5rem .5rem 0 0;
+                    }
+                }
+                > div:nth-child(2) {
+                    > div:first-child > div:first-child{
+                        border-radius: 0 0 0 0;
+                    }
+                }
+            
+            }
+            > div:nth-child(2) {
+                > div:nth-child(1)  {
+                    > div:nth-child(2) > div:first-child {
+                        border-radius: 0 0 0 0;
+                    }
+                }
+                > div:nth-child(2) {
+                    > div:nth-child(1) > div:first-child{
+                        border-radius: 0 0 0 .5rem;
+                    }
+                    > div:nth-child(2) > div:first-child{
+                        border-radius: 0 0 .5rem 0;
+                    }
+                }
+            
+            }
+        }
+    
+        
+        &-fields-group-place {
+            position: relative;
+            display: flex;  
+            flex-direction: column; 
+            height: auto;
+        }
+
+        &-fields-group {
+            margin-bottom: 1.5vh;
+        }
+    
+        &-field-location{
+            width: 100%;        
+        }
+        &-field-budget{
+            width: 100%;        
+        }
+        
+        &-field-period{
+            width: 100%;
+        }
+        &-field-room{
+            width: 100%;
+        }
+        &-field-vehicle{
+            width: 100%;
+        }
+        &-field-type-room{
+            width: 100%;
+        }
+
+    }
+
+    @media screen and (max-width: $resolution-mobile-sm) {
+        &-fields {
+            width: 100%;
+        }
+
+        &-field-period{
+            position: relative;
+            width: auto;
+        }
+
+        &-fields{
+            position: relative;
+            
+        }
+        &-fields-group-place {
+            position: relative;
+            
+        }
+        &-fields-group {
+            position: relative;
+            width: 100%;
+            
+            & > div {        
+                margin-left: 0.8vw;
+                
+            }
+        }
+    
+    }
+
+    
+}

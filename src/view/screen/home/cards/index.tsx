@@ -1,5 +1,5 @@
 
-import IconSVG from '@/components/icons/icon-svg';
+import IconSVG from '@/view/components/icons/icon-svg';
 import style from './CardInformation.module.scss'
 
 

@@ -1,0 +1,23 @@
+@import '@/view/styles/global-variables';
+
+.buttonsTripType{
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+    width: 46vw;
+    
+    
+    &:hover {
+        cursor: pointer; // Altera o cursor para "mão"
+    }
+
+    @media screen and (max-width: $resolution-tablet-md) {
+        width: 70vw;
+     
+    }
+    
+    @media screen and (max-width: $resolution-mobile-sm) {
+        width: 98%;
+    }
+
+}

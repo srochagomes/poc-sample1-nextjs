@@ -1,4 +1,5 @@
-import { SimpleDrodownItem } from "@/components/input/dropdow/simple/ pop-up";
+
+import { SimpleDrodownItem } from "@/view/components/input/dropdow/simple/pop-up";
 import { FieldIconPath } from "../enums/FieldIconPath";
 
 const dropdownVeiculosItems: SimpleDrodownItem[] = [

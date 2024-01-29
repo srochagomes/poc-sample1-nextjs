@@ -1,9 +1,9 @@
 import { useTranslation } from "next-i18next"
 import style from "./AreaLogin.module.scss"
 import { useState } from "react";
-import IconSelecting from "@/components/button/icon-selecting";
+import IconSelecting from "@/view/components/button/icon-selecting";
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
-import IconSVG from "@/components/icons/icon-svg";
+import IconSVG from "@/view/components/icons/icon-svg";
 import { Router, useRouter } from "next/router";
 
 export default function AreaLogin() {

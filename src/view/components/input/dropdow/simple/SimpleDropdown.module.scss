@@ -1,0 +1,155 @@
+@import '@/view/styles/global-variables';
+
+.simpleDropdownContainer {
+    background-color: $color-clear;
+    display: flex;  
+    flex-direction: row;
+    position: relative;        
+    justify-items: center;
+    align-items: stretch;    
+    height: 6vh;    
+    cursor: pointer;
+
+    &-iconleft{
+        position: relative;
+        display: flex;                
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;        
+        width: 4vw;
+        height: auto;
+        
+        &-area{
+            display: flex;
+            flex-direction: column;            
+            position: relative;            
+            width: 2.5vw;
+            height: 2.5vh;
+        }
+
+    }
+
+    &-iconright{
+        
+        position: relative;
+        display: flex;                
+        align-items: center;
+        justify-content: flex-end;        
+        width: 4vw;
+        height: auto;
+        &-area{
+            display: flex;
+            flex-direction: column;            
+            position: relative;            
+            width: 2.5vw;
+            height: 2.5vh;
+        }
+        
+          
+    }  
+
+    &-groupField {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;;
+        margin: 0.2rem; 
+        margin-left: 0.5rem;
+        margin-right: 0.8rem;
+        overflow: hidden;
+        flex-grow: 1;
+        width: auto;
+        
+      
+        & > label {
+          position: relative;
+          margin-bottom: 0.3vh;
+        }
+      
+        & > input {
+            
+            color: $color-font-caption;
+            border: none;        
+            outline: none;   
+            width: 100%; /* Faz com que o input ocupe 100% da largura disponível */
+            box-sizing: border-box;
+            font-size: 0.7rem;
+        }
+      }
+
+    
+
+
+    &[data-round='top'] {
+        border-radius: 10px 10px 0 0;
+    }
+    &[data-round='button'] {
+        border-radius:  0 0 10px 10px;
+    }
+    &[data-round='all'] {
+        border-radius:  10px 10px 10px 10px;
+    }
+    &[data-round='left'] {
+        border-radius:  10px 0 0 10px;
+    }
+    &[data-round='right'] {
+        border-radius:  0 10px 10px 0;
+    }
+
+    
+
+
+    @media screen and (max-width: $resolution-tablet-md) {
+     
+        &-iconleft{
+            width: 5vw;
+            &-area{
+                width: 4vw;
+                height:5vh;
+            }
+    
+        }
+
+        &-iconright{            
+            justify-content: center;
+            width: 8vw;
+            &-area{
+                width: 4vw;
+                height: 4vh;
+            }
+            
+              
+        }  
+        
+     
+    }
+    
+    @media screen and (max-width: $resolution-mobile-sm) {
+
+        &-iconleft{
+            justify-content: center;
+            width: 8vw;
+            &-area{
+                width: 5vw;
+                height:5vh;
+            }
+    
+        }
+   
+
+    }
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+

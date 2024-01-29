@@ -1,0 +1,143 @@
+@import '@/view/styles/global-variables';
+
+.whereStay{
+    margin-top: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+ 
+    &-title {
+        display: flex;
+        justify-content: flex-start; 
+        align-items: center;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    &-fields {
+        margin-top: 1vh;
+        display: flex;  
+        flex-direction: row;  
+        justify-content: flex-start; 
+        flex-wrap: wrap;
+    }
+
+
+    &-fields-group {
+        display: inline-flex;        
+        
+        & > div {        
+            margin-right: 0.1vw;
+        }
+    }
+    &-button-plus{
+        margin-left: 0.5rem;
+        display: inline-flex;
+        align-items: center;
+
+    }
+
+    &-button-next{
+        margin-top: 2rem;
+    }
+
+    &-broke-resolution{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-content: stretch;
+    }
+
+    &-field-location{
+        width: 30vw;
+        margin-right: 0.1vw;
+    }
+    &-field-period{
+        width: 13vw;
+    }
+    &-field-room{
+        width: 13vw;
+    }
+    
+    @media screen and (max-width: $resolution-tablet-md) {
+
+        &-fields {        
+            margin-top: 1vh;
+            display: flex;  
+            flex-direction: column;  
+            justify-content: flex-start;           
+            width: 100%;   
+            
+            > div:first-child > div:first-child > div:first-child > div{
+                border-radius: 5px 5px 0 0;
+            }        
+            > div:nth-child(2) > div:first-child {
+                 > div:first-child > div{
+                    border-radius: 0 0 0 5px;
+                 }
+                 > div:nth-child(2) > div{
+                    border-radius: 0 0 0 0;
+                 }
+            }        
+            > div:nth-child(2) > div:nth-child(2) {
+                > div:first-child > div{
+                   border-radius: 0 0 5px 0;
+                }
+           }        
+       }
+
+        &-broke-resolution{
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+            width: 100%;
+            justify-content: stretch;
+            margin-bottom: 1vh;
+
+        }
+
+        &-fields-group {
+            display: flex;
+            flex-direction: row;            
+            width: 100%;
+            margin-right: .2vh;            
+            
+
+            
+        }
+        &-button-plus{
+            margin-top: 2vw;
+            width: 90%;
+            justify-content: center;
+            
+        }
+
+        &-field-location{
+            width: 100%;            
+            margin-right: 0.1vw;
+        }
+        &-field-period{
+            
+            width: 100%;
+        }
+        &-field-room{
+            width: 100%;
+        }
+            
+        
+            
+    }
+
+    @media screen and (max-width: $resolution-mobile-sm) {
+        &-field-period{            
+            margin-left: 0.2vh;
+        }
+        &-field-room{
+            width: 100%;
+        }
+ 
+
+    }
+
+   
+}

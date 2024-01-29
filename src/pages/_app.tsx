@@ -2,7 +2,7 @@ import Head from 'next/head';
 import PrincipalLayout from '@/view/layout/PrincipalLayout';
 import type { AppProps } from 'next/app';
 import { appWithTranslation } from 'next-i18next';
-import "@/styles/_reset.scss" 
+import "@/view/styles/_reset.scss" 
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 

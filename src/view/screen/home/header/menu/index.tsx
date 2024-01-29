@@ -1,7 +1,7 @@
 import { useTranslation } from "next-i18next"
 import style from "./HeaderMenu.module.scss"
-import IconSelecting from "@/components/button/icon-selecting"
-import IconSVG from "@/components/icons/icon-svg"
+import IconSelecting from "@/view/components/button/icon-selecting"
+import IconSVG from "@/view/components/icons/icon-svg"
 import { FieldIconPath } from "@/types/enums/FieldIconPath"
 import { useState } from "react"
 

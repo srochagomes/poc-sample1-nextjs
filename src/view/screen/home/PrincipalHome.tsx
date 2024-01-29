@@ -1,19 +1,20 @@
 import { useTranslation } from "next-i18next"
 import style from "./PrincipalHome.module.scss"
-import FeriazText, { FeriazSizeEnum } from "@/components/svg/feriaz-text"
+import FeriazText, { FeriazSizeEnum } from "@/view/components/svg/feriaz-text"
 import HeaderMenu from "./header/menu"
-import FeriazFilter from "@/components/feriaz-filter"
+import FeriazFilter from "@/view/components/feriaz-filter"
 import AreaLogin from "./header/area-login"
 import { FieldVideoPath } from "@/types/enums/FieldVideoPath"
-import VideoPlayer from "@/components/video"
+import VideoPlayer from "@/view/components/video"
 
 import { FieldIconPath } from "@/types/enums/FieldIconPath"
-import IconSVG from "@/components/icons/icon-svg"
+import IconSVG from "@/view/components/icons/icon-svg"
 import { FieldImagePath } from "@/types/enums/FieldImagePath"
-import Typography from "@/components/text/typography"
+import Typography from "@/view/components/text/typography"
 import InstructionsFeriaz from "./instructions"
-import SimpleCarousel from "@/components/carousel/simple"
+import SimpleCarousel from "@/view/components/carousel/simple"
 import CardInformation from "./cards"
+import applicationSession from "@/domain/model/session/ApplicationSession"
 
  
 
@@ -30,6 +31,10 @@ export default function PrincipalHome() {
     FieldImagePath.PatnerZarpo
     
   ];
+
+  applicationSession.register().then((obj)=>{
+    console.log("Aplicação registrada retornmo ",obj);
+  });
 
   return (
     <>      

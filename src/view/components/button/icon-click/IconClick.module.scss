@@ -1,0 +1,28 @@
+@import '@/view/styles/global-variables';
+
+.iconClick{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    width: 1.3rem;
+    height: 1.3rem;
+    
+    cursor: pointer;
+    &-caption{
+        position: absolute;
+        
+    }
+    &:hover {
+        width: 20;
+        height: 20;
+        
+    }
+    > span{
+        margin-top: 1.5rem;
+        color: $color-font-caption;
+        font-size: 0.6rem;
+        font-weight: 800;
+    }
+    
+}

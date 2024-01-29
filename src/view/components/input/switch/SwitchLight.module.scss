@@ -1,0 +1,55 @@
+@import '@/view/styles/global-variables';
+
+// styles.scss (ou o nome do seu arquivo SCSS)
+.switchLight {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  
+  align-items: center;
+  
+  &-switch {
+    position: relative;
+    display: inline-block;
+    width: 3.2rem;
+    height: 1.5rem;
+    margin-right : 1rem;
+
+    > input {
+      display: none;
+      
+    }
+
+    &-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $color-grey-middle;
+      transition: .4s;
+      border-radius: 1rem;
+      
+      &:before {
+        position: absolute;
+        content: "";
+        height: 1.3rem;
+        width: 1.3rem;
+        left: 0.1rem;
+        bottom: 0.1rem;
+        background-color: $color-clear;
+        transition: .4s;
+        border-radius: 50%;
+      }
+    }
+
+    > input:checked + .switchLight-switch-slider {
+      background-color: $color-secondary;
+
+      &:before {
+        transform: translateX(1.7rem);
+      }
+    }
+  }
+}

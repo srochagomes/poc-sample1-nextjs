@@ -1,0 +1,80 @@
+@import '@/view/styles/global-variables';
+
+.simpleCarousel {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 95%;
+    
+    
+  
+    & > div {
+      margin-right: 2vw; // Ajuste conforme necessário
+    }
+  
+    > img {
+      display: block;
+      width: 100%; // Garante que a imagem não ultrapasse os limites da div
+    }
+  
+    > button {
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: $color-dark;
+      color: $color-clear;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+  
+    &-prev {
+      left: 10px;
+    }
+  
+    &-next {
+      right: 10px;
+    }
+  
+    &-images-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden; // Garante que as imagens não ultrapassem os limites da div
+        &-item{
+          margin-left: 2vw;          
+          position: relative;          
+          width: 40vw;
+          height: 20vh;
+          
+          
+        }
+    }
+
+    &-images {
+        display: flex;
+        transition: transform 0.5s ease;
+        width: 270vw;
+        border-radius: 20rem 20rem 20rem 20rem;
+        
+        
+    }
+
+    @media screen and (max-width: $resolution-mobile-sm) {
+
+      &-images-container {
+        
+        &-item{
+        
+          position: relative;
+          width: 20vw;
+          height: 15vh;
+        }
+    }
+
+
+    }
+
+  }
+  

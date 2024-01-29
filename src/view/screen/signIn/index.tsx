@@ -1,18 +1,18 @@
 import { useTranslation } from "next-i18next"
 
 import style from "./SignIn.module.scss"
-import FeriazText from "@/components/svg/feriaz-text";
-import Typography from "@/components/text/typography";
-import FormGroup from "@/components/form/group";
+import FeriazText from "@/view/components/svg/feriaz-text";
+import Typography from "@/view/components/text/typography";
+import FormGroup from "@/view/components/form/group";
 
 import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
-import ButtonPrimary from "@/components/button/primary-button";
-import ButtonStyle, { ButtonStyleIconEnum } from "@/components/button/style-buton";
+import ButtonPrimary from "@/view/components/button/primary-button";
+import ButtonStyle, { ButtonStyleIconEnum } from "@/view/components/button/style-buton";
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
-import LinkFoward from "@/components/link/foward";
-import InputField from "@/components/input/text";
+import LinkFoward from "@/view/components/link/foward";
+import InputField from "@/view/components/input/text";
 
 
 

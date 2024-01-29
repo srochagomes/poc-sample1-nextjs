@@ -1,0 +1,28 @@
+@import '@/view/styles/global-variables';
+$size-width: 9vw;
+$size-height: 9vh;
+
+.feriazName {
+    background: url('/images/icons/feriaz-name-2.svg') no-repeat;
+    background-size: 100% 100%;    
+
+    width: $size-width;
+    height: $size-height;
+    
+    &[data-size='big'] {
+        width: 13vw;
+        height: 13vh;
+    }
+
+    @media screen and (max-width: $resolution-tablet-md) {
+        width: 22vw;
+        height: 10vh;
+
+        &[data-size='big'] {
+            width: 28vw;
+            height: 13vh;
+        }
+    }
+    
+    
+}
