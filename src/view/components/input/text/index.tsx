@@ -9,6 +9,7 @@ import IconSelecting from "@/view/components/button/icon-selecting";
 
 import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
 import FieldData from "@/types/structure/FieldData";
+import { IMaskInput } from "react-imask";
 
 
 
@@ -106,12 +107,35 @@ function InputField(props:Props) {
             {iconLeftComponent}
             <div className={style['inputContainer-inputArea']} >
                 {captionComponent}
+
+                {type==FieldTypeEnum.Phone?  
+                <IMaskInput 
+                    id={id}
+                    mask="(00)0000-0000"                    
+                    type={FieldTypeEnum.Text}                
+                    placeholder={placeholder}
+                    className={style['inputContainer-inputText']}   
+                    onChange={onChange}
+                    value={value}
+                    />:
+                  type==FieldTypeEnum.Email?  
+                  <IMaskInput 
+                    id={id}
+                    mask={/^\S*@?\S*$/}
+                    type={FieldTypeEnum.Email}                
+                    placeholder={placeholder}
+                    className={style['inputContainer-inputText']}   
+                    onAccept={(value, mask) => console.log(value, mask)}
+                    onChange={onChange}      
+                    value={value}
+                    />:
                 <input type={fieldType}           
                     id={id}     
                     placeholder={placeholder}
                     className={style['inputContainer-inputText']}   
                     onChange={onChange}                             
                     />
+                  }
             </div>
             
             

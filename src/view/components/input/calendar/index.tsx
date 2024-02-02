@@ -141,19 +141,19 @@ function CalendarField(props:Props) {
   }
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {    
-    let valorInput: string = event.target.value;
+    // let valorInput: string = event.target.value;
 
-    // // Remove caracteres não numéricos
-    valorInput = valorInput.replace(/\D/g, '');
+    // // // Remove caracteres não numéricos
+    // valorInput = valorInput.replace(/\D/g, '');
     
-    const cursorPosition: number = event.target.selectionStart || 0;
+    // const cursorPosition: number = event.target.selectionStart || 0;
 
 
-    // // Aplica a máscara para data (DD/MM/AAAA)
-    let maskedValue: string = '';
-    maskedValue = valorInput.replace(/^(\d{2})(\d{2})(\d{0,4})/, '$1/$2/$3');    
-    // Atualiza o valor do campo com a máscara aplicada
-    setValue(maskedValue.slice(0,maxDigits));    
+    // // // Aplica a máscara para data (DD/MM/AAAA)
+    // let maskedValue: string = '';
+    // maskedValue = valorInput.replace(/^(\d{2})(\d{2})(\d{0,4})/, '$1/$2/$3');    
+    // // Atualiza o valor do campo com a máscara aplicada
+    // setValue(maskedValue.slice(0,maxDigits));    
 
   }
 

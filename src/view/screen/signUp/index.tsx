@@ -11,6 +11,7 @@ import ButtonPrimary from "@/view/components/button/primary-button";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import CalendarField from "@/view/components/input/calendar";
 import InputField from "@/view/components/input/text";
+import FieldData from "@/types/structure/FieldData";
 
 
 
@@ -18,9 +19,14 @@ export default function SignUp() {
   const common = useTranslation('common')
   const field = useTranslation('field')
   const btn = useTranslation('button')
-  
+  const requiredSign = ' *';
+  const fields : FieldData[] = [];
+    
+    
 
-  const handleAccessConfirm = (dataForm:any) => {  
+  const handleConfirm = () => {  
+    console.log('Valores', fields);
+
   }
 
   return (
@@ -38,28 +44,32 @@ export default function SignUp() {
           <FormGroup>
               <InputField
                       id="traveler_name"
+                      dataSource={fields}
                       iconLeft={FieldIconEnum.FingerPrint}
                       type={FieldTypeEnum.Text} 
-                      caption={field.t('signup.name.caption')} 
+                      caption={field.t('signup.name.caption')+requiredSign} 
                       placeholder={field.t('signup.name.placehold')} 
                       roundType={FieldRoundEnum.Top}/>
               <InputField  
                       id="traveler_email"
+                      dataSource={fields}
                       iconLeft={FieldIconEnum.Email}
                       type={FieldTypeEnum.Email} 
-                      caption={field.t('email.caption')} 
+                      caption={field.t('email.caption')+requiredSign} 
                       placeholder={field.t('email.placehold')} />
               <div className={style['body-form-login-group-row-two']}>
-                  <InputField  
+                  <InputField                    
                           id="traveler_phone"
+                          dataSource={fields}
                           iconLeft={FieldIconEnum.PhoneCall}
-                          type={FieldTypeEnum.Text} 
+                          type={FieldTypeEnum.Phone} 
                           caption={field.t('signup.phone.caption')} 
-                          placeholder={field.t('signup.phone.placehold')}                           
+                          placeholder={field.t('signup.phone.placehold')+requiredSign}                           
                           />
 
                     <CalendarField
                                 id="traveler_born"                                
+                                dataSource={fields}
                                 placeholder={field.t('signup.born.placehold')}   
                                 caption={field.t('signup.born.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
@@ -69,15 +79,17 @@ export default function SignUp() {
               </div>
               <InputField  
                 id="traveler_password"
+                dataSource={fields}
                 iconLeft={FieldIconEnum.Password}
                 type={FieldTypeEnum.Password} 
-                caption={field.t('signup.password.caption')} 
+                caption={field.t('signup.password.caption')+requiredSign} 
                 placeholder={field.t('signup.password.placehold')}/>  
               <InputField  
                 id="traveler_password_confirm"
+                dataSource={fields}
                 iconLeft={FieldIconEnum.Password}
                 type={FieldTypeEnum.Password} 
-                caption={field.t('signup.password-confirm.caption')} 
+                caption={field.t('signup.password-confirm.caption')+requiredSign} 
                 placeholder={field.t('signup.password-confirm.placehold')} 
                 roundType={FieldRoundEnum.Button}                />
                 <div className={style['body-form-login-field-required']}>
@@ -86,7 +98,7 @@ export default function SignUp() {
           </FormGroup>          
           
           <div className={style['body-form-login-button']}>
-            <ButtonPrimary>
+            <ButtonPrimary onClick={handleConfirm}>
               {btn.t('confirm.button')}
             </ButtonPrimary>
           </div>
