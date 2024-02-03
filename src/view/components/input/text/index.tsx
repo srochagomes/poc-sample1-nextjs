@@ -13,19 +13,23 @@ import { IMaskInput } from "react-imask";
 
 
 
-interface Props {
+export interface FieldsProps {
     id: string
-    type : FieldTypeEnum  
+    type? : FieldTypeEnum  
     roundType?:String
     placeholder?:string
     caption?:string
     colorCaprion?:string
     iconLeft?:FieldIconEnum
     width?:string
-    dataSource?: FieldData[]
+    dataSource?: FieldData[],
+    monthsShow?:number
+    permitPeriodChoice?:boolean
+    hasFlexibleDate?:boolean
+    maxDigits?:number
 }
 
-function InputField(props:Props) {
+function InputField(props:FieldsProps) {
   const { caption, 
           width, 
           iconLeft, 

@@ -4,32 +4,18 @@ import Typography from "@/view/components/text/typography";
 import IconSVG from "@/view/components/icons/icon-svg";
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
-import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
+import { FieldTypeDetail, FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import DatePicker from "./date-picker";
 import { TypeCalendar } from "./date-picker/date-command";
 import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
 import { generateInputRandomId } from "@/types/utils/MathFunctions";
 import FieldData from "@/types/structure/FieldData";
 import { IMaskInput } from "react-imask";
+import { FieldsProps } from "../text";
 
 
-interface Props {
-    id:string      
-    roundType?:String
-    placeholder?:string
-    caption?:string
-    colorCaprion?:string
-    iconLeft?:FieldIconEnum
-    width?:string
-    monthsShow?:number
-    permitPeriodChoice?:boolean
-    hasFlexibleDate?:boolean
-    dataSource?: FieldData[]
-    maxDigits?:number
-    
-}
 
-function CalendarField(props:Props) {
+function CalendarField(props:FieldsProps) {
   const { maxDigits = 10, hasFlexibleDate, permitPeriodChoice, monthsShow, id, caption, width, iconLeft, colorCaprion, roundType, placeholder,dataSource } = props;
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);  
   const [showDatePicker, setShowDatePicker] = useState(false);
@@ -207,7 +193,7 @@ function CalendarField(props:Props) {
                 {captionComponent}
                 <IMaskInput 
                     id={id}
-                    mask="00/00/0000"
+                    mask={FieldTypeDetail.date.pattern}
                     type={FieldTypeEnum.Text}                
                     placeholder={placeholder}
                     className={style['calendarContainer-inputText']}                                    
