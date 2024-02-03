@@ -42,7 +42,7 @@ function TripPeopleDetail(props:Props) {
   }, [showPopup]);
 
   const onClickConfirm = (event:React.MouseEvent<HTMLButtonElement>, peopleData:PeopleData): void =>{
-    console.log('onClickConfirm', peopleData);
+    
     if (peopleData){
       setValueText(`${peopleData.olderQuantity} adulto(s), ${peopleData.minorQuantity} menor(es) e ${peopleData.roomQuantity} quarto(s).` );
     }

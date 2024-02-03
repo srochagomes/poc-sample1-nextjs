@@ -16,7 +16,7 @@ export const FieldTypeDetail = {
   password : {pattern:/./},
   number : {pattern:/./},
   email : {pattern:/./},
-  date : {pattern:'00/00/0000'},
+  date : {pattern:'00/00/0000', regex:/^\d{2}\/\d{2}\/\d{4}$/},
   radio : {pattern:/./},
   checkbox : {pattern:/./},
   phone : {pattern:'(00)0000-0000'},

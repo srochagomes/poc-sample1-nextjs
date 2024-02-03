@@ -45,7 +45,7 @@ function WhereStayHowGo(props:Props) {
                     <Typography fontSize="caption2" color="white">{common.t('message.wherestayhowtogo.title')}</Typography>
                 </div>
                 
-                <FormGroup>
+                <section>
                     <div className={style['whereStayHowGo-fields']} >
                         <div className={style['whereStayHowGo-broke-resolution']} >
                             <div className={style['whereStayHowGo-fields-group']} >
@@ -159,7 +159,7 @@ function WhereStayHowGo(props:Props) {
                             />
                         </div> 
                     </div>
-                </FormGroup>
+                </section>
                 
                 <div className={style['whereStayHowGo-button-next']} >
                     <ButtonPrimary onClick={handleAccessConfirm}>

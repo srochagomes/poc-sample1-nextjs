@@ -22,7 +22,7 @@ export const callAPI = (baseURL: string, tokenAdapterManager?: IAPIManager) => {
             return config;
           }, function (error) {
             
-            console.log('Erro no interceptor do axios')
+            
             return Promise.reject(error);
           });
 
@@ -36,14 +36,14 @@ export const callAPI = (baseURL: string, tokenAdapterManager?: IAPIManager) => {
                   let refreshProcess: IAPIReturn = await tokenAdapterManager.processRefreshToken();
                   if (refreshProcess.status === HttpStatusCode.Ok){
                     error.config.headers['Authorization'] = `Bearer ${tokenAdapterManager.getToken()}`
-                    console.log('Token ATUALIZADO COM SUCESSO');
+                    
                     return http.request(error.config);
                   }else{                    
                     error = refreshProcess;                    
                   }                  
 
                 } catch (error) {
-                  console.log('passo4')
+                  
                   console.error('Erro na atualização do token:', error);
                 }                                
               }

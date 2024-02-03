@@ -80,7 +80,7 @@ const accessManager = {
         
         return await api.get<IAPIReturn>(apiAddress,headerJson)
         .then((response) => {          
-            console.log("Info",response);     
+            
             let dataReturn: IAPIReturn =  {
                 status:  response.status,
                 statusText:   response.statusText,
@@ -89,7 +89,7 @@ const accessManager = {
             return dataReturn;
           })
           .catch((error) => {
-            console.log("Error:",error);
+            
             return {
                 status: error?.status,
                 statusText: error?.statusText,
@@ -119,7 +119,7 @@ const accessManager = {
         
         return await api.put<IAPIReturn>(apiAddress,body,headerJson)
         .then((response) => {          
-            console.log("Info",response);     
+            
             let dataReturn: IAPIReturn =  {
                 status:  response.status,
                 statusText:   response.statusText,
@@ -128,7 +128,7 @@ const accessManager = {
             return dataReturn;
           })
           .catch((error) => {
-            console.log("Error:",error);
+            
             return {
                 status: error?.status,
                 statusText: error?.statusText,

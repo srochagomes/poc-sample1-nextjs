@@ -34,7 +34,7 @@ const controllers = {
                                   refreshTokenStoreService.getOfUser(req) 
                                   : refreshTokenStoreService.getOfApp(req);
     
-    console.log('refresh token ',refresh_token);
+    
 
     let credential = {
       client_id,
@@ -45,7 +45,7 @@ const controllers = {
     
 
     let apiReturn : IAPIReturn = await accessManagerAPI.getRefreshCredentialAccess(credential);
-    console.log('apiReturn : IAPIReturn = ',apiReturn);
+    
 
     if (apiReturn?.data?.refresh_token){
       typeRefresh===USER_TYPE ?

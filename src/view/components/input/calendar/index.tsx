@@ -16,18 +16,22 @@ import { FieldsProps } from "../text";
 
 
 function CalendarField(props:FieldsProps) {
-  const { maxDigits = 10, hasFlexibleDate, permitPeriodChoice, monthsShow, id, caption, width, iconLeft, colorCaprion, roundType, placeholder,dataSource } = props;
+  const { maxDigits = 10, hasFlexibleDate, permitPeriodChoice, monthsShow, id, caption, width, iconLeft, colorCaprion, roundType, placeholder,dataSource,required = false,} = props;
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);  
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [typeCalendar, setTypeCalendar] = useState(TypeCalendar.fixed);
   const [value, setValue] = useState("");
-        
+  
   const isValid = () : boolean =>{
     return false;
 
   }
+  const applyValidation = () : void =>{
+    
+
+  }
   
-  const dataSourceItem : FieldData = {name:id, isValid,value};
+  const dataSourceItem : FieldData = {name:id, isValid,value, applyValidation};
 
   let dateBase = new Date();
 
@@ -74,13 +78,10 @@ function CalendarField(props:FieldsProps) {
     
   }
 
-  const onClickDateFlexible  = (event:React.MouseEvent<HTMLDivElement>): void =>{
-    
-    setTypeCalendar(TypeCalendar.flexible);
-    
+  const onClickDateFlexible  = (event:React.MouseEvent<HTMLDivElement>): void =>{    
+    setTypeCalendar(TypeCalendar.flexible);    
   }
-  const onClickConfirm = (event:React.MouseEvent<HTMLButtonElement>): void =>{
-    console.log('onClickConfirm');
+  const onClickConfirm = (event:React.MouseEvent<HTMLButtonElement>): void =>{    
     setShowDatePicker(false);
     setSelectedKeys([]);
   }
@@ -125,22 +126,13 @@ function CalendarField(props:FieldsProps) {
       });
     }    
   }
+  const eventAssociado = (text:string) : void =>{
+    console.log('Evento ',text);
 
+  }
   const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {    
-    // let valorInput: string = event.target.value;
-
-    // // // Remove caracteres não numéricos
-    // valorInput = valorInput.replace(/\D/g, '');
-    
-    // const cursorPosition: number = event.target.selectionStart || 0;
-
-
-    // // // Aplica a máscara para data (DD/MM/AAAA)
-    // let maskedValue: string = '';
-    // maskedValue = valorInput.replace(/^(\d{2})(\d{2})(\d{0,4})/, '$1/$2/$3');    
-    // // Atualiza o valor do campo com a máscara aplicada
-    // setValue(maskedValue.slice(0,maxDigits));    
-
+    const valorInput: string = event.target.value;
+    setValue(valorInput);
   }
 
 
@@ -172,11 +164,14 @@ function CalendarField(props:FieldsProps) {
                                      </div> 
                                      : <></>;
   if (dataSource){
+    
   const existingIndex = dataSource.findIndex(item => item.name === dataSourceItem.name);
   // Se não existir, adiciona o novo item
   if (existingIndex === -1) {
+    
       dataSource.push(dataSourceItem);
   } else {
+    
       // Se existir, substitui o objeto existente pelo novo objeto
       dataSource[existingIndex] = dataSourceItem;
   }
@@ -194,6 +189,7 @@ function CalendarField(props:FieldsProps) {
                 <IMaskInput 
                     id={id}
                     mask={FieldTypeDetail.date.pattern}
+                    required={required}
                     type={FieldTypeEnum.Text}                
                     placeholder={placeholder}
                     className={style['calendarContainer-inputText']}                                    
@@ -201,6 +197,12 @@ function CalendarField(props:FieldsProps) {
                     onBlur={onBlur}
                     onChange={onChange}
                     value={value}
+                    onInvalid={()=>eventAssociado('onInvalid')}
+                    onComplete={()=>eventAssociado('onComplete')}
+                    onAccept={()=>eventAssociado('onAccept')}
+                    onCopyCapture={()=>eventAssociado('onCopyCapture')}
+                    onCopy={()=>eventAssociado('onCopy')}
+
                     />
             </div>
             <DatePicker monthsShow={monthsShow}

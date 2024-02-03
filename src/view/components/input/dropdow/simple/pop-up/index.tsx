@@ -50,7 +50,7 @@ function SimpleDropdownPopup(props: Props) {
     if (divRef.current !== null && !divRef.current.contains(e.target as Node)) {
       setComponentShow(false);      
       window.removeEventListener('click', pageClickPopupEvent);
-      console.log("Passou removendo")   
+      
       
     }
   };

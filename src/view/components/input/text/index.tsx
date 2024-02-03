@@ -2,7 +2,7 @@ import { useState } from "react";
 import style from "./InputField.module.scss"
 import Typography from "@/view/components/text/typography";
 import IconSVG from "@/view/components/icons/icon-svg";
-import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
+import { FieldTypeDetail, FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import IconSelecting from "@/view/components/button/icon-selecting";
@@ -13,8 +13,10 @@ import { IMaskInput } from "react-imask";
 
 
 
+
 export interface FieldsProps {
     id: string
+    required?:boolean
     type? : FieldTypeEnum  
     roundType?:String
     placeholder?:string
@@ -23,10 +25,10 @@ export interface FieldsProps {
     iconLeft?:FieldIconEnum
     width?:string
     dataSource?: FieldData[],
-    monthsShow?:number
-    permitPeriodChoice?:boolean
-    hasFlexibleDate?:boolean
-    maxDigits?:number
+    maxDigits?: number, 
+    hasFlexibleDate?:true, 
+    permitPeriodChoice?:true,
+    monthsShow?:number 
 }
 
 function InputField(props:FieldsProps) {
@@ -34,7 +36,8 @@ function InputField(props:FieldsProps) {
           width, 
           iconLeft, 
           colorCaprion, 
-          type, 
+          required = false,
+          type = FieldTypeEnum.Text, 
           roundType, 
           placeholder, 
           id,
@@ -47,13 +50,25 @@ function InputField(props:FieldsProps) {
         const [value, setValue] = useState("");
         
         const isValid = () : boolean =>{
+
           return false;
 
         }
         
-        
-        const dataSourceItem : FieldData = {name:id, isValid,value};
+        const applyValidation = () : void =>{
+    
 
+        }
+
+        const eventAssociado = (text:string) : void =>{
+          console.log('Evento ',text);
+
+        }
+        
+        
+        const dataSourceItem : FieldData = {name:id, isValid,value, applyValidation};
+        
+        
         const togglePasswordVisibility = () => {
           let showPwd = !showPassword
           setShowPassword(showPwd);
@@ -83,9 +98,6 @@ function InputField(props:FieldsProps) {
         const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
           const valorInput: string = event.target.value;
           setValue(valorInput);
-          
-          
-          
         }
         
         
@@ -112,34 +124,22 @@ function InputField(props:FieldsProps) {
             <div className={style['inputContainer-inputArea']} >
                 {captionComponent}
 
-                {type==FieldTypeEnum.Phone?  
+                
                 <IMaskInput 
                     id={id}
-                    mask="(00)0000-0000"                    
-                    type={FieldTypeEnum.Text}                
+                    mask={FieldTypeDetail[type].pattern as string}
+                    type={type}    
+                    required={required}
                     placeholder={placeholder}
                     className={style['inputContainer-inputText']}   
                     onChange={onChange}
                     value={value}
-                    />:
-                  type==FieldTypeEnum.Email?  
-                  <IMaskInput 
-                    id={id}
-                    mask={/^\S*@?\S*$/}
-                    type={FieldTypeEnum.Email}                
-                    placeholder={placeholder}
-                    className={style['inputContainer-inputText']}   
-                    onAccept={(value, mask) => console.log(value, mask)}
-                    onChange={onChange}      
-                    value={value}
-                    />:
-                <input type={fieldType}           
-                    id={id}     
-                    placeholder={placeholder}
-                    className={style['inputContainer-inputText']}   
-                    onChange={onChange}                             
+                    onInvalid={()=>eventAssociado('onInvalid')}
+                    onComplete={()=>eventAssociado('onComplete')}
+                    onAccept={()=>eventAssociado('onAccept')}
+                    onCopyCapture={()=>eventAssociado('onCopyCapture')}
+                    onCopy={()=>eventAssociado('onCopy')}
                     />
-                  }
             </div>
             
             

@@ -5,6 +5,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;   
+
+    > section {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: stretch;
+        
+        box-sizing: border-box;
+        padding: 0;          
+    }
  
     &-title {
         display: flex;

@@ -7,7 +7,7 @@ const applicationAdapter:IAPIManager = {
     processRefreshToken: () => {
         return applicationSession.refresh()
           .then((dado) => {
-            console.log('Valor do processamento dentro:', dado);
+            
             return dado;
           })
           .catch((error) => {

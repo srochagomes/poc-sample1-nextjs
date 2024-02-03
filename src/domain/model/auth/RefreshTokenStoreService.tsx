@@ -21,7 +21,7 @@ const refreshTokenStoreService ={
         refreshTokenRepository.save(refresh_token_id, refreshToken, res);
     },
     getOfUser( req: NextApiRequest): string | null {
-        console.log('REFRESH TOKEN do USER');
+        
         let refresh_token_id = process.env.REFRESH_TOKEN_USER;
 
         if (!refresh_token_id){
@@ -30,8 +30,7 @@ const refreshTokenStoreService ={
 
         return refreshTokenRepository.get(refresh_token_id, req);
     },
-    getOfApp( req: NextApiRequest): string | null {
-        console.log('REFRESH TOKEN do APP')
+    getOfApp( req: NextApiRequest): string | null {        
         let refresh_token_id = process.env.REFRESH_TOKEN_APP;
 
         if (!refresh_token_id){

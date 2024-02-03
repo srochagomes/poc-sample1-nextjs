@@ -12,6 +12,8 @@ import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import CalendarField from "@/view/components/input/calendar";
 import InputField from "@/view/components/input/text";
 import FieldData from "@/types/structure/FieldData";
+import FormDiv from "@/view/components/form/div-container";
+import FormManagerType from "@/types/structure/FormManageType";
 
 
 
@@ -20,9 +22,13 @@ export default function SignUp() {
   const field = useTranslation('field')
   const btn = useTranslation('button')
   const requiredSign = ' *';
-  const fields : FieldData[] = [];
+  let fields : FieldData[] = [];
     
     
+  const onValidForm = (formManager: FormManagerType):void=>{
+    fields = formManager.dataSource;
+    console.log('form ok?',formManager.isValidFields())
+  }
 
   const handleConfirm = () => {  
     console.log('Valores', fields);
@@ -41,26 +47,23 @@ export default function SignUp() {
         </div>
 
         <div className={style['body-form-login']}>
-          <FormGroup>
+          <FormGroup applyOnValidForm={onValidForm}>
               <InputField
-                      id="traveler_name"
-                      dataSource={fields}
-                      iconLeft={FieldIconEnum.FingerPrint}
+                      id="traveler_name"                      
+                      iconLeft={FieldIconEnum.FingerPrint}                      
                       type={FieldTypeEnum.Text} 
                       caption={field.t('signup.name.caption')+requiredSign} 
                       placeholder={field.t('signup.name.placehold')} 
                       roundType={FieldRoundEnum.Top}/>
               <InputField  
-                      id="traveler_email"
-                      dataSource={fields}
+                      id="traveler_email"                      
                       iconLeft={FieldIconEnum.Email}
                       type={FieldTypeEnum.Email} 
                       caption={field.t('email.caption')+requiredSign} 
                       placeholder={field.t('email.placehold')} />
-              <div className={style['body-form-login-group-row-two']}>
+              <FormDiv className={style['body-form-login-group-row-two']}>
                   <InputField                    
-                          id="traveler_phone"
-                          dataSource={fields}
+                          id="traveler_phone"                          
                           iconLeft={FieldIconEnum.PhoneCall}
                           type={FieldTypeEnum.Phone} 
                           caption={field.t('signup.phone.caption')} 
@@ -68,25 +71,20 @@ export default function SignUp() {
                           />
 
                     <CalendarField
-                                id="traveler_born"                                
-                                dataSource={fields}
+                                id="traveler_born"                                                                
                                 placeholder={field.t('signup.born.placehold')}   
                                 caption={field.t('signup.born.caption')}   
                                 iconLeft={FieldIconEnum.Calendar}
-                                
-                                
                             />
-              </div>
+              </FormDiv>
               <InputField  
-                id="traveler_password"
-                dataSource={fields}
+                id="traveler_password"                
                 iconLeft={FieldIconEnum.Password}
                 type={FieldTypeEnum.Password} 
                 caption={field.t('signup.password.caption')+requiredSign} 
                 placeholder={field.t('signup.password.placehold')}/>  
               <InputField  
-                id="traveler_password_confirm"
-                dataSource={fields}
+                id="traveler_password_confirm"                
                 iconLeft={FieldIconEnum.Password}
                 type={FieldTypeEnum.Password} 
                 caption={field.t('signup.password-confirm.caption')+requiredSign} 

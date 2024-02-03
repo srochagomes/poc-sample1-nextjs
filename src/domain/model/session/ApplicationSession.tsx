@@ -52,8 +52,7 @@ const applicationSession = {
       return identity.getRefreshTokenApp()
       .then(async (userDataAPI:IAPIReturn)=>{
           if (userDataAPI.status === HttpStatusCode.Ok){
-              writeTokenData(userDataAPI);
-              console.log("Atualizou token")              
+              writeTokenData(userDataAPI);              
           }
           return await userDataAPI;;
       });     
