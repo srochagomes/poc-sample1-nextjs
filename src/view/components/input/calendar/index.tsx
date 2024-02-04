@@ -24,6 +24,7 @@ function CalendarField(props:FieldsProps) {
   const [typeCalendar, setTypeCalendar] = useState(TypeCalendar.fixed);
   const [value, setValue] = useState("");
   const [fieldValid, setFieldValid] = useState(true);
+  const [dateBase, setDateBase] = useState(new Date());
   
   const isValid = () : boolean =>{
 
@@ -42,12 +43,17 @@ function CalendarField(props:FieldsProps) {
 
   const dataSourceItem : FieldData = {name:id, isValid,value, applyValidation};
 
-  let dateBase = new Date();
+  
 
 
   useEffect(() => {
     setSelectedKeys(selectedKeys);
+    console.log('select',selectedKeys); 
   }, [selectedKeys]);
+
+  useEffect(() => {
+    setDateBase(dateBase);
+  }, [dateBase]);
 
   useEffect(() => {
     setShowDatePicker(showDatePicker);
@@ -75,13 +81,22 @@ function CalendarField(props:FieldsProps) {
     return false;
   }
 
+  const updateDateBaseFromValue = ():void =>{
+    
+    let dateValueFormat = DateOperations.parseLocalizedDate(value,'dd/MM/yyyy','pt-BR');
+      if(dateValueFormat){
+        setDateBase(dateValueFormat);        
+      }else{
+        setDateBase(new Date());
+      }
+  }
 
   const onClickClear = (event:React.MouseEvent<HTMLDivElement>): void =>{
     setSelectedKeys([]);
   }
 
-  const onClickIconCalendar  = (event:React.MouseEvent<HTMLDivElement>): void =>{    
-    console.log('Click')
+  const onClickIconCalendar  = (event:React.MouseEvent<HTMLDivElement>): void =>{        
+    updateDateBaseFromValue();
     setShowDatePicker(!showDatePicker);
   }
 
@@ -96,17 +111,24 @@ function CalendarField(props:FieldsProps) {
   }
   const onClickConfirm = (event:React.MouseEvent<HTMLButtonElement>): void =>{    
     setShowDatePicker(false);
-    setValue(DateOperations.formatDate(parseFloat(selectedKeys[0]),'pt-BR'));
+    const dateValue = DateOperations.formatDate(parseFloat(selectedKeys[0]),'pt-BR');
+    if(dateValue){
+      setValue(dateValue);
+    }else{
+      setValue('');
+    }
+    
   }
 
-  const onSelectDay = (event:React.MouseEvent<HTMLDivElement>, index:number): void =>{
+  const onSelectDay = (event:React.MouseEvent<HTMLDivElement>|null, index:number): void =>{
     const keyAttributeValue = index.toString();
 
     if (keyAttributeValue) {
+      console.log('Key =',keyAttributeValue)
       setSelectedKeys((prevKeys) => {
         if (prevKeys.includes(keyAttributeValue)) {
-          // Se a chave já estiver no estado, remova-a
-          return prevKeys.filter((key) => key !== keyAttributeValue);
+          // Se a chave já estiver no estado, e for m evento de mouseremova-a
+          return prevKeys.filter((key) => key !== keyAttributeValue && event);
         } else if (permitPeriodChoice){
           // Se já houver 2 datas, substitua uma delas com base nas regras
 
@@ -138,26 +160,38 @@ function CalendarField(props:FieldsProps) {
         }
       });
     }    
+    
   }
+
   const eventAssociado = (text:string) : void =>{
     console.log('Evento ',text);
 
   }
+  const onComplete = (valueText: string): void => {    
+    let dateValue = new Date(valueText);    
+    setValue(valueText);
+    if (!isNaN(dateValue.getTime())) {
+      
+      let dateValueFormat = DateOperations.parseLocalizedDate(valueText,'dd/MM/yyyy','pt-BR');
+      if(dateValueFormat){
+        setDateBase(dateValueFormat);
+        onSelectDay(null,dateValueFormat.getTime())
+      }      
+    }    
+  }
   const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {    
     setShowDatePicker(false);
     const valorInput: string = event.target.value;
-    setValue(valorInput);
+    setValue(valorInput);   
   }
 
 
-  let onFocus = (event: React.FocusEvent<HTMLInputElement>):void => {
-    setSelectedKeys([]);
+  let onFocus = (event: React.FocusEvent<HTMLInputElement>):void => {    
     setShowDatePicker(true);
         
   }
 
-  let onBlur = (event: React.FocusEvent<HTMLInputElement>):void => {
-    setSelectedKeys([]);    
+  let onBlur = (event: React.FocusEvent<HTMLInputElement>):void => {    
   }
 
   const onAccept = (): void => {
@@ -220,7 +254,7 @@ function CalendarField(props:FieldsProps) {
                     onChange={onChange}
                     value={value}
                     onInvalid={()=>eventAssociado('onInvalid')}
-                    onComplete={()=>eventAssociado('onComplete')}
+                    onComplete={(event)=>onComplete(event)}
                     onAccept={onAccept}
                     onCopyCapture={()=>eventAssociado('onCopyCapture')}
                     onCopy={()=>eventAssociado('onCopy')}

@@ -1,3 +1,6 @@
+import { parse, isValid } from 'date-fns';
+import { ptBR, enUS } from 'date-fns/locale';
+
 const DateOperations = {
     getCurrentMonth : () => {
       const currentDate = new Date();
@@ -64,10 +67,21 @@ const DateOperations = {
         return new Date(yearData, monthData-1, dayData);
     },
     
-    formatDate: (valorLong: number, codigoIdioma:string) :string => {    
+    formatDate: (valorLong: number, codigoIdioma:string) :string|null => {    
       const data = new Date(valorLong);
+      if (isNaN(data.getTime())) {
+        return null; // Retorna null se a data for inválida
+      }
       return data.toLocaleDateString(codigoIdioma);
+    },
+    parseLocalizedDate: (dateString:string,formatDate:string, locale:string) :Date|null  => {
+      const parsedDate = 
+      locale === 'ptBR'?
+          parse(dateString, formatDate, new Date(), { locale: ptBR})
+          :parse(dateString, formatDate, new Date(), { locale: enUS});
+      return isValid(parsedDate) ? parsedDate : null;
     }
+    
   
 }
 

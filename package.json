@@ -12,6 +12,8 @@
     "@reduxjs/toolkit": "^2.1.0",
     "@types/jsonwebtoken": "^9.0.5",
     "axios": "^1.6.7",
+    "date-fns": "^3.3.1",
+    "date-fns-tz": "^2.0.0",
     "i18next": "^23.7.16",
     "i18next-http-backend": "^2.4.2",
     "jsonwebtoken": "^9.0.2",
