@@ -2,7 +2,7 @@ import { useTranslation } from "next-i18next"
 
 import style from "./SignUp.module.scss"
 import FeriazText from "@/view/components/svg/feriaz-text";
-import Typography from "@/view/components/text/typography";
+import Typography from "@/view/components/text-container/typography";
 import FormGroup from "@/view/components/form/group";
 import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
@@ -74,6 +74,7 @@ export default function SignUp() {
                           required={true}
                           caption={field.t('signup.phone.caption')+requiredSign} 
                           placeholder={field.t('signup.phone.placehold')}
+                          roundType={FieldRoundEnum.BottonLeft}               
                           />
 
                     <CalendarField
@@ -82,24 +83,9 @@ export default function SignUp() {
                                 placeholder={field.t('signup.born.placehold')}
                                 required={true} 
                                 iconLeft={FieldIconEnum.Calendar}
+                                roundType={FieldRoundEnum.BottonRight}
                             />
               </FormDiv>
-              <InputField  
-                  id="traveler_password"                
-                  iconLeft={FieldIconEnum.Password}
-                  type={FieldTypeEnum.Password} 
-                  required={true}
-                  caption={field.t('signup.password.caption')+requiredSign} 
-                  placeholder={field.t('signup.password.placehold')}/>  
-              <InputField  
-                  id="traveler_password_confirm"                
-                  iconLeft={FieldIconEnum.Password}
-                  type={FieldTypeEnum.Password} 
-                  required={true}
-                  caption={field.t('signup.password-confirm.caption')+requiredSign} 
-                  placeholder={field.t('signup.password-confirm.placehold')} 
-                  roundType={FieldRoundEnum.Button}               
-                />
                 <div className={style['body-form-login-field-required']}>
                   <Typography fontSize="caption3-a" color="white">{field.t('field.required.caption')}</Typography>
                 </div>

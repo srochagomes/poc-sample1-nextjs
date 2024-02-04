@@ -3,7 +3,7 @@ import React from 'react';
 import style from './SimpleDropdownItemComponent.module.scss'; // Adapte o estilo conforme necessário
 import { SimpleDrodownItem } from '..';
 import IconSVG from '@/view/components/icons/icon-svg';
-import Typography from '@/view/components/text/typography';
+import Typography from '@/view/components/text-container/typography';
 
 interface SimpleDropdownItemComponentProps {
   item: SimpleDrodownItem;

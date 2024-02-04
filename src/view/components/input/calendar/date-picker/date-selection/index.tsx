@@ -1,7 +1,7 @@
 import IconClick from '@/view/components/button/icon-click';
 import style from './DateSelection.module.scss'
 import { FieldIconPath } from '@/types/enums/FieldIconPath';
-import Typography from '@/view/components/text/typography';
+import Typography from '@/view/components/text-container/typography';
 import DateElements from './date-elements';
 import DateOperations, { DateFields } from '@/types/date/DateOperations';
 import { useTranslation } from "next-i18next"

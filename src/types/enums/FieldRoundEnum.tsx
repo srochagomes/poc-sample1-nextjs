@@ -4,5 +4,9 @@ export enum FieldRoundEnum {
   Right = "right",
   Left = "left",
   Top = 'top',
-  Button = 'button'
+  Button = 'button',
+  BottonLeft = 'botton-left',
+  BottonRight = 'botton-right',
+  TopLeft = 'top-left',
+  TopRight = 'top-right',
 }

@@ -1,7 +1,7 @@
 
 import ButtonPrimary from '@/view/components/button/primary-button';
 import style from './HowGo.module.scss'
-import Typography from '@/view/components/text/typography';
+import Typography from '@/view/components/text-container/typography';
 import IconClick from '@/view/components/button/icon-click';
 import InputField from '@/view/components/input/text';
 import { FieldIconPath } from "@/types/enums/FieldIconPath";

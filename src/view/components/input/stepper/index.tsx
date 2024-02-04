@@ -1,7 +1,7 @@
 import IconClick from '@/view/components/button/icon-click';
 import React, { useState, ChangeEvent, useEffect } from 'react';
 import style from './StepperControl.module.scss'
-import Typography from '@/view/components/text/typography';
+import Typography from '@/view/components/text-container/typography';
 import { ItemPositionEnum } from '@/types/enums/ItemPosition';
 import { ComponentTypeEnum } from '@/types/enums/ComponentTypeEnum';
 import { generateInputRandomId } from '@/types/utils/MathFunctions';

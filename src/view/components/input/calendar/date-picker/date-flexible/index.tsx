@@ -1,4 +1,4 @@
-import Typography from '@/view/components/text/typography';
+import Typography from '@/view/components/text-container/typography';
 import style from './DateFlexible.module.scss'
 import GroupSelectingButton from '@/view/components/button/group-selecting';
 import DateOperations, { DateFields } from '@/types/date/DateOperations';

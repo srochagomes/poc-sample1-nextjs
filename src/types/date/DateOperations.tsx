@@ -62,6 +62,11 @@ const DateOperations = {
         const dayData = date.day?date.day:1;
         
         return new Date(yearData, monthData-1, dayData);
+    },
+    
+    formatDate: (valorLong: number, codigoIdioma:string) :string => {    
+      const data = new Date(valorLong);
+      return data.toLocaleDateString(codigoIdioma);
     }
   
 }

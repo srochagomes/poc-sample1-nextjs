@@ -3,7 +3,7 @@ import style from './TripPeoplePopup.module.scss'
 import StepperControl from "@/view/components/input/stepper";
 import { ItemPositionEnum } from "@/types/enums/ItemPosition";
 import LinkAction from "@/view/components/link/action";
-import Typography from "@/view/components/text/typography";
+import Typography from "@/view/components/text-container/typography";
 import ButtonPrimary from "@/view/components/button/primary-button";
 import { MinorAgeData, PeopleData } from "..";
 

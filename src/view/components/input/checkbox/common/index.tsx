@@ -1,4 +1,4 @@
-import Typography from "@/view/components/text/typography";
+import Typography from "@/view/components/text-container/typography";
 import { useState } from "react";
 
 interface Option {

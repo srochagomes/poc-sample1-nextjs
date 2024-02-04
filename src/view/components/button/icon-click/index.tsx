@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./IconClick.module.scss"
 import Image from 'next/image';
-import Typography from "@/view/components/text/typography";
+import Typography from "@/view/components/text-container/typography";
 import IconSVG from "@/view/components/icons/icon-svg";
 
 

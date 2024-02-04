@@ -1,7 +1,7 @@
 
 import ButtonPrimary from '@/view/components/button/primary-button';
 import style from './whereStayHowGo.module.scss'
-import Typography from '@/view/components/text/typography';
+import Typography from '@/view/components/text-container/typography';
 import InputField from '@/view/components/input/text';
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";

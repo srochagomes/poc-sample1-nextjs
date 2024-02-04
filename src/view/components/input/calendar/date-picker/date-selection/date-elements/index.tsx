@@ -1,4 +1,4 @@
-import Typography from '@/view/components/text/typography';
+import Typography from '@/view/components/text-container/typography';
 import style from './DateElements.module.scss'
 import DateOperations from '@/types/date/DateOperations';
 import { useTranslation } from "next-i18next"

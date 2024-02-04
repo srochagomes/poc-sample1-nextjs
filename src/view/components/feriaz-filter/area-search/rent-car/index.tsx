@@ -1,7 +1,7 @@
 
 import ButtonPrimary from '@/view/components/button/primary-button';
 import style from './RentCar.module.scss'
-import Typography from '@/view/components/text/typography';
+import Typography from '@/view/components/text-container/typography';
 import FormGroup from '@/view/components/form/group';
 import IconClick from '@/view/components/button/icon-click';
 import InputField from '@/view/components/input/text';

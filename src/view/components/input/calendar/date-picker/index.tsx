@@ -47,7 +47,7 @@ function DatePicker(props:Props) {
   
 
     useEffect(() => {
-      if (show && !componentShow){
+      if (show){
         setComponentShow(show);
       }
       
@@ -105,7 +105,7 @@ function DatePicker(props:Props) {
                                 onClickDateFlexible={onClickDateFlexible}
                                 onClickDateFixed={onClickDateFixed}
                                 typeCalendar={typeCalendar}
-                                hasFlexibleDate={true}
+                                hasFlexibleDate={hasFlexibleDate}
                       />
                 </div> 
               

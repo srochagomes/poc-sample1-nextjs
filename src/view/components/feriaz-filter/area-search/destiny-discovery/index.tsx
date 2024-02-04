@@ -1,7 +1,7 @@
 
 import ButtonPrimary from '@/view/components/button/primary-button';
 import style from './DestinyDiscovery.module.scss'
-import Typography from '@/view/components/text/typography';
+import Typography from '@/view/components/text-container/typography';
 import { useTranslation } from 'next-i18next';
 import FormGroup from '@/view/components/form/group';
 import InputField from '@/view/components/input/text';

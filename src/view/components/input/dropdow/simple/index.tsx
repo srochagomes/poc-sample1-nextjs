@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import style from "./SimpleDropdown.module.scss"
-import Typography from "@/view/components/text/typography";
+import Typography from "@/view/components/text-container/typography";
 import IconSVG from "@/view/components/icons/icon-svg";
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";

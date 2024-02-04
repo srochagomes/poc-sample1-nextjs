@@ -1,6 +1,6 @@
 import { useState } from "react";
 import style from "./InputField.module.scss"
-import Typography from "@/view/components/text/typography";
+import Typography from "@/view/components/text-container/typography";
 import IconSVG from "@/view/components/icons/icon-svg";
 import { FieldTypeDetail, FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import style from "./CalendarField.module.scss"
-import Typography from "@/view/components/text/typography";
+import Typography from "@/view/components/text-container/typography";
 import IconSVG from "@/view/components/icons/icon-svg";
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
@@ -13,10 +13,12 @@ import FieldData from "@/types/structure/FieldData";
 import { IMaskInput } from "react-imask";
 import { FieldsProps } from "../text";
 
+import DateOperations from "@/types/date/DateOperations";
+
 
 
 function CalendarField(props:FieldsProps) {
-  const { maxDigits = 10, hasFlexibleDate, permitPeriodChoice, monthsShow, id, caption, width, iconLeft, colorCaprion, roundType, placeholder,dataSource,required = false,} = props;
+  const { maxDigits = 10, hasFlexibleDate = false, permitPeriodChoice = false, monthsShow = 1, id, caption, width, iconLeft, colorCaprion, roundType, placeholder,dataSource,required = false,} = props;
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);  
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [typeCalendar, setTypeCalendar] = useState(TypeCalendar.fixed);
@@ -78,7 +80,11 @@ function CalendarField(props:FieldsProps) {
     setSelectedKeys([]);
   }
 
-  
+  const onClickIconCalendar  = (event:React.MouseEvent<HTMLDivElement>): void =>{    
+    console.log('Click')
+    setShowDatePicker(!showDatePicker);
+  }
+
   const onClickDateFixed  = (event:React.MouseEvent<HTMLDivElement>): void =>{
     
     setTypeCalendar(TypeCalendar.fixed);
@@ -90,7 +96,7 @@ function CalendarField(props:FieldsProps) {
   }
   const onClickConfirm = (event:React.MouseEvent<HTMLButtonElement>): void =>{    
     setShowDatePicker(false);
-    setSelectedKeys([]);
+    setValue(DateOperations.formatDate(parseFloat(selectedKeys[0]),'pt-BR'));
   }
 
   const onSelectDay = (event:React.MouseEvent<HTMLDivElement>, index:number): void =>{
@@ -138,6 +144,7 @@ function CalendarField(props:FieldsProps) {
 
   }
   const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {    
+    setShowDatePicker(false);
     const valorInput: string = event.target.value;
     setValue(valorInput);
   }
@@ -150,8 +157,7 @@ function CalendarField(props:FieldsProps) {
   }
 
   let onBlur = (event: React.FocusEvent<HTMLInputElement>):void => {
-    setSelectedKeys([]);
-    setShowDatePicker(false);
+    setSelectedKeys([]);    
   }
 
   const onAccept = (): void => {
@@ -161,7 +167,7 @@ function CalendarField(props:FieldsProps) {
 
 
   const iconLeftComponent = iconLeft ?
-                  <div className={style['calendarContainer-iconleft']}>
+                  <div className={style['calendarContainer-iconleft']} onClick={onClickIconCalendar}>
                     <div className={style['calendarContainer-iconleft-area']}>
                         <IconSVG path={FieldIconPath[iconLeft]} alt={placeholder} isFill={true} />
                     </div>
@@ -221,7 +227,7 @@ function CalendarField(props:FieldsProps) {
 
                     />
             </div>
-            <DatePicker monthsShow={monthsShow}
+            {showDatePicker && (<DatePicker monthsShow={monthsShow}
                         hasFlexibleDate={hasFlexibleDate}
                         dateBase={dateBase}
                         show={showDatePicker} 
@@ -232,7 +238,7 @@ function CalendarField(props:FieldsProps) {
                         onClickClear={onClickClear} 
                         onClickConfirm={onClickConfirm}
                         onClickDateFlexible={onClickDateFlexible}
-                        onClickDateFixed={onClickDateFixed}/> 
+                        onClickDateFixed={onClickDateFixed}/> )}
     </div>
     
     

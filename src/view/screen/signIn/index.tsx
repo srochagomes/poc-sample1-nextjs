@@ -2,7 +2,7 @@ import { useTranslation } from "next-i18next"
 
 import style from "./SignIn.module.scss"
 import FeriazText from "@/view/components/svg/feriaz-text";
-import Typography from "@/view/components/text/typography";
+import Typography from "@/view/components/text-container/typography";
 import FormGroup from "@/view/components/form/group";
 
 import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";

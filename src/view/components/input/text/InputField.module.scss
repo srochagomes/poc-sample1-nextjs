@@ -28,6 +28,19 @@
     &[data-round='right'] {
         border-radius:  0 10px 10px 0;
     }
+    &[data-round='botton-left'] {
+        border-radius:  0 0 0 10px;
+    }
+    &[data-round='botton-right'] {
+        border-radius:  0 0 10px 0;
+    }
+    &[data-round='top-left'] {
+        border-radius:  10px 0 0 0;
+    }
+    &[data-round='top-right'] {
+        border-radius:  0 10px 0 0;
+    }
+
 
     &-inputArea {
         position: relative;
@@ -72,7 +85,11 @@
     &-caption {
         position: relative;
         margin-bottom: -0.2rem;
-        margin-left: .1rem;                
+        margin-left: .1rem;    
+        > label {
+            white-space: nowrap;
+        }           
+            
     }
 
 
