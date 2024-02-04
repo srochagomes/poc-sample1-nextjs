@@ -23,15 +23,18 @@ export default function SignUp() {
   const btn = useTranslation('button')
   const requiredSign = ' *';
   let fields : FieldData[] = [];
+  let formManager: FormManagerType;
     
     
-  const onValidForm = (formManager: FormManagerType):void=>{
+  const onValidForm = (formMng: FormManagerType):void=>{
+    formManager = formMng;
     fields = formManager.dataSource;
-    console.log('form ok?',formManager.isValidFields())
+    
   }
 
   const handleConfirm = () => {  
-    console.log('Valores', fields);
+    
+    formManager.applyValidation();
 
   }
 
@@ -52,12 +55,14 @@ export default function SignUp() {
                       id="traveler_name"                      
                       iconLeft={FieldIconEnum.FingerPrint}                      
                       type={FieldTypeEnum.Text} 
+                      required={true}
                       caption={field.t('signup.name.caption')+requiredSign} 
                       placeholder={field.t('signup.name.placehold')} 
                       roundType={FieldRoundEnum.Top}/>
               <InputField  
                       id="traveler_email"                      
                       iconLeft={FieldIconEnum.Email}
+                      required={true}
                       type={FieldTypeEnum.Email} 
                       caption={field.t('email.caption')+requiredSign} 
                       placeholder={field.t('email.placehold')} />
@@ -66,30 +71,35 @@ export default function SignUp() {
                           id="traveler_phone"                          
                           iconLeft={FieldIconEnum.PhoneCall}
                           type={FieldTypeEnum.Phone} 
-                          caption={field.t('signup.phone.caption')} 
-                          placeholder={field.t('signup.phone.placehold')+requiredSign}                           
+                          required={true}
+                          caption={field.t('signup.phone.caption')+requiredSign} 
+                          placeholder={field.t('signup.phone.placehold')}
                           />
 
                     <CalendarField
-                                id="traveler_born"                                                                
-                                placeholder={field.t('signup.born.placehold')}   
-                                caption={field.t('signup.born.caption')}   
+                                id="traveler_born"
+                                caption={field.t('signup.born.caption')+requiredSign}                                
+                                placeholder={field.t('signup.born.placehold')}
+                                required={true} 
                                 iconLeft={FieldIconEnum.Calendar}
                             />
               </FormDiv>
               <InputField  
-                id="traveler_password"                
-                iconLeft={FieldIconEnum.Password}
-                type={FieldTypeEnum.Password} 
-                caption={field.t('signup.password.caption')+requiredSign} 
-                placeholder={field.t('signup.password.placehold')}/>  
+                  id="traveler_password"                
+                  iconLeft={FieldIconEnum.Password}
+                  type={FieldTypeEnum.Password} 
+                  required={true}
+                  caption={field.t('signup.password.caption')+requiredSign} 
+                  placeholder={field.t('signup.password.placehold')}/>  
               <InputField  
-                id="traveler_password_confirm"                
-                iconLeft={FieldIconEnum.Password}
-                type={FieldTypeEnum.Password} 
-                caption={field.t('signup.password-confirm.caption')+requiredSign} 
-                placeholder={field.t('signup.password-confirm.placehold')} 
-                roundType={FieldRoundEnum.Button}                />
+                  id="traveler_password_confirm"                
+                  iconLeft={FieldIconEnum.Password}
+                  type={FieldTypeEnum.Password} 
+                  required={true}
+                  caption={field.t('signup.password-confirm.caption')+requiredSign} 
+                  placeholder={field.t('signup.password-confirm.placehold')} 
+                  roundType={FieldRoundEnum.Button}               
+                />
                 <div className={style['body-form-login-field-required']}>
                   <Typography fontSize="caption3-a" color="white">{field.t('field.required.caption')}</Typography>
                 </div>

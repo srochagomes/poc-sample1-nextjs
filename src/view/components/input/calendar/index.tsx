@@ -21,16 +21,23 @@ function CalendarField(props:FieldsProps) {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [typeCalendar, setTypeCalendar] = useState(TypeCalendar.fixed);
   const [value, setValue] = useState("");
+  const [fieldValid, setFieldValid] = useState(true);
   
   const isValid = () : boolean =>{
-    return false;
 
-  }
-  const applyValidation = () : void =>{
-    
+    if (required && (value.length<1 || value.trim().length < 1)){
+       return false;  
+    }else if (!required && (value.length<1 || value.trim().length < 1)){
+      return true;  
+   }
 
+    return FieldTypeDetail.date.regex.test(value);
   }
   
+  const applyValidation = () : void =>{
+    setFieldValid(isValid());
+  }
+
   const dataSourceItem : FieldData = {name:id, isValid,value, applyValidation};
 
   let dateBase = new Date();
@@ -147,6 +154,12 @@ function CalendarField(props:FieldsProps) {
     setShowDatePicker(false);
   }
 
+  const onAccept = (): void => {
+    setFieldValid(true);
+
+  }
+
+
   const iconLeftComponent = iconLeft ?
                   <div className={style['calendarContainer-iconleft']}>
                     <div className={style['calendarContainer-iconleft-area']}>
@@ -184,7 +197,10 @@ function CalendarField(props:FieldsProps) {
             style={{ width: `${width}` }}
             data-round={roundType} data-iconleft={iconLeft?'true':'false'}>
              {iconLeftComponent}
-            <div className={style['calendarContainer-inputArea']} >
+             
+            <div className={fieldValid?
+                  `${style['calendarContainer-inputArea']}`
+                  : `${style['calendarContainer-inputArea']} ${style['calendarContainer-inputArea-error']}`} >
                 {captionComponent}
                 <IMaskInput 
                     id={id}
@@ -199,7 +215,7 @@ function CalendarField(props:FieldsProps) {
                     value={value}
                     onInvalid={()=>eventAssociado('onInvalid')}
                     onComplete={()=>eventAssociado('onComplete')}
-                    onAccept={()=>eventAssociado('onAccept')}
+                    onAccept={onAccept}
                     onCopyCapture={()=>eventAssociado('onCopyCapture')}
                     onCopy={()=>eventAssociado('onCopy')}
 

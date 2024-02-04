@@ -12,13 +12,13 @@ export enum FieldTypeEnum {
 }
 
 export const FieldTypeDetail = {
-  text : {pattern:/./},
-  password : {pattern:/./},
-  number : {pattern:/./},
-  email : {pattern:/./},
+  text : {pattern:/./, regex:/./},
+  password : {pattern:/./, regex:/./},
+  number : {pattern:/./ , regex:/./},
+  email : {pattern:/./ , regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/},
   date : {pattern:'00/00/0000', regex:/^\d{2}\/\d{2}\/\d{4}$/},
-  radio : {pattern:/./},
-  checkbox : {pattern:/./},
-  phone : {pattern:'(00)0000-0000'},
+  radio : {pattern:/./, regex:/./},
+  checkbox : {pattern:/./, regex:/./},
+  phone : {pattern:'(00)0000-0000', regex:/^\(\d{2}\)\d{4}\-\d{4}$/}
 
 }

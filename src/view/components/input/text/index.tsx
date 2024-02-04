@@ -45,20 +45,26 @@ function InputField(props:FieldsProps) {
         } = props;
 
         const [showPassword, setShowPassword] = useState(false);
+        const [fieldValid, setFieldValid] = useState(true);
 
         const [fieldType, setFieldType] = useState(type);
         const [value, setValue] = useState("");
         
         const isValid = () : boolean =>{
 
-          return false;
+          if (required && (value.length<1 || value.trim().length < 1)){
+             return false;  
+          }else if (!required && (value.length<1 || value.trim().length < 1)){
+            return true;  
+          }
 
+          return FieldTypeDetail[type].regex.test(value);
         }
         
         const applyValidation = () : void =>{
-    
-
+          setFieldValid(isValid());
         }
+
 
         const eventAssociado = (text:string) : void =>{
           console.log('Evento ',text);
@@ -66,7 +72,7 @@ function InputField(props:FieldsProps) {
         }
         
         
-        const dataSourceItem : FieldData = {name:id, isValid,value, applyValidation};
+        const dataSourceItem : FieldData = {name:id, isValid , value, applyValidation};
         
         
         const togglePasswordVisibility = () => {
@@ -95,9 +101,16 @@ function InputField(props:FieldsProps) {
 
         
         
-        const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+        const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {                    
+          console.log('Evento ','onChange');
           const valorInput: string = event.target.value;
           setValue(valorInput);
+          setFieldValid(true);
+        }
+
+        const onComplete = (event: React.ChangeEvent<HTMLInputElement>): void => {          
+          console.log('Evento ','onComplete');
+          
         }
         
         
@@ -121,7 +134,10 @@ function InputField(props:FieldsProps) {
             style={{ width: `${width}` }}
             data-iconleft={iconLeft?'true':'false'}>
             {iconLeftComponent}
-            <div className={style['inputContainer-inputArea']} >
+            
+            <div className={fieldValid?
+                  `${style['inputContainer-inputArea']}`
+                  : `${style['inputContainer-inputArea']} ${style['inputContainer-inputArea-error']}`} >
                 {captionComponent}
 
                 
@@ -135,8 +151,8 @@ function InputField(props:FieldsProps) {
                     onChange={onChange}
                     value={value}
                     onInvalid={()=>eventAssociado('onInvalid')}
-                    onComplete={()=>eventAssociado('onComplete')}
-                    onAccept={()=>eventAssociado('onAccept')}
+                    onComplete={(event)=>onComplete}
+
                     onCopyCapture={()=>eventAssociado('onCopyCapture')}
                     onCopy={()=>eventAssociado('onCopy')}
                     />

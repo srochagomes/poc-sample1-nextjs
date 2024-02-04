@@ -33,7 +33,7 @@ export default function PrincipalHome() {
   ];
 
   applicationSession.register().then((obj)=>{
-    console.log("Aplicação registrada retornmo ",obj);
+    console.log("Aplicação registrada retorno ",obj);
   });
 
   return (

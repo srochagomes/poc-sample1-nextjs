@@ -40,6 +40,22 @@
         overflow: hidden;
         flex-grow: 1;
         width: auto;
+
+        &-error{
+
+            > div > label{
+                color: red;
+            }
+
+            > input {
+                color: red;
+            }
+
+            ::placeholder {
+                color: red;
+              }
+
+        }
         
         
     }

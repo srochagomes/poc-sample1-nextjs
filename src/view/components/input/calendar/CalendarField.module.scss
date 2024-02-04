@@ -37,6 +37,23 @@
         > input[type="date"]::-webkit-calendar-picker-indicator {
             display: none;
         }
+
+        &-error{
+
+            > div > label{
+                color: red;
+            }
+
+            > input {
+                color: red;
+            }
+            ::placeholder {
+                color: red;
+            }
+            
+
+        }
+
     }
 
 
