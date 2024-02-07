@@ -5,8 +5,8 @@ node_modules/
 .next/
 out/
 
-# Arquivos de configuração
-.env
+# # Arquivos de configuração
+# .env
 
 # Arquivos de log
 *.log
