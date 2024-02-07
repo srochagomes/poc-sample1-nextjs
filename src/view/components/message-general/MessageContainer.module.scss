@@ -1,0 +1,31 @@
+.message-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #3498db; /* Cor de fundo da mensagem */
+    color: #fff; /* Cor do texto da mensagem */
+    padding: 1.5vh;
+    text-align: center;
+    display: none; /* Inicia oculta por padrão */
+    z-index: 999; /* Garante que a div está acima de outros elementos */
+    height: 6vh;
+    
+    &[data-message-type='warn'] {
+      background-color: #f0c27c; /* Cor de fundo da mensagem */
+    }
+
+    &[data-message-type='error'] {
+      background-color: #f31c00; /* Cor de fundo da mensagem */
+    }
+
+    &-message{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      > div{
+        padding-bottom: 0.5vh;
+      }
+      
+    }
+  }

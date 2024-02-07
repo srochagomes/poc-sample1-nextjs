@@ -9,6 +9,7 @@ i18n
   .use(initReactI18next);
 
 export async function getStaticProps({ locale }:any) {
+
     return {
         props: {
             ...(await serverSideTranslations(

@@ -15,11 +15,15 @@ import InstructionsFeriaz from "./instructions"
 import SimpleCarousel from "@/view/components/carousel/simple"
 import CardInformation from "./cards"
 import applicationSession from "@/domain/model/session/ApplicationSession"
+import { useRouter } from "next/router"
+import { useEffect } from "react"
 
  
-
-
 export default function PrincipalHome() {
+  const router = useRouter();
+  const { pathname, query } = router;
+  let { requiredUser, emailConfirmed, socialLogin, code } = query;    
+  
   const common = useTranslation('common')
 
   const imagesPatners = [
@@ -31,6 +35,17 @@ export default function PrincipalHome() {
     FieldImagePath.PatnerZarpo
     
   ];
+
+  useEffect(() => {      
+      
+    if(emailConfirmed){         
+      router.push({
+        pathname: '/signUp',
+        query: query
+      })
+    }
+          
+  }, [requiredUser, emailConfirmed, socialLogin, code])
 
   applicationSession.register().then((obj)=>{
     console.log("Aplicação registrada retorno ",obj);

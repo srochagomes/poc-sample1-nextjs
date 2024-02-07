@@ -10,8 +10,8 @@ $size-height: 9vh;
     height: $size-height;
     
     &[data-size='big'] {
-        width: 13vw;
-        height: 13vh;
+        width: 20vw;
+        height: 20vh;
     }
 
     @media screen and (max-width: $resolution-tablet-md) {

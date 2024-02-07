@@ -6,6 +6,9 @@ const account = {
      create(newAccount:INewAccount){
         return accountManager.createNew(newAccount)
             .then((response)=> {
+
+                return response;
+            }).catch((response)=> {
                 return response;
             })
 

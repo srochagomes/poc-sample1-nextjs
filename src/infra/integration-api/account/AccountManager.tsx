@@ -24,11 +24,21 @@ const accountManager = {
             return dataReturn;
           })
           .catch((error) => {
-            
-            return {
-                status: error?.response?.status,
-                statusText: error?.response?.statusText,
-                data: error.response?.data                
+
+            if (error?.data?.code){
+                return {
+                    status: error?.data?.code,
+                    statusText: error?.data?.message,
+                    data: error?.data              
+                }
+
+            }else {
+                return {
+                    status: error?.response?.status,
+                    statusText: error?.response?.statusText,
+                    data: error.response?.data 
+                }
+    
             }
           }); 
     }

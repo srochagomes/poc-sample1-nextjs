@@ -3,5 +3,7 @@ interface INewAccount {
     username: string,
     name: string,
     email: string,
+    phone: string,
+    dateBirth: string,
     termAccept: Boolean
 }

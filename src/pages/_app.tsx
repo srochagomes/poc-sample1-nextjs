@@ -5,6 +5,9 @@ import { appWithTranslation } from 'next-i18next';
 import "@/view/styles/_reset.scss" 
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import { Provider } from 'react-redux';
+import store from '@/manager-state';
+import MessageContainer from '@/view/components/message-general';
 
 i18n
   .use(initReactI18next);
@@ -17,17 +20,30 @@ type CustomAppProps = AppProps & {
 
 
 function App({ Component, pageProps }: CustomAppProps) {
+
+
+
+
+
+
   return (
     <>
-        <Head>
-          <title>Home</title>
-        </Head>
-        <PrincipalLayout>
-          <Component {...pageProps} />
-        </PrincipalLayout>   
+      <Provider store={store}>
+              <Head>
+                <title>Home</title>
+              </Head>
+              <MessageContainer/>
+              <PrincipalLayout>
+                <Component {...pageProps} />
+              </PrincipalLayout>   
+
+      </Provider>
     </>
 
   );
 }
+
+
+
 
 export default appWithTranslation(App);

@@ -63,7 +63,7 @@ export const callAPI = (baseURL: string, tokenAdapterManager?: IAPIManager) => {
 
 export const connectServiceHttp = {  
     toAPI :{
-      withoutToken:()=> callAPI(`${process.env.NEXT_PUBLIC_APIGATEWAY_BASE_URL}`),
+      withoutToken:()=> callAPI(`${process.env.NEXT_PUBLIC_APIGATEWAY_BASE_URL}`),      
       asApp:()=> callAPI(`${process.env.NEXT_PUBLIC_APIGATEWAY_BASE_URL}`, applicationAdapter),
       asUser:()=> callAPI(`${process.env.NEXT_PUBLIC_APIGATEWAY_BASE_URL}`, userAdapter),
     },
