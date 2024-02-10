@@ -2,6 +2,8 @@ import accessTokenRepository from "@/infra/repository/cookies/AccessTokenReposit
 import identity from "@/infra/integration-api/server/IdentityConnect"
 import { HttpStatusCode } from "axios";
 import jwt, { JwtPayload } from 'jsonwebtoken'
+import dataRepository from "@/infra/repository/cookies/DataRepository";
+import DateOperations from "@/types/date/DateOperations";
 
 
 const writeTokenData = (authAPIData: IAPIReturn): void =>{    
@@ -9,7 +11,15 @@ const writeTokenData = (authAPIData: IAPIReturn): void =>{
   if (!access_token_id){
     throw new Error('Access token id not found');
   }
-  accessTokenRepository.save(access_token_id, authAPIData.data.access_token);
+
+  let date_access =  process.env.NEXT_PUBLIC_DATETIME_ACCESS;
+  if (!date_access){
+    throw new Error('Date access not configured.');
+  }
+
+  accessTokenRepository.save(access_token_id, authAPIData.data.access_token);    
+  dataRepository.save(date_access, authAPIData.data.date_ref_exp);
+
 }
 
 
@@ -32,9 +42,26 @@ const applicationSession = {
         
     },
     register(){
+      let date_access =  process.env.NEXT_PUBLIC_DATETIME_ACCESS;
+      if (!date_access){
+        throw new Error('Date access not configured.');
+      }
+
+      let dateTimeValue = dataRepository.get(date_access);
+      let refreshTokenDateExp = new Date().getTime()+((dateTimeValue?dateTimeValue:0) as number);
+      let isNotExpired = refreshTokenDateExp > new Date().getTime();
+      let noNeedUpdateRefresh = isNotExpired && dateTimeValue;
+
+      if (noNeedUpdateRefresh){
+         return new Promise((resolve) => {
+            
+          });
+      }      
+
       return identity.getTokenApp()
       .then((appDataAPI:IAPIReturn)=> {
         if (appDataAPI.status === HttpStatusCode.Ok){
+          console.log('Retorno =',appDataAPI) 
           writeTokenData(appDataAPI);
         }
         return appDataAPI;

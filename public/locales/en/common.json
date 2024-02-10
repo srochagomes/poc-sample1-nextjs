@@ -53,7 +53,18 @@
     "link.feriaz.world.caption":"FÉRIAZ WORLD's",
     "feriaz.company.name.caption":"FERIAZ AGENCIA DE TURISMO LTDA",
     "feriaz.company.documents.caption":"CNPJ: 50.540.973/0001-91",
-    "feriaz.company.address.caption":"RUA XINGU, 15. SÃO PAULO -SP - 06535-120"
+    "feriaz.company.address.caption":"RUA XINGU, 15. SÃO PAULO -SP - 06535-120",
+    "sign-up.new-password-caption":"Create your password",
+    "sign-up.email-sended.caption":"It was sended an e-mail to you.",
+    "sign-up.email-sended-confirm.caption":", verify your e-mail to continue the process!",
+    "message.feriaz.warn-default.message": "The operation could not be completed, please try again later.",
+    "message.feriaz.success-default.message": "Operation completed successfully!",
+    "message.feriaz.success-password.message": "Password created successfully!",
+    "message.feriaz.login.success.message": "User login successfully!",
+    "message.feriaz.login.notfound.message": "User not found!",
+    "message.feriaz.login.notpermitedd.message": "User not permited acess!",
+    "message.feriaz.login.unexpected.message": "User access unexpected!"
+
     
 
 

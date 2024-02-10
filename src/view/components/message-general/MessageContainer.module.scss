@@ -9,7 +9,8 @@
     text-align: center;
     display: none; /* Inicia oculta por padrão */
     z-index: 999; /* Garante que a div está acima de outros elementos */
-    height: 6vh;
+    min-height: 6vh;
+    height: auto;
     
     &[data-message-type='warn'] {
       background-color: #f0c27c; /* Cor de fundo da mensagem */
@@ -22,9 +23,22 @@
     &-message{
       width: 100%;
       display: flex;
+      align-items: center;
       flex-direction: column;
-      > div{
-        padding-bottom: 0.5vh;
+      &-header{
+        padding-bottom: 1vh;
+      }
+
+      &-itens{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        > ul > li {
+          padding-bottom: 0.5vh;
+          list-style-type: disc;
+          text-align: left;
+        }
+        
       }
       
     }

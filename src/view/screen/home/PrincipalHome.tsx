@@ -16,15 +16,25 @@ import SimpleCarousel from "@/view/components/carousel/simple"
 import CardInformation from "./cards"
 import applicationSession from "@/domain/model/session/ApplicationSession"
 import { useRouter } from "next/router"
+
+import { GetServerSidePropsContext } from "next"
+import { useDispatch, useSelector } from "react-redux"
+import { verifyUserLogged } from "@/manager-state/reducers/logged/LoggedState"
 import { useEffect } from "react"
 
  
 export default function PrincipalHome() {
   const router = useRouter();
   const { pathname, query } = router;
-  let { requiredUser, emailConfirmed, socialLogin, code } = query;    
+  let { requiredUser, emailConfirmed, socialLogin, code } = query; 
+  const loggedState = useSelector((state:any) => state.userLoggedContainerState);     
   
   const common = useTranslation('common')
+  const dispatch = useDispatch();
+ 
+  useEffect(() => {
+    dispatch(verifyUserLogged());
+  }, [])
 
   const imagesPatners = [
     FieldImagePath.Patner123,
@@ -38,12 +48,13 @@ export default function PrincipalHome() {
 
   useEffect(() => {      
       
-    if(emailConfirmed){         
-      router.push({
-        pathname: '/signUp',
-        query: query
-      })
-    }
+    // if(emailConfirmed){         
+    //   router.push({
+    //     pathname: '/signUp',
+    //     query: query
+    //   })
+      
+//    }
           
   }, [requiredUser, emailConfirmed, socialLogin, code])
 
@@ -204,3 +215,4 @@ export default function PrincipalHome() {
     </>
   )
 }
+

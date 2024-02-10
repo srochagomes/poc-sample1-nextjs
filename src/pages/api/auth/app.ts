@@ -1,9 +1,12 @@
+import jwt, { JwtPayload } from 'jsonwebtoken'
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { GetServerSidePropsContext } from 'next';
 import accessManagerAPI from '@/infra/integration-api/auth/AccessManager';
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 import refreshTokenStoreService from '@/domain/model/auth/RefreshTokenStoreService';
+
+
 
 type Data = {
   name: string
@@ -15,13 +18,14 @@ const controllers = {
     
     let client_id = process.env.NEXT_PUBLIC_APP_CLIENT_ID;
     let client_secret = process.env.APP_CLIENT_SECRET;
+    
     if (!client_id){
       throw new Error('Client id not configured.');
     }
     if (!client_secret){
       throw new Error('Client secret not configured.');
     }
-    
+
     let credential = {
       client_id,
       client_secret,      
@@ -30,16 +34,18 @@ const controllers = {
     }
 
     let apiReturn : IAPIReturn = await accessManagerAPI.getCredentialAccess(credential);
+    let dateTimeRefresh: any;
     
     if (apiReturn?.data?.refresh_token){
       refreshTokenStoreService.toApp(apiReturn.data.refresh_token, res);
-      //remover o refreshtoken por segurança
+      let decodedIdTokenData: JwtPayload|null = jwt.decode(apiReturn.data.refresh_token) as JwtPayload;              
+      dateTimeRefresh = decodedIdTokenData?.exp;
       delete apiReturn.data.refresh_token;
     }
 
-
     return res.status(apiReturn.status).json({
       ...apiReturn.data,
+      date_ref_exp: dateTimeRefresh
     });
   }
   

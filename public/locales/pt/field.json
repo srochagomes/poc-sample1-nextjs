@@ -15,6 +15,13 @@
     "signup.password.placehold": "Senha",
     "signup.password-confirm.caption": "INSIRA A CONFIRMAÇÃO DA SENHA",
     "signup.password-confirm.placehold": "Confirmação da senha",
+    "signup.passwords-requires.caption": "Senhas inválidas",
+    "signup.passwords-patterns-1.caption": "Deve conter pelo menos uma letra minúscula.",
+    "signup.passwords-patterns-2.caption": "Deve conter pelo menos uma letra maiúscula.",
+    "signup.passwords-patterns-3.caption": "Deve conter pelo menos um número",
+    "signup.passwords-patterns-4.caption": "Deve conter pelo menos um dos caracteres especiais listados: [@$!%*?&].",
+    "signup.passwords-patterns-5.caption": "Deve ter no mínimo 8 caracteres.",    
+    "signup.passwords-patterns-6.caption": "A Senha não confere com a Senha de confirmação.",    
     "field.required.caption":"* campos obrigatórios"
 
 

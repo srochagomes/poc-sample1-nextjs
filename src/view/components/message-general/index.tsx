@@ -32,11 +32,19 @@ const MessageContainer = () => {
   return (
     <div className={style['message-container']} style={{ display: messagemWindow.open ? 'block' : 'none' }} data-message-type={messagemWindow.type}>
       <div className={style['message-container-message']} >
-        <div>
+        <div className={style['message-container-message-header']}>
           <Typography fontSize="H3" color="white" weight='bold' >{messagemWindow.title?messagemWindow.title:'Sem título'}</Typography>
         </div>
-        <div>
-          <Typography fontSize="H5" color="white">{messagemWindow.message?messagemWindow.message:'Sem messagem'}</Typography>      
+
+        <div className={style['message-container-message-itens']}>
+          <ul>
+        {messagemWindow.message ?messagemWindow.message.map((msg, index) => (
+          
+          <li key={index}>
+              <Typography fontSize="H5" color="white">{msg}</Typography>
+          </li>          
+          )):<Typography fontSize="H5" color="white">'Sem messagem'</Typography>}
+            </ul>
         </div>
         
 

@@ -1,30 +1,68 @@
 import { useTranslation } from "next-i18next"
 import style from "./AreaLogin.module.scss"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import IconSelecting from "@/view/components/button/icon-selecting";
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import IconSVG from "@/view/components/icons/icon-svg";
 import { Router, useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import Typography from "@/view/components/text-container/typography";
+import userSession from "@/domain/model/session/UserSession";
+import { verifyUserLogged } from "@/manager-state/reducers/logged/LoggedState";
+import LinkAction from "@/view/components/link/action";
 
 export default function AreaLogin() {
     const [menuSelected, setMenuSelected] = useState(false);
     const router = useRouter(); // Add useRouter hook
-    
+    const loggedState = useSelector((state:any) => state.userLoggedContainerState);  
+    const dispatch = useDispatch();
+
     const menuClicked = () : void => {
         router.push('/signIn');
     }
-  
+
+    let userName = loggedState.logged?loggedState.given_name : 'Anonimous';
+
+    const menuLoggedClicked = () : void => {
+        setMenuSelected(!menuSelected);
+    }
+
+    const handleLogout = () => {
+        userSession.logout().then((response)=>{      
+          dispatch(verifyUserLogged());  
+        });
+      };
+      
     const { t } = useTranslation('common')
 
     return (    
         <>   
-            <div className={menuSelected? `${style['AreaLogin']} ${style['AreaLogin-show']}`: `${style['AreaLogin']}`}>
-            <IconSelecting isSelected={menuSelected} 
+            <div className={ style['AreaLogin'] }>
+            {loggedState.logged?
+                    <div className={menuSelected? `${style['AreaLogin-userLogged']} ${style['AreaLogin-userLogged-show']}`: `${style['AreaLogin-userLogged']}`} onClick={menuLoggedClicked}>                    
+                        <div className={ style['AreaLogin-userLogged-img'] }>
+                            <IconSVG path={FieldIconPath.profile_circle} alt="Como Chegar e onde ficar" isFill={true} />
+                        </div>
+                        <Typography fontSize="caption1" weight="bold" color="white">{userName}</Typography>
+                        <nav>
+                            <ul>
+                                <li><LinkAction onClick={()=>false}>Perfil</LinkAction> </li>
+                                <li><LinkAction onClick={handleLogout}>Logout</LinkAction> </li>
+                            </ul>
+                        </nav>                            
+
+
+                    </div>
+                :
+                <IconSelecting isSelected={menuSelected} 
                             normal={IconesEnum.BUTTON_MENU.normal} 
                             whenSelected={IconesEnum.BUTTON_MENU.selected}                      
-                            onClick={menuClicked}
+                            onClick={menuClicked}                            
                             width={"7vw"}
                             height={"4vh"}/>
+            }
+            
+                
             </div> 
             
         </>
@@ -34,7 +72,7 @@ export default function AreaLogin() {
 
 const IconesEnum = {
     BUTTON_MENU: { selected: (
-                            <IconSVG path={FieldIconPath.profile_circle} alt="Como Chegar e onde ficar" isFill={true}/>
+                            <IconSVG path={FieldIconPath.profile_circle} alt="Como Chegar e onde ficar" isFill={true} />
                             ),
                      normal: (
                              <IconSVG path={FieldIconPath.profile_circle} alt="Como Chegar e onde ficar" isFill={true} />

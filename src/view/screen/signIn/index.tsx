@@ -13,6 +13,16 @@ import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import LinkFoward from "@/view/components/link/foward";
 import InputField from "@/view/components/input/text";
+import FormManagerType from "@/types/structure/FormManageType";
+import FieldData from "@/types/structure/FieldData";
+import userSession from "@/domain/model/session/UserSession";
+import { HttpStatusCode } from "axios";
+import { useDispatch } from "react-redux";
+import { openMessage } from "@/manager-state/reducers/message/MessageState";
+import { MessageStyle } from "@/types/enums/MessageStyles";
+import { encryptData } from "@/types/utils/CryptoValue";
+import { verifyUserLogged } from "@/manager-state/reducers/logged/LoggedState";
+import { useRouter } from "next/router";
 
 
 
@@ -20,10 +30,57 @@ export default function SignIn() {
   const common = useTranslation('common')
   const field = useTranslation('field')
   const btn = useTranslation('button')
+  let formManager: FormManagerType;
+  const dispatch = useDispatch();
+  const router = useRouter();
   
-
-  const handleAccessConfirm = (dataForm:any) => {  
+  const onValidForm = (formMng: FormManagerType):void=>{
+    formManager = formMng;
   }
+
+  const processLogin = (dataForm:FieldData[]) => {  
+    let data = process.env.NEXT_PUBLIC_KEY_CRIPTO;
+    if(!data){
+      throw new Error('Key encript should be informed.');
+    }
+
+    console.log('valor ',dataForm)
+    let user : IUserAuth = {
+      username: dataForm[0].value,
+      password: encryptData(dataForm[1].value, data)
+    }
+
+    userSession.register(user)
+          .then((body)=>{            
+            if (body.status !== HttpStatusCode.Ok){
+               if (body.status == HttpStatusCode.NotFound) 
+                  dispatch(openMessage({type:MessageStyle.WARN, title:'Login',message:[common.t('message.feriaz.login.notfound.message')]}))               
+               if (body.status == HttpStatusCode.Unauthorized) 
+                  dispatch(openMessage({type:MessageStyle.WARN, title:'Login',message:[common.t('message.feriaz.login.notpermitedd.message')]}))
+               else if (body.status == HttpStatusCode.Forbidden) 
+                  dispatch(openMessage({type:MessageStyle.WARN, title:'Login',message:[common.t('message.feriaz.login.notpermitedd.message')]}))
+               else 
+                  dispatch(openMessage({type:MessageStyle.WARN, title:'Login',message:[common.t('message.feriaz.login.unexpected.message')]}))
+            }else{             
+              dispatch(openMessage({type:MessageStyle.INFO, title:'Login',message:[common.t('message.feriaz.login.success.message')]}))              
+              dispatch(verifyUserLogged());
+              router.push('/');
+            }
+          });    
+    
+
+  }
+
+  const handleConfirmLogin = () => { 
+    
+    formManager.applyValidation();
+    if (formManager.isValidFields()){
+      let ds = formManager.dataSource;  
+      processLogin(ds);
+    }
+
+  }
+
 
   return (
     <>      
@@ -37,9 +94,10 @@ export default function SignIn() {
         </div>
 
         <div className={style['body-form-login']}>
-          <FormGroup>
+          <FormGroup applyOnValidForm={onValidForm}>
               <InputField  
                       id="email"
+                      required={true}
                       iconLeft={FieldIconEnum.Email}
                       type={FieldTypeEnum.Email} 
                       caption={field.t('email.caption')} 
@@ -47,6 +105,7 @@ export default function SignIn() {
                       roundType={FieldRoundEnum.Top}/>
               <InputField  
                 id="password"
+                required={true}
                 iconLeft={FieldIconEnum.Password}
                 type={FieldTypeEnum.Password} 
                 caption={field.t('password.caption')} 
@@ -58,7 +117,7 @@ export default function SignIn() {
 
           </FormGroup>          
           <div className={style['body-form-login-button']}>
-            <ButtonPrimary>
+            <ButtonPrimary onClick={handleConfirmLogin}>
               {btn.t('login.button')}
             </ButtonPrimary>
           </div>

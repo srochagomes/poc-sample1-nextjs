@@ -51,6 +51,8 @@ const controllers = {
       typeRefresh===USER_TYPE ?
         refreshTokenStoreService.toUser(apiReturn.data.refresh_token, res)
         :refreshTokenStoreService.toApp(apiReturn.data.refresh_token, res);
+
+        
       delete apiReturn.data.refresh_token;
     }
     

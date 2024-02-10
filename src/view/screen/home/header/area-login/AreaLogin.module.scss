@@ -5,9 +5,75 @@
   display: flex;
   
   margin-right: 0.5rem;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+  justify-items: center;
   justify-content: flex-end;
   cursor: pointer;
+
+  
+  
+  &-userLogged{
+    position: relative;
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    &-img{
+      position: relative;
+      height: 5vh;
+      width: 5vw;
+    }
+
+    > span {
+      margin-top: 0.1vh;
+    }
+    & > nav {    
+      margin-top: 1.5rem;
+      z-index: 1;
+      background-color: $color-principal;
+      opacity: 0; /* Opacidade inicial */
+      visibility: hidden; /* Tornar invisível por padrão */
+      transition: opacity 0.3s ease, visibility 0.3s ease; /* Adicionar transição */
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      padding: 1rem;
+      top: 100%; /* Posicionar abaixo do HeaderMenu */
+      left: -5vw;
+  
+      & > ul {
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+  
+        & > li {
+          padding-left: 1rem;
+          margin-bottom: 5rem; 
+  
+          & > a {
+            text-decoration: none;
+            color: $color-clear;
+            font-size: 1.3rem;
+            font-weight: bold;
+            white-space: nowrap; /* Evitar quebra de linha */
+  
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  
+    &-show > nav {
+      opacity: 0.9; /* Exibir quando a classe -show está presente */
+      visibility: visible;
+    }
+  }
+
 
 }

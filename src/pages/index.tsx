@@ -3,9 +3,28 @@ import PrincipalHome from "@/view/screen/home/PrincipalHome";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import nextI18NextConfig from 'next-i18next.config.js'
-import { appWithTranslation } from "next-i18next";
+import { GetServerSidePropsContext } from "next";
 
-export async function getStaticProps({ locale }:any) {
+
+export async function getServerSideProps(context:GetServerSidePropsContext) {
+    const { query } = context;
+    const { emailConfirmed } = query;
+    const { locale='ptBR' } = context;
+
+    
+    
+    if (emailConfirmed) {
+      console.log('Executa redirect')
+      return {
+        redirect: {
+          destination: '/signUp?emailConfirmed='+emailConfirmed,          
+          context,
+          permanent: false,
+        },
+      };
+    }
+  
+
     return {
         props: {
             ...(await serverSideTranslations(
@@ -18,6 +37,5 @@ export async function getStaticProps({ locale }:any) {
   }
 
   
-
 export default PrincipalHome;
 

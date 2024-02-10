@@ -5,6 +5,7 @@ import loggedRepository from "@/infra/repository/user/LoggedRepository";
 import jwt, { JwtPayload } from 'jsonwebtoken'
 import accessManager from "@/infra/integration-api/auth/AccessManager";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
+import { Console } from "console";
 
 
 const writeTokenData = (authAPIData: IAPIReturn): void =>{
@@ -48,6 +49,7 @@ const userSession = {
       let token = accessTokenRepository.get(access_token_id);            
       if (token){        
         let userLogged = loggedRepository.get(user_data_key);
+        console.log('payload',userLogged)
         if (userLogged){
 
           return {

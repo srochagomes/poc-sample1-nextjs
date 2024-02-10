@@ -1,16 +1,17 @@
+import DateOperations from "@/types/date/DateOperations";
 import { ONE_DAY } from "@/types/utils/FrameTimer"
 import { parseCookies, setCookie, destroyCookie } from 'nookies';
 
-const accessTokenRepository = {
+const dataRepository = {
 
-    save(access_token_id: string, newAccessToken: string) {    
-
-        if (!access_token_id){
-            throw new Error('Access token id should be informed.');
+    save(data_id: string, value: any) {    
+        
+        if (!data_id){
+            throw new Error('Data_id id should be informed.');
         }
         
         
-        setCookie(null, access_token_id, newAccessToken, {            
+        setCookie(null, data_id, value, {            
             sameSite: 'lax',
             maxAge: ONE_DAY,
             path: '/'
@@ -18,12 +19,12 @@ const accessTokenRepository = {
     
     },
 
-    get(access_token_id:string){
+    get(data_id:string){
 
         const cookies = parseCookies();        
-        const accessToken = cookies[access_token_id]
+        const accessToken = cookies[data_id]
         if (accessToken){
-            return cookies[access_token_id];
+            return cookies[data_id];
         }
 
         return null;
@@ -35,4 +36,4 @@ const accessTokenRepository = {
     
 }
 
-export default accessTokenRepository;
+export default dataRepository;

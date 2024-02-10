@@ -15,13 +15,16 @@ import FieldData from "@/types/structure/FieldData";
 import FormDiv from "@/view/components/form/div-container";
 import FormManagerType from "@/types/structure/FormManageType";
 import account from "@/domain/model/account/Account";
-import { HttpStatusCode } from "axios";
+import { AxiosResponse, HttpStatusCode } from "axios";
 import applicationSession from "@/domain/model/session/ApplicationSession";
 import { useDispatch } from "react-redux";
 import { openMessage } from "@/manager-state/reducers/message/MessageState";
 import { MessageStyle } from "@/types/enums/MessageStyles";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { encryptData } from "@/types/utils/CryptoValue";
+import userSession from "@/domain/model/session/UserSession";
+import { verifyUserLogged } from "@/manager-state/reducers/logged/LoggedState";
 
 
 
@@ -29,8 +32,7 @@ export default function SignUp() {
   const common = useTranslation('common')
   const field = useTranslation('field')
   const btn = useTranslation('button')
-  const requiredSign = ' *';
-  let fields : FieldData[] = [];
+  const requiredSign = ' *';  
   let formManager: FormManagerType;
   const [emailSended,setEmailSended] = useState('');
   const [accountCreateSuccess, setAccountCreateSuccess] = useState(false);
@@ -38,12 +40,16 @@ export default function SignUp() {
   const { pathname, query } = router;
   let { requiredUser, emailConfirmed, socialLogin, code } = query;    
   const [emailConfirmedByUser, setEmailConfirmedByUser] = useState(false);
-  const [keyEmailConfirmedByUser, setKeyEmailConfirmedByUser] = useState<string|string[]>([]);
+  const [keyEmailConfirmedByUser, setKeyEmailConfirmedByUser] = useState<string|string>('');
+
+  applicationSession.register().then((obj)=>{
+    console.log("Aplicação registrada retorno ",obj);
+  });
 
   useEffect(() => {      
       
     if(emailConfirmed){         
-      setKeyEmailConfirmedByUser(emailConfirmed);
+      setKeyEmailConfirmedByUser(emailConfirmed.toString());
       setEmailConfirmedByUser(true);
       delete query.emailConfirmed;
       router.replace({
@@ -57,58 +63,74 @@ export default function SignUp() {
 
   const dispatch = useDispatch();
     
+
+  const tryErrorApiFlow = (body:IAPIReturn) : void =>{
+    if (body.status == HttpStatusCode.Unauthorized){
+      dispatch(openMessage({type:MessageStyle.WARN, title:'Cadastro',message:[common.t('message.feriaz.warn-default.message')]}))
+      console.error('Tentativa negada.',body?.data);
+    }else if (body.status == HttpStatusCode.Forbidden) {
+      dispatch(openMessage({type:MessageStyle.WARN, title:'Cadastro',message:[common.t('message.feriaz.warn-default.message')]}))
+      console.error('Tentativa negada.',body?.data);
+
+    }else {           
+      dispatch(openMessage({type:MessageStyle.WARN, title:'Cadastro',message:[common.t('message.feriaz.warn-default.message')]}))
+      console.error('Tentativa negada.',body?.data);          
+    }
+    router.push('/');
+  }
     
   const onValidForm = (formMng: FormManagerType):void=>{
     formManager = formMng;
-    fields = formManager.dataSource;
-    
   }
-
+  
   const handleCreatePassword = (dataForm:FieldData[]) => {   
     
     
     
-      let data = process.env.NEXT_PUBLIC_KEY_CRIPTO;
-      if(!data){
-        throw new Error('Key encript should be informed.');
-      }
-      let applicationData = applicationSession.getData();
-      
-      if(!applicationData){
-        throw new Error('Application not identified, pleas, refresh the application.');
-      }
-      
-      console.log("Dados aplicacao", applicationData) ;
-      console.log("Password", dataForm) ;
 
-      // let newAccount : INewAccount = {
-      //   application: applicationData.clientId,
-      //   name: dataForm.name,
-      //   username: dataForm.email,
-      //   email: dataForm.email,
-      //   termAccept: dataForm.termAccept
-      // }
-      // console.log("Dados formulario", newAccount) ;
-      // account.create(newAccount)
-      // .then((body)=>{            
-      //   if (body.status !== HttpStatusCode.Ok){
-      //     if (body.status == HttpStatusCode.Unauthorized) {
-      //       dispatch(openMessage({type:MessageStyle.WARN, title:'Cadastro',message:'Cadastro não foi realizado, realize novamente mais tarde.'}))
-      //       console.error('Tentativa negada.',body?.data);
-      //     }else if (body.status == HttpStatusCode.Forbidden) {
-      //       dispatch(openMessage({type:MessageStyle.WARN, title:'Cadastro',message:'Cadastro não foi realizado, realize novamente mais tarde.'}))
-      //       console.error('Tentativa negada.',body?.data);
-      //     }else {
-      //       dispatch(openMessage({type:MessageStyle.ERROR, title:'Cadastro',message:'Cadastro não foi realizado, realize novamente mais tarde.'}))
-      //       console.error('Tentativa negada.',body?.data);
-      //     }
-            
-      //   }else{             
-          
-      //     dispatch(openMessage({type:MessageStyle.INFO, title:'Cadastro',message:'Senha registrada com sucesso'}))
-      //   }
-      // });    
-};
+    let accessConfirm : IAccessConfirm = {
+      key: keyEmailConfirmedByUser,
+      value: dataForm[0].value
+    }
+    
+    console.log('dados',accessConfirm)
+
+    
+    
+    account.confirmAccess(accessConfirm)
+    .then((body)=>{            
+      if (body.status !== HttpStatusCode.Ok){
+        tryErrorApiFlow(body);
+        
+      }else{
+        
+        let data = process.env.NEXT_PUBLIC_KEY_CRIPTO;
+        if(!data){
+          throw new Error('Key encript should be informed.');
+        }
+
+        let user : IUserAuth = {
+          username: body?.data?.userLogin,
+          password: encryptData(dataForm[0].value, data)
+        }
+
+        
+    
+        userSession.register(user)
+              .then((body)=>{            
+                if (body.status !== HttpStatusCode.Ok){
+                  tryErrorApiFlow(body);                    
+                }else{
+                  dispatch(openMessage({type:MessageStyle.INFO, title:'Cadastro',message:[common.t('message.feriaz.success-password.message')]}))
+                  dispatch(verifyUserLogged());
+                  router.push('/');
+                }
+            });  
+        
+      }
+    });    
+
+  };
 
   const handleNewAccount = (dataForm:FieldData[]) => {   
     
@@ -121,7 +143,7 @@ export default function SignUp() {
     let applicationData = applicationSession.getData();
     
     if(!applicationData){
-      throw new Error('Application not identified, pleas, refresh the application.');
+      throw new Error('Application not identified, please, refresh the application.');
     }
     
     console.log('dados',dataForm)
@@ -141,21 +163,10 @@ export default function SignUp() {
     account.create(newAccount)
     .then((body)=>{            
       if (body.status !== HttpStatusCode.Created && body.status !== HttpStatusCode.Ok){
-        if (body.status == HttpStatusCode.Unauthorized){
-          dispatch(openMessage({type:MessageStyle.WARN, title:'Cadastro',message:'Cadastro não foi realizado, realize novamente mais tarde.'}))
-          console.error('Tentativa negada.',body?.data);
-        }else if (body.status == HttpStatusCode.Forbidden) {
-          dispatch(openMessage({type:MessageStyle.WARN, title:'Cadastro',message:'Cadastro não foi realizado, realize novamente mais tarde.'}))
-          console.error('Tentativa negada.',body?.data);
-
-        }else {           
-          dispatch(openMessage({type:MessageStyle.WARN, title:'Cadastro',message:'Cadastro não foi realizado, realize novamente mais tarde.'}))
-          console.error('Tentativa negada.',body?.data);          
-        }
-        router.push('/');
+        tryErrorApiFlow(body);
       }else{             
         setEmailSended(dataForm[1].value);
-        dispatch(openMessage({type:MessageStyle.INFO, title:'Cadastro',message:'Successo'}))
+        dispatch(openMessage({type:MessageStyle.INFO, title:'Cadastro',message:[common.t('message.feriaz.success-default.message')]}))
         setAccountCreateSuccess(true);          
       }
     });    
@@ -177,7 +188,23 @@ export default function SignUp() {
     
     formManager.applyValidation();
     if (formManager.isValidFields()){
+      let ds = formManager.dataSource;  
+      if (ds[0].value !== ds[1].value){
+        dispatch(openMessage({type:MessageStyle.WARN, title:field.t('signup.passwords-requires.caption'),
+        message:[field.t('signup.passwords-patterns-6.caption')]}));
+        return;
+
+      }
       handleCreatePassword(formManager.dataSource);
+    }else{
+      console.log('Teste')
+      dispatch(openMessage({type:MessageStyle.WARN, title:field.t('signup.passwords-requires.caption'),
+            message:[field.t('signup.passwords-patterns-1.caption'),
+                     field.t('signup.passwords-patterns-2.caption'),
+                     field.t('signup.passwords-patterns-3.caption'),
+                     field.t('signup.passwords-patterns-4.caption'),
+                     field.t('signup.passwords-patterns-5.caption')
+            ]}))
     }
 
   }
@@ -189,10 +216,15 @@ export default function SignUp() {
         <div className={style['body-welcome']}>
           <Typography fontSize="H2" color="white" weight="extrabold">{common.t('welcome.traveler')}</Typography>
         </div>
-        {!accountCreateSuccess &&
+        {!accountCreateSuccess && !emailConfirmedByUser &&
         (<div className={style['body-welcome-login-caption']}>
           <Typography fontSize="caption1" color="white">{common.t('sign-up.caption')}</Typography>
         </div>)}
+        {emailConfirmedByUser &&
+        (<div className={style['body-welcome-login-caption']}>
+          <Typography fontSize="caption1" color="white">{common.t('sign-up.new-password-caption')}</Typography>
+        </div>)}
+
 
         {accountCreateSuccess?
         ( <div className={style['body-record-success-caption']}>
@@ -207,13 +239,16 @@ export default function SignUp() {
             <InputField  
                 id="traveler_password"                
                 iconLeft={FieldIconEnum.Password}
-                type={FieldTypeEnum.Password} 
+                type={FieldTypeEnum.PasswordCreate} 
+                required={true}
                 caption={field.t('signup.password.caption')+requiredSign} 
-                placeholder={field.t('signup.password.placehold')}/>  
+                placeholder={field.t('signup.password.placehold')}
+                roundType={FieldRoundEnum.Top}/>
               <InputField  
                 id="traveler_password_confirm"                
                 iconLeft={FieldIconEnum.Password}
-                type={FieldTypeEnum.Password} 
+                type={FieldTypeEnum.PasswordCreate} 
+                required={true}
                 caption={field.t('signup.password-confirm.caption')+requiredSign} 
                 placeholder={field.t('signup.password-confirm.placehold')} 
                 roundType={FieldRoundEnum.Button}/>

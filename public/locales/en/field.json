@@ -15,7 +15,15 @@
     "signup.password.placehold": "Password",
     "signup.password-confirm.caption": "INSERT YOUR CONFIRM PASSWORD",
     "signup.password-confirm.placehold": "Confirm password",
+    "signup.passwords-patterns.caption": "\n- \n- \n- \n- ",
+    "signup.passwords-patterns-1.caption": "Must contain at least one lowercase letter.",
+    "signup.passwords-patterns-2.caption": "Must contain at least one uppercase letter.",
+    "signup.passwords-patterns-3.caption": "Must contain at least one number.",
+    "signup.passwords-patterns-4.caption": "Must contain at least one of the following special characters: [@$!%*?&].",
+    "signup.passwords-patterns-5.caption": "Must be at least 8 characters long.",    
+    "signup.passwords-patterns-6.caption": "The password does not match the confirmation password.",    
     "field.required.caption":"* fields required"
+
 
 
 }

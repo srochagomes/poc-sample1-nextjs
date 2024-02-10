@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./InputField.module.scss"
 import Typography from "@/view/components/text-container/typography";
 import IconSVG from "@/view/components/icons/icon-svg";
@@ -50,6 +50,10 @@ function InputField(props:FieldsProps) {
         const [fieldType, setFieldType] = useState(type);
         const [value, setValue] = useState("");
         
+        useEffect(() => {
+          setFieldType(type);
+        }, [type]);
+
         const isValid = () : boolean =>{
 
           if (required && (value.length<1 || value.trim().length < 1)){
@@ -127,6 +131,7 @@ function InputField(props:FieldsProps) {
           
         }
   
+        
 
   return (
     
@@ -144,7 +149,7 @@ function InputField(props:FieldsProps) {
                 <IMaskInput 
                     id={id}
                     mask={FieldTypeDetail[type].pattern as string}
-                    type={type}    
+                    type={fieldType}
                     required={required}
                     placeholder={placeholder}
                     className={style['inputContainer-inputText']}   
@@ -152,7 +157,6 @@ function InputField(props:FieldsProps) {
                     value={value}
                     onInvalid={()=>eventAssociado('onInvalid')}
                     onComplete={(event)=>onComplete}
-
                     onCopyCapture={()=>eventAssociado('onCopyCapture')}
                     onCopy={()=>eventAssociado('onCopy')}
                     />
