@@ -17,12 +17,14 @@ import FormManagerType from "@/types/structure/FormManageType";
 import FieldData from "@/types/structure/FieldData";
 import userSession from "@/domain/model/session/UserSession";
 import { HttpStatusCode } from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { openMessage } from "@/manager-state/reducers/message/MessageState";
 import { MessageStyle } from "@/types/enums/MessageStyles";
 import { encryptData } from "@/types/utils/CryptoValue";
 import { verifyUserLogged } from "@/manager-state/reducers/logged/LoggedState";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import loginSocialRedirect from "@/types/utils/LoginSocialRedirect";
 
 
 
@@ -30,9 +32,49 @@ export default function SignIn() {
   const common = useTranslation('common')
   const field = useTranslation('field')
   const btn = useTranslation('button')
+  const [urlLoginSocial, setUrlLoginSocial] = useState('');
   let formManager: FormManagerType;
   const dispatch = useDispatch();
   const router = useRouter();
+  const loggedState = useSelector((state:any) => state.userLoggedContainerState);     
+
+  
+  
+
+  useEffect(() => {      
+    
+    dispatch(verifyUserLogged());
+    if(loggedState.logged){         
+      router.push({
+        pathname: '/'
+      })
+      dispatch(openMessage({type:MessageStyle.WARN, title:common.t('message.feriaz.login-area.not-permited.caption'),message:[common.t('message.feriaz.login-area.not-permited.message')]}))                    
+   }
+          
+  }, [loggedState.logged])
+
+  useEffect(() => {      
+    let rootIDP = process.env.NEXT_PUBLIC_IDP_BASE_URL
+    let loginSocial = process.env.NEXT_PUBLIC_LOGIN_SOCIAL_START    
+    let clientId = process.env.NEXT_PUBLIC_APP_CLIENT_ID
+    if (!rootIDP){
+      throw new Error("NEXT_PUBLIC_IDP_BASE_URL not found to use");
+    }
+  
+    if (!loginSocial){
+      throw new Error("NEXT_PUBLIC_LOGIN_SOCIAL_START not found to use");
+    }
+  
+    if (!clientId){
+      throw new Error("NEXT_PUBLIC_APP_CLIENT_ID not found to use");
+    }
+    
+    loginSocial = rootIDP+loginSocial.replace(/{{clientId}}/g, clientId).replace(/{{urlRedirect}}/g, loginSocialRedirect.getUrl(window)) 
+    setUrlLoginSocial(loginSocial);
+          
+  }, [])
+
+  
   
   const onValidForm = (formMng: FormManagerType):void=>{
     formManager = formMng;
@@ -81,6 +123,19 @@ export default function SignIn() {
 
   }
 
+  const handleLoginSocialStart = (provider:string) => {
+    
+    let urlLoginSocialIdentityProvider = urlLoginSocial?.replace(/{{identityProvider}}/g, provider)
+
+    console.log('url-login-social', urlLoginSocialIdentityProvider)
+
+    if (urlLoginSocialIdentityProvider){
+      console.log('url login social',urlLoginSocialIdentityProvider);
+      router.push(new URL(urlLoginSocialIdentityProvider));            
+    }
+    
+  };
+
 
   return (
     <>      
@@ -126,7 +181,7 @@ export default function SignIn() {
             <Typography fontSize="caption2" color="white">{common.t('login.or-login-social.caption')}</Typography>
           </div>
           <div className={style['body-button-login-google']}>
-            <ButtonStyle icon={ButtonStyleIconEnum.Google}>              
+            <ButtonStyle icon={ButtonStyleIconEnum.Google} onClick={() => handleLoginSocialStart('google')}>              
               {btn.t('login.goole.button')}
             </ButtonStyle>
           </div>

@@ -49,9 +49,7 @@ const userSession = {
       let token = accessTokenRepository.get(access_token_id);            
       if (token){        
         let userLogged = loggedRepository.get(user_data_key);
-        console.log('payload',userLogged)
         if (userLogged){
-
           return {
             ...userLogged,
             logged:true

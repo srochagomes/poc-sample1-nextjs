@@ -47,17 +47,6 @@ const applicationSession = {
         throw new Error('Date access not configured.');
       }
 
-      let dateTimeValue = dataRepository.get(date_access);
-      let refreshTokenDateExp = new Date().getTime()+((dateTimeValue?dateTimeValue:0) as number);
-      let isNotExpired = refreshTokenDateExp > new Date().getTime();
-      let noNeedUpdateRefresh = isNotExpired && dateTimeValue;
-
-      if (noNeedUpdateRefresh){
-         return new Promise((resolve) => {
-            
-          });
-      }      
-
       return identity.getTokenApp()
       .then((appDataAPI:IAPIReturn)=> {
         if (appDataAPI.status === HttpStatusCode.Ok){

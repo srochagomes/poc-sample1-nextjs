@@ -149,7 +149,7 @@ function InputField(props:FieldsProps) {
                 <IMaskInput 
                     id={id}
                     mask={FieldTypeDetail[type].pattern as string}
-                    type={fieldType}
+                    type={FieldTypeDetail[fieldType].type}
                     required={required}
                     placeholder={placeholder}
                     className={style['inputContainer-inputText']}   
@@ -163,10 +163,8 @@ function InputField(props:FieldsProps) {
             </div>
             
             
-            {type==FieldTypeEnum.Password && (  
-              <div className={style['inputContainer-passwordIcon']}
-                  
-              >
+            {FieldTypeDetail[type].type==FieldTypeEnum.Password  && (  
+              <div className={style['inputContainer-passwordIcon']}>
                 <div className={style['inputContainer-passwordIcon-area']}>
                     <IconSelecting isSelected={showPassword} 
                     normal={(<IconSVG path={FieldIconPath.eye} isFill={true}/>)} 

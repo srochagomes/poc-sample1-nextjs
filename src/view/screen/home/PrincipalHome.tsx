@@ -21,13 +21,18 @@ import { GetServerSidePropsContext } from "next"
 import { useDispatch, useSelector } from "react-redux"
 import { verifyUserLogged } from "@/manager-state/reducers/logged/LoggedState"
 import { useEffect } from "react"
+import loginSocialRedirect from "@/types/utils/LoginSocialRedirect"
+import userSession from "@/domain/model/session/UserSession"
+import { HttpStatusCode } from "axios"
+import { openMessage } from "@/manager-state/reducers/message/MessageState"
+import { MessageStyle } from "@/types/enums/MessageStyles"
 
  
 export default function PrincipalHome() {
   const router = useRouter();
   const { pathname, query } = router;
   let { requiredUser, emailConfirmed, socialLogin, code } = query; 
-  const loggedState = useSelector((state:any) => state.userLoggedContainerState);     
+  
   
   const common = useTranslation('common')
   const dispatch = useDispatch();
@@ -48,15 +53,40 @@ export default function PrincipalHome() {
 
   useEffect(() => {      
       
-    // if(emailConfirmed){         
-    //   router.push({
-    //     pathname: '/signUp',
-    //     query: query
-    //   })
-      
-//    }
+    if (socialLogin && code){
+        
+      loginSocialHandler(window,code as string);  
+
+      delete query.socialLogin;
+      delete query.code;
+      router.replace({
+        pathname,
+        query
+      });
+
+    }
+
           
   }, [requiredUser, emailConfirmed, socialLogin, code])
+
+  const loginSocialHandler = (window:Window, codeData:string)=>{
+      
+    let user : IUserAuth = {
+      code: codeData,
+      redirect_uri: loginSocialRedirect.getUrl(window)
+    }
+    
+    userSession.register(user)
+          .then((body)=>{            
+            if (body.status !== HttpStatusCode.Ok){
+              dispatch(openMessage({type:MessageStyle.WARN, title:'Cadastro',message:[common.t('message.feriaz.warn-default.message')]}))
+              console.log('Erro no login Social',body);
+            }else{             
+              dispatch(verifyUserLogged());              
+            }
+          });   
+    }
+
 
   applicationSession.register().then((obj)=>{
     console.log("Aplicação registrada retorno ",obj);

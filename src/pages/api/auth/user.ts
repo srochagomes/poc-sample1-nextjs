@@ -67,6 +67,7 @@ const controllers = {
     
     let apiReturn : IAPIReturn = await accessManagerAPI.getCredentialAccess(credential);
     
+    
     if (apiReturn?.data?.refresh_token){
       refreshTokenStoreService.toUser(apiReturn.data.refresh_token, res);          
       delete apiReturn.data.refresh_token;

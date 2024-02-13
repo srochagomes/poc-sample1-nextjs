@@ -63,7 +63,9 @@
     "message.feriaz.login.success.message": "User login successfully!",
     "message.feriaz.login.notfound.message": "User not found!",
     "message.feriaz.login.notpermitedd.message": "User not permited acess!",
-    "message.feriaz.login.unexpected.message": "User access unexpected!"
+    "message.feriaz.login.unexpected.message": "User access unexpected!",
+    "message.feriaz.login-area.not-permited.caption":"Area not permited",
+    "message.feriaz.login-area.not-permited.message":"It has already an user logged, please logout current user to access."
 
     
 

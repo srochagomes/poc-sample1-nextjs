@@ -9,15 +9,16 @@ export enum ButtonStyleIconEnum {
 interface Props {
     children: React.ReactElement | string;
     icon?: ButtonStyleIconEnum;
+    onClick?:()=>void
 }
 
 
 function ButtonStyle(props:Props) {
-    const {children, icon} = props;
+    const {children, icon, onClick} = props;
   
     return (
         <>
-            <button className={style['buttonPrimary']}>
+            <button className={style['buttonPrimary']} onClick={onClick}>
                 
                 <object 
                 className={style['buttonPrimary-icon']}

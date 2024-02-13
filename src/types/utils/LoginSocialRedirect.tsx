@@ -1,5 +1,5 @@
 const loginSocialRedirect = {    
-    getUrl():string {
+    getUrl(window: Window):string {
         return window.location.protocol+'//'+window.location.host+'/?socialLogin=true'
     }    
 }

@@ -17,8 +17,7 @@ const accessManager = {
         let api = connectServiceHttp.toAPI.withoutToken();
         
         return await api.post<IAPIReturn>(apiAddress, credential, headerJson)
-        .then((response) => {          
-                 
+        .then((response) => {                      
             let dataReturn: IAPIReturn =  {
                 status:  response.status,
                 statusText:   response.statusText,
@@ -26,9 +25,9 @@ const accessManager = {
             };
             return dataReturn;
           })
-          .catch((error) => {
-            
+          .catch((error) => {            
             return {
+                
                 status: error?.response?.status,
                 statusText: error?.response?.statusText,
                 data: error.response?.data                

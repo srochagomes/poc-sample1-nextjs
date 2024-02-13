@@ -17,7 +17,7 @@ import FormManagerType from "@/types/structure/FormManageType";
 import account from "@/domain/model/account/Account";
 import { AxiosResponse, HttpStatusCode } from "axios";
 import applicationSession from "@/domain/model/session/ApplicationSession";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { openMessage } from "@/manager-state/reducers/message/MessageState";
 import { MessageStyle } from "@/types/enums/MessageStyles";
 import { useEffect, useState } from "react";
@@ -41,6 +41,19 @@ export default function SignUp() {
   let { requiredUser, emailConfirmed, socialLogin, code } = query;    
   const [emailConfirmedByUser, setEmailConfirmedByUser] = useState(false);
   const [keyEmailConfirmedByUser, setKeyEmailConfirmedByUser] = useState<string|string>('');
+  const loggedState = useSelector((state:any) => state.userLoggedContainerState);     
+
+  useEffect(() => {      
+    
+    dispatch(verifyUserLogged());
+    if(loggedState.logged){         
+      router.push({
+        pathname: '/'
+      })
+      dispatch(openMessage({type:MessageStyle.WARN, title:common.t('message.feriaz.login-area.not-permited.caption'),message:[common.t('message.feriaz.login-area.not-permited.message')]}))                    
+   }
+          
+  }, [loggedState.logged])
 
   applicationSession.register().then((obj)=>{
     console.log("Aplicação registrada retorno ",obj);

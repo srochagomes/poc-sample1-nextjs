@@ -63,9 +63,9 @@
     "message.feriaz.login.success.message": "Usuário logado com sucesso !",
     "message.feriaz.login.notfound.message": "Usuário não encontrado!",
     "message.feriaz.login.notpermitedd.message": "Usuário não é permitido o acesso!",
-    "message.feriaz.login.unexpected.message": "Acesso ao usuário com ação inexperada!"
-
-    
+    "message.feriaz.login.unexpected.message": "Acesso ao usuário com ação inexperada!",
+    "message.feriaz.login-area.not-permited.caption":"Acesso a esa área não permitida",
+    "message.feriaz.login-area.not-permited.message":"Já esxiste um usuário logado, favor, deslogar o usuario para acessar esta área."
     
 
 
