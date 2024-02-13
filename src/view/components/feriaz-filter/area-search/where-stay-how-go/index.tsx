@@ -7,13 +7,11 @@ import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
-import FormGroup from '@/view/components/form/group';
-import SimpleDropdow from '@/view/components/input/dropdow/simple';
+import SimpleDropdow from '@/view/components/input/dropdown/simple';
 import IconClick from '@/view/components/button/icon-click';
 import CalendarField from '@/view/components/input/calendar';
 import TripPeopleDetail from '@/view/components/input/trip/people-detail';
-import { SimpleDrodownItem } from '@/view/components/input/dropdow/simple/pop-up';
-import dropdownVeiculosItems from '@/types/date/TripeVehicleSelect';
+import dropdownVeiculosItems from '@/types/sets/TripeVehicleSelect';
 import { useTranslation } from 'next-i18next';
 import FieldData from '@/types/structure/FieldData';
 

@@ -1,8 +1,9 @@
 
-import { SimpleDrodownItem } from "@/view/components/input/dropdow/simple/pop-up";
-import { FieldIconPath } from "../enums/FieldIconPath";
 
-const dropdownVeiculosItems: SimpleDrodownItem[] = [
+import DrodownItem  from '@/view/components/input/dropdown/ItemDropdown';
+import { FieldIconPath } from "@/types/enums/FieldIconPath";
+
+const dropdownVeiculosItems: DrodownItem[] = [
     {
       key: "item1",
       icon: FieldIconPath.airplane,

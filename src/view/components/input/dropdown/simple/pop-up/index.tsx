@@ -5,26 +5,22 @@ import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import SimpleDropdownItemComponent from "./item";
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
 
-export interface SimpleDrodownItem {
-  key: string;
-  icon: FieldIconPath;
-  caption?: string;
-  
-}
+import DrodownItem  from '@/view/components/input/dropdown/ItemDropdown';
+
 
 interface Props {
   show: boolean;
-  itens: SimpleDrodownItem[];
+  itens: DrodownItem[];
   onClose?: (value:boolean) => void
-  onItensSelected?:(itens:SimpleDrodownItem[]) => void
+  onItensSelected?:(itens:DrodownItem[]) => void
 }
 
 function SimpleDropdownPopup(props: Props) {
   let { show, itens = [], 
         onClose = (value:boolean)=>value, 
-        onItensSelected = (values:SimpleDrodownItem[])=>values } = props;
+        onItensSelected = (values:DrodownItem[])=>values } = props;
   const [componentShow, setComponentShow] = useState(show);
-  const [itemsSelected, setItemsSelected] = useState<SimpleDrodownItem[]>([]);
+  const [itemsSelected, setItemsSelected] = useState<DrodownItem[]>([]);
 
   useEffect(() => {    
      setItemsSelected(itemsSelected);    
@@ -33,7 +29,7 @@ function SimpleDropdownPopup(props: Props) {
 
   const divRef = useRef<HTMLDivElement>(null);
 
-  const onItemClicked = (item: SimpleDrodownItem): void =>{
+  const onItemClicked = (item: DrodownItem): void =>{
     
     if (itemsSelected.includes(item)){
       setItemsSelected(itemsSelected.filter((x)=> x !== item));
@@ -42,7 +38,7 @@ function SimpleDropdownPopup(props: Props) {
     }
   }
 
-  const isItemClicked = (item: SimpleDrodownItem): boolean =>{
+  const isItemClicked = (item: DrodownItem): boolean =>{
       return itemsSelected.includes(item);
   }
 

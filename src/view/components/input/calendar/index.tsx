@@ -48,7 +48,7 @@ function CalendarField(props:FieldsProps) {
 
   useEffect(() => {
     setSelectedKeys(selectedKeys);
-    console.log('select',selectedKeys); 
+    
   }, [selectedKeys]);
 
   useEffect(() => {
@@ -124,7 +124,7 @@ function CalendarField(props:FieldsProps) {
     const keyAttributeValue = index.toString();
 
     if (keyAttributeValue) {
-      console.log('Key =',keyAttributeValue)
+      
       setSelectedKeys((prevKeys) => {
         if (prevKeys.includes(keyAttributeValue)) {
           // Se a chave já estiver no estado, e for m evento de mouseremova-a

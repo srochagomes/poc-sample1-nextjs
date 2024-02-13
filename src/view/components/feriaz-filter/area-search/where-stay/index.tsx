@@ -9,7 +9,7 @@ import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
-import SimpleDropdow from '@/view/components/input/dropdow/simple';
+
 import CalendarField from '@/view/components/input/calendar';
 import TripPeopleDetail from '@/view/components/input/trip/people-detail';
 import { useTranslation } from 'next-i18next';

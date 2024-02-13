@@ -1,14 +1,15 @@
 
 import React from 'react';
 import style from './SimpleDropdownItemComponent.module.scss'; // Adapte o estilo conforme necessário
-import { SimpleDrodownItem } from '..';
+
 import IconSVG from '@/view/components/icons/icon-svg';
 import Typography from '@/view/components/text-container/typography';
+import DrodownItem  from '@/view/components/input/dropdown/ItemDropdown';
 
 interface SimpleDropdownItemComponentProps {
-  item: SimpleDrodownItem;
-  isItemClicked: (item:SimpleDrodownItem) => boolean;
-  onItemClicked: (item:SimpleDrodownItem) => void;
+  item: DrodownItem;
+  isItemClicked: (item:DrodownItem) => boolean;
+  onItemClicked: (item:DrodownItem) => void;
 }
 
 const SimpleDropdownItemComponent: React.FC<SimpleDropdownItemComponentProps> = (props: SimpleDropdownItemComponentProps) => {
@@ -25,7 +26,7 @@ const SimpleDropdownItemComponent: React.FC<SimpleDropdownItemComponentProps> = 
         onClick={onClick}>
         <div className={style['simpleDropdownItemComponent-item']}>
             <div className={style['simpleDropdownContainer-iconright']}>
-                <IconSVG path={item.icon} alt={item.caption} height={18} width={18} />
+                <IconSVG path={item.icon || ''} alt={item.caption} height={18} width={18} />
             </div>
             <Typography fontSize="caption3-a" >{item.caption?item.caption:""}</Typography>      
 

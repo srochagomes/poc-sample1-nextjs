@@ -13,8 +13,7 @@ export async function getServerSideProps(context:GetServerSidePropsContext) {
 
     
     
-    if (emailConfirmed) {
-      console.log('Executa redirect')
+    if (emailConfirmed) {      
       return {
         redirect: {
           destination: '/signUp?emailConfirmed='+emailConfirmed,          

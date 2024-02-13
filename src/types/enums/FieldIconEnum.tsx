@@ -25,6 +25,7 @@ export enum FieldIconEnum {
   Email = "email",
   Password = "password",
   FingerPrint = "finger_print",
-  PhoneCall = "phone_call"
+  PhoneCall = "phone_call",
+  TypeRoom = "type_room"
 
 }

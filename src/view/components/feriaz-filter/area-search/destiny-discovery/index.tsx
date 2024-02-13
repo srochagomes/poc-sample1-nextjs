@@ -9,8 +9,12 @@ import { FieldTypeEnum } from '@/types/enums/FieldTypeEnum';
 import { FieldIconEnum } from '@/types/enums/FieldIconEnum';
 import CalendarField from '@/view/components/input/calendar';
 import TripPeopleDetail from '@/view/components/input/trip/people-detail';
-import SimpleDropdow from '@/view/components/input/dropdow/simple';
-import dropdownVeiculosItems from '@/types/date/TripeVehicleSelect';
+import SimpleDropdow from '@/view/components/input/dropdown/simple';
+
+import MultipleCheckDropdow from '@/view/components/input/dropdown/multiple-check';
+import dropdownVeiculosItems from '@/types/sets/TripeVehicleSelect';
+import { FieldIconPath } from '@/types/enums/FieldIconPath';
+import typeRoomsItems from '@/types/sets/TypeRoomsSelect';
 
 interface Props{
 
@@ -20,6 +24,7 @@ function DestinyDiscovery(props:Props) {
     const common = useTranslation('common');
 
     const handleAccessConfirm = () =>{
+
 
     }
 
@@ -97,10 +102,11 @@ function DestinyDiscovery(props:Props) {
                         
                                 <div className={style['destinyDiscovery-fields-group']} >
                                     <div className={style['destinyDiscovery-field-room']} >
-                                        <SimpleDropdow   
-                                            id='type_room'                             
+                                        <MultipleCheckDropdow   
+                                            id='type_room' 
+                                            iconLeftPath={FieldIconPath[FieldIconEnum.TypeRoom]}                            
                                             caption={common.t('simpledropdow.type-room.caption')}                                        
-                                            itens={dropdownVeiculosItems}/>
+                                            itens={typeRoomsItems}/>
                                     </div>
                                     
                                     <div className={style['destinyDiscovery-field-vehicle']} >

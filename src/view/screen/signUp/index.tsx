@@ -25,6 +25,7 @@ import { useRouter } from "next/router";
 import { encryptData } from "@/types/utils/CryptoValue";
 import userSession from "@/domain/model/session/UserSession";
 import { verifyUserLogged } from "@/manager-state/reducers/logged/LoggedState";
+import { JwtPayload } from "jsonwebtoken";
 
 
 
@@ -55,9 +56,6 @@ export default function SignUp() {
           
   }, [loggedState.logged])
 
-  applicationSession.register().then((obj)=>{
-    console.log("Aplicação registrada retorno ",obj);
-  });
 
   useEffect(() => {      
       
@@ -85,8 +83,9 @@ export default function SignUp() {
       dispatch(openMessage({type:MessageStyle.WARN, title:'Cadastro',message:[common.t('message.feriaz.warn-default.message')]}))
       console.error('Tentativa negada.',body?.data);
 
-    }else {           
-      dispatch(openMessage({type:MessageStyle.WARN, title:'Cadastro',message:[common.t('message.feriaz.warn-default.message')]}))
+    }else {
+      let messageAPI: string[] = body?.data?.message ? [body.data.message] : [common.t('message.feriaz.warn-default.message')];            
+      dispatch(openMessage({type:MessageStyle.WARN, title:'Cadastro',message: messageAPI}))
       console.error('Tentativa negada.',body?.data);          
     }
     router.push('/');
@@ -97,18 +96,11 @@ export default function SignUp() {
   }
   
   const handleCreatePassword = (dataForm:FieldData[]) => {   
-    
-    
-    
 
     let accessConfirm : IAccessConfirm = {
       key: keyEmailConfirmedByUser,
       value: dataForm[0].value
     }
-    
-    console.log('dados',accessConfirm)
-
-    
     
     account.confirmAccess(accessConfirm)
     .then((body)=>{            
@@ -153,14 +145,13 @@ export default function SignUp() {
       throw new Error('Key encript should be informed.');
     }
 
-    let applicationData = applicationSession.getData();
+    let applicationData : JwtPayload|null = applicationSession.getData();
+    
     
     if(!applicationData){
       throw new Error('Application not identified, please, refresh the application.');
     }
     
-    console.log('dados',dataForm)
-    console.log('clientId',applicationData.client_id)
     
     let newAccount : INewAccount = {
       application: applicationData.client_id,
@@ -175,7 +166,7 @@ export default function SignUp() {
     
     account.create(newAccount)
     .then((body)=>{            
-      if (body.status !== HttpStatusCode.Created && body.status !== HttpStatusCode.Ok){
+      if (body.status !== HttpStatusCode.Created && body.status !== HttpStatusCode.Ok){        
         tryErrorApiFlow(body);
       }else{             
         setEmailSended(dataForm[1].value);
@@ -209,8 +200,7 @@ export default function SignUp() {
 
       }
       handleCreatePassword(formManager.dataSource);
-    }else{
-      console.log('Teste')
+    }else{      
       dispatch(openMessage({type:MessageStyle.WARN, title:field.t('signup.passwords-requires.caption'),
             message:[field.t('signup.passwords-patterns-1.caption'),
                      field.t('signup.passwords-patterns-2.caption'),

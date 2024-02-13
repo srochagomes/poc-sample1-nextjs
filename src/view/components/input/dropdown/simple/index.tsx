@@ -4,10 +4,11 @@ import Typography from "@/view/components/text-container/typography";
 import IconSVG from "@/view/components/icons/icon-svg";
 import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
-import SimpleDropdownPopup, { SimpleDrodownItem } from "./pop-up";
+import SimpleDropdownPopup from "./pop-up";
 import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
 import { generateInputRandomId } from "@/types/utils/MathFunctions";
 
+import DrodownItem  from '@/view/components/input/dropdown/ItemDropdown';
 
 
 
@@ -19,7 +20,7 @@ interface Props {
     caption?:string
     colorCaprion?:string    
     width?:string
-    itens: SimpleDrodownItem[]
+    itens: DrodownItem[]
     
 }
 
@@ -28,11 +29,11 @@ interface Props {
 function SimpleDropdow(props:Props) {
   const {id, caption, placeholder, roundType, width, itens = []} = props;
   const [openOptions, setOpenOptions] = useState(false);
-  const [itensSelectd, setItensSelected] = useState<SimpleDrodownItem[]>([]);
+  const [itensSelectd, setItensSelected] = useState<DrodownItem[]>([]);
   const [textValue, setTextValue] = useState<string>("");
 
 
-  const onItensSelected = (itens:SimpleDrodownItem[]): void  => {
+  const onItensSelected = (itens:DrodownItem[]): void  => {
     setItensSelected(itens);
   }
 
@@ -57,7 +58,7 @@ function SimpleDropdow(props:Props) {
                               <div className={style['simpleDropdownContainer-iconleft']}>
                                 {itensSelectd.length>0 && (
                                   <div className={style['simpleDropdownContainer-iconleft-area']}>
-                                    <IconSVG path={itensSelectd[0].icon} alt={placeholder} isFill={true} />
+                                    <IconSVG path={itensSelectd[0].icon || ''} alt={placeholder} isFill={true} />
                                   </div>)}                                
                               </div>
                               : <></>;

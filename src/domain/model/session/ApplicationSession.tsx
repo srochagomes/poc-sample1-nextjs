@@ -23,7 +23,19 @@ const writeTokenData = (authAPIData: IAPIReturn): void =>{
 }
 
 
+const decodeIdTokenData = () : JwtPayload|null => {
+  let access_token_id = process.env.NEXT_PUBLIC_ACCESS_TOKEN_APP;          
+  if (!access_token_id){
+    throw new Error('Access token should be informed.');
+  }
+  let token:string|null = accessTokenRepository.get(access_token_id);
+  if (token){
+    let decodedIdTokenData: JwtPayload = jwt.decode(token) as JwtPayload;  
+    return decodedIdTokenData;
+  }
+  return null;
 
+}
 
 const applicationSession = {
 
@@ -33,12 +45,16 @@ const applicationSession = {
       if (!access_token_id){
         throw new Error('Access token should be informed.');
       }
-      let token:string|null = accessTokenRepository.get(access_token_id);
-      if (token){
-        let decodedIdTokenData: JwtPayload = jwt.decode(token) as JwtPayload;  
-        return decodedIdTokenData;
+      let token:JwtPayload|null = decodeIdTokenData();
+      
+      if (!token){
+        return this.register().then((body:IAPIReturn)=>{
+          token = decodeIdTokenData();
+          return token
+        }); 
+        
       }
-      return null;    
+      return token;   
         
     },
     register(){
@@ -49,8 +65,7 @@ const applicationSession = {
 
       return identity.getTokenApp()
       .then((appDataAPI:IAPIReturn)=> {
-        if (appDataAPI.status === HttpStatusCode.Ok){
-          console.log('Retorno =',appDataAPI) 
+        if (appDataAPI.status === HttpStatusCode.Ok){          
           writeTokenData(appDataAPI);
         }
         return appDataAPI;

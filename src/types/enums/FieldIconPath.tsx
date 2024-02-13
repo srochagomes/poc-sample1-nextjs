@@ -26,6 +26,7 @@ export enum FieldIconPath {
   password = "/images/icons/icon-password.svg",
   finger_print = "/images/icons/icon-fingerprint.svg",
   phone_call = "/images/icons/icon-phone-call.svg",
+  type_room = "/images/icons/icon-type-room.svg",
   
 
 

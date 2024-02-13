@@ -86,7 +86,7 @@ export default function SignIn() {
       throw new Error('Key encript should be informed.');
     }
 
-    console.log('valor ',dataForm)
+    
     let user : IUserAuth = {
       username: dataForm[0].value,
       password: encryptData(dataForm[1].value, data)
@@ -125,12 +125,10 @@ export default function SignIn() {
 
   const handleLoginSocialStart = (provider:string) => {
     
-    let urlLoginSocialIdentityProvider = urlLoginSocial?.replace(/{{identityProvider}}/g, provider)
-
-    console.log('url-login-social', urlLoginSocialIdentityProvider)
+    let urlLoginSocialIdentityProvider = urlLoginSocial?.replace(/{{identityProvider}}/g, provider);
 
     if (urlLoginSocialIdentityProvider){
-      console.log('url login social',urlLoginSocialIdentityProvider);
+      
       router.push(new URL(urlLoginSocialIdentityProvider));            
     }
     

@@ -1,0 +1,39 @@
+@import '@/view/styles/global-variables';
+
+.multipleCheckDropdownItemComponent {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    
+    
+  
+    &-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      justify-items: center;
+      margin-left: 1rem;
+      margin-top: 1rem;
+        
+      margin-bottom: 0.5rem;
+      
+      > input {
+        cursor: pointer;
+      }
+  
+      > span {
+        margin-left: 2rem;
+      }
+    }
+  
+    &-iconright {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      justify-content: center;
+      padding-left: 0.5rem;
+  
+      
+    }
+  }

@@ -106,7 +106,7 @@ function InputField(props:FieldsProps) {
         
         
         const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {                    
-          console.log('Evento ','onChange');
+          
           const valorInput: string = event.target.value;
           setValue(valorInput);
           setFieldValid(true);

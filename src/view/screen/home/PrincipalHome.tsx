@@ -80,7 +80,7 @@ export default function PrincipalHome() {
           .then((body)=>{            
             if (body.status !== HttpStatusCode.Ok){
               dispatch(openMessage({type:MessageStyle.WARN, title:'Cadastro',message:[common.t('message.feriaz.warn-default.message')]}))
-              console.log('Erro no login Social',body);
+              
             }else{             
               dispatch(verifyUserLogged());              
             }
