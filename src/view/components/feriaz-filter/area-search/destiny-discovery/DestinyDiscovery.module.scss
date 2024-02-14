@@ -64,7 +64,7 @@
         flex-direction: row;
                 
         & > div {        
-            margin-left: 0.1vw;
+            margin-right: 0.2vw;
             margin-top: 0.1vw;
         }
     }
@@ -79,7 +79,7 @@
     }
 
     &-field-location{
-        width: 30vw;        
+        width: 100%;        
     }
     &-field-budget{
         width: 15vw;        

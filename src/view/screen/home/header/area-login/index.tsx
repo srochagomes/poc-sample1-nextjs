@@ -10,6 +10,7 @@ import Typography from "@/view/components/text-container/typography";
 import userSession from "@/domain/model/session/UserSession";
 import { verifyUserLogged } from "@/manager-state/reducers/logged/LoggedState";
 import LinkAction from "@/view/components/link/action";
+import verifyRequiredLogin from "@/infra/actions/VerifyRequireLogin";
 
 export default function AreaLogin() {
     const [menuSelected, setMenuSelected] = useState(false);
@@ -26,6 +27,15 @@ export default function AreaLogin() {
     const menuLoggedClicked = () : void => {
         setMenuSelected(!menuSelected);
     }
+
+    const handleProfile = () => {
+        userSession.session().then(async (body)=>{
+         await console.log('Sessão :', body);
+         verifyRequiredLogin(router,body);
+         
+       });
+   
+     };
 
     const handleLogout = () => {
         userSession.logout().then((response)=>{      
@@ -46,7 +56,7 @@ export default function AreaLogin() {
                         <Typography fontSize="caption1" weight="bold" color="white">{userName}</Typography>
                         <nav>
                             <ul>
-                                <li><LinkAction onClick={()=>false}>Perfil</LinkAction> </li>
+                                <li><LinkAction onClick={handleProfile}>Perfil</LinkAction> </li>
                                 <li><LinkAction onClick={handleLogout}>Logout</LinkAction> </li>
                             </ul>
                         </nav>                            

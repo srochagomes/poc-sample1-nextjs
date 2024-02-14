@@ -4,6 +4,7 @@ import style from "./SwitchLight.module.scss"
 
 interface Props {
     caption?: string;
+    id: string;
 }
 
 function SwitchLight(props:Props) {

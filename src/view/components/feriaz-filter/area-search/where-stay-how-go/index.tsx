@@ -30,12 +30,13 @@ interface Props{
 function WhereStayHowGo(props:Props) {
     const common = useTranslation('common');
     const [quantityPoint, setQuantityPoint] = useState<number>(1);
-    const fields : FieldData[] = [];
+
+    
     let formManager: FormManagerType;
     
     const handleAccessConfirm = () =>{
 
-        console.log('Valores', fields);
+        console.log('Valores', formManager.dataSource);
 
     }
 
@@ -47,7 +48,7 @@ function WhereStayHowGo(props:Props) {
 
     const onValidForm = (formMng: FormManagerType):void=>{
         formManager = formMng;
-      }
+    }
 
 
 
