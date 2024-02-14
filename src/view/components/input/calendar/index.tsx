@@ -8,7 +8,6 @@ import { FieldTypeDetail, FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import DatePicker from "./date-picker";
 import { TypeCalendar } from "./date-picker/date-command";
 import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
-import { generateInputRandomId } from "@/types/utils/MathFunctions";
 import FieldData from "@/types/structure/FieldData";
 import { IMaskInput } from "react-imask";
 import { FieldsProps } from "../text";

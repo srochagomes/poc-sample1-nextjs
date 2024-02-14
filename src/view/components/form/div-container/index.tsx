@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import style from "./GroupForm.module.scss"
-import InputField, { FieldsProps } from "@/view/components/input/text";
+import InputField from "@/view/components/input/text";
 import FieldData from "@/types/structure/FieldData";
 import CalendarField from "@/view/components/input/calendar";
 

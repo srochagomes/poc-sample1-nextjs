@@ -70,94 +70,94 @@ const createAreaForm = (quantity:number,
        {Array.from({ length: quantity }, (_, index) => (                
         
         <FormDiv key={`fields_${index}`} className={style['whereStay-fields']} >
-        <FormDiv key={`fields-group1_${index}`} className={style['whereStay-broke-resolution']} >
-            <FormDiv key={`resolution_${index}`} className={style['whereStay-fields-group']} >
-                <FormDiv key={`field-location2_${index}`} className={style['whereStay-field-location']} >
-                    <InputField
-                        key={`city_destiny_${index}`}
-                        id={`city_destiny_${index}`}
-                        type={FieldTypeEnum.Text}  
-                        roundType={FieldRoundEnum.All}
-                        placeholder={common.t('city-destiny.placeholder')}   
-                        caption={common.t('city-destiny.caption')}   
-                        iconLeft={FieldIconEnum.Location}
-                    />
-
-                </FormDiv>
-        
-            </FormDiv>
-        </FormDiv>
-        
-    
-        <FormDiv key={`resolution2_${index}`} className={style['whereStay-broke-resolution']} >
-    
-            <FormDiv key={`fields-group2_${index}`} className={style['whereStay-fields-group']} >
-                
-                <FormDiv key={`field-period1_${index}`} className={style['whereStay-field-period']} >
-                    <CalendarField 
-                        key={`calendar_when_${index}`}                            
-                        id={`calendar_when_${index}`}                            
-                        roundType={FieldRoundEnum.Left}
-                        placeholder={common.t('calendar.when.placeholder')}   
-                        caption={common.t('calendar.go.caption')}   
-                        iconLeft={FieldIconEnum.Calendar}
-                        hasFlexibleDate={true}
-                        monthsShow={2}                                
-                        permitPeriodChoice={true}
-                        
-                        
-                    />
-    
-                </FormDiv>
-                
-                <FormDiv key={`field-period2_${index}`} className={style['whereStay-field-period']} >
-                    <CalendarField 
-                        key={`calendar_back_${index}`}                                         
-                        id={`calendar_back_${index}`}                                         
-                        roundType={FieldRoundEnum.Right}
-                        placeholder={common.t('calendar.when.placeholder')}   
-                        caption={common.t('calendar.back.caption')}   
-                        iconLeft={FieldIconEnum.Calendar}
-                        hasFlexibleDate={true}
-                        monthsShow={2}
-                        permitPeriodChoice={true}
-                    /> 
-    
-                </FormDiv>
-            </FormDiv>
-        </FormDiv>
-    
-        <FormDiv key={`resolution3_${index}`} className={style['whereStay-broke-resolution']} >
-    
-            <FormDiv key={`fields-group2_${index}`} className={style['whereStay-fields-group']} >
-                <FormDiv key={`field-room_${index}`} className={style['whereStay-field-room']} >
-                    <TripPeopleDetail  
-                            key={`people_detail_${index}`}
-                            id={`people_detail_${index}`}
+            <FormDiv key={`fields-group1_${index}`} className={style['whereStay-broke-resolution']} >
+                <FormDiv key={`resolution_${index}`} className={style['whereStay-fields-group']} >
+                    <FormDiv key={`field-location2_${index}`} className={style['whereStay-field-location']} >
+                        <InputField
+                            key={`city_destiny_${index}`}
+                            id={`city_destiny_${index}`}
                             type={FieldTypeEnum.Text}  
                             roundType={FieldRoundEnum.All}
-                            placeholder={common.t('trip-people-detail.component.placeholder')}   
-                            caption={common.t('trip-people-detail.component.caption')}     
-                            iconLeft={FieldIconEnum.User}
-                            
+                            placeholder={common.t('city-destiny.placeholder')}   
+                            caption={common.t('city-destiny.caption')}   
+                            iconLeft={FieldIconEnum.Location}
                         />
-    
+
+                    </FormDiv>
+            
                 </FormDiv>
             </FormDiv>
-    
-        </FormDiv>
-        <div key={`button-plus_${index}`} className={style['whereStay-button-plus']} >
-            <IconClick 
-                        key={`button_plus_${index}`}
-                       path={index==0?FieldIconPath.plus:FieldIconPath.minus} 
-                       widthSize={30}
-                       heightSize={30}
-                       caption={index==0?common.t('button.patchs.caption'):''}  
-                       captionColor="white"
-                       onClick={()=>add(index==0?1:-1)}
             
-            />
-        </div> 
+        
+            <FormDiv key={`resolution2_${index}`} className={style['whereStay-broke-resolution']} >
+        
+                <FormDiv key={`fields-group2_${index}`} className={style['whereStay-fields-group']} >
+                    
+                    <FormDiv key={`field-period1_${index}`} className={style['whereStay-field-period']} >
+                        <CalendarField 
+                            key={`calendar_when_${index}`}                            
+                            id={`calendar_when_${index}`}                            
+                            roundType={FieldRoundEnum.Left}
+                            placeholder={common.t('calendar.when.placeholder')}   
+                            caption={common.t('calendar.go.caption')}   
+                            iconLeft={FieldIconEnum.Calendar}
+                            hasFlexibleDate={true}
+                            monthsShow={2}                                
+                            permitPeriodChoice={true}
+                            
+                            
+                        />
+        
+                    </FormDiv>
+                    
+                    <FormDiv key={`field-period2_${index}`} className={style['whereStay-field-period']} >
+                        <CalendarField 
+                            key={`calendar_back_${index}`}                                         
+                            id={`calendar_back_${index}`}                                         
+                            roundType={FieldRoundEnum.Right}
+                            placeholder={common.t('calendar.when.placeholder')}   
+                            caption={common.t('calendar.back.caption')}   
+                            iconLeft={FieldIconEnum.Calendar}
+                            hasFlexibleDate={true}
+                            monthsShow={2}
+                            permitPeriodChoice={true}
+                        /> 
+        
+                    </FormDiv>
+                </FormDiv>
+            </FormDiv>
+        
+            <FormDiv key={`resolution3_${index}`} className={style['whereStay-broke-resolution']} >
+        
+                <FormDiv key={`fields-group2_${index}`} className={style['whereStay-fields-group']} >
+                    <FormDiv key={`field-room_${index}`} className={style['whereStay-field-room']} >
+                        <TripPeopleDetail  
+                                key={`people_detail_${index}`}
+                                id={`people_detail_${index}`}
+                                type={FieldTypeEnum.Text}  
+                                roundType={FieldRoundEnum.All}
+                                placeholder={common.t('trip-people-detail.component.placeholder')}   
+                                caption={common.t('trip-people-detail.component.caption')}     
+                                iconLeft={FieldIconEnum.User}
+                                
+                            />
+        
+                    </FormDiv>
+                </FormDiv>
+        
+            </FormDiv>
+            <div key={`button-plus_${index}`} className={style['whereStay-button-plus']} >
+                <IconClick 
+                            key={`button_plus_${index}`}
+                        path={index==0?FieldIconPath.plus:FieldIconPath.minus} 
+                        widthSize={30}
+                        heightSize={30}
+                        caption={index==0?common.t('button.patchs.caption'):''}  
+                        captionColor="white"
+                        onClick={()=>add(index==0?1:-1)}
+                
+                />
+            </div> 
     </FormDiv>))} 
     </FormDiv>)
     
