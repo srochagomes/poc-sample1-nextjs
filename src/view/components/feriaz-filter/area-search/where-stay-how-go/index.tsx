@@ -102,7 +102,7 @@ const createAreaForm = (quantity:number,
                         />
     
                     </FormDiv>
-                    <FormDiv key={`field-location1_${index}`} className={style['whereStayHowGo-field-location']} >
+                    <FormDiv key={`field-location2_${index}`} className={style['whereStayHowGo-field-location']} >
                         <InputField
                             key={`city_destiny_${index}`}
                             id={`city_destiny_${index}`}
