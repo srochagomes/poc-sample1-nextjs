@@ -6,18 +6,21 @@ import { ItemPositionEnum } from '@/types/enums/ItemPosition';
 import { ComponentTypeEnum } from '@/types/enums/ComponentTypeEnum';
 import { generateInputRandomId } from '@/types/utils/MathFunctions';
 import { FieldTypeEnum } from '@/types/enums/FieldTypeEnum';
+import FieldData from '@/types/structure/FieldData';
 
 
 
 interface StepperControlProps {
   id:string
-  min?: number;
-  max?: number;
-  editable?: boolean;
-  maxDigits?: number;
-  caption?:string;  
-  captionPosition?: ItemPositionEnum;
-  changeValue?: (value:number)=>void;
+  min?: number
+  max?: number
+  editable?: boolean
+  maxDigits?: number
+  caption?:string  
+  captionPosition?: ItemPositionEnum
+  changeValue?: (value:number)=>void
+  required?:boolean
+  dataSource?: FieldData[]
 }
 
 const StepperControl: React.FC<StepperControlProps> = (props:StepperControlProps) => {
@@ -28,18 +31,52 @@ const StepperControl: React.FC<StepperControlProps> = (props:StepperControlProps
           maxDigits = Infinity, 
           caption = "",
           changeValue = (value:number)=>value,
-          captionPosition = ItemPositionEnum.Left } = props;
+          captionPosition = ItemPositionEnum.Left,
+          required,
+          dataSource } = props;
   const [quantity, setQuantity] = useState<number>(0);
+  const [fieldValid, setFieldValid] = useState(true);
 
+  const isValid = () : boolean =>{
+
+    if (required && (quantity == 0)){
+       return false;  
+    }
+
+    return true;  
+  }
+
+  const applyValidation = () : void =>{
+    setFieldValid(isValid());
+  }
+
+  const dataSourceItem : FieldData = {name:id, isValid , value:quantity.toString(), applyValidation};
+
+  if (dataSource){
+    const existingIndex = dataSource.findIndex(item => item.name === dataSourceItem.name);
+    // Se não existir, adiciona o novo item
+    if (existingIndex === -1) {
+        dataSource.push(dataSourceItem);
+    } else {
+        // Se existir, substitui o objeto existente pelo novo objeto
+        dataSource[existingIndex] = dataSourceItem;
+    }
+  
+  }
+
+  
   useEffect(() => {
+    dataSourceItem.value = quantity.toString();
     changeValue(quantity);    
   }, [quantity]);
+
 
   
   const handleIncrement = () => {
     if (quantity < max) {
       setQuantity(prevQuantity => prevQuantity + 1);
-    }    
+    }
+        
   };
 
   const handleDecrement = () => {

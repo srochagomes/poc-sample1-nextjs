@@ -95,7 +95,7 @@ const createAreaForm = (quantity:number,
                         <InputField  
                             key={`budget_${index}`}
                             id={`budget_${index}`}
-                            type={FieldTypeEnum.Text}                                      
+                            type={FieldTypeEnum.Money}                                      
                             placeholder={common.t('budget-preview.placeholder')}   
                             caption={common.t('budget-preview.caption')}   
                             iconLeft={FieldIconEnum.Money}                                            

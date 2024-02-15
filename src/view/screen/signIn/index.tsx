@@ -89,7 +89,7 @@ export default function SignIn() {
     
     let user : IUserAuth = {
       username: dataForm[0].value,
-      password: encryptData(dataForm[1].value, data)
+      password: encryptData(dataForm[1]?.value || '', data)
     }
 
     userSession.register(user)

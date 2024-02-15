@@ -12,10 +12,12 @@ import RadioButtonList from '@/view/components/input/radiobutton/common';
 
 
 interface Props{
+  id:string
 
 }
 
 function DateFlexible(props:Props) {
+    const {id} = props;
     const dateTranslate = useTranslation('datedescription');    
 
     const handleSelectionChange = (selectedOption: string) => {
@@ -88,7 +90,7 @@ function DateFlexible(props:Props) {
                 
             </div>
             <div className={style['dateFlexible-radioList']}>
-              <RadioButtonList options={optionsData} onSelectionChange={handleSelectionChange} />
+              <RadioButtonList id={id+'dateFlexibleRadioButton'} options={optionsData} onSelectionChange={handleSelectionChange} />
             </div>
 
             

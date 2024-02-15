@@ -7,6 +7,8 @@ import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import TripPeoplePopup from "./pop-up";
 import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
+import FieldData from "@/types/structure/FieldData";
+import { stringify } from "querystring";
 
 interface Props {
     id:string
@@ -17,6 +19,8 @@ interface Props {
     colorCaprion?:string
     iconLeft?:FieldIconEnum
     width?:string
+    required?:boolean
+    dataSource?: FieldData[]
 }
 
 export interface MinorAgeData{
@@ -31,22 +35,50 @@ export interface PeopleData{
 }
 
 function TripPeopleDetail(props:Props) {
-  const { id, caption, width, iconLeft, colorCaprion, type, roundType, placeholder } = props;
+  const { id, caption, width, iconLeft, colorCaprion, type, roundType, placeholder, required, dataSource } = props;
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
   const [showPopup, setShowPopup] = useState(false);
   const [fieldType, setFieldType] = useState(type);
   const [valueText, setValueText] = useState('');
+  const [valueJson, setValueJson] = useState('');
+  const [fieldValid, setFieldValid] = useState(true);
 
-  useEffect(() => {
-    setShowPopup(showPopup);
-  }, [showPopup]);
+
+  const isValid = () : boolean =>{
+    if (required && (valueJson == '')){
+      return false;  
+    }
+  
+    return true;  
+  }
+
+  const applyValidation = () : void =>{
+    setFieldValid(isValid());
+  }
+
+  const dataSourceItem : FieldData = {name:id, isValid , value:valueJson, applyValidation};
+
+  if (dataSource){
+    const existingIndex = dataSource.findIndex(item => item.name === dataSourceItem.name);
+    // Se não existir, adiciona o novo item
+    if (existingIndex === -1) {
+        dataSource.push(dataSourceItem);
+    } else {
+        // Se existir, substitui o objeto existente pelo novo objeto
+        dataSource[existingIndex] = dataSourceItem;
+    }
+  
+  }
+
+
 
   const onClickConfirm = (event:React.MouseEvent<HTMLButtonElement>, peopleData:PeopleData): void =>{
     
     if (peopleData){
-      setValueText(`${peopleData.olderQuantity} adulto(s), ${peopleData.minorQuantity} menor(es) e ${peopleData.roomQuantity} quarto(s).` );
-    }
-    setSelectedKeys([]);
+      setValueText(`${peopleData.olderQuantity} adulto(s), ${peopleData.minorQuantity} menor(es) e ${peopleData.roomQuantity} quarto(s).` );      
+      setValueJson(JSON.stringify(peopleData));      
+    }    
+    
   }
 
   const onClickComponent = (event:React.MouseEvent<HTMLDivElement>): void =>{

@@ -2,6 +2,13 @@ import React, { useEffect } from "react";
 import InputField from "@/view/components/input/text";
 import FieldData from "@/types/structure/FieldData";
 import CalendarField from "@/view/components/input/calendar";
+import TripPeopleDetail from "../../input/trip/people-detail";
+import CheckboxList from "../../input/checkbox/common";
+import MultipleCheckDropdow from "../../input/dropdown/multiple-check";
+import SimpleDropdow from "../../input/dropdown/simple";
+import RadioButtonList from "../../input/radiobutton/common";
+import StepperControl from "../../input/stepper";
+import SwitchLight from "../../input/switch";
 
 
 interface FormProps {    
@@ -15,7 +22,7 @@ interface FormProps {
 function FormDiv(props:FormProps) {
   
   const {dataSource, children} = props;
-  const typesDataSources = [CalendarField,InputField,FormDiv];
+  const typesDataSources = [CalendarField,InputField,FormDiv, TripPeopleDetail, CheckboxList, MultipleCheckDropdow, SimpleDropdow, RadioButtonList, StepperControl, SwitchLight];
 
   const isDataSourcesComponents = (element:React.ReactNode):boolean => {
     // Verifica se o elemento é um elemento React válido

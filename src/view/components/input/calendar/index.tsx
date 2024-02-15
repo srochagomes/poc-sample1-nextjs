@@ -10,7 +10,7 @@ import { TypeCalendar } from "./date-picker/date-command";
 import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
 import FieldData from "@/types/structure/FieldData";
 import { IMaskInput } from "react-imask";
-import { FieldsProps } from "../text";
+import { FieldsProps } from "@/view/components/input/text";
 
 import DateOperations from "@/types/date/DateOperations";
 
@@ -217,18 +217,17 @@ function CalendarField(props:FieldsProps) {
                                      : <></>;
   if (dataSource){
     
-  const existingIndex = dataSource.findIndex(item => item.name === dataSourceItem.name);
-  // Se não existir, adiciona o novo item
-  if (existingIndex === -1) {
-    
-      dataSource.push(dataSourceItem);
-  } else {
-    
-      // Se existir, substitui o objeto existente pelo novo objeto
-      dataSource[existingIndex] = dataSourceItem;
+      const existingIndex = dataSource.findIndex(item => item.name === dataSourceItem.name);
+      // Se não existir, adiciona o novo item
+      if (existingIndex === -1) {
+        
+          dataSource.push(dataSourceItem);
+      } else {
+        
+          // Se existir, substitui o objeto existente pelo novo objeto
+          dataSource[existingIndex] = dataSourceItem;
+      }  
   }
-  
-}
                             
   return (
     
@@ -260,7 +259,7 @@ function CalendarField(props:FieldsProps) {
 
                     />
             </div>
-            {showDatePicker && (<DatePicker monthsShow={monthsShow}
+            {showDatePicker && (<DatePicker id={id+'datePicker'} monthsShow={monthsShow}
                         hasFlexibleDate={hasFlexibleDate}
                         dateBase={dateBase}
                         show={showDatePicker} 

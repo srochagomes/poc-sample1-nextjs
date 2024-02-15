@@ -1,6 +1,6 @@
 export default interface FieldData{
     name:string
-    value:string
+    value:string    
     isValid: ()=> boolean
     applyValidation: ()=> void
 }

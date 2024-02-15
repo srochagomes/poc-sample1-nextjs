@@ -32,8 +32,9 @@ function TripPeoplePopup(props: Props) {
         olderQuantity: peopleOlderQuantity,
         minorQuantity:peopleMinorQuantity,
         roomQuantity:peopleRoomQuantity};        
-        peopleData.agesMinors = minorAges;
-        onClickConfirm(event, peopleData);
+        peopleData.agesMinors = minorAges; 
+        setComponentShow(false);       
+        onClickConfirm(event, peopleData);        
   }
 
   const divRef = useRef<HTMLDivElement>(null);

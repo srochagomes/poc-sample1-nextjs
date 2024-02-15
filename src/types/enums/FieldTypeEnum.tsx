@@ -9,7 +9,8 @@ export enum FieldTypeEnum {
   Date = "date",
   Radio = "radio",
   Checkbox = "checkbox",
-  Phone = "phone"
+  Phone = "phone",
+  Money = "money"
 }
 
 export const FieldTypeDetail = {
@@ -21,6 +22,7 @@ export const FieldTypeDetail = {
   date : {type:'date',pattern:'00/00/0000', regex:/^\d{2}\/\d{2}\/\d{4}$/},
   radio : {type:'radio',pattern:/./, regex:/./},
   checkbox : {type:'checkbox',pattern:/./, regex:/./},
-  phone : {type:'phone',pattern:'(00)0000-0000', regex:/^\(\d{2}\)\d{4}\-\d{4}$/}
+  phone : {type:'phone',pattern:'(00)0000-0000', regex:/^\(\d{2}\)\d{4}\-\d{4}$/},
+  money : {type:'text',pattern:'(00)0000-0000', regex:/^\d+(\.\d{0,2})?$/}
 
 }

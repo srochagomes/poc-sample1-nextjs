@@ -5,6 +5,7 @@ import DateOperations, { DateFields } from "@/types/date/DateOperations";
 import DateCommand, { TypeCalendar } from "./date-command";
 import DateFlexible from "./date-flexible";
 interface Props {
+    id:string;
     monthsShow?:number;
     show:boolean;
     dateBase: Date;    
@@ -21,7 +22,7 @@ interface Props {
 }
 
 function DatePicker(props:Props) {
-    let {hasFlexibleDate = false, monthsShow = 1, show, typeCalendar, dateBase, onSelectDay, isSelectDay, onClickClear, onClickConfirm, onClickDateFlexible, onClickDateFixed, isDayBetweenSelected} = props;
+    let {id, hasFlexibleDate = false, monthsShow = 1, show, typeCalendar, dateBase, onSelectDay, isSelectDay, onClickClear, onClickConfirm, onClickDateFlexible, onClickDateFixed, isDayBetweenSelected} = props;
     const [componentShow,    setComponentShow] = useState(show)
     const [dateBaseStart,    setDateBaseStart] = useState(dateBase)
     
@@ -95,7 +96,7 @@ function DatePicker(props:Props) {
                         onClickToFoward)}
                 { hasFlexibleDate && typeCalendar === TypeCalendar.flexible && 
                     <div  className={style['datePickerContainer-periodflexible']}>
-                      <DateFlexible/>
+                      <DateFlexible id={id+'DateFlexible'}/>
                 
                     </div>
                   }

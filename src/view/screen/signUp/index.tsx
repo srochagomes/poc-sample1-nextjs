@@ -99,7 +99,7 @@ export default function SignUp() {
 
     let accessConfirm : IAccessConfirm = {
       key: keyEmailConfirmedByUser,
-      value: dataForm[0].value
+      value: dataForm[0]?.value?dataForm[0].value:''
     }
     
     account.confirmAccess(accessConfirm)
@@ -116,7 +116,7 @@ export default function SignUp() {
 
         let user : IUserAuth = {
           username: body?.data?.userLogin,
-          password: encryptData(dataForm[0].value, data)
+          password: encryptData(dataForm[0]?.value?dataForm[0].value: '', data)
         }
 
         
@@ -155,11 +155,11 @@ export default function SignUp() {
     
     let newAccount : INewAccount = {
       application: applicationData.client_id,
-      name: dataForm[0].value,
-      username: dataForm[1].value,
-      email: dataForm[1].value,
-      phone: dataForm[2].value,
-      dateBirth: dataForm[3].value,
+      name: dataForm[0]?.value || '',
+      username: dataForm[1]?.value || '',
+      email: dataForm[1]?.value || '',
+      phone: dataForm[2]?.value || '',
+      dateBirth: dataForm[3]?.value || '',
       termAccept: false
     }
     
@@ -169,7 +169,7 @@ export default function SignUp() {
       if (body.status !== HttpStatusCode.Created && body.status !== HttpStatusCode.Ok){        
         tryErrorApiFlow(body);
       }else{             
-        setEmailSended(dataForm[1].value);
+        setEmailSended(dataForm[1].value || '');
         dispatch(openMessage({type:MessageStyle.INFO, title:'Cadastro',message:[common.t('message.feriaz.success-default.message')]}))
         setAccountCreateSuccess(true);          
       }

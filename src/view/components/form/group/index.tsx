@@ -6,6 +6,13 @@ import CalendarField from "@/view/components/input/calendar";
 import FormDiv from "@/view/components/form/div-container";
 
 import FormManagerType from "@/types/structure/FormManageType";
+import SwitchLight from "../../input/switch";
+import StepperControl from "../../input/stepper";
+import RadioButtonList from "../../input/radiobutton/common";
+import SimpleDropdow from "../../input/dropdown/simple";
+import MultipleCheckDropdow from "../../input/dropdown/multiple-check";
+import CheckboxList from "../../input/checkbox/common";
+import TripPeopleDetail from "../../input/trip/people-detail";
 
 interface FormProps {    
     children?: React.ReactNode;    
@@ -17,7 +24,7 @@ interface FormProps {
 function FormGroup(props:FormProps) {
     const {applyOnValidForm} = props;
     const dataSource : FieldData[] = [];
-    const typesDataSources = [CalendarField,InputField,FormDiv];
+    const typesDataSources = [CalendarField,InputField,FormDiv, TripPeopleDetail, CheckboxList, MultipleCheckDropdow, SimpleDropdow, RadioButtonList, StepperControl, SwitchLight];
 
     const isDataSourcesComponents = (element:React.ReactNode):boolean => {
       // Verifica se o elemento é um elemento React válido

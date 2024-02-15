@@ -9,12 +9,15 @@ import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
 import { generateInputRandomId } from "@/types/utils/MathFunctions";
 
 import DrodownItem  from '@/view/components/input/dropdown/ItemDropdown';
+import FieldData from "@/types/structure/FieldData";
 
 
 
 
 interface Props {  
     id: string   
+    required?:boolean
+    dataSource?: FieldData[],
     roundType?:String
     placeholder?:string
     caption?:string
@@ -27,14 +30,32 @@ interface Props {
 
 
 function SimpleDropdow(props:Props) {
-  const {id, caption, placeholder, roundType, width, itens = []} = props;
+  const {id, caption, placeholder, roundType, width, itens = [], required, dataSource} = props;
   const [openOptions, setOpenOptions] = useState(false);
   const [itensSelectd, setItensSelected] = useState<DrodownItem[]>([]);
+  const [textJson, setTextJson] = useState<string>('');
   const [textValue, setTextValue] = useState<string>("");
+  const [fieldValid, setFieldValid] = useState(true);
+
+  const isValid = () : boolean =>{
+
+    if (required && (itensSelectd.length<1)){
+       return false;  
+    }
+
+    return true;  
+  }
+
+  const applyValidation = () : void =>{
+    setFieldValid(isValid());
+  }
+
+  const dataSourceItem : FieldData = {name:id, isValid , value:textJson, applyValidation};
 
 
   const onItensSelected = (itens:DrodownItem[]): void  => {
     setItensSelected(itens);
+    setTextJson(JSON.stringify(itens.map((item)=>item.key)));
   }
 
   const onClosePopup = (value:boolean): void  => {
@@ -49,6 +70,18 @@ function SimpleDropdow(props:Props) {
   useEffect(() => {
     setTextValue(itensSelectd.map((item) => item.caption).join(", "));
   }, [itensSelectd]);
+
+  if (dataSource){
+    const existingIndex = dataSource.findIndex(item => item.name === dataSourceItem.name);
+    // Se não existir, adiciona o novo item
+    if (existingIndex === -1) {
+        dataSource.push(dataSourceItem);
+    } else {
+        // Se existir, substitui o objeto existente pelo novo objeto
+        dataSource[existingIndex] = dataSourceItem;
+    }
+  
+  }
 
   const iconLeft=FieldIconEnum.Airplane;
   
@@ -78,6 +111,7 @@ function SimpleDropdow(props:Props) {
                                         idLink={id}
                                         type={ComponentTypeEnum.Label} fontSize="input-box" >{caption}</Typography>
                                      : <></>;
+
 
   return (
     

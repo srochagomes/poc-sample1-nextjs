@@ -7,6 +7,7 @@ import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import MultipleCheckDropdownPopup from "./pop-up";
 import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum";
 import DrodownItem  from '@/view/components/input/dropdown/ItemDropdown';
+import FieldData from "@/types/structure/FieldData";
 
 
 
@@ -14,6 +15,8 @@ import DrodownItem  from '@/view/components/input/dropdown/ItemDropdown';
 
 interface Props {  
     id: string   
+    required?:boolean
+    dataSource?: FieldData[],
     roundType?:string
     iconLeftPath?:string
     placeholder?:string
@@ -27,15 +30,31 @@ interface Props {
 
 
 function MultipleCheckDropdow(props:Props) {
-  const {id, caption, placeholder, roundType, width, itens = [], iconLeftPath=''} = props;
+  const {id, caption, placeholder, roundType, width, itens = [], iconLeftPath='', required, dataSource} = props;
   const [openOptions, setOpenOptions] = useState(false);
   const [itensSelectd, setItensSelected] = useState<DrodownItem[]>([]);
   const [textValue, setTextValue] = useState<string>("");
+  const [textJson, setTextJson] = useState<string>('');
+  const [fieldValid, setFieldValid] = useState(true);
 
+  const isValid = () : boolean =>{
+
+    if (required && (itensSelectd.length<1)){
+       return false;  
+    }
+
+    return true;  
+  }
+  const applyValidation = () : void =>{
+    setFieldValid(isValid());
+  }
+
+  const dataSourceItem : FieldData = {name:id, isValid , value:textJson, applyValidation};
 
   const onItensSelected = (itens:DrodownItem[]): void  => {
-    setItensSelected(itens);
+    setItensSelected(itens);       
   }
+
 
   const onClosePopup = (value:boolean): void  => {
     console.log('Passou onClosePopup');
@@ -48,10 +67,22 @@ function MultipleCheckDropdow(props:Props) {
 
   useEffect(() => {
     setTextValue(itensSelectd.map((item) => item.caption).join(", "));
+    setTextJson(JSON.stringify(itensSelectd.map((item)=>item.key)));     
   }, [itensSelectd]);
 
   
+  if (dataSource){
+    const existingIndex = dataSource.findIndex(item => item.name === dataSourceItem.name);
+    // Se não existir, adiciona o novo item
+    if (existingIndex === -1) {
+        dataSource.push(dataSourceItem);
+    } else {
+        // Se existir, substitui o objeto existente pelo novo objeto
+        dataSource[existingIndex] = dataSourceItem;
+    }
   
+  }
+
   const iconRight= openOptions? FieldIconEnum.UpDownward:FieldIconEnum.ArrowDownward;
   
   const iconLeftComponent =  <div className={style['multipleCheckDropdownContainer-iconleft']}>                                
