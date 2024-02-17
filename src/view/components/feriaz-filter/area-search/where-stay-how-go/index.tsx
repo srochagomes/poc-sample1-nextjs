@@ -73,9 +73,6 @@ function WhereStayHowGo(props:Props) {
             const newPeriods = { ...periods, [key]: dates };            
             setPeriods(newPeriods);
         }
-
-
-        
     }
 
     const onValidForm = (formMng: FormManagerType):void=>{
