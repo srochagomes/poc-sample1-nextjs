@@ -18,6 +18,16 @@
     
     @media screen and (max-width: $resolution-mobile-sm) {
         width: 98%;
+        padding-left: 1vw;
+        justify-content: stretch;
+
+        > div {            
+            position: relative;
+            width: 30%;
+            
+
+            
+        }
     }
 
 }

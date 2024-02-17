@@ -17,8 +17,9 @@ import DateOperations from "@/types/date/DateOperations";
 interface CalendarFieldsProps extends FieldsProps {
   linkTo?: string;
   indexSelect?: number;
-  updateDates?: (dates:string[]) => void;
+  updateDates?: (key:string, dates:string[]) => void;
   dateValue?: string;
+  idPeriodShared?: string;
 }
 
 function CalendarField(props:CalendarFieldsProps) {
@@ -26,6 +27,7 @@ function CalendarField(props:CalendarFieldsProps) {
           hasFlexibleDate = false, 
           permitPeriodChoice = false, 
           monthsShow = 1, 
+          idPeriodShared,
           id, caption, width, iconLeft, colorCaprion, roundType, placeholder,dataSource,required = false,linkTo, indexSelect = 0, updateDates,
           dateValue = ''} = props;
   
@@ -121,7 +123,7 @@ function CalendarField(props:CalendarFieldsProps) {
     let datesFormats = selectedKeys.map(item=>DateOperations.formatDate(parseFloat(item),'pt-BR'));
     if (updateDates && selectedKeys && selectedKeys.length>indexElement){      
       if(datesFormats){
-        updateDates(datesFormats as string[]);
+        updateDates(idPeriodShared||id, datesFormats as string[]);
       }
       
     }else if (selectedKeys && selectedKeys.length>indexElement){            

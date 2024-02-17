@@ -30,7 +30,8 @@ function WhereStayHowGo(props:Props) {
     const common = useTranslation('common');
     const [quantityPoint, setQuantityPoint] = useState<number>(1);
     const [removedPoints, setRemovedPoints] = useState<number[]>([]);
-    const [periods, setPeriods] = useState<string[]>([]);
+    const [periods, setPeriods] = useState<{[key: string]: string[]}>({});
+    
 
     
     let formManager: FormManagerType;
@@ -53,14 +54,28 @@ function WhereStayHowGo(props:Props) {
     }
 
 
-    const getPeriod = (index:number) : string => {
-        if (index >= periods.length) return '';
-        return periods[index];
+    const getPeriod = (key:string, index:number) : string => {
+        if (key in periods){
+            let period = periods[key];
+            if (index >= period.length) return '';
+            return period[index];
+        }
+        return '';
     }
 
 
-    const updateDates = (dates:string[]) : void => {
-        setPeriods(dates);
+    const updateDates = (key:string, dates:string[]) : void => {
+        if (key in periods){
+            let period = periods[key];
+            period.length = 0;
+            period.push(...dates);
+        }else{
+            const newPeriods = { ...periods, [key]: dates };            
+            setPeriods(newPeriods);
+        }
+
+
+        
     }
 
     const onValidForm = (formMng: FormManagerType):void=>{
@@ -97,8 +112,8 @@ export default WhereStayHowGo;
 const createAreaForm = (quantity:number,
     common:UseTranslationResponse<'common',undefined>,
     add: (value:number)=>void,
-    updateDates : (dates:string[]) => void,
-    getPeriod : (index:number) => string,
+    updateDates : (key:string,dates:string[]) => void,
+    getPeriod : (key:string,index:number) => string,
     removedPoint: number[],
     addRemovedPoint: (index:number) => void ) => {
     return ( 
@@ -148,19 +163,20 @@ const createAreaForm = (quantity:number,
                 
                 <FormDiv key={`field-period1_${index}`} className={style['whereStayHowGo-field-period']} >
                     <CalendarField 
-                        key={`calendar_when_${index}`}                            
-                        id={`calendar_when_${index}`}                         
+                        key={`calendar_when_${index}`}
+                        id={`calendar_when_${index}`}
                         linkTo={`calendar_back_${index}`} 
                         indexSelect={0}
                         roundType={FieldRoundEnum.Left}
-                        placeholder={common.t('calendar.when.placeholder')}   
-                        caption={common.t('calendar.go.caption')}   
+                        placeholder={common.t('calendar.when.placeholder')}
+                        caption={common.t('calendar.go.caption')}
                         iconLeft={FieldIconEnum.Calendar}
                         hasFlexibleDate={true}
-                        monthsShow={2}                                
+                        monthsShow={2}
                         permitPeriodChoice={true}
                         updateDates={updateDates}
-                        dateValue={getPeriod(0)}
+                        idPeriodShared={`period_${index}`}
+                        dateValue={getPeriod(`period_${index}`,0)}
                     />
     
                 </FormDiv>
@@ -179,7 +195,8 @@ const createAreaForm = (quantity:number,
                         monthsShow={2}
                         permitPeriodChoice={true}
                         updateDates={updateDates}
-                        dateValue={getPeriod(1)}
+                        idPeriodShared={`period_${index}`}
+                        dateValue={getPeriod(`period_${index}`,1)}
                     /> 
     
                 </FormDiv>
