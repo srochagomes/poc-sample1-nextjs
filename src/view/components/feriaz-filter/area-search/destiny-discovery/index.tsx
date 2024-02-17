@@ -27,12 +27,32 @@ interface Props{
 function DestinyDiscovery(props:Props) {
     const common = useTranslation('common');
     const [quantityPoint, setQuantityPoint] = useState<number>(1);
+    const [removedPoints, setRemovedPoints] = useState<number[]>([]);
+    const [periods, setPeriods] = useState<string[]>([]);
+
     
     let formManager: FormManagerType;
     
     const handleAccessConfirm = () =>{
         console.log('Valores', formManager.dataSource);
     }
+
+    const addRemovedPoint = (indexPoint:number) =>{
+        console.log('indice ', indexPoint);
+        setRemovedPoints((element)=> [...element, indexPoint]);
+    }
+
+
+    const getPeriod = (index:number) : string => {
+        if (index >= periods.length) return '';
+        return periods[index];
+    }
+
+
+    const updateDates = (dates:string[]) : void => {
+        setPeriods(dates);
+    }
+
 
     const addQuantityPoint = (value:number) =>{
         setQuantityPoint(quantityPoint+value);
@@ -51,7 +71,7 @@ function DestinyDiscovery(props:Props) {
                     <Typography fontSize="caption2" color="white">{common.t('message.destiny-discovery.title')}</Typography>
                 </div>
                 <FormGroup applyOnValidForm={onValidForm}>
-                    {createAreaForm(quantityPoint,common,addQuantityPoint)}
+                    {createAreaForm(quantityPoint,common,addQuantityPoint,updateDates, getPeriod, removedPoints, addRemovedPoint)}
                 </FormGroup>    
                 
                 <div className={style['destinyDiscovery-button-next']} >
@@ -69,10 +89,14 @@ export default DestinyDiscovery;
 
 const createAreaForm = (quantity:number,
     common:UseTranslationResponse<'common',undefined>,
-    add: (value:number)=>void ) => {
+    add: (value:number)=>void,
+    updateDates : (dates:string[]) => void,
+    getPeriod : (index:number) => string,
+    removedPoint: number[],
+    addRemovedPoint: (index:number) => void ) => {
     return ( 
     <FormDiv>
-       {Array.from({ length: quantity }, (_, index) => (                
+       {Array.from({ length: quantity }, (_, index) => !removedPoint.includes(index) && (                
         
         <FormDiv key={`fields_${index}`} className={style['destinyDiscovery-fields']} >
                         
@@ -126,7 +150,12 @@ const createAreaForm = (quantity:number,
                                 iconLeft={FieldIconEnum.Calendar}
                                 hasFlexibleDate={true}
                                 monthsShow={2}
-                                permitPeriodChoice={true}                                                
+                                permitPeriodChoice={true}    
+                                linkTo={`calendar_back_${index}`} 
+                                indexSelect={0}
+                                updateDates={updateDates}
+                                dateValue={getPeriod(0)}
+        
                             />
                     </FormDiv>
 
@@ -139,7 +168,12 @@ const createAreaForm = (quantity:number,
                             iconLeft={FieldIconEnum.Calendar}
                             hasFlexibleDate={true}
                             monthsShow={2}
-                            permitPeriodChoice={true}                                          
+                            permitPeriodChoice={true}    
+                            linkTo={`calendar_when_${index}`} 
+                            indexSelect={1}
+                            updateDates={updateDates}
+                            dateValue={getPeriod(1)}
+
                         />                                    
                     </FormDiv>                                
                 </FormDiv>

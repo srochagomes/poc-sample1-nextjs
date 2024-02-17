@@ -2,11 +2,11 @@
 
 const loggedRepository = {
     save(key:string, user: IUserLogged){
-        globalThis?.sessionStorage?.setItem(key, JSON.stringify(user));
+        globalThis?.localStorage?.setItem(key, JSON.stringify(user));
     },
     get(key:string): IUserLogged | null{                
 
-        const jsonData: string | null = globalThis?.sessionStorage?.getItem(key);
+        const jsonData: string | null = globalThis?.localStorage?.getItem(key);
         if (jsonData){
             const data: IUserLogged = JSON.parse(jsonData);
             return data;                
@@ -16,7 +16,7 @@ const loggedRepository = {
         
     },
     remove(key:string){
-        globalThis?.sessionStorage?.removeItem(key);
+        globalThis?.localStorage?.removeItem(key);
     },
 }
 

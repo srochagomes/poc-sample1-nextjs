@@ -2,12 +2,13 @@ import { useTranslation } from "next-i18next"
 import style from "./PrincipalHome.module.scss"
 import FeriazText, { FeriazSizeEnum } from "@/view/components/svg/feriaz-text"
 import HeaderMenu from "./header/menu"
-import FeriazFilter from "@/view/components/feriaz-filter"
+
+
+
 import AreaLogin from "./header/area-login"
 import { FieldVideoPath } from "@/types/enums/FieldVideoPath"
-import VideoPlayer from "@/view/components/video"
 
-import { FieldIconPath } from "@/types/enums/FieldIconPath"
+
 import IconSVG from "@/view/components/icons/icon-svg"
 import { FieldImagePath } from "@/types/enums/FieldImagePath"
 import Typography from "@/view/components/text-container/typography"
@@ -17,8 +18,7 @@ import CardInformation from "./cards"
 import applicationSession from "@/domain/model/session/ApplicationSession"
 import { useRouter } from "next/router"
 
-import { GetServerSidePropsContext } from "next"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { verifyUserLogged } from "@/manager-state/reducers/logged/LoggedState"
 import { useEffect } from "react"
 import loginSocialRedirect from "@/types/utils/LoginSocialRedirect"
@@ -26,6 +26,10 @@ import userSession from "@/domain/model/session/UserSession"
 import { HttpStatusCode } from "axios"
 import { openMessage } from "@/manager-state/reducers/message/MessageState"
 import { MessageStyle } from "@/types/enums/MessageStyles"
+import dynamic from "next/dynamic";
+const VideoPlayer = dynamic(() => import("@/view/components/video"), { ssr: false });
+const FeriazFilter = dynamic(() => import("@/view/components/feriaz-filter"), { ssr: true });
+
 
  
 export default function PrincipalHome() {

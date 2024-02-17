@@ -10,11 +10,17 @@ export async function getServerSideProps(context:GetServerSidePropsContext) {
     const { query } = context;
     const { emailConfirmed } = query;
     const { locale='ptBR' } = context;
+    
+    const headers = {
+      // Defina cabeçalhos de cache aqui
+      //'Cache-Control': 'public, max-age=86400', // Um dia em segundos
+      'Cache-Control': 'public, max-age=900', // 15 minutos em segundos
+    };
 
     
     
     if (emailConfirmed) {      
-      return {
+      return {        
         redirect: {
           destination: '/signUp?emailConfirmed='+emailConfirmed,          
           context,
@@ -26,6 +32,7 @@ export async function getServerSideProps(context:GetServerSidePropsContext) {
 
     return {
         props: {
+            headers,
             ...(await serverSideTranslations(
               locale,
               ['common', 'field', 'button', 'datedescription'],

@@ -25,12 +25,28 @@ interface Props{
 function WhereStay(props:Props) {
     const common = useTranslation('common');
     const [quantityPoint, setQuantityPoint] = useState<number>(1);
+    const [removedPoints, setRemovedPoints] = useState<number[]>([]);
+    const [periods, setPeriods] = useState<string[]>([]);
     let formManager: FormManagerType;
 
     const addQuantityPoint = (value:number) =>{
 
         setQuantityPoint(quantityPoint+value)
 
+    }
+    const addRemovedPoint = (indexPoint:number) =>{
+        console.log('indice ', indexPoint);
+        setRemovedPoints((element)=> [...element, indexPoint]);
+    }
+
+    const getPeriod = (index:number) : string => {
+        if (index >= periods.length) return '';
+        return periods[index];
+    }
+
+
+    const updateDates = (dates:string[]) : void => {
+        setPeriods(dates);
     }
 
     const onValidForm = (formMng: FormManagerType):void=>{
@@ -48,7 +64,7 @@ function WhereStay(props:Props) {
                 </div>
                 
                 <FormGroup applyOnValidForm={onValidForm}>
-                    {createAreaForm(quantityPoint,common,addQuantityPoint)}
+                    {createAreaForm(quantityPoint,common,addQuantityPoint,updateDates, getPeriod, removedPoints, addRemovedPoint)}
                 </FormGroup>                    
                 <div className={style['whereStay-button-next']} >
                     <ButtonPrimary onClick={handleAccessConfirm}>
@@ -64,10 +80,14 @@ export default WhereStay;
 
 const createAreaForm = (quantity:number,
     common:UseTranslationResponse<'common',undefined>,
-    add: (value:number)=>void ) => {
+    add: (value:number)=>void,
+    updateDates : (dates:string[]) => void,
+    getPeriod : (index:number) => string,
+    removedPoint: number[],
+    addRemovedPoint: (index:number) => void ) => {
     return ( 
     <FormDiv>
-       {Array.from({ length: quantity }, (_, index) => (                
+       {Array.from({ length: quantity }, (_, index) => !removedPoint.includes(index) && (                
         
         <FormDiv key={`fields_${index}`} className={style['whereStay-fields']} >
             <FormDiv key={`fields-group1_${index}`} className={style['whereStay-broke-resolution']} >
@@ -96,14 +116,18 @@ const createAreaForm = (quantity:number,
                     <FormDiv key={`field-period1_${index}`} className={style['whereStay-field-period']} >
                         <CalendarField 
                             key={`calendar_when_${index}`}                            
-                            id={`calendar_when_${index}`}                            
+                            id={`calendar_when_${index}`}
+                            linkTo={`calendar_back_${index}`} 
+                            indexSelect={0}
                             roundType={FieldRoundEnum.Left}
                             placeholder={common.t('calendar.when.placeholder')}   
                             caption={common.t('calendar.go.caption')}   
                             iconLeft={FieldIconEnum.Calendar}
                             hasFlexibleDate={true}
-                            monthsShow={2}                                
+                            monthsShow={2}       
+                            updateDates={updateDates}                         
                             permitPeriodChoice={true}
+                            dateValue={getPeriod(0)}
                             
                             
                         />
@@ -113,14 +137,18 @@ const createAreaForm = (quantity:number,
                     <FormDiv key={`field-period2_${index}`} className={style['whereStay-field-period']} >
                         <CalendarField 
                             key={`calendar_back_${index}`}                                         
-                            id={`calendar_back_${index}`}                                         
+                            id={`calendar_back_${index}`}  
+                            linkTo={`calendar_when_${index}`} 
+                            indexSelect={1}
                             roundType={FieldRoundEnum.Right}
                             placeholder={common.t('calendar.when.placeholder')}   
                             caption={common.t('calendar.back.caption')}   
                             iconLeft={FieldIconEnum.Calendar}
                             hasFlexibleDate={true}
                             monthsShow={2}
+                            updateDates={updateDates}
                             permitPeriodChoice={true}
+                            dateValue={getPeriod(1)}
                         /> 
         
                     </FormDiv>
@@ -154,7 +182,7 @@ const createAreaForm = (quantity:number,
                         heightSize={30}
                         caption={index==0?common.t('button.patchs.caption'):''}  
                         captionColor="white"
-                        onClick={()=>add(index==0?1:-1)}
+                        onClick={()=> index ==0? add(1):addRemovedPoint(index)} // se for indice 0 adiciona, senão remove
                 
                 />
             </div> 

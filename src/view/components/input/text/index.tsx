@@ -144,10 +144,10 @@ function InputField(props:FieldsProps) {
                   `${style['inputContainer-inputArea']}`
                   : `${style['inputContainer-inputArea']} ${style['inputContainer-inputArea-error']}`} >
                 {captionComponent}
-
+                
                 
                 <IMaskInput 
-                    id={id}
+                    id={id}                    
                     mask={FieldTypeDetail[type].pattern as string}
                     type={FieldTypeDetail[fieldType].type}
                     required={required}

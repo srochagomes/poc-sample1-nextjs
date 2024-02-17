@@ -14,14 +14,25 @@ import { FieldsProps } from "@/view/components/input/text";
 
 import DateOperations from "@/types/date/DateOperations";
 
+interface CalendarFieldsProps extends FieldsProps {
+  linkTo?: string;
+  indexSelect?: number;
+  updateDates?: (dates:string[]) => void;
+  dateValue?: string;
+}
 
-
-function CalendarField(props:FieldsProps) {
-  const { maxDigits = 10, hasFlexibleDate = false, permitPeriodChoice = false, monthsShow = 1, id, caption, width, iconLeft, colorCaprion, roundType, placeholder,dataSource,required = false,} = props;
+function CalendarField(props:CalendarFieldsProps) {
+  const { maxDigits = 10, 
+          hasFlexibleDate = false, 
+          permitPeriodChoice = false, 
+          monthsShow = 1, 
+          id, caption, width, iconLeft, colorCaprion, roundType, placeholder,dataSource,required = false,linkTo, indexSelect = 0, updateDates,
+          dateValue = ''} = props;
+  
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);  
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [typeCalendar, setTypeCalendar] = useState(TypeCalendar.fixed);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(dateValue);
   const [fieldValid, setFieldValid] = useState(true);
   const [dateBase, setDateBase] = useState(new Date());
   
@@ -40,19 +51,13 @@ function CalendarField(props:FieldsProps) {
     setFieldValid(isValid());
   }
 
-  const dataSourceItem : FieldData = {name:id, isValid,value, applyValidation};
+  const dataSourceItem : FieldData = {name:id, isValid,value, sharedObject: selectedKeys, applyValidation};
 
+
+  useEffect(() => {
+    setValue(dateValue);
+  }, [dateValue]);
   
-
-
-  useEffect(() => {
-    setSelectedKeys(selectedKeys);
-    
-  }, [selectedKeys]);
-
-  useEffect(() => {
-    setDateBase(dateBase);
-  }, [dateBase]);
 
   useEffect(() => {
     setShowDatePicker(showDatePicker);
@@ -108,15 +113,32 @@ function CalendarField(props:FieldsProps) {
   const onClickDateFlexible  = (event:React.MouseEvent<HTMLDivElement>): void =>{    
     setTypeCalendar(TypeCalendar.flexible);    
   }
+
+  const updateValueCalendar = () : void => { 
+    
+    let indexElement = indexSelect < selectedKeys.length? indexSelect : 0;
+    
+    let datesFormats = selectedKeys.map(item=>DateOperations.formatDate(parseFloat(item),'pt-BR'));
+    if (updateDates && selectedKeys && selectedKeys.length>indexElement){      
+      if(datesFormats){
+        updateDates(datesFormats as string[]);
+      }
+      
+    }else if (selectedKeys && selectedKeys.length>indexElement){            
+      setValue(datesFormats[indexElement] as string)
+    }
+  }
+  const changeValueCalendar = () : void => { 
+    updateValueCalendar();
+    
+    
+
+  }
+
   const onClickConfirm = (event:React.MouseEvent<HTMLButtonElement>): void =>{    
     setShowDatePicker(false);
-    const dateValue = DateOperations.formatDate(parseFloat(selectedKeys[0]),'pt-BR');
-    if(dateValue){
-      setValue(dateValue);
-    }else{
-      setValue('');
-    }
-    
+    changeValueCalendar();
+        
   }
 
   const onSelectDay = (event:React.MouseEvent<HTMLDivElement>|null, index:number): void =>{
@@ -227,6 +249,16 @@ function CalendarField(props:FieldsProps) {
           // Se existir, substitui o objeto existente pelo novo objeto
           dataSource[existingIndex] = dataSourceItem;
       }  
+
+      if (dataSource && linkTo){
+        const linkIdExistingIndex = dataSource.findIndex(item => item.name === linkTo);
+  
+        if (linkIdExistingIndex !== -1) {              
+          dataSource[linkIdExistingIndex].sharedObject.length = 0;
+          dataSource[linkIdExistingIndex].sharedObject.push(...selectedKeys);
+        }  
+  
+      }
   }
                             
   return (

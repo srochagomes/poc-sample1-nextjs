@@ -1,7 +1,7 @@
 import { useTranslation } from "next-i18next"
 
 import style from "./SignIn.module.scss"
-import FeriazText from "@/view/components/svg/feriaz-text";
+import FeriazText, { FeriazSizeEnum } from "@/view/components/svg/feriaz-text";
 import Typography from "@/view/components/text-container/typography";
 import FormGroup from "@/view/components/form/group";
 
@@ -9,7 +9,6 @@ import { FieldTypeEnum } from "@/types/enums/FieldTypeEnum";
 import { FieldRoundEnum } from "@/types/enums/FieldRoundEnum";
 import ButtonPrimary from "@/view/components/button/primary-button";
 import ButtonStyle, { ButtonStyleIconEnum } from "@/view/components/button/style-buton";
-import { FieldIconPath } from "@/types/enums/FieldIconPath";
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum";
 import LinkFoward from "@/view/components/link/foward";
 import InputField from "@/view/components/input/text";
@@ -122,7 +121,9 @@ export default function SignIn() {
     }
 
   }
-
+  const onFeriazClick  = (event:React.MouseEvent<HTMLDivElement>): void =>{        
+    router.push('/');
+  }
   const handleLoginSocialStart = (provider:string) => {
     
     let urlLoginSocialIdentityProvider = urlLoginSocial?.replace(/{{identityProvider}}/g, provider);
@@ -138,7 +139,7 @@ export default function SignIn() {
   return (
     <>      
       <section className={style.body}>
-        <div className={style['body-feriaz']}><FeriazText/></div>
+        <div className={style['body-feriaz']} onClick={onFeriazClick}><FeriazText sizeType={FeriazSizeEnum.BIG}/></div>
         <div className={style['body-welcome']}>
           <Typography fontSize="H2" color="white" weight="extrabold">{common.t('welcome.traveler')}</Typography>
         </div>

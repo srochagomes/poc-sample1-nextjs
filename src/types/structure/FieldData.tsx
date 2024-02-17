@@ -3,4 +3,5 @@ export default interface FieldData{
     value:string    
     isValid: ()=> boolean
     applyValidation: ()=> void
+    sharedObject?: any
 }

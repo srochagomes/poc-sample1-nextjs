@@ -7,7 +7,7 @@ const userLoggedSlice = createSlice({
   name: 'userLogged',
   initialState,
   reducers: {
-    verifyUserLogged: (state) =>  {
+    verifyUserLogged: (state) =>  {      
       return userSession.isLogged();
     },
     logoutUser: () => initialState,

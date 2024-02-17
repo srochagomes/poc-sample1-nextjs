@@ -47,13 +47,17 @@ const userSession = {
 
 
       let token = accessTokenRepository.get(access_token_id);            
+      
       if (token){        
-        let userLogged = loggedRepository.get(user_data_key);
+        let userLogged = loggedRepository.get(user_data_key);        
         if (userLogged){
           return {
             ...userLogged,
             logged:true
           }       
+        }else{
+          //caso tenha token, mas sem usuario no local, realizar o logout
+          identity.logoutUser();
         }
 
       }

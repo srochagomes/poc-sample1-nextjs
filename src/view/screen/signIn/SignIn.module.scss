@@ -9,10 +9,10 @@
     flex-direction: column;
 
     &-feriaz {
-      margin-top: 8vh;
+      margin-top: 4vh;
     }
     &-welcome {
-      margin-top: 4vh;
+      margin-top: 2vh;
       &-login-caption {
         margin-top: 0.2vh;
       }
@@ -32,7 +32,7 @@
         }
       }
   
-      margin-top: 8vh;
+      margin-top: 6vh;
       &-forgot-password {
         display: flex;
         justify-content: flex-end;            
@@ -68,7 +68,7 @@
     }
 
     &-invite-signin {
-      margin-top: 8vh;
+      margin-top: 6vh;
       & > * {        
         margin: 1vw; 
     } 
