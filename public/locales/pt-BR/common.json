@@ -54,6 +54,11 @@
     "feriaz.company.name.caption":"FERIAZ AGENCIA DE TURISMO LTDA",
     "feriaz.company.documents.caption":"CNPJ: 50.540.973/0001-91",
     "feriaz.company.address.caption":"RUA XINGU, 15. SÃO PAULO -SP - 06535-120",
+    "feriaz.search.type.where-stay-how-go.caption":"Onde ficar e como chegar",
+    "feriaz.search.type.where-stay.caption":"Onde ficar",
+    "feriaz.search.type.how-go.caption":"Como chegar",
+    "feriaz.search.type.rent-car.caption":"Alugar carro",
+    "feriaz.search.type.destiny-discovery.caption":"Descobrir destino",
     "sign-up.new-password-caption":"Realize o cadastro da sua senha",
     "sign-up.email-sended.caption":"Foi enviado um email para o endereço ",
     "sign-up.email-sended-confirm.caption":", verifique seu email para continuar o processo!",
@@ -66,6 +71,7 @@
     "message.feriaz.login.unexpected.message": "Acesso ao usuário com ação inexperada!",
     "message.feriaz.login-area.not-permited.caption":"Acesso a esa área não permitida",
     "message.feriaz.login-area.not-permited.message":"Já esxiste um usuário logado, favor, deslogar o usuario para acessar esta área."
+
     
 
 

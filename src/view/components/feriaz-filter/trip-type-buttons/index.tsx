@@ -3,6 +3,7 @@ import React from "react";
 import style from "./TripTypeButtons.module.scss"
 import IconSelecting from "@/view/components/button/icon-selecting";
 import IconSVG from "@/view/components/icons/icon-svg";
+import { useTranslation } from 'next-i18next';
 
 interface Props{
     selectButton?: (indice:number)=>void
@@ -16,6 +17,7 @@ function TripTypeButtons(props:Props) {
     const [btnThirdSelected, setBtnThirdSelected] = React.useState(false);
     const [btnFourthSelected, setBtnFourthSelected] = React.useState(false);
     const [btnFifthSelected, setBtnFifthSelected] = React.useState(false);
+    const common = useTranslation('common');
     
     const btnSetSelected = [setBtnFirstSelected, 
                            setBtnSecondSelected,
@@ -47,12 +49,13 @@ function TripTypeButtons(props:Props) {
         
     };
 
+
     return (    
         <div className={style['buttonsTripType']} >
             <IconSelecting isSelected={btnFirstSelected} 
                     normal={IconesEnum.FERIAZ_ONDE_FICA_COMO_CHEGAR.normal} 
                     whenSelected={IconesEnum.FERIAZ_ONDE_FICA_COMO_CHEGAR.selected}
-                    caption="Onde ficar e como chegar"
+                    caption={common.t('feriaz.search.type.where-stay-how-go.caption')}
                     onClick={()=>feriazIconTypeClick(0)} 
                     width="8rem"
                     height="3rem"
@@ -60,7 +63,7 @@ function TripTypeButtons(props:Props) {
             <IconSelecting isSelected={btnSecondSelected} 
                     normal={IconesEnum.FERIAZ_ONDE_FICA.normal} 
                     whenSelected={IconesEnum.FERIAZ_ONDE_FICA.selected}
-                    caption="Onde ficar"
+                    caption={common.t('feriaz.search.type.where-stay.caption')}
                     onClick={()=>feriazIconTypeClick(1)} 
                     width="3rem"
                     height="3rem"
@@ -68,7 +71,7 @@ function TripTypeButtons(props:Props) {
             <IconSelecting isSelected={btnThirdSelected} 
                     normal={IconesEnum.FERIAZ_COMO_CHEGAR.normal} 
                     whenSelected={IconesEnum.FERIAZ_COMO_CHEGAR.selected}
-                    caption="Como chegar"
+                    caption={common.t('feriaz.search.type.how-go.caption')}
                     onClick={()=>feriazIconTypeClick(2)} 
                     width="3rem"
                     height="3rem"
@@ -76,7 +79,7 @@ function TripTypeButtons(props:Props) {
             <IconSelecting isSelected={btnFourthSelected} 
                     normal={IconesEnum.FERIAZ_ALUGAR_CARRO.normal} 
                     whenSelected={IconesEnum.FERIAZ_ALUGAR_CARRO.selected}
-                    caption="Alugar Carro"
+                    caption={common.t('feriaz.search.type.rent-car.caption')}
                     onClick={()=>feriazIconTypeClick(3)} 
                     width="3rem"
                     height="3rem"
@@ -84,7 +87,7 @@ function TripTypeButtons(props:Props) {
             <IconSelecting isSelected={btnFifthSelected} 
                     normal={IconesEnum.FERIAZ_DESCOBRIR_DESTINO.normal} 
                     whenSelected={IconesEnum.FERIAZ_DESCOBRIR_DESTINO.selected}
-                    caption="Descobrir Destino"
+                    caption={common.t('feriaz.search.type.destiny-discovery.caption')}
                     onClick={()=>feriazIconTypeClick(4)}
                     width="3rem"
                     height="3rem"
