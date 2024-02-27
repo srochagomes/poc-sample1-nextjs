@@ -22,7 +22,8 @@
     "signup.passwords-patterns-4.caption": "Must contain at least one of the following special characters: [@$!%*?&].",
     "signup.passwords-patterns-5.caption": "Must be at least 8 characters long.",    
     "signup.passwords-patterns-6.caption": "The password does not match the confirmation password.",    
-    "field.required.caption":"* fields required"
+    "field.required.caption":"* fields required",
+    "field.age-minor.caption":"Minor age"
 
 
 

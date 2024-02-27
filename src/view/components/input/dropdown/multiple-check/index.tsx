@@ -57,11 +57,9 @@ function MultipleCheckDropdow(props:Props) {
 
 
   const onClosePopup = (value:boolean): void  => {
-    console.log('Passou onClosePopup');
     setOpenOptions(value);
   }
   const clickOpen = (event:React.MouseEvent<HTMLDivElement>): void =>{
-    console.log('Passou clickOpen:',openOptions);
     setOpenOptions(!openOptions);
   }
 

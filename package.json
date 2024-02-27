@@ -32,7 +32,8 @@
     "terser-webpack-plugin": "^5.3.10",
     "webpack": "^5.90.1",
     "webpack-bundle-analyzer": "^4.10.1",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "worker-loader": "^3.0.8"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

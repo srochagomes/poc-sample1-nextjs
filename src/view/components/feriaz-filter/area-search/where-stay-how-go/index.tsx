@@ -16,8 +16,10 @@ import { useTranslation } from 'next-i18next';
 import FormGroup from '@/view/components/form/group';
 import FormManagerType from '@/types/structure/FormManageType';
 import { UseTranslationResponse } from 'react-i18next';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import FormDiv from '@/view/components/form/div-container';
+import DateOperations from '@/types/date/DateOperations';
+import InputAutoCompleteField from '@/view/components/input/autocomplete';
 
 
 
@@ -30,8 +32,9 @@ function WhereStayHowGo(props:Props) {
     const common = useTranslation('common');
     const [quantityPoint, setQuantityPoint] = useState<number>(1);
     const [removedPoints, setRemovedPoints] = useState<number[]>([]);
-    const [periods, setPeriods] = useState<{[key: string]: string[]}>({});
-    
+    const [periods, setPeriods] = useState<{[key: string]: string[]}>({});    
+    const [internalState, setInternalState] = useState(periods);
+
 
     
     let formManager: FormManagerType;
@@ -49,30 +52,48 @@ function WhereStayHowGo(props:Props) {
     }
 
     const addRemovedPoint = (indexPoint:number) =>{
-        console.log('indice ', indexPoint);
+        
         setRemovedPoints((element)=> [...element, indexPoint]);
     }
 
 
     const getPeriod = (key:string, index:number) : string => {
-        if (key in periods){
+        if (key in periods){            
             let period = periods[key];
+            
             if (index >= period.length) return '';
-            return period[index];
+            return DateOperations.formatDate(parseFloat(period[index]),'pt-BR')||'';
         }
         return '';
     }
 
 
+    const getPeriods = (key:string) : string[] => {
+        if (key in periods){           
+            let period = periods[key];            
+            return [...period];
+        }else{            
+            let data : string[] = [];
+            const newPeriods = { ...periods, [key]: data };
+            setPeriods(newPeriods);
+            return data;
+        }
+        
+    }
+
+
     const updateDates = (key:string, dates:string[]) : void => {
-        if (key in periods){
-            let period = periods[key];
-            period.length = 0;
-            period.push(...dates);
-        }else{
+        
+        if (key in periods){            
+            periods[key].length = 0;
+            periods[key].push(...dates);                        
+            setInternalState(Object.assign({}, periods));
+        }else{            
             const newPeriods = { ...periods, [key]: dates };            
             setPeriods(newPeriods);
+            setInternalState(Object.assign({}, periods));
         }
+        
     }
 
     const onValidForm = (formMng: FormManagerType):void=>{
@@ -89,7 +110,7 @@ function WhereStayHowGo(props:Props) {
                 
                 <section>
                 <FormGroup applyOnValidForm={onValidForm}>
-                    {createAreaForm(quantityPoint,common,addQuantityPoint,updateDates, getPeriod, removedPoints, addRemovedPoint)}
+                    {createAreaForm(quantityPoint,common,addQuantityPoint,updateDates, getPeriod, removedPoints, addRemovedPoint,getPeriods)}
                 </FormGroup>    
     
                 </section>
@@ -112,7 +133,10 @@ const createAreaForm = (quantity:number,
     updateDates : (key:string,dates:string[]) => void,
     getPeriod : (key:string,index:number) => string,
     removedPoint: number[],
-    addRemovedPoint: (index:number) => void ) => {
+    addRemovedPoint: (index:number) => void,
+    getPeriods:(key:string) => string[], ) => {    
+    
+    
     return ( 
     <FormDiv>
        {Array.from({ length: quantity }, (_, index) => !removedPoint.includes(index) && (                
@@ -124,15 +148,13 @@ const createAreaForm = (quantity:number,
                     <div key={`move-data-image1_${index}`} className={style['whereStayHowGo-fields-move-data-image']} />
                         
                     <FormDiv key={`field-location1_${index}`} className={style['whereStayHowGo-field-location']} >
-                        <InputField
+                        <InputAutoCompleteField
                             key={`city_origem_${index}`}
-                            id={`city_origem_${index}`}
-                            type={FieldTypeEnum.Text}  
+                            id={`city_origem_${index}`}                            
                             roundType={FieldRoundEnum.Left}
                             placeholder={common.t('city-origin.placeholder')}   
                             caption={common.t('city-origin.caption')}   
-                            iconLeft={FieldIconEnum.Circle}
-                            
+                            iconLeft={FieldIconEnum.Circle}                            
                         />
     
                     </FormDiv>
@@ -173,7 +195,8 @@ const createAreaForm = (quantity:number,
                         permitPeriodChoice={true}
                         updateDates={updateDates}
                         idPeriodShared={`period_${index}`}
-                        dateValue={getPeriod(`period_${index}`,0)}
+                        dateValue={getPeriod(`period_${index}`,0)}    
+                        periodSelectShared={getPeriods(`period_${index}`)}                    
                     />
     
                 </FormDiv>
@@ -194,6 +217,7 @@ const createAreaForm = (quantity:number,
                         updateDates={updateDates}
                         idPeriodShared={`period_${index}`}
                         dateValue={getPeriod(`period_${index}`,1)}
+                        periodSelectShared={getPeriods(`period_${index}`)}
                     /> 
     
                 </FormDiv>

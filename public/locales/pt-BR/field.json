@@ -22,7 +22,8 @@
     "signup.passwords-patterns-4.caption": "Deve conter pelo menos um dos caracteres especiais listados: [@$!%*?&].",
     "signup.passwords-patterns-5.caption": "Deve ter no mínimo 8 caracteres.",    
     "signup.passwords-patterns-6.caption": "A Senha não confere com a Senha de confirmação.",    
-    "field.required.caption":"* campos obrigatórios"
+    "field.required.caption":"* campos obrigatórios",
+    "field.age-minor.caption":"Idade menor"
 
 
 }

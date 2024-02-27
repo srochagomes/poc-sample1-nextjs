@@ -29,8 +29,7 @@ export default function AreaLogin() {
     }
 
     const handleProfile = () => {
-        userSession.session().then(async (body)=>{
-         await console.log('Sessão :', body);
+        userSession.session().then(async (body)=>{         
          verifyRequiredLogin(router,body);
          
        });

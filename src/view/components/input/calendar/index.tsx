@@ -20,6 +20,7 @@ interface CalendarFieldsProps extends FieldsProps {
   updateDates?: (key:string, dates:string[]) => void;
   dateValue?: string;
   idPeriodShared?: string;
+  periodSelectShared?: string[];
 }
 
 function CalendarField(props:CalendarFieldsProps) {
@@ -28,10 +29,11 @@ function CalendarField(props:CalendarFieldsProps) {
           permitPeriodChoice = false, 
           monthsShow = 1, 
           idPeriodShared,
+          periodSelectShared,
           id, caption, width, iconLeft, colorCaprion, roundType, placeholder,dataSource,required = false,linkTo, indexSelect = 0, updateDates,
           dateValue = ''} = props;
   
-  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);  
+  const [selectedKeys, setSelectedKeys] = useState<string[]>(periodSelectShared?periodSelectShared:[]);  
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [typeCalendar, setTypeCalendar] = useState(TypeCalendar.fixed);
   const [value, setValue] = useState(dateValue);
@@ -44,7 +46,7 @@ function CalendarField(props:CalendarFieldsProps) {
        return false;  
     }else if (!required && (value.length<1 || value.trim().length < 1)){
       return true;  
-   }
+    }
 
     return FieldTypeDetail.date.regex.test(value);
   }
@@ -53,18 +55,51 @@ function CalendarField(props:CalendarFieldsProps) {
     setFieldValid(isValid());
   }
 
-  const dataSourceItem : FieldData = {name:id, isValid,value, sharedObject: selectedKeys, applyValidation};
+  const dataSourceItem : FieldData = {name:id, isValid,value, applyValidation};
+
+
+  
+  
+
+  if (dataSource){
+    
+    
+    const existingIndex = dataSource.findIndex(item => item.name === dataSourceItem.name);
+    // Se não existir, adiciona o novo item
+    if (existingIndex === -1) {
+      
+        dataSource.push(dataSourceItem);
+    } else {
+      
+        // Se existir, substitui o objeto existente pelo novo objeto
+        dataSource[existingIndex] = dataSourceItem;
+    }
+  } 
 
 
   useEffect(() => {
-    setValue(dateValue);
+    setValue(dateValue); 
+    updateDateBaseFromValue()   
   }, [dateValue]);
+
+
   
 
   useEffect(() => {
     setShowDatePicker(showDatePicker);
   }, [showDatePicker]);
 
+  useEffect(() => {
+
+    if(periodSelectShared){      
+      setSelectedKeys(periodSelectShared);
+  
+    }
+    
+
+  }, [periodSelectShared]);
+
+  
 
   const isSelectDay = (index:number|null) : boolean=>{
     if (!index) return false;
@@ -98,11 +133,10 @@ function CalendarField(props:CalendarFieldsProps) {
   }
 
   const onClickClear = (event:React.MouseEvent<HTMLDivElement>): void =>{
-    setSelectedKeys([]);
+    setSelectedKeys((prevKeys) => {return []});
   }
 
-  const onClickIconCalendar  = (event:React.MouseEvent<HTMLDivElement>): void =>{        
-    updateDateBaseFromValue();
+  const onClickIconCalendar  = (event:React.MouseEvent<HTMLDivElement>): void =>{           
     setShowDatePicker(!showDatePicker);
   }
 
@@ -117,23 +151,26 @@ function CalendarField(props:CalendarFieldsProps) {
   }
 
   const updateValueCalendar = () : void => { 
-    
     let indexElement = indexSelect < selectedKeys.length? indexSelect : 0;
     
     let datesFormats = selectedKeys.map(item=>DateOperations.formatDate(parseFloat(item),'pt-BR'));
+    
     if (updateDates && selectedKeys && selectedKeys.length>indexElement){      
-      if(datesFormats){
-        updateDates(idPeriodShared||id, datesFormats as string[]);
+      
+      if(datesFormats){        
+        updateDates(idPeriodShared||id, selectedKeys as string[]);
+      
+        setValue(datesFormats[indexElement] as string)      
       }
       
     }else if (selectedKeys && selectedKeys.length>indexElement){            
       setValue(datesFormats[indexElement] as string)
     }
+
   }
+
   const changeValueCalendar = () : void => { 
-    updateValueCalendar();
-    
-    
+    updateValueCalendar();  
 
   }
 
@@ -146,8 +183,7 @@ function CalendarField(props:CalendarFieldsProps) {
   const onSelectDay = (event:React.MouseEvent<HTMLDivElement>|null, index:number): void =>{
     const keyAttributeValue = index.toString();
 
-    if (keyAttributeValue) {
-      
+    if (keyAttributeValue) {      
       setSelectedKeys((prevKeys) => {
         if (prevKeys.includes(keyAttributeValue)) {
           // Se a chave já estiver no estado, e for m evento de mouseremova-a
@@ -239,29 +275,6 @@ function CalendarField(props:CalendarFieldsProps) {
                                             fontSize="input-box" color={colorCaprion?colorCaprion:'black'}>{caption}</Typography>
                                      </div> 
                                      : <></>;
-  if (dataSource){
-    
-      const existingIndex = dataSource.findIndex(item => item.name === dataSourceItem.name);
-      // Se não existir, adiciona o novo item
-      if (existingIndex === -1) {
-        
-          dataSource.push(dataSourceItem);
-      } else {
-        
-          // Se existir, substitui o objeto existente pelo novo objeto
-          dataSource[existingIndex] = dataSourceItem;
-      }  
-
-      if (dataSource && linkTo){
-        const linkIdExistingIndex = dataSource.findIndex(item => item.name === linkTo);
-  
-        if (linkIdExistingIndex !== -1) {              
-          dataSource[linkIdExistingIndex].sharedObject.length = 0;
-          dataSource[linkIdExistingIndex].sharedObject.push(...selectedKeys);
-        }  
-  
-      }
-  }
                             
   return (
     

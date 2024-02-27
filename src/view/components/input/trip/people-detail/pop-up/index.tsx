@@ -6,6 +6,7 @@ import LinkAction from "@/view/components/link/action";
 import Typography from "@/view/components/text-container/typography";
 import ButtonPrimary from "@/view/components/button/primary-button";
 import { MinorAgeData, PeopleData } from "..";
+import { useTranslation } from "react-i18next";
 
 
 
@@ -21,6 +22,7 @@ function TripPeoplePopup(props: Props) {
   const [peopleOlderQuantity, setPeopleOlderQuantity] = useState(0);
   const [peopleRoomQuantity, setPeopleRoomQuantity] = useState(0);
   const [minorAges, setMinorAges] = useState<MinorAgeData[]>([]);
+  const field = useTranslation('field');
 
   const changeMinorAge = (value: number, index: number) => {
     setMinorAges(minorAges.filter((item)=> item.index !== index));    
@@ -107,7 +109,7 @@ function TripPeoplePopup(props: Props) {
             <select key={index} placeholder="Idade menor"
               onChange={(e) => changeMinorAge(Number(e.target.value), index)}
             >
-              <option disabled defaultValue={""}>Idade menore</option>
+              <option disabled defaultValue={""}>{field.t('field.age-minor.caption')}</option>
               {minorOptions.map((option) => (
                 <option key={option} value={option}>
                   {option}

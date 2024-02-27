@@ -5,7 +5,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { i18n } = require('./next-i18next.config');
 
 module.exports = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   i18n,
   webpack: (config, { dev, isServer }) => {
     // Adiciona TerserPlugin e CssMinimizerPlugin apenas para produção
@@ -16,6 +16,14 @@ module.exports = {
       // Adiciona CssMinimizerPlugin para minimizar arquivos CSS
       config.optimization.minimizer.push(new CssMinimizerPlugin());
     }
+
+    // Configura o worker-loader para carregar e executar módulos de Worker
+    config.module.rules.push({
+      test: /\.worker\.js$/,
+      use: { loader: 'worker-loader' }
+    });   
+    
+    
     //Analise de dependencia do projeto
     // if (!isServer) {
     //   config.plugins.push(new BundleAnalyzerPlugin({
