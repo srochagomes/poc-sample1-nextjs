@@ -2,21 +2,23 @@ import React, { useEffect, useRef, useState } from "react";
 
 import style from './InputAutoCompletePopup.module.scss';
 
-import SimpleDropdownItemComponent from "./item";
+
 
 
 import DrodownItem  from '@/view/components/input/dropdown/ItemDropdown';
 
 
 interface Props {
-  show: boolean;
-  itens: DrodownItem[];
+  show: boolean
+  itens: []
+  attributeDisplay:string
   onClose?: (value:boolean) => void
   onItensSelected?:(itens:DrodownItem[]) => void
 }
 
 function InputAutoClompletePopup(props: Props) {
   let { show, itens = [], 
+    attributeDisplay = '',
         onClose = (value:boolean)=>value, 
         onItensSelected = (values:DrodownItem[])=>values } = props;
   const [componentShow, setComponentShow] = useState(show);
@@ -85,14 +87,14 @@ function InputAutoClompletePopup(props: Props) {
 
   return (
     <div
-      className={componentShow ? `${style['simpleDropDowPopup']} ${style['simpleDropDowPopup-show']}`
-        : `${style['simpleDropDowPopup']}`}
+      className={componentShow ? `${style['inputAutoCompletePopup']} ${style['inputAutoCompletePopup-show']}`
+        : `${style['inputAutoCompletePopup']}`}
       ref={divRef}
       onClick={handleDivClick}
     >
       
-      {itens.map(item => (
-        <SimpleDropdownItemComponent key={item.key} item={item} isItemClicked={isItemClicked} onItemClicked={onItemClicked} />
+      {itens.map((item, index) => (
+        <span key={index}>{item[attributeDisplay]}</span>
       ))}
     </div>
   );

@@ -19,7 +19,7 @@ import { UseTranslationResponse } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import FormDiv from '@/view/components/form/div-container';
 import DateOperations from '@/types/date/DateOperations';
-import InputAutoCompleteField from '@/view/components/input/autocomplete';
+import InputAutoCompleteField, { SearchBody } from '@/view/components/input/autocomplete';
 
 
 
@@ -81,6 +81,10 @@ function WhereStayHowGo(props:Props) {
         
     }
 
+    const processItens = (body:SearchBody) : [] => {
+        console.log(body.search)
+        return [];
+    }
 
     const updateDates = (key:string, dates:string[]) : void => {
         
@@ -110,7 +114,7 @@ function WhereStayHowGo(props:Props) {
                 
                 <section>
                 <FormGroup applyOnValidForm={onValidForm}>
-                    {createAreaForm(quantityPoint,common,addQuantityPoint,updateDates, getPeriod, removedPoints, addRemovedPoint,getPeriods)}
+                    {createAreaForm(quantityPoint,common,addQuantityPoint,updateDates, getPeriod, removedPoints, addRemovedPoint,getPeriods,processItens)}
                 </FormGroup>    
     
                 </section>
@@ -134,7 +138,8 @@ const createAreaForm = (quantity:number,
     getPeriod : (key:string,index:number) => string,
     removedPoint: number[],
     addRemovedPoint: (index:number) => void,
-    getPeriods:(key:string) => string[], ) => {    
+    getPeriods:(key:string) => string[], 
+    processItens:(body:SearchBody)=>[]) => {    
     
     
     return ( 
@@ -154,7 +159,8 @@ const createAreaForm = (quantity:number,
                             roundType={FieldRoundEnum.Left}
                             placeholder={common.t('city-origin.placeholder')}   
                             caption={common.t('city-origin.caption')}   
-                            iconLeft={FieldIconEnum.Circle}                            
+                            iconLeft={FieldIconEnum.Circle}   
+                            processItens={processItens}                         
                         />
     
                     </FormDiv>

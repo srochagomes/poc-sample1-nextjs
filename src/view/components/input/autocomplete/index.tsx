@@ -9,6 +9,11 @@ import Typography from "../../text-container/typography"
 import { ComponentTypeEnum } from "@/types/enums/ComponentTypeEnum"
 import IconSelecting from "../../button/icon-selecting"
 import { IMaskInput } from "react-imask"
+import InputAutoClompletePopup from "./pop-up"
+
+export interface SearchBody{
+  search:string
+}
 
 export interface FieldsProps {
     id: string
@@ -19,11 +24,9 @@ export interface FieldsProps {
     colorCaprion?:string
     iconLeft?:FieldIconEnum
     width?:string
-    dataSource?: FieldData[],
-    maxDigits?: number, 
-    hasFlexibleDate?:true, 
-    permitPeriodChoice?:true,
-    monthsShow?:number 
+    dataSource?: FieldData[]
+    processItens:(body:SearchBody)=>[]
+    attributeItemDisplay?:string
 }
 
 function InputAutoCompleteField(props:FieldsProps) {
@@ -33,7 +36,8 @@ function InputAutoCompleteField(props:FieldsProps) {
         iconLeft, 
         colorCaprion, 
         required = false,
-        
+        attributeItemDisplay,
+        processItens,
         roundType, 
         placeholder, 
         id,
@@ -41,7 +45,8 @@ function InputAutoCompleteField(props:FieldsProps) {
       } = props;
       
       const [fieldValid, setFieldValid] = useState(true);
-
+      const [showPopup, setShowPopup] = useState(false);
+      
       const [fieldType, setFieldType] = useState(FieldTypeEnum.Text);
       const [value, setValue] = useState("");
       
@@ -80,7 +85,7 @@ function InputAutoCompleteField(props:FieldsProps) {
       </div>
       : <></>;
 
-    const captionComponent = caption ? <div className={style['inputAutoCompleteContainer-caption']}>
+      const captionComponent = caption ? <div className={style['inputAutoCompleteContainer-caption']}>
                             <Typography type={ComponentTypeEnum.Label}
                             idLink={id}
                                 fontSize="input-box" color={colorCaprion?colorCaprion:'black'}>{caption}</Typography>
@@ -91,13 +96,13 @@ function InputAutoCompleteField(props:FieldsProps) {
 
         const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {                    
 
-        const valorInput: string = event.target.value;
-        setValue(valorInput);
-        setFieldValid(true);
+            const valorInput: string = event.target.value;
+            setValue(valorInput);
+            setFieldValid(true);
         }
 
         const onComplete = (event: React.ChangeEvent<HTMLInputElement>): void => {          
-        console.log('Evento ','onComplete');
+            console.log('Evento ','onComplete');
 
         }
 
@@ -143,6 +148,12 @@ function InputAutoCompleteField(props:FieldsProps) {
                             onCopyCapture={()=>eventAssociado('onCopyCapture')}
                             onCopy={()=>eventAssociado('onCopy')}
                             />
+                            {showPopup&&(<InputAutoClompletePopup 
+                              itens={processItens({search:value})}
+                              attributeDisplay={attributeItemDisplay||''}
+                              show={showPopup}
+                              />
+                              )}
                     </div>
                     
                     
