@@ -19,7 +19,8 @@ import { UseTranslationResponse } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import FormDiv from '@/view/components/form/div-container';
 import DateOperations from '@/types/date/DateOperations';
-import InputAutoCompleteField, { SearchBody } from '@/view/components/input/autocomplete';
+import InputAutoCompleteField, { SearchBody, SearchItens } from '@/view/components/input/autocomplete';
+import cityContext from '@/domain/model/domain/City';
 
 
 
@@ -34,7 +35,7 @@ function WhereStayHowGo(props:Props) {
     const [removedPoints, setRemovedPoints] = useState<number[]>([]);
     const [periods, setPeriods] = useState<{[key: string]: string[]}>({});    
     const [internalState, setInternalState] = useState(periods);
-
+    const [cities, setCities] = useState<SearchItens[]>([]);
 
     
     let formManager: FormManagerType;
@@ -81,9 +82,23 @@ function WhereStayHowGo(props:Props) {
         
     }
 
-    const processItens = (body:SearchBody) : [] => {
+    const processItens = (body:SearchBody) : SearchItens[] => {
         console.log(body.search)
-        return [];
+        let cities : SearchItens[]= [];
+        cityContext.searchesPhonetics(body.search)
+            .then(async(response)=>{
+                console.log('Dados:',response.data)
+                cities.push(...response.data.map((item:any) => ({ id: item.linha, value: item.municipio })));
+                if (cities.length<1){
+                    cities.push({ id: '', value: 'Localidade não encontrada...' })
+                }
+                return  setCities(cities);
+            }).catch(async(error)=>{
+                return  setCities(cities);
+            });
+            console.log('Dados:')
+        
+        return cities;        
     }
 
     const updateDates = (key:string, dates:string[]) : void => {
@@ -139,7 +154,7 @@ const createAreaForm = (quantity:number,
     removedPoint: number[],
     addRemovedPoint: (index:number) => void,
     getPeriods:(key:string) => string[], 
-    processItens:(body:SearchBody)=>[]) => {    
+    processItens:(body:SearchBody)=>SearchItens[]) => {    
     
     
     return ( 

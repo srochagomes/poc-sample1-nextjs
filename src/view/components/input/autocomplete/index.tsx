@@ -15,6 +15,11 @@ export interface SearchBody{
   search:string
 }
 
+export interface SearchItens{
+  id:string
+  value:string
+}
+
 export interface FieldsProps {
     id: string
     required?:boolean    
@@ -25,7 +30,7 @@ export interface FieldsProps {
     iconLeft?:FieldIconEnum
     width?:string
     dataSource?: FieldData[]
-    processItens:(body:SearchBody)=>[]
+    processItens:(body:SearchBody)=>SearchItens[]
     attributeItemDisplay?:string
 }
 
@@ -49,6 +54,7 @@ function InputAutoCompleteField(props:FieldsProps) {
       
       const [fieldType, setFieldType] = useState(FieldTypeEnum.Text);
       const [value, setValue] = useState("");
+      const [itensSearched, setItensSearched] = useState<SearchItens[]>([]);
       
 
       const isValid = () : boolean =>{
@@ -72,7 +78,17 @@ function InputAutoCompleteField(props:FieldsProps) {
 
       }
       
-      
+      useEffect(() => {
+        
+        if(value.length>3 && processItens){
+          setItensSearched(processItens({search:value}));
+          
+        }
+        setShowPopup(value.length>3 && itensSearched.length>0);        
+        
+      }, [value]);
+
+
       const dataSourceItem : FieldData = {name:id, isValid , value, applyValidation};
       
 
@@ -112,10 +128,10 @@ function InputAutoCompleteField(props:FieldsProps) {
             const existingIndex = dataSource.findIndex(item => item.name === dataSourceItem.name);
             // Se não existir, adiciona o novo item
             if (existingIndex === -1) {
-            dataSource.push(dataSourceItem);
+              dataSource.push(dataSourceItem);
             } else {
             // Se existir, substitui o objeto existente pelo novo objeto
-            dataSource[existingIndex] = dataSourceItem;
+              dataSource[existingIndex] = dataSourceItem;
             }
         }
 
@@ -148,14 +164,15 @@ function InputAutoCompleteField(props:FieldsProps) {
                             onCopyCapture={()=>eventAssociado('onCopyCapture')}
                             onCopy={()=>eventAssociado('onCopy')}
                             />
-                            {showPopup&&(<InputAutoClompletePopup 
-                              itens={processItens({search:value})}
-                              attributeDisplay={attributeItemDisplay||''}
-                              show={showPopup}
-                              />
-                              )}
+                            
                     </div>
-                    
+                    {showPopup && 
+                              (<InputAutoClompletePopup 
+                                itens={itensSearched}
+                                attributeDisplay={attributeItemDisplay||''}
+                                show={showPopup}
+                                />
+                              )}
                     
             </div>
           );

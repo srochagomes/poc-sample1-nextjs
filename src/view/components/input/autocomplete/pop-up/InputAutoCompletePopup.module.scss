@@ -1,26 +1,62 @@
 @import '@/view/styles/global-variables';
 
 .inputAutoCompletePopup {
-    display: flex;    
-    flex-direction: column;     
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    z-index: 1; 
+    z-index: 1;
     cursor: pointer;
     opacity: 0;
     pointer-events: none;
     transition: opacity .8s ease-in-out;
-    top: 3.3rem; 
-    left: 0.1rem;
-    border-radius: .3rem .3rem .3rem .3rem ;
+    top: calc(100% + 0.5rem);
+    left: 4px;
+    border-radius: 0.3rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #eee;
+    padding: 0.5rem;
+    width: 15vw;
+    > span{
+      margin-top: 1vh;
+      margin-left: 1vh;
+      margin-bottom: 1vh;
+      border-bottom: solid 0.01px;
+    }    
+
+    &-tail {
+        width: 25px; /* Ajuste conforme necessário */
+        height: 25px; /* Ajuste conforme necessário */
+        background-color: #eee;
+        position: absolute;
+        z-index: -1;
+        top: -12px; /* Ajusta para ficar acima do balão */
+        left: 35px;
+        transform: translateX(-50%) rotate(45deg);
+        
+     }
 
     &-show {
       opacity: 1;
       cursor: pointer;
       pointer-events: auto;  
-      background-color: $color-clear;
-      width: 10rem;
-      
+      background-color: #eee;;
+      height: auto;
     }       
+
+    @media screen and (max-width: $resolution-tablet-md) {
+     
+      width: 55vw;
+  
+
+   
+  }
+  
+  @media screen and (max-width: $resolution-mobile-sm) {
+
+
+
+  }
+  
 
 
 }

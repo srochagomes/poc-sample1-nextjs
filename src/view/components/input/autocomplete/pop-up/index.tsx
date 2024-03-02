@@ -6,11 +6,13 @@ import style from './InputAutoCompletePopup.module.scss';
 
 
 import DrodownItem  from '@/view/components/input/dropdown/ItemDropdown';
+import { SearchItens } from "..";
+import Typography from "@/view/components/text-container/typography";
 
 
 interface Props {
   show: boolean
-  itens: []
+  itens: SearchItens[]
   attributeDisplay:string
   onClose?: (value:boolean) => void
   onItensSelected?:(itens:DrodownItem[]) => void
@@ -85,6 +87,12 @@ function InputAutoClompletePopup(props: Props) {
     };
   }, [componentShow]);
 
+  useEffect(() => {                  
+    console.log('componentShow Show Popup',componentShow)
+    console.log('Itens ',itens)
+  }, [componentShow]);      
+
+
   return (
     <div
       className={componentShow ? `${style['inputAutoCompletePopup']} ${style['inputAutoCompletePopup-show']}`
@@ -92,9 +100,10 @@ function InputAutoClompletePopup(props: Props) {
       ref={divRef}
       onClick={handleDivClick}
     >
-      
+      <div className={style['inputAutoCompletePopup-tail']}></div>
       {itens.map((item, index) => (
-        <span key={index}>{item[attributeDisplay]}</span>
+        <Typography key={index} fontSize="caption1">{item.value}</Typography>
+        
       ))}
     </div>
   );

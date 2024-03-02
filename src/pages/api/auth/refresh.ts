@@ -47,15 +47,43 @@ const controllers = {
     let apiReturn : IAPIReturn = await accessManagerAPI.getRefreshCredentialAccess(credential);
     
 
-    if (apiReturn?.data?.refresh_token){
+    if (apiReturn?.status === HttpStatusCode.Ok && apiReturn?.data?.refresh_token){
       typeRefresh===USER_TYPE ?
         refreshTokenStoreService.toUser(apiReturn.data.refresh_token, res)
         :refreshTokenStoreService.toApp(apiReturn.data.refresh_token, res);
 
         
       delete apiReturn.data.refresh_token;
-    }
-    
+    }else{
+
+      //Renovação do refresh token da aplicação
+      if (req.body.type_refresh === APP_TYPE){
+        let client_id = process.env.NEXT_PUBLIC_APP_CLIENT_ID;
+        let client_secret = process.env.APP_CLIENT_SECRET;
+      
+        if (!client_id){
+          throw new Error('Client ID should be informed.');
+        }
+  
+        if (!client_secret){
+          throw new Error('Secret should be informed.');
+        }
+  
+  
+        let credential = {
+          client_id,
+          client_secret,      
+          grant_type: "client_credentials",
+          scope: "roles openid"  
+        }
+      
+        console.log('Passou Exceção', credential)  
+      
+        apiReturn = await accessManagerAPI.getCredentialAccess(credential);
+        console.log('retorno Exceção', apiReturn)  
+      }
+      
+    }    
     
     return res.status(apiReturn.status).json({
       type_refresh: typeRefresh===USER_TYPE?USER_TYPE:APP_TYPE,
