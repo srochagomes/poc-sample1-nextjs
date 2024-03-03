@@ -77,10 +77,10 @@ const controllers = {
           scope: "roles openid"  
         }
       
-        console.log('Passou Exceção', credential)  
+        
       
         apiReturn = await accessManagerAPI.getCredentialAccess(credential);
-        console.log('retorno Exceção', apiReturn)  
+        
       }
       
     }    

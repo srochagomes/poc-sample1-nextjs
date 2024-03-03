@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { KeyboardEvent, useEffect, useRef, useState } from "react";
 
 import style from './InputAutoCompletePopup.module.scss';
 
@@ -12,26 +12,40 @@ import Typography from "@/view/components/text-container/typography";
 
 interface Props {
   show: boolean
+  tabIndex:number
+  reference?: React.RefObject<HTMLDivElement>;
   itens: SearchItens[]
   attributeDisplay:string
   onClose?: (value:boolean) => void
-  onItensSelected?:(itens:DrodownItem[]) => void
+  onItensSelected?:(item : SearchItens) => void
 }
+
+
 
 function InputAutoClompletePopup(props: Props) {
   let { show, itens = [], 
+    tabIndex=0,
+    reference,
     attributeDisplay = '',
         onClose = (value:boolean)=>value, 
-        onItensSelected = (values:DrodownItem[])=>values } = props;
+        onItensSelected = (value:SearchItens)=>value } = props;
   const [componentShow, setComponentShow] = useState(show);
   const [itemsSelected, setItemsSelected] = useState<DrodownItem[]>([]);
+  const [indiceItem, setIndiceItem] = useState(0);
+  
+  
 
+  
+  const divRef = useRef<HTMLDivElement>(null);
+  
+  
   useEffect(() => {    
      setItemsSelected(itemsSelected);    
   }, [itemsSelected]);
 
 
-  const divRef = useRef<HTMLDivElement>(null);
+  
+  
 
   const onItemClicked = (item: DrodownItem): void =>{
     
@@ -40,6 +54,8 @@ function InputAutoClompletePopup(props: Props) {
     }else{
       setItemsSelected((prevItems) => [...prevItems, item]);
     }
+
+
   }
 
   const isItemClicked = (item: DrodownItem): boolean =>{
@@ -55,11 +71,6 @@ function InputAutoClompletePopup(props: Props) {
     }
   };
 
-  
-  useEffect(() => {
-    onItensSelected(itemsSelected);
-  }, [itemsSelected]);
-
 
   useEffect(() => {
     if (show && !componentShow) {
@@ -69,7 +80,16 @@ function InputAutoClompletePopup(props: Props) {
 
   const handleDivClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
+    
+    
   };
+
+  const handleItemClick = (index:number) => {    
+    setIndiceItem(index);    
+    onItensSelected(itens[index]);      
+    setComponentShow(false);
+  };
+
 
   useEffect(() => {
     onClose(componentShow);
@@ -87,11 +107,35 @@ function InputAutoClompletePopup(props: Props) {
     };
   }, [componentShow]);
 
-  useEffect(() => {                  
-    console.log('componentShow Show Popup',componentShow)
-    console.log('Itens ',itens)
-  }, [componentShow]);      
 
+
+
+
+
+  function handleKeyDown(event:KeyboardEvent<HTMLInputElement>) {
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      event.preventDefault(); // Evita que o comportamento padrão da seta para baixo seja acionado (por exemplo, rolagem da página)      
+      let indiceProsition =  indiceItem+(event.key === 'ArrowDown'?1:-1);
+      
+      if (indiceProsition>=itens.length){
+        indiceProsition = 0;
+      }else if (indiceItem < 0){
+        indiceProsition = itens.length-1;
+      }      
+      setIndiceItem(indiceProsition)
+      const nextElement = document.querySelector(`[tabindex="${indiceProsition}"]`) as HTMLElement;
+      if (nextElement) {
+        nextElement.focus();
+      }
+    }else if (event.key === 'Enter') {      
+      event.preventDefault();
+      onItensSelected(itens[indiceItem]); 
+      setComponentShow(false);     
+    }
+  }
+
+
+  
 
   return (
     <div
@@ -99,11 +143,21 @@ function InputAutoClompletePopup(props: Props) {
         : `${style['inputAutoCompletePopup']}`}
       ref={divRef}
       onClick={handleDivClick}
+      onKeyDown={handleKeyDown}
     >
       <div className={style['inputAutoCompletePopup-tail']}></div>
       {itens.map((item, index) => (
-        <Typography key={index} fontSize="caption1">{item.value}</Typography>
-        
+        <div key={index} tabIndex={index} 
+             ref={index==0?reference:null} 
+             className={style['inputAutoCompletePopup-item']}
+             onClick={()=>handleItemClick(index)}>
+            <Typography
+                  key={'itemPopup'+index}
+                  fontSize="caption1"
+                >
+              {item.value}
+          </Typography>        
+      </div>
       ))}
     </div>
   );

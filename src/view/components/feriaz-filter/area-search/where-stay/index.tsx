@@ -36,7 +36,7 @@ function WhereStay(props:Props) {
 
     }
     const addRemovedPoint = (indexPoint:number) =>{
-        console.log('indice ', indexPoint);
+        
         setRemovedPoints((element)=> [...element, indexPoint]);
     }
 

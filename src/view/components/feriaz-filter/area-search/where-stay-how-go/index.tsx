@@ -82,24 +82,26 @@ function WhereStayHowGo(props:Props) {
         
     }
 
-    const processItens = (body:SearchBody) : SearchItens[] => {
-        console.log(body.search)
-        let cities : SearchItens[]= [];
-        cityContext.searchesPhonetics(body.search)
-            .then(async(response)=>{
-                console.log('Dados:',response.data)
-                cities.push(...response.data.map((item:any) => ({ id: item.linha, value: item.municipio })));
-                if (cities.length<1){
-                    cities.push({ id: '', value: 'Localidade não encontrada...' })
-                }
-                return  setCities(cities);
-            }).catch(async(error)=>{
-                return  setCities(cities);
-            });
-            console.log('Dados:')
+    const processItens = (body: SearchBody): Promise<SearchItens[]> => {
         
-        return cities;        
-    }
+        return new Promise<SearchItens[]>((resolve, reject) => {
+          let cities: SearchItens[] = [];
+      
+          cityContext.searchesPhonetics(body.search)
+            .then(response => {
+              cities.push(...response.data.map((item: any) => ({ id: item.linha, value: item.municipio })));
+              if (cities.length < 1) {
+                cities.push({ id: '', value: 'Localidade não encontrada...' });
+              }
+              setCities(cities); // Se for necessário definir o estado 'cities'
+              resolve(cities);
+            })
+            .catch(error => {
+              setCities(cities); // Se for necessário definir o estado 'cities'
+              reject(error);
+            });
+        });
+      };
 
     const updateDates = (key:string, dates:string[]) : void => {
         
@@ -154,7 +156,7 @@ const createAreaForm = (quantity:number,
     removedPoint: number[],
     addRemovedPoint: (index:number) => void,
     getPeriods:(key:string) => string[], 
-    processItens:(body:SearchBody)=>SearchItens[]) => {    
+    processItens:(body:SearchBody)=>Promise<SearchItens[]> ) => {    
     
     
     return ( 

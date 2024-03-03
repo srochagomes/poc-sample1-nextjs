@@ -1,7 +1,7 @@
 import { FieldIconEnum } from "@/types/enums/FieldIconEnum"
 import { FieldTypeDetail, FieldTypeEnum } from "@/types/enums/FieldTypeEnum"
 import FieldData from "@/types/structure/FieldData"
-import { useEffect, useState } from "react"
+import { KeyboardEvent, useEffect, useRef, useState } from "react"
 import style from "./InputAutoCompleteField.module.scss"
 import IconSVG from "../../icons/icon-svg"
 import { FieldIconPath } from "@/types/enums/FieldIconPath"
@@ -30,7 +30,7 @@ export interface FieldsProps {
     iconLeft?:FieldIconEnum
     width?:string
     dataSource?: FieldData[]
-    processItens:(body:SearchBody)=>SearchItens[]
+    processItens:(body:SearchBody)=>Promise<SearchItens[]> 
     attributeItemDisplay?:string
 }
 
@@ -55,7 +55,7 @@ function InputAutoCompleteField(props:FieldsProps) {
       const [fieldType, setFieldType] = useState(FieldTypeEnum.Text);
       const [value, setValue] = useState("");
       const [itensSearched, setItensSearched] = useState<SearchItens[]>([]);
-      
+      const popupSearch = useRef<HTMLDivElement>(null);
 
       const isValid = () : boolean =>{
 
@@ -78,16 +78,20 @@ function InputAutoCompleteField(props:FieldsProps) {
 
       }
       
-      useEffect(() => {
-        
-        if(value.length>3 && processItens){
-          setItensSearched(processItens({search:value}));
-          
-        }
-        setShowPopup(value.length>3 && itensSearched.length>0);        
-        
-      }, [value]);
+      
 
+      useEffect(() => {
+        setShowPopup(itensSearched.length>0)
+        
+        
+      }, [itensSearched]);
+
+      function handleKeyDown(event:KeyboardEvent<HTMLInputElement>) {
+        if (event.key === 'ArrowDown') {
+          event.preventDefault(); // Evita que o comportamento padrão da seta para baixo seja acionado (por exemplo, rolagem da página)
+          popupSearch?.current?.focus();          
+        }
+      }
 
       const dataSourceItem : FieldData = {name:id, isValid , value, applyValidation};
       
@@ -115,6 +119,12 @@ function InputAutoCompleteField(props:FieldsProps) {
             const valorInput: string = event.target.value;
             setValue(valorInput);
             setFieldValid(true);
+            if(value.length>3 && processItens){           
+              processItens({search:value})
+                .then((value)=>setItensSearched(value))          
+                .catch((value)=>setItensSearched(value))          
+            }        
+    
         }
 
         const onComplete = (event: React.ChangeEvent<HTMLInputElement>): void => {          
@@ -122,7 +132,12 @@ function InputAutoCompleteField(props:FieldsProps) {
 
         }
 
-
+        const itemSelectedSearch = (item : SearchItens) : void =>{
+          if (item && item.value){
+            setValue(item.value); 
+          }
+            
+        }
 
         if (dataSource){
             const existingIndex = dataSource.findIndex(item => item.name === dataSourceItem.name);
@@ -155,6 +170,7 @@ function InputAutoCompleteField(props:FieldsProps) {
                             mask={FieldTypeDetail[fieldType].pattern as string}
                             type={FieldTypeDetail[fieldType].type}
                             required={required}
+                            autoComplete="off"
                             placeholder={placeholder}
                             className={style['inputAutoCompleteContainer-inputText']}   
                             onChange={onChange}
@@ -162,15 +178,19 @@ function InputAutoCompleteField(props:FieldsProps) {
                             onInvalid={()=>eventAssociado('onInvalid')}
                             onComplete={(event)=>onComplete}
                             onCopyCapture={()=>eventAssociado('onCopyCapture')}
+                            onKeyDown={handleKeyDown}
                             onCopy={()=>eventAssociado('onCopy')}
                             />
                             
                     </div>
                     {showPopup && 
                               (<InputAutoClompletePopup 
+                                tabIndex={0} // Torna o elemento focável
+                                reference={popupSearch}
                                 itens={itensSearched}
                                 attributeDisplay={attributeItemDisplay||''}
                                 show={showPopup}
+                                onItensSelected={itemSelectedSearch}
                                 />
                               )}
                     
