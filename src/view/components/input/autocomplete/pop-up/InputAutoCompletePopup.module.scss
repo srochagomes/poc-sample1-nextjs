@@ -13,23 +13,22 @@
     left: 4px;
     border-radius: 0.3rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    background-color: $color-white-light-slight;
+    background-color: $color-white-light-slight;    
     
-    width: 15vw;
-    &-item {      
+    &-item {   
+         
       padding-top: 1vh;
       padding-bottom: 1vh;
       margin-left: 0;
       padding-left: 1vw;
-      padding-right: 1vw;
-      
+      padding-right: 1vw;      
       height: auto;
-      > span{
+      > span{          
         margin-top: 1vh;      
         margin-left: 1vh;
         word-wrap: none;
         text-wrap: nowrap;
-        color: $color-standard-typography;
+        color: $color-standard-typography;        
       }
       &:focus {
         background-color: $color-grey-dark;
@@ -52,19 +51,18 @@
         
      }
 
-    &-show {
+    &-show {     
+       
       opacity: 1;
       cursor: pointer;
       pointer-events: auto;  
       background-color: $color-white-light-slight;      
       width: auto;
-      min-width: 20vw;
+      min-width: 30vw;      
       height: auto;
     }       
 
-    @media screen and (max-width: $resolution-tablet-md) {
-     
-      width: 55vw;
+  @media screen and (max-width: $resolution-tablet-md) {
   
 
    
