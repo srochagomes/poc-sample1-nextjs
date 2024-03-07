@@ -31,6 +31,7 @@ function InputAutoClompletePopup(props: Props) {
         onItensSelected = (value:SearchItens)=>value } = props;
   const [componentShow, setComponentShow] = useState(show);
   const [itemsSelected, setItemsSelected] = useState<DrodownItem[]>([]);
+  const [itemsSearched, setItemsSearched] = useState<SearchItens[]>(itens);
   const [indiceItem, setIndiceItem] = useState(0);
   
   
@@ -43,7 +44,11 @@ function InputAutoClompletePopup(props: Props) {
      setItemsSelected(itemsSelected);    
   }, [itemsSelected]);
 
-
+  
+  useEffect(() => {        
+    setItemsSearched(itens)
+ }, [itens]);
+  
   
   
 
@@ -146,14 +151,14 @@ function InputAutoClompletePopup(props: Props) {
       onKeyDown={handleKeyDown}
     >
       <div className={style['inputAutoCompletePopup-tail']}></div>
-      {itens.map((item, index) => (
+      {itemsSearched.map((item, index) => (
         <div key={index} tabIndex={index} 
              ref={index==0?reference:null} 
              className={style['inputAutoCompletePopup-item']}
              onClick={()=>handleItemClick(index)}>
             <Typography
                   key={'itemPopup'+index}
-                  fontSize="caption1"
+                  fontSize="caption2"
                 >
               {item.value}
           </Typography>        

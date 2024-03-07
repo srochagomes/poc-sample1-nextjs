@@ -53,6 +53,7 @@ function InputAutoCompleteField(props:FieldsProps) {
       const [showPopup, setShowPopup] = useState(false);
       
       const [fieldType, setFieldType] = useState(FieldTypeEnum.Text);
+      const [isItemSelected, setIsItermSelected] = useState<boolean>(false);
       const [value, setValue] = useState("");
       const [itensSearched, setItensSearched] = useState<SearchItens[]>([]);
       const popupSearch = useRef<HTMLDivElement>(null);
@@ -82,8 +83,6 @@ function InputAutoCompleteField(props:FieldsProps) {
 
       useEffect(() => {
         setShowPopup(itensSearched.length>0)
-        
-        
       }, [itensSearched]);
 
       function handleKeyDown(event:KeyboardEvent<HTMLInputElement>) {
@@ -115,15 +114,23 @@ function InputAutoCompleteField(props:FieldsProps) {
 
 
         const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {                    
-
+            if (isItemSelected && value !== event.target.value){
+              setIsItermSelected(false);
+              setValue('')          
+            }
+  
             const valorInput: string = event.target.value;
             setValue(valorInput);
             setFieldValid(true);
-            if(value.length>3 && processItens){           
-              processItens({search:value})
-                .then((value)=>setItensSearched(value))          
-                .catch((value)=>setItensSearched(value))          
-            }        
+            
+            if(valorInput.length>3 && processItens){           
+              
+              processItens({search:valorInput})
+                .then((value)=>setItensSearched([...value]))          
+                .catch((value)=>setItensSearched([...value]))          
+            }else{
+              setShowPopup(false)
+            }
     
         }
 
@@ -135,6 +142,7 @@ function InputAutoCompleteField(props:FieldsProps) {
         const itemSelectedSearch = (item : SearchItens) : void =>{
           if (item && item.value){
             setValue(item.value); 
+            setIsItermSelected(true);
           }
             
         }

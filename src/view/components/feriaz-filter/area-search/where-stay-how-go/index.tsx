@@ -82,6 +82,14 @@ function WhereStayHowGo(props:Props) {
         
     }
 
+    const textValueCompose = (item:any) : string => {
+        let textValue = item.municipio;
+        textValue +=  (item.nomeEstado ? ', ' + item.nomeEstado : '');
+        textValue +=  (item.uf ? ', ' + item.uf : '');
+        textValue +=  (item.paisCamel ? ', ' + item.paisCamel : '');
+        textValue +=  (item.regiaoTuristica ? ', ' + item.regiaoTuristica : '');
+        return textValue
+    }
     const processItens = (body: SearchBody): Promise<SearchItens[]> => {
         
         return new Promise<SearchItens[]>((resolve, reject) => {
@@ -89,7 +97,7 @@ function WhereStayHowGo(props:Props) {
       
           cityContext.searchesPhonetics(body.search)
             .then(response => {
-              cities.push(...response.data.map((item: any) => ({ id: item.linha, value: item.municipio })));
+              cities.push(...response.data.map((item: any) => ({ id: item.skuFeriaz, value: textValueCompose(item) })));
               if (cities.length < 1) {
                 cities.push({ id: '', value: 'Localidade não encontrada...' });
               }

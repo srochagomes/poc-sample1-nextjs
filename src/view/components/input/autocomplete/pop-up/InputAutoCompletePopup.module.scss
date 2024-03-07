@@ -13,19 +13,23 @@
     left: 4px;
     border-radius: 0.3rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    background-color: $color-grey-light;
+    background-color: $color-white-light-slight;
     
     width: 15vw;
     &-item {      
       padding-top: 1vh;
       padding-bottom: 1vh;
       margin-left: 0;
-      padding-left: 0;
+      padding-left: 1vw;
+      padding-right: 1vw;
       
       height: auto;
       > span{
         margin-top: 1vh;      
         margin-left: 1vh;
+        word-wrap: none;
+        text-wrap: nowrap;
+        color: $color-standard-typography;
       }
       &:focus {
         background-color: $color-grey-dark;
@@ -39,7 +43,7 @@
     &-tail {
         width: 25px; /* Ajuste conforme necessário */
         height: 25px; /* Ajuste conforme necessário */
-        background-color: $color-grey-light;
+        background-color: $color-white-light-slight;
         position: absolute;
         z-index: -1;
         top: -12px; /* Ajusta para ficar acima do balão */
@@ -52,7 +56,9 @@
       opacity: 1;
       cursor: pointer;
       pointer-events: auto;  
-      background-color: $color-grey-light;
+      background-color: $color-white-light-slight;      
+      width: auto;
+      min-width: 20vw;
       height: auto;
     }       
 
